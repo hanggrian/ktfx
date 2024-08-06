@@ -1,5 +1,4 @@
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.controls
 

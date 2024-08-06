@@ -16,7 +16,8 @@ import kotlin.contracts.ExperimentalContracts
  * Invoking dsl will only set its root.
  */
 open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
-    Scene(root, width, height, fill), NodeContainer {
+    Scene(root, width, height, fill),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T =
         child.also {
             root = it as? Pane ?: Pane(it)

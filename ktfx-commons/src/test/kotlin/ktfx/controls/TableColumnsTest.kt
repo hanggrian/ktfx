@@ -1,6 +1,6 @@
 package ktfx.controls
 
-import com.hendraanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.scene.control.TableView
 import javafx.scene.control.TreeTableView
 import kotlin.test.BeforeTest

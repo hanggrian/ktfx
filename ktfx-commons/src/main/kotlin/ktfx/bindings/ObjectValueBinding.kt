@@ -14,34 +14,50 @@ import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableValue
 
-/** @see ObjectExpression.isEqualTo */
+/**
+ * @see ObjectExpression.isEqualTo
+ */
 inline infix fun ObservableObjectValue<*>.eq(other: ObservableObjectValue<*>): BooleanBinding =
     Bindings.equal(this, other)
 
-/** @see ObjectExpression.isEqualTo */
+/**
+ * @see ObjectExpression.isEqualTo
+ */
 inline infix fun ObservableObjectValue<*>.eq(other: Any): BooleanBinding =
     Bindings.equal(this, other)
 
-/** @see ObjectExpression.isEqualTo */
+/**
+ * @see ObjectExpression.isEqualTo
+ */
 inline infix fun Any.eq(other: ObservableObjectValue<*>): BooleanBinding =
     Bindings.equal(this, other)
 
-/** @see ObjectExpression.isNotEqualTo */
+/**
+ * @see ObjectExpression.isNotEqualTo
+ */
 inline infix fun ObservableObjectValue<*>.neq(other: ObservableObjectValue<*>): BooleanBinding =
     Bindings.notEqual(this, other)
 
-/** @see ObjectExpression.isNotEqualTo */
+/**
+ * @see ObjectExpression.isNotEqualTo
+ */
 inline infix fun ObservableObjectValue<*>.neq(other: Any): BooleanBinding =
     Bindings.notEqual(this, other)
 
-/** @see ObjectExpression.isNotEqualTo */
+/**
+ * @see ObjectExpression.isNotEqualTo
+ */
 inline infix fun Any.neq(other: ObservableObjectValue<*>): BooleanBinding =
     Bindings.notEqual(this, other)
 
-/** @see ObjectExpression.isNull */
+/**
+ * @see ObjectExpression.isNull
+ */
 inline fun ObservableObjectValue<*>.isNull(): BooleanBinding = Bindings.isNull(this)
 
-/** @see ObjectExpression.isNotNull */
+/**
+ * @see ObjectExpression.isNotNull
+ */
 inline fun ObservableObjectValue<*>.isNotNull(): BooleanBinding = Bindings.isNotNull(this)
 
 /** Creates an object binding used to get a member. */

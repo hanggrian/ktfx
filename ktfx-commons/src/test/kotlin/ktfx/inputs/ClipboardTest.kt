@@ -1,6 +1,6 @@
 package ktfx.inputs
 
-import com.hendraanggrian.ktfx.test.JavaFXThreadRule
+import com.hanggrian.ktfx.test.JavaFXThreadRule
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 import org.junit.Rule

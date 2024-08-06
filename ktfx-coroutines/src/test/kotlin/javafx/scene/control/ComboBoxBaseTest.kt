@@ -1,24 +1,71 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseComboBoxBaseTest
+import com.hanggrian.ktfx.test.FakeEventTarget
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.event.ActionEvent
 import javafx.event.Event
+import javafx.scene.control.ComboBox
 import javafx.scene.control.ComboBoxBase
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class ComboBoxBaseTest : BaseComboBoxBaseTest() {
-    override fun <E> ComboBoxBase<E>.callOnAction(action: (ActionEvent) -> Unit) =
-        onAction(Dispatchers.Unconfined) { action(it) }
+class ComboBoxBaseTest {
+    private lateinit var combo: ComboBoxBase<String>
 
-    override fun <E> ComboBoxBase<E>.callOnShowing(action: (Event) -> Unit) =
-        onShowing(Dispatchers.Unconfined) { action(it) }
+    @BeforeTest
+    fun start() {
+        initToolkit()
+        combo = ComboBox()
+    }
 
-    override fun <E> ComboBoxBase<E>.callOnShown(action: (Event) -> Unit) =
-        onShown(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onAction() {
+        combo.onAction(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+        }
+        combo.onAction.handle(ActionEvent(this, FakeEventTarget))
+    }
 
-    override fun <E> ComboBoxBase<E>.callOnHiding(action: (Event) -> Unit) =
-        onHiding(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShowing() {
+        combo.onShowing(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        combo.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
 
-    override fun <E> ComboBoxBase<E>.callOnHidden(action: (Event) -> Unit) =
-        onHidden(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShown() {
+        combo.onShown(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        combo.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onHiding() {
+        combo.onHiding(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        combo.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onHidden() {
+        combo.onHidden(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        combo.onHidden.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
 }

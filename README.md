@@ -1,8 +1,7 @@
-[![Travis CI](https://img.shields.io/travis/com/hendraanggrian/ktfx)](https://travis-ci.com/github/hendraanggrian/ktfx/)
-[![Codecov](https://img.shields.io/codecov/c/github/hendraanggrian/ktfx)](https://codecov.io/gh/hendraanggrian/ktfx/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.hendraanggrian.ktfx/ktfx)](https://repo1.maven.org/maven2/com/hendraanggrian/ktfx/ktfx/)
-[![Nexus Snapshot](https://img.shields.io/nexus/s/com.hendraanggrian.ktfx/ktfx?server=https%3A%2F%2Fs01.oss.sonatype.org)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/hendraanggrian/ktfx/ktfx/)
-[![OpenJDK](https://img.shields.io/badge/jdk-1.8%2B-informational)](https://openjdk.java.net/projects/jdk8/)
+[![CircleCI](https://img.shields.io/circleci/build/gh/hanggrian/ktfx)](https://app.circleci.com/pipelines/github/hanggrian/ktfx/)
+[![Codecov](https://img.shields.io/codecov/c/gh/hanggrian/ktfx)](https://app.codecov.io/gh/hanggrian/ktfx/)
+[![Maven Central](https://img.shields.io/maven-central/v/com.hanggrian/ktfx)](https://repo1.maven.org/maven2/com/hanggrian/ktfx/)
+[![OpenJDK](https://img.shields.io/badge/jdk-17%2B-informational)](https://openjdk.org/projects/jdk/17/)
 
 # KtFX
 
@@ -44,7 +43,7 @@ preview of some packages.
 
 ### Collections
 
-```kotlin
+```kt
 // create unmodifiable observable collection
 val emptyUnmodifiableList = emptyObservableList()
 val unmodifiableList = observableListOf(1)
@@ -59,7 +58,7 @@ val list = myList.toObservableList() // or toMutableObservableList() for modifia
 
 ### Bindings
 
-```kotlin
+```kt
 // infix conditional binding
 button.disableProperty().bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
 
@@ -80,7 +79,7 @@ imageView.imageProperty().bind(bindingOf(urlField.textProperty()) {
 
 ### Dialogs
 
-```kotlin
+```kt
 // show an alert
 alert("Here's an alert").show()
 
@@ -116,7 +115,7 @@ dialog<String>("Who's a little piggy?") {
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a
 direct replacement of FXML files.
 
-```kotlin
+```kt
 gridPane {
     gaps = 8
     label("First name") row 0 col 0
@@ -138,7 +137,7 @@ gridPane {
 Based on the [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
-```kotlin
+```kt
 button.setOnAction {
     doSomethingInBackground()// might freeze UI
     celebrateCompletion()

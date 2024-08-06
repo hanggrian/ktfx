@@ -1,0 +1,22 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@3
+
+executors:
+  linux:
+    docker:
+      - image: cimg/openjdk:17.0
+
+jobs:
+  upload-coverage:
+    executor: linux
+    steps:
+      - checkout
+      - run: ./gradlew test koverXmlReport
+      - codecov/upload
+
+workflows:
+  build:
+    jobs:
+      - upload-coverage

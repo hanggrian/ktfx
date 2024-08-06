@@ -24,14 +24,15 @@ fun <T> selector(
     prefill: T? = null,
     dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,
 ): Optional<T> =
-    ChoiceDialog<T>(prefill, items).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
-            graphic is ImageView -> dialog.graphicIcon = graphic
-            graphic != null -> dialog.graphic = graphic
-        }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+    ChoiceDialog<T>(prefill, items)
+        .also { dialog ->
+            if (title != null) dialog.headerTitle = title
+            when {
+                graphic is ImageView -> dialog.graphicIcon = graphic
+                graphic != null -> dialog.graphic = graphic
+            }
+            dialogAction?.invoke(dialog)
+        }.showAndWait()
 
 /**
  * Show a selector.
@@ -64,14 +65,15 @@ fun <T> selector(
     prefill: T? = null,
     dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,
 ): Optional<T> =
-    ChoiceDialog<T>(prefill, *items).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
-            graphic is ImageView -> dialog.graphicIcon = graphic
-            graphic != null -> dialog.graphic = graphic
-        }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+    ChoiceDialog<T>(prefill, *items)
+        .also { dialog ->
+            if (title != null) dialog.headerTitle = title
+            when {
+                graphic is ImageView -> dialog.graphicIcon = graphic
+                graphic != null -> dialog.graphic = graphic
+            }
+            dialogAction?.invoke(dialog)
+        }.showAndWait()
 
 /**
  * Show a selector.

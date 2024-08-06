@@ -1,30 +1,32 @@
 [versions]
-jdk = "8"
-kotlin = "1.8.20"
-ktlint = "1.0.0"
-controlsfx = "8.40.18"
-jfoenix = "8.0.10"
+jdk = "17"
+kotlin = "1.9.20"
+kotlinx-coroutines = "1.8.1"
+ktlint = "1.3.1"
+controlsfx = "11.2.1"
+jfoenix = "9.0.10"
 
 [plugins]
+javafx = "org.openjfx.javafxplugin:0.1.0"
 dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin" }
-kotlinx-kover = "org.jetbrains.kotlinx.kover:0.7.4"
-ktlint = "org.jlleitschuh.gradle.ktlint:11.6.1"
-maven-publish = "com.vanniktech.maven.publish.base:0.22.0" # max for jdk8
-git-publish = "org.ajoberstar.git-publish:3.0.1" # max for jdk8
-pages = "com.hendraanggrian.pages:0.1"
+kotlinx-kover = "org.jetbrains.kotlinx.kover:0.8.3"
+ktlint = "org.jlleitschuh.gradle.ktlint:12.1.1"
+maven-publish = "com.vanniktech.maven.publish.base:0.29.0"
+git-publish = "org.ajoberstar.git-publish:4.2.2"
+pages = "com.hanggrian.pages:0.1"
 
 [libraries]
 # lint
-rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.4"
+rulebook-ktlint = "com.hanggrian.rulebook:rulebook-ktlint:0.1"
 # main
-kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-kotlinx-coroutines-javafx = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.7.3"
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-javafx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx", version.ref = "kotlinx-coroutines" }
 controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx" }
 jfoenix = { module = "com.jfoenix:jfoenix", version.ref = "jfoenix" }
 commons-lang3 = "org.apache.commons:commons-lang3:3.13.0"
 commons-math3 = "org.apache.commons:commons-math3:3.6.1"
-kotlinpoet-dsl = "com.hendraanggrian:kotlinpoet-dsl:0.2-SNAPSHOT"
+kotlinpoet-dsl = "com.hanggrian:kotlinpoet-dsl:0.1"
 # test
-truth = "com.google.truth:truth:1.1.5"
-testfx-junit = "org.testfx:testfx-junit:4.0.15-alpha"
-testfx-monocle = "org.testfx:openjfx-monocle:8u76-b04"
+truth = "com.google.truth:truth:1.4.4"
+testfx-junit = "org.testfx:testfx-junit:4.0.18"
+testfx-monocle = "org.testfx:openjfx-monocle:17.0.10"

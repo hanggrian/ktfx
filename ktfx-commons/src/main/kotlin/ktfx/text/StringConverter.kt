@@ -34,9 +34,9 @@ class StringConverterBuilder<T> {
     /** Create to native builder. */
     fun build(): StringConverter<T> =
         object : StringConverter<T>() {
-            override fun toString(any: T?): String = toString(any)
+            override fun fromString(value: String): T? = fromString(value)
 
-            override fun fromString(string: String): T? = fromString(string)
+            override fun toString(value: T?): String = toString(value)
         }
 }
 

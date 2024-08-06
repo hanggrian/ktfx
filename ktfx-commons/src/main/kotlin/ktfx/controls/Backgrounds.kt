@@ -108,6 +108,12 @@ class BackgroundBuilder {
         /** The repeat for the y axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
         var repeatY: BackgroundRepeat? = null
 
+        /** The position to use. If null, defaults to [BackgroundPosition.DEFAULT]. */
+        var position: BackgroundPosition? = null
+
+        /** The size. If null, defaults to [BackgroundSize.DEFAULT]. */
+        var size: BackgroundSize? = null
+
         /** The repeat for the x and y axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
         var repeat: BackgroundRepeat?
             @Deprecated(NO_GETTER, level = ERROR)
@@ -116,12 +122,6 @@ class BackgroundBuilder {
                 repeatX = value
                 repeatY = value
             }
-
-        /** The position to use. If null, defaults to [BackgroundPosition.DEFAULT]. */
-        var position: BackgroundPosition? = null
-
-        /** The size. If null, defaults to [BackgroundSize.DEFAULT]. */
-        var size: BackgroundSize? = null
 
         /** Return background image based on current configuration. */
         fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)

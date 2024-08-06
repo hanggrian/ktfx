@@ -16,7 +16,9 @@ import kotlin.contracts.ExperimentalContracts
  * Invoking dsl will only set its center. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
  * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
  */
-open class KtfxBorderPane : BorderPane(), NodeContainer {
+open class KtfxBorderPane :
+    BorderPane(),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { center = it }
 
     /** Children alignment in this layout. */

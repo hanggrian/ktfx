@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.control.ChoiceBox
 
 class ChoiceBoxTest : LayoutsTest<KtfxPane, ChoiceBox<String>>() {

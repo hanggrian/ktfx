@@ -11,6 +11,24 @@ class ObservableValueTest {
     private val objectProperty = propertyOf<javafx.util.Duration>()
     private var object2 by objectProperty
 
+    private val stringValueProperty = stringPropertyOf()
+    private var stringValue by stringValueProperty
+
+    private val booleanValueProperty = booleanPropertyOf()
+    private var booleanValue by booleanValueProperty
+
+    private val doubleValueProperty = doublePropertyOf()
+    private var doubleValue by doubleValueProperty
+
+    private val floatValueProperty = floatPropertyOf()
+    private var floatValue by floatValueProperty
+
+    private val longValueProperty = longPropertyOf()
+    private var longValue by longValueProperty
+
+    private val intValueProperty = intPropertyOf()
+    private var intValue by intValueProperty
+
     @Test
     fun `object`() {
         assertNull(object2)
@@ -18,63 +36,45 @@ class ObservableValueTest {
         assertEquals(2.m, objectProperty.value)
     }
 
-    private val stringProperty = stringPropertyOf()
-    private var string by stringProperty
-
     @Test
     fun string() {
-        assertNull(string)
-        string = "Hello World"
-        assertEquals("Hello World", stringProperty.value)
+        assertNull(stringValue)
+        stringValue = "Hello World"
+        assertEquals("Hello World", stringValueProperty.value)
     }
-
-    private val booleanProperty = booleanPropertyOf()
-    private var boolean by booleanProperty
 
     @Test
     fun boolean() {
-        assertFalse(boolean)
-        boolean = true
-        assertTrue(booleanProperty.value)
+        assertFalse(booleanValue)
+        booleanValue = true
+        assertTrue(booleanValueProperty.value)
     }
-
-    private val doubleProperty = doublePropertyOf()
-    private var double by doubleProperty
 
     @Test
     fun double() {
-        assertEquals(0.0, double)
-        double = Double.MAX_VALUE
-        assertEquals(Double.MAX_VALUE, doubleProperty.value)
+        assertEquals(0.0, doubleValue)
+        doubleValue = Double.MAX_VALUE
+        assertEquals(Double.MAX_VALUE, doubleValueProperty.value)
     }
-
-    private val floatProperty = floatPropertyOf()
-    private var float by floatProperty
 
     @Test
     fun float() {
-        assertEquals(0f, float)
-        float = Float.MAX_VALUE
-        assertEquals(Float.MAX_VALUE, floatProperty.value)
+        assertEquals(0f, floatValue)
+        floatValue = Float.MAX_VALUE
+        assertEquals(Float.MAX_VALUE, floatValueProperty.value)
     }
-
-    private val longProperty = longPropertyOf()
-    private var long by longProperty
 
     @Test
     fun long() {
-        assertEquals(0L, long)
-        long = Long.MAX_VALUE
-        assertEquals(Long.MAX_VALUE, longProperty.value)
+        assertEquals(0L, longValue)
+        longValue = Long.MAX_VALUE
+        assertEquals(Long.MAX_VALUE, longValueProperty.value)
     }
-
-    private val intProperty = intPropertyOf()
-    private var int by intProperty
 
     @Test
     fun int() {
-        assertEquals(0, int)
-        int = Int.MAX_VALUE
-        assertEquals(Int.MAX_VALUE, intProperty.value)
+        assertEquals(0, intValue)
+        intValue = Int.MAX_VALUE
+        assertEquals(Int.MAX_VALUE, intValueProperty.value)
     }
 }

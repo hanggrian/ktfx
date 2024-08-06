@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import com.hendraanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.scene.control.TableColumn
 import javafx.util.Duration
 import kotlin.test.BeforeTest

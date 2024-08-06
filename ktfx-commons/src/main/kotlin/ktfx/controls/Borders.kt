@@ -99,17 +99,6 @@ class BorderBuilder {
         /** The fill to use on the left. If null, defaults to the same value as [rightStroke]. */
         var leftStroke: Paint? = null
 
-        /** The stroke to use for all sides. If null, we default to [javafx.scene.paint.Color.BLACK]. */
-        var stroke: Paint?
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                topStroke = value
-                rightStroke = value
-                bottomStroke = value
-                leftStroke = value
-            }
-
         /** The style to use on the top. If null, defaults to [BorderStrokeStyle.NONE]. */
         var topStyle: BorderStrokeStyle? = null
 
@@ -122,6 +111,26 @@ class BorderBuilder {
         /** The style to use on the left. If null, defaults to the same value as [rightStyle]. */
         var leftStyle: BorderStrokeStyle? = null
 
+        /** The radii. If null, we default to square corners by using [CornerRadii.EMPTY]. */
+        var radii: CornerRadii? = null
+
+        /** The thickness of each side. If null, we default to [BorderWidths.DEFAULT]. */
+        var widths: BorderWidths? = null
+
+        /** The insets indicating where to draw the border relative to the region edges. */
+        var insets: Insets? = null
+
+        /** The stroke to use for all sides. If null, we default to [javafx.scene.paint.Color.BLACK]. */
+        var stroke: Paint?
+            @Deprecated(NO_GETTER, level = ERROR)
+            get() = noGetter()
+            set(value) {
+                topStroke = value
+                rightStroke = value
+                bottomStroke = value
+                leftStroke = value
+            }
+
         /** The style to use for all sides. If null, we default to [BorderStrokeStyle.NONE]. */
         var style: BorderStrokeStyle?
             @Deprecated(NO_GETTER, level = ERROR)
@@ -133,21 +142,20 @@ class BorderBuilder {
                 leftStyle = value
             }
 
-        /** The radii. If null, we default to square corners by using [CornerRadii.EMPTY]. */
-        var radii: CornerRadii? = null
-
-        /** The thickness of each side. If null, we default to [BorderWidths.DEFAULT]. */
-        var widths: BorderWidths? = null
-
-        /** The insets indicating where to draw the border relative to the region edges. */
-        var insets: Insets? = null
-
         /** Return border stroke based on current configuration. */
         fun build(): BorderStroke =
             BorderStroke(
-                topStroke, rightStroke, bottomStroke, leftStroke,
-                topStyle, rightStyle, bottomStyle, leftStyle,
-                radii, widths, insets,
+                topStroke,
+                rightStroke,
+                bottomStroke,
+                leftStroke,
+                topStyle,
+                rightStyle,
+                bottomStyle,
+                leftStyle,
+                radii,
+                widths,
+                insets,
             )
     }
 

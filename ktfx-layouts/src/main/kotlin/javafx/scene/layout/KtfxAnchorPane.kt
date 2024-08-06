@@ -13,7 +13,9 @@ import kotlin.contracts.ExperimentalContracts
  * [AnchorPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAnchorPane : AnchorPane(), NodeContainer {
+open class KtfxAnchorPane :
+    AnchorPane(),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Top anchor of this children. */

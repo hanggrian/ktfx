@@ -1,17 +1,50 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseTabTest
+import com.hanggrian.ktfx.test.FakeEventTarget
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.event.Event
 import javafx.scene.control.Tab
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class TabTest : BaseTabTest() {
-    override fun Tab.callOnSelectionChanged(action: (Event) -> Unit) =
-        onSelectionChanged(Dispatchers.Unconfined) { action(it) }
+class TabTest {
+    private lateinit var tab: Tab
 
-    override fun Tab.callOnClosed(action: (Event) -> Unit) =
-        onClosed(Dispatchers.Unconfined) { action(it) }
+    @BeforeTest
+    fun start() {
+        initToolkit()
+        tab = Tab()
+    }
 
-    override fun Tab.callOnCloseRequest(action: (Event) -> Unit) =
-        onCloseRequest(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSelectionChanged() {
+        tab.onSelectionChanged(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        tab.onSelectionChanged.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onClosed() {
+        tab.onClosed(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        tab.onClosed.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onCloseRequest() {
+        tab.onCloseRequest(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        tab.onCloseRequest.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
 }

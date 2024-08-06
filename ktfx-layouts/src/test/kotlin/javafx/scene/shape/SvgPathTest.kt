@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.shape.SVGPath
 
 class SvgPathTest : LayoutsTest<KtfxPane, SVGPath>() {

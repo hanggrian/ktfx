@@ -1,13 +1,11 @@
 package ktfx.inputs
 
-import com.hendraanggrian.ktfx.test.InputTest
+import com.hanggrian.ktfx.test.InputTest
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-@Ignore
 class KeyEventTest : InputTest() {
     @Test
     fun isDelete() {

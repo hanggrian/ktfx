@@ -12,6 +12,8 @@ import kotlin.contracts.ExperimentalContracts
  * [Tab] with dynamic-layout dsl support.
  * Invoking dsl will only set its content.
  */
-open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeContainer {
+open class KtfxTab(title: String?, content: Node?) :
+    Tab(title, content),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { content = it }
 }

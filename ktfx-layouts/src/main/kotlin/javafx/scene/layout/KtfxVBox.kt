@@ -13,7 +13,9 @@ import javafx.scene.layout.VBox
  * [VBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxVBox(spacing: Double) : VBox(spacing), NodeContainer {
+open class KtfxVBox(spacing: Double) :
+    VBox(spacing),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children vertical grow priority in this layout. */

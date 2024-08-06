@@ -1,40 +1,100 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseMediaPlayerTest
-import javafx.scene.media.MediaMarkerEvent
+import com.hanggrian.ktfx.test.initToolkit
+import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
 import kotlin.test.Ignore
+import kotlin.test.Test
+import kotlin.test.assertTrue
 
 @Ignore
-class MediaPlayerTest : BaseMediaPlayerTest() {
-    override fun MediaPlayer.callOnError(action: () -> Unit) =
-        onError(Dispatchers.Unconfined) { action() }
+class MediaPlayerTest {
+    private lateinit var player: MediaPlayer
 
-    override fun MediaPlayer.callOnMarker(action: (MediaMarkerEvent) -> Unit) =
-        onMarker(Dispatchers.Unconfined) { action(it) }
+    @BeforeTest
+    fun start() {
+        initToolkit()
+        player = MediaPlayer(Media(javaClass.classLoader.getResource("sample.flv")!!.toString()))
+    }
 
-    override fun MediaPlayer.callOnEndOfMedia(action: () -> Unit) =
-        onEndOfMedia(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onError() {
+        var isCalled = false
+        player.onError(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onError.run()
+    }
 
-    override fun MediaPlayer.callOnReady(action: () -> Unit) =
-        onReady(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onMarker() {
+        // TODO create fake event
+        // player.callOnMarker { assertFakeMediaMarkerEvent(it) }
+        // player.onMarker.handle(fakeMediaMarkerEventOf())
+    }
 
-    override fun MediaPlayer.callOnPlaying(action: () -> Unit) =
-        onPlaying(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onEndOfMedia() {
+        var isCalled = false
+        player.onEndOfMedia(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onEndOfMedia.run()
+    }
 
-    override fun MediaPlayer.callOnPaused(action: () -> Unit) =
-        onPaused(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onReady() {
+        var isCalled = false
+        player.onReady(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onReady.run()
+    }
 
-    override fun MediaPlayer.callOnStopped(action: () -> Unit) =
-        onStopped(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onPlaying() {
+        var isCalled = false
+        player.onPlaying(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onPlaying.run()
+    }
 
-    override fun MediaPlayer.callOnHalted(action: () -> Unit) =
-        onHalted(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onPaused() {
+        var isCalled = false
+        player.onPaused(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onPaused.run()
+    }
 
-    override fun MediaPlayer.callOnRepeat(action: () -> Unit) =
-        onRepeat(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onStopped() {
+        var isCalled = false
+        player.onStopped(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onStopped.run()
+    }
 
-    override fun MediaPlayer.callOnStalled(action: () -> Unit) =
-        onStalled(Dispatchers.Unconfined) { action() }
+    @Test
+    fun onHalted() {
+        var isCalled = false
+        player.onHalted(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onHalted.run()
+    }
+
+    @Test
+    fun onRepeat() {
+        var isCalled = false
+        player.onRepeat(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onRepeat.run()
+    }
+
+    @Test
+    fun onStalled() {
+        var isCalled = false
+        player.onStalled(Dispatchers.Unconfined) { assertTrue(isCalled) }
+        isCalled = true
+        player.onStalled.run()
+    }
 }

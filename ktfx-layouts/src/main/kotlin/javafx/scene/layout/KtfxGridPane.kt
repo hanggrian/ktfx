@@ -15,7 +15,9 @@ import javafx.scene.layout.Priority
  * [GridPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxGridPane : GridPane(), NodeContainer {
+open class KtfxGridPane :
+    GridPane(),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children row index in this layout. */

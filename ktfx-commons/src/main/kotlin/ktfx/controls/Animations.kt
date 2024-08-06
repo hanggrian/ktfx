@@ -143,8 +143,8 @@ fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelT
     ParallelTransition(
         this,
         *object : AnimationScope {
-            override val node: Node get() = this@parallelTransition
             override val animations: MutableCollection<Animation> = mutableListOf()
+            override val node: Node get() = this@parallelTransition
         }.apply(configuration).build(),
     )
 
@@ -160,8 +160,8 @@ fun Shape.shapeParallelTransition(
     ParallelTransition(
         this,
         *object : ShapeAnimationScope {
-            override val node: Shape get() = this@shapeParallelTransition
             override val animations: MutableCollection<Animation> = mutableListOf()
+            override val node: Shape get() = this@shapeParallelTransition
         }.apply(configuration).build(),
     )
 
@@ -175,8 +175,8 @@ fun Node.sequentialTransition(configuration: AnimationScope.() -> Unit): Sequent
     SequentialTransition(
         this,
         *object : AnimationScope {
-            override val node: Node get() = this@sequentialTransition
             override val animations: MutableCollection<Animation> = mutableListOf()
+            override val node: Node get() = this@sequentialTransition
         }.apply(configuration).build(),
     )
 
@@ -192,8 +192,8 @@ fun Shape.shapeSequentialTransition(
     SequentialTransition(
         this,
         *object : ShapeAnimationScope {
-            override val node: Shape get() = this@shapeSequentialTransition
             override val animations: MutableCollection<Animation> = mutableListOf()
+            override val node: Shape get() = this@shapeSequentialTransition
         }.apply(configuration).build(),
     )
 

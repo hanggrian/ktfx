@@ -1,6 +1,6 @@
 package ktfx.collections
 
-import com.hendraanggrian.ktfx.test.CollectionTest
+import com.hanggrian.ktfx.test.CollectionTest
 import javafx.collections.ObservableList
 
 class ObservableCollectionsListTest : CollectionTest<ObservableList<String>>() {

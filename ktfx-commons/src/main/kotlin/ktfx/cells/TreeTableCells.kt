@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "ktlint:rulebook:rename-uncommon-generics")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.cells
 
@@ -189,7 +189,9 @@ fun <S, T> TreeTableColumn<S, T>.cellFactory(
 ): Unit = setCellFactory { KtfxTreeTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TreeTableCell] configurator class. */
-class KtfxTreeTableCell<S, T> : TreeTableCell<S, T>(), KtfxCell<T> {
+class KtfxTreeTableCell<S, T> :
+    TreeTableCell<S, T>(),
+    KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

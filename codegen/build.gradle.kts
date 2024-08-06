@@ -1,10 +1,13 @@
 val releaseGroup: String by project
 
 plugins {
+    alias(libs.plugins.javafx)
     application
     kotlin("jvm")
     alias(libs.plugins.ktlint)
 }
+
+javafx.modules("javafx.controls", "javafx.web")
 
 application.mainClass.set("$releaseGroup.codegen.Generator")
 

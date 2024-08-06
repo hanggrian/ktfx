@@ -13,7 +13,9 @@ import kotlin.contracts.ExperimentalContracts
  * [ContextMenu] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxContextMenu : ContextMenu(), MenuItemContainer {
+open class KtfxContextMenu :
+    ContextMenu(),
+    MenuItemContainer {
     final override fun <T : MenuItem> addChild(child: T): T = child.also { items += it }
 
     /** Call [MenuItemContainer.menuItem] by string invocation. */

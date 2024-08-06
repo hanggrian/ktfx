@@ -16,10 +16,11 @@ import java.io.File
  * @return chosen directory.
  */
 fun Window.chooseDirectory(title: String? = null, initialDirectory: File? = null): File? =
-    DirectoryChooser().also {
-        if (title != null) it.title = title
-        if (initialDirectory != null) it.initialDirectory = initialDirectory
-    }.showDialog(this)
+    DirectoryChooser()
+        .also {
+            if (title != null) it.title = title
+            if (initialDirectory != null) it.initialDirectory = initialDirectory
+        }.showDialog(this)
 
 /**
  * Choose a file to open.
@@ -36,12 +37,13 @@ fun Window.chooseFile(
     initialFileName: String? = null,
     vararg filters: ExtensionFilter,
 ): File? =
-    FileChooser().also {
-        if (title != null) it.title = title
-        if (initialDirectory != null) it.initialDirectory = initialDirectory
-        if (initialFileName != null) it.initialFileName = initialFileName
-        if (filters.isNotEmpty()) it.extensionFilters += filters
-    }.showOpenDialog(this)
+    FileChooser()
+        .also {
+            if (title != null) it.title = title
+            if (initialDirectory != null) it.initialDirectory = initialDirectory
+            if (initialFileName != null) it.initialFileName = initialFileName
+            if (filters.isNotEmpty()) it.extensionFilters += filters
+        }.showOpenDialog(this)
 
 /**
  * Choose a file to open.
@@ -92,12 +94,13 @@ fun Window.chooseFiles(
     initialFileName: String? = null,
     vararg filters: ExtensionFilter,
 ): List<File> =
-    FileChooser().also {
-        if (title != null) it.title = title
-        if (initialDirectory != null) it.initialDirectory = initialDirectory
-        if (initialFileName != null) it.initialFileName = initialFileName
-        if (filters.isNotEmpty()) it.extensionFilters += filters
-    }.showOpenMultipleDialog(this)
+    FileChooser()
+        .also {
+            if (title != null) it.title = title
+            if (initialDirectory != null) it.initialDirectory = initialDirectory
+            if (initialFileName != null) it.initialFileName = initialFileName
+            if (filters.isNotEmpty()) it.extensionFilters += filters
+        }.showOpenMultipleDialog(this)
 
 /**
  * Choose multiple files to open.
@@ -148,12 +151,13 @@ fun Window.chooseSaveFile(
     initialFileName: String? = null,
     vararg filters: ExtensionFilter,
 ): File? =
-    FileChooser().also {
-        if (title != null) it.title = title
-        if (initialDirectory != null) it.initialDirectory = initialDirectory
-        if (initialFileName != null) it.initialFileName = initialFileName
-        if (filters.isNotEmpty()) it.extensionFilters += filters
-    }.showSaveDialog(this)
+    FileChooser()
+        .also {
+            if (title != null) it.title = title
+            if (initialDirectory != null) it.initialDirectory = initialDirectory
+            if (initialFileName != null) it.initialFileName = initialFileName
+            if (filters.isNotEmpty()) it.extensionFilters += filters
+        }.showSaveDialog(this)
 
 /**
  * Choose a file to save.

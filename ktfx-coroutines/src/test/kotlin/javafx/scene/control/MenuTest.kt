@@ -1,20 +1,60 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseMenuTest
+import com.hanggrian.ktfx.test.FakeEventTarget
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.event.Event
 import javafx.scene.control.Menu
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class MenuTest : BaseMenuTest() {
-    override fun Menu.callOnShowing(action: (Event) -> Unit) =
-        onShowing(Dispatchers.Unconfined) { action(it) }
+class MenuTest {
+    private lateinit var menu: Menu
 
-    override fun Menu.callOnShown(action: (Event) -> Unit) =
-        onShown(Dispatchers.Unconfined) { action(it) }
+    @BeforeTest
+    fun start() {
+        initToolkit()
+        menu = Menu()
+    }
 
-    override fun Menu.callOnHiding(action: (Event) -> Unit) =
-        onHiding(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShowing() {
+        menu.onShowing(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        menu.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
 
-    override fun Menu.callOnHidden(action: (Event) -> Unit) =
-        onHidden(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShown() {
+        menu.onShown(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        menu.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onHiding() {
+        menu.onHiding(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        menu.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
+
+    @Test
+    fun onHidden() {
+        menu.onHidden(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(Event.ANY, it.eventType)
+        }
+        menu.onHidden.handle(Event(this, FakeEventTarget, Event.ANY))
+    }
 }

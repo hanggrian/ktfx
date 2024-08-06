@@ -2,7 +2,7 @@ package ktfx.text
 
 import kotlin.test.Ignore
 
-// TODO: find out why enabling this class throws `e: Could not load module <Error module>`
+// TODO find out why enabling this class throws `e: Could not load module <Error module>`
 @Ignore
 class StringConverterTest {
 //    private val defaultConverter = DefaultStringConverter()

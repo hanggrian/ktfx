@@ -1,11 +1,8 @@
 pluginManagement.repositories {
-    mavenCentral()
     gradlePluginPortal()
-}
-dependencyResolutionManagement.repositories {
     mavenCentral()
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
+dependencyResolutionManagement.repositories.mavenCentral()
 
 rootProject.name = "ktfx"
 
@@ -17,7 +14,11 @@ include("website")
 includeDir("thirdparty")
 includeDir("testing")
 
-fun includeDir(dir: String) = include(*file(dir).listFiles()!!
-    .filter { it.isDirectory }
-    .map { "$dir:${it.name}" }
-    .toTypedArray())
+fun includeDir(dir: String) =
+    include(
+        *file(dir)
+            .listFiles()!!
+            .filter { it.isDirectory }
+            .map { "$dir:${it.name}" }
+            .toTypedArray(),
+    )

@@ -1,15 +1,13 @@
 package ktfx.inputs
 
-import com.hendraanggrian.ktfx.test.InputTest
+import com.hanggrian.ktfx.test.InputTest
 import javafx.scene.input.MouseButton.MIDDLE
 import javafx.scene.input.MouseButton.PRIMARY
 import javafx.scene.input.MouseButton.SECONDARY
 import javafx.scene.input.MouseEvent.MOUSE_CLICKED
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-@Ignore
 class MouseEventTest : InputTest() {
     @Test
     fun isLeftClick() =

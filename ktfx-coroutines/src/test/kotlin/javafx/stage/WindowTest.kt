@@ -1,23 +1,64 @@
 package ktfx.coroutines
 
-import javafx.stage.BaseWindowTest
+import com.hanggrian.ktfx.test.testScene
+import javafx.stage.Stage
 import javafx.stage.Window
 import javafx.stage.WindowEvent
 import kotlinx.coroutines.Dispatchers
+import org.testfx.framework.junit.ApplicationTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class WindowTest : BaseWindowTest() {
-    override fun Window.callOnCloseRequest(action: (WindowEvent) -> Unit) =
-        onCloseRequest(Dispatchers.Unconfined) { action(it) }
+class WindowTest : ApplicationTest() {
+    private lateinit var window: Window
 
-    override fun Window.callOnShowing(action: (WindowEvent) -> Unit) =
-        onShowing(Dispatchers.Unconfined) { action(it) }
+    override fun start(stage: Stage) {
+        stage.testScene<Window>()
+        window = stage
+    }
 
-    override fun Window.callOnShown(action: (WindowEvent) -> Unit) =
-        onShown(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onCloseRequest() {
+        window.onCloseRequest(Dispatchers.Unconfined) {
+            assertEquals(window, it.source)
+            assertEquals(WindowEvent.WINDOW_CLOSE_REQUEST, it.eventType)
+        }
+        window.onCloseRequest.handle(WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST))
+    }
 
-    override fun Window.callOnHiding(action: (WindowEvent) -> Unit) =
-        onHiding(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShowing() {
+        window.onShowing(Dispatchers.Unconfined) {
+            assertEquals(window, it.source)
+            assertEquals(WindowEvent.WINDOW_SHOWING, it.eventType)
+        }
+        window.onShowing.handle(WindowEvent(window, WindowEvent.WINDOW_SHOWING))
+    }
 
-    override fun Window.callOnHidden(action: (WindowEvent) -> Unit) =
-        onHidden(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onShown() {
+        window.onShown(Dispatchers.Unconfined) {
+            assertEquals(window, it.source)
+            assertEquals(WindowEvent.WINDOW_SHOWN, it.eventType)
+        }
+        window.onShown.handle(WindowEvent(window, WindowEvent.WINDOW_SHOWN))
+    }
+
+    @Test
+    fun onHiding() {
+        window.onHiding(Dispatchers.Unconfined) {
+            assertEquals(window, it.source)
+            assertEquals(WindowEvent.WINDOW_HIDING, it.eventType)
+        }
+        window.onHiding.handle(WindowEvent(window, WindowEvent.WINDOW_HIDING))
+    }
+
+    @Test
+    fun onHidden() {
+        window.onHidden(Dispatchers.Unconfined) {
+            assertEquals(window, it.source)
+            assertEquals(WindowEvent.WINDOW_HIDDEN, it.eventType)
+        }
+        window.onHidden.handle(WindowEvent(window, WindowEvent.WINDOW_HIDDEN))
+    }
 }

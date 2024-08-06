@@ -17,7 +17,8 @@ import kotlin.contracts.ExperimentalContracts
  * Invoking dsl will add its children.
  */
 open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
-    TilePane(orientation, hgap, vgap), NodeContainer {
+    TilePane(orientation, hgap, vgap),
+    NodeContainer {
     constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }

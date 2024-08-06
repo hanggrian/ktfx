@@ -35,125 +35,125 @@ fun stringBindingOf(
 /** Create an [StringBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asString(valueProvider: (List<E>) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString)
 
         override fun getDependencies(): ObservableList<*> = this@asString
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create an [StringBinding] with single [ObservableSet] dependency. */
 fun <E> ObservableSet<E>.asString(valueProvider: (Set<E>) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString)
 
         override fun getDependencies(): ObservableList<*> = this@asString.toObservableList()
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create an [StringBinding] with single [ObservableMap] dependency. */
 fun <K, V> ObservableMap<K, V>.asString(valueProvider: (Map<K, V>) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString)
 
         override fun getDependencies(): ObservableList<*> = this@asString.keys.toObservableList()
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableObjectValue] dependency. */
 fun <V> ObservableObjectValue<V>.asString(valueProvider: (V?) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableBooleanValue] dependency. */
 fun ObservableBooleanValue.asString(valueProvider: (Boolean) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableDoubleValue] dependency. */
 fun ObservableDoubleValue.asString(valueProvider: (Double) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value as Double)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableFloatValue] dependency. */
 fun ObservableFloatValue.asString(valueProvider: (Float) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value as Float)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableIntegerValue] dependency. */
 fun ObservableIntegerValue.asString(valueProvider: (Int) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value as Int)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }
 
 /** Create a [StringBinding] with single [ObservableLongValue] dependency. */
 fun ObservableLongValue.asString(valueProvider: (Long) -> String?): StringBinding =
     object : StringBinding() {
+        init {
+            bind(this@asString)
+        }
+
         override fun dispose(): Unit = unbind(this@asString)
 
         override fun computeValue(): String? = valueProvider(this@asString.value as Long)
 
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
-
-        init {
-            bind(this@asString)
-        }
     }

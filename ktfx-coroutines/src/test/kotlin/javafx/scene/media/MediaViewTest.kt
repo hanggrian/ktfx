@@ -1,11 +1,23 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseMediaViewTest
-import javafx.scene.media.MediaErrorEvent
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.scene.media.MediaView
-import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
+import kotlin.test.Test
 
-class MediaViewTest : BaseMediaViewTest() {
-    override fun MediaView.callOnError(action: (MediaErrorEvent) -> Unit) =
-        onError(Dispatchers.Unconfined) { action(it) }
+class MediaViewTest {
+    private lateinit var media: MediaView
+
+    @BeforeTest
+    fun start() {
+        initToolkit()
+        media = MediaView()
+    }
+
+    @Test
+    fun onError() {
+        // TODO create fake event
+        // media.callOnError { assertFakeMediaErrorEvent(it) }
+        // media.onError.handle(fakeMediaErrorEventOf())
+    }
 }

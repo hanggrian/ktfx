@@ -166,7 +166,9 @@ fun <T> ComboBox<T>.cellFactory(configuration: KtfxListCell<T>.(ListView<T>) -> 
     setCellFactory { KtfxListCell<T>().apply { configuration(it) } }
 
 /** Custom [ListCell] configurator class. */
-class KtfxListCell<T> : ListCell<T>(), KtfxCell<T> {
+class KtfxListCell<T> :
+    ListCell<T>(),
+    KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

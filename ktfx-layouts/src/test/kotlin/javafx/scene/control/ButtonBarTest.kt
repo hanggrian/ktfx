@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.control.ButtonBar
 import javafx.scene.control.ButtonBar.BUTTON_ORDER_LINUX
 import javafx.scene.control.ButtonBar.BUTTON_ORDER_MAC_OS

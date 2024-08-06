@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.StackedAreaChart
 import kotlin.test.assertEquals

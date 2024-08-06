@@ -1,26 +1,72 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseServiceTest
 import javafx.concurrent.Service
 import javafx.concurrent.WorkerStateEvent
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class ServiceTest : BaseServiceTest() {
-    override fun <E> Service<E>.callOnReady(action: (WorkerStateEvent) -> Unit) =
-        onReady(Dispatchers.Unconfined) { action(it) }
+class ServiceTest {
+    private val service = HelloWorldService()
 
-    override fun <E> Service<E>.callOnScheduled(action: (WorkerStateEvent) -> Unit) =
-        onScheduled(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onReady() {
+        service.onReady(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_READY, it.eventType)
+        }
+        service.onReady.handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_READY))
+    }
 
-    override fun <E> Service<E>.callOnRunning(action: (WorkerStateEvent) -> Unit) =
-        onRunning(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onScheduled() {
+        service.onScheduled(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_SCHEDULED, it.eventType)
+        }
+        service.onScheduled
+            .handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_SCHEDULED))
+    }
 
-    override fun <E> Service<E>.callOnSucceeded(action: (WorkerStateEvent) -> Unit) =
-        onSucceeded(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onRunning() {
+        service.onRunning(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_RUNNING, it.eventType)
+        }
+        service.onRunning.handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_RUNNING))
+    }
 
-    override fun <E> Service<E>.callOnCancelled(action: (WorkerStateEvent) -> Unit) =
-        onCancelled(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSucceeded() {
+        service.onSucceeded(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_SUCCEEDED, it.eventType)
+        }
+        service.onSucceeded
+            .handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_SUCCEEDED))
+    }
 
-    override fun <E> Service<E>.callOnFailed(action: (WorkerStateEvent) -> Unit) =
-        onFailed(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onCancelled() {
+        service.onCancelled(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_CANCELLED, it.eventType)
+        }
+        service.onCancelled
+            .handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_CANCELLED))
+    }
+
+    @Test
+    fun onFailed() {
+        service.onFailed(Dispatchers.Unconfined) {
+            assertEquals(service, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_FAILED, it.eventType)
+        }
+        service.onFailed.handle(WorkerStateEvent(service, WorkerStateEvent.WORKER_STATE_FAILED))
+    }
+
+    class HelloWorldService : Service<String>() {
+        override fun createTask() = TaskTest.HelloWorldTask()
+    }
 }

@@ -1,14 +1,22 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseObservableListTest
-import javafx.collections.ListChangeListener
-import javafx.collections.ObservableList
+import javafx.collections.FXCollections
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
-class ObservableListTest : BaseObservableListTest() {
-    override fun <E> ObservableList<E>.callListener(
-        action: (ListChangeListener.Change<out E>) -> Unit,
-    ) {
-        listener<E>(Dispatchers.Unconfined) { action(it) }
+class ObservableListTest {
+    @Test
+    fun listener() {
+        val collection = FXCollections.observableArrayList<String>()
+        collection.listener<String>(Dispatchers.Unconfined) {
+            it.next()
+            assertEquals(0, it.from)
+            assertEquals(1, it.to)
+            assertTrue(it.wasAdded())
+            assertEquals("Hello world", it.addedSubList.single())
+        }
+        collection.add("Hello world")
     }
 }

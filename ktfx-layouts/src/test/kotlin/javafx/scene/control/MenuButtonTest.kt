@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.control.MenuButton
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -30,7 +30,7 @@ class MenuButtonTest : LayoutsTest<KtfxPane, MenuButton>() {
             menuItem("Hello")
             "World" {
             }
-            // TODO("find out why line below throws error")
+            // TODO find out why line below throws error
             // assertEquals(2, items.size)
         }
     }

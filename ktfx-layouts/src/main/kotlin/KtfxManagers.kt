@@ -13,7 +13,6 @@ import javafx.scene.shape.PathElement
  *
  * @param C type of the child.
  */
-@Suppress("ktlint:rulebook:rename-uncommon-generics")
 interface Container<C> {
     /**
      * Allows child to be added dynamically with Kotlin DSL in the context of this manager.

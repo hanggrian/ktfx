@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.control.Spinner
 
 class SpinnerTest : LayoutsTest<KtfxPane, Spinner<String>>() {

@@ -13,7 +13,9 @@ import kotlin.contracts.ExperimentalContracts
  * [ButtonBar] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeContainer {
+open class KtfxButtonBar(buttonOrder: String?) :
+    ButtonBar(buttonOrder),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { buttons += it }
 
     /** Call [NodeContainer.button] by string invocation. */

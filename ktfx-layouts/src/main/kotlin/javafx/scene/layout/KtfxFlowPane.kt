@@ -16,7 +16,8 @@ import kotlin.contracts.ExperimentalContracts
  * Invoking dsl will add its children.
  */
 open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) :
-    FlowPane(orientation, hgap, vgap), NodeContainer {
+    FlowPane(orientation, hgap, vgap),
+    NodeContainer {
     constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }

@@ -1,7 +1,7 @@
 package ktfx.controls
 
-import com.hendraanggrian.ktfx.test.SampleImage
-import com.hendraanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.SampleImage
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.geometry.Insets
 import javafx.scene.layout.BackgroundPosition
 import javafx.scene.layout.BackgroundRepeat
@@ -25,8 +25,8 @@ class BackgroundsTest {
     @Test
     fun multiple() {
         region.background {
-            fill { }
-            image(SampleImage()) { }
+            fill {}
+            image(SampleImage()) {}
         }
         assertEquals(1, region.background.fills.size)
         assertEquals(1, region.background.images.size)

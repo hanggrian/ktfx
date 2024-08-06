@@ -1,7 +1,7 @@
 package ktfx.dialogs
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.DialogShowingTest
+import com.hanggrian.ktfx.test.DialogShowingTest
 import javafx.scene.control.Dialog
 import ktfx.windows.stage
 import kotlin.test.Ignore

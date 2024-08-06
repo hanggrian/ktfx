@@ -1,7 +1,7 @@
 package ktfx
 
 import com.google.common.truth.Truth.assertThat
-import com.hendraanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.application.ConditionalFeature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
@@ -27,19 +27,19 @@ class PlatformTest {
     @Test
     fun runLater() {
         // without receiver
-        val list = mutableListOf<Int>()
+        val values = mutableListOf<Int>()
         ktfx.runLater {
             assertTrue(isFxThread())
-            list += 1
-            assertThat(list).containsExactly(2, 1).inOrder()
+            values += 1
+            assertThat(values).containsExactly(2, 1).inOrder()
         }
-        list += 2
+        values += 2
 
         // with receiver
         val list2 = mutableListOf<Int>()
         list2.runLater {
             assertTrue(isFxThread())
-            list += 1
+            values += 1
             assertThat(list2).containsExactly(2, 1).inOrder()
         }
         list2 += 2
@@ -47,46 +47,46 @@ class PlatformTest {
 
     @Test
     fun withLater() {
-        val list = mutableListOf<Int>()
-        withLater(list) {
+        val values = mutableListOf<Int>()
+        withLater(values) {
             assertTrue(isFxThread())
             this += 1
-            assertThat(list).containsExactly(2, 1).inOrder()
+            assertThat(values).containsExactly(2, 1).inOrder()
         }
-        list += 2
+        values += 2
     }
 
     @Test
     fun applyLater() {
-        val list = mutableListOf<Int>()
-        list.applyLater {
+        val values = mutableListOf<Int>()
+        values.applyLater {
             assertTrue(isFxThread())
             this += 1
-            assertThat(list).containsExactly(2, 1).inOrder()
+            assertThat(values).containsExactly(2, 1).inOrder()
         }
-        list += 2
+        values += 2
     }
 
     @Test
     fun alsoLater() {
-        val list = mutableListOf<Int>()
-        list.alsoLater {
+        val values = mutableListOf<Int>()
+        values.alsoLater {
             assertTrue(isFxThread())
             it += 1
-            assertThat(list).containsExactly(2, 1).inOrder()
+            assertThat(values).containsExactly(2, 1).inOrder()
         }
-        list += 2
+        values += 2
     }
 
     @Test
     fun letLater() {
-        val list = mutableListOf<Int>()
-        list.letLater {
+        val values = mutableListOf<Int>()
+        values.letLater {
             assertTrue(isFxThread())
             it += 1
-            assertThat(list).containsExactly(2, 1).inOrder()
+            assertThat(values).containsExactly(2, 1).inOrder()
         }
-        list += 2
+        values += 2
     }
 
     @Test

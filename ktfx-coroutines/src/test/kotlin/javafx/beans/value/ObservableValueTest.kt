@@ -1,16 +1,22 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseObservableValueTest
-import javafx.beans.Observable
-import javafx.beans.value.ObservableValue
+import javafx.beans.property.SimpleStringProperty
+import javafx.beans.property.StringProperty
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
-class ObservableValueTest : BaseObservableValueTest() {
-    override fun ObservableValue<String>.callListener(
-        action: (Observable, String, String) -> Unit,
-    ) {
-        listener(Dispatchers.Unconfined) { observable, oldValue, value ->
-            action(observable, oldValue, value)
+class ObservableValueTest {
+    @Test
+    fun listen() {
+        val property = SimpleStringProperty()
+        property.listener(Dispatchers.Unconfined) { observable, oldValue, value ->
+            assertTrue(observable is StringProperty)
+            assertNull(oldValue)
+            assertEquals("Hello world", value)
         }
+        property.set("Hello world")
     }
 }

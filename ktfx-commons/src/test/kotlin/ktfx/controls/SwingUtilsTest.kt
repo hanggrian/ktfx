@@ -6,11 +6,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SwingUtilsTest {
-    private companion object {
-        const val WIDTH: Int = 1000
-        const val HEIGHT: Int = 500
-    }
-
     @Test
     fun toFxImage() {
         val image =
@@ -32,5 +27,10 @@ class SwingUtilsTest {
             ).toSwingImage()
         assertEquals(WIDTH, image.width)
         assertEquals(HEIGHT, image.height)
+    }
+
+    private companion object {
+        const val WIDTH: Int = 1000
+        const val HEIGHT: Int = 500
     }
 }

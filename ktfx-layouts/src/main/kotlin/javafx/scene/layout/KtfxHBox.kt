@@ -15,7 +15,9 @@ import kotlin.contracts.ExperimentalContracts
  * [HBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxHBox(spacing: Double) : HBox(spacing), NodeContainer {
+open class KtfxHBox(spacing: Double) :
+    HBox(spacing),
+    NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children horizontal grow priority in this layout. */

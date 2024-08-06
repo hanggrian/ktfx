@@ -1,7 +1,7 @@
 package ktfx.controls
 
-import com.hendraanggrian.ktfx.test.SampleImage
-import com.hendraanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.SampleImage
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.geometry.Insets
 import javafx.scene.layout.BorderRepeat
 import javafx.scene.layout.BorderStrokeStyle
@@ -25,8 +25,8 @@ class BordersTest {
     @Test
     fun multiple() {
         region.border {
-            stroke { }
-            image(SampleImage()) { }
+            stroke {}
+            image(SampleImage()) {}
         }
         assertEquals(1, region.border.strokes.size)
         assertEquals(1, region.border.images.size)

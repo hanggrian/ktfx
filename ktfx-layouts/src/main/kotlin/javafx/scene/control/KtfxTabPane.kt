@@ -13,7 +13,9 @@ import kotlin.contracts.ExperimentalContracts
  * [TabPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxTabPane : TabPane(), TabContainer {
+open class KtfxTabPane :
+    TabPane(),
+    TabContainer {
     final override fun <T : Tab> addChild(child: T): T = child.also { tabs += it }
 
     /** Call [TabContainer.tab] by string invocation. */

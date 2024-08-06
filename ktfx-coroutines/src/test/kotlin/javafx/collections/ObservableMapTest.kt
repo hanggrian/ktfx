@@ -1,14 +1,20 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseObservableMapTest
-import javafx.collections.MapChangeListener
-import javafx.collections.ObservableMap
+import javafx.collections.FXCollections
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
-class ObservableMapTest : BaseObservableMapTest() {
-    override fun <K, V> ObservableMap<K, V>.callListener(
-        action: (MapChangeListener.Change<out K, out V>) -> Unit,
-    ) {
-        listener<K, V>(Dispatchers.Unconfined) { action(it) }
+class ObservableMapTest {
+    @Test
+    fun listener() {
+        val collection = FXCollections.observableHashMap<Int, String>()
+        collection.listener<Int, String>(Dispatchers.Unconfined) {
+            assertTrue(it.wasAdded())
+            assertEquals(1, it.key)
+            assertEquals("Hello world", it.valueAdded)
+        }
+        collection[1] = "Hello world"
     }
 }

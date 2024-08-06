@@ -22,14 +22,15 @@ fun inputDialog(
     prefill: String = "",
     dialogAction: (TextInputDialog.() -> Unit)? = null,
 ): Optional<String> =
-    TextInputDialog(prefill).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
-            graphic is ImageView -> dialog.graphicIcon = graphic
-            graphic != null -> dialog.graphic = graphic
-        }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+    TextInputDialog(prefill)
+        .also { dialog ->
+            if (title != null) dialog.headerTitle = title
+            when {
+                graphic is ImageView -> dialog.graphicIcon = graphic
+                graphic != null -> dialog.graphic = graphic
+            }
+            dialogAction?.invoke(dialog)
+        }.showAndWait()
 
 /**
  * Show a text input dialog.

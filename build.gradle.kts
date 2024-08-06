@@ -8,6 +8,7 @@ val releaseDescription: String by project
 val releaseUrl: String by project
 
 plugins {
+    alias(libs.plugins.javafx) apply false
     kotlin("jvm") version libs.versions.kotlin apply false
     kotlin("kapt") version libs.versions.kotlin apply false
     alias(libs.plugins.dokka)
@@ -22,22 +23,27 @@ allprojects {
 }
 
 subprojects {
+    plugins.withType<org.openjfx.gradle.JavaFXPlugin>().configureEach {
+        the<org.openjfx.gradle.JavaFXOptions>()
+            .version = "${libs.versions.jdk.get()}.0.9"
+    }
     plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper>().configureEach {
         the<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension>()
             .jvmToolchain(libs.versions.jdk.get().toInt())
     }
     plugins.withType<org.jlleitschuh.gradle.ktlint.KtlintPlugin>().configureEach {
         the<org.jlleitschuh.gradle.ktlint.KtlintExtension>()
-            .version.set(libs.versions.ktlint.get())
+            .version
+            .set(libs.versions.ktlint.get())
     }
     plugins.withType<com.vanniktech.maven.publish.MavenPublishBasePlugin> {
         configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
             configure(
                 com.vanniktech.maven.publish.KotlinJvm(
-                    com.vanniktech.maven.publish.JavadocJar.Dokka("dokkaJavadoc")
+                    com.vanniktech.maven.publish.JavadocJar.Dokka("dokkaJavadoc"),
                 )
             )
-            publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
+            publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
             signAllPublications()
             pom {
                 name.set(project.name)
@@ -69,9 +75,9 @@ subprojects {
 
 tasks {
     register(LifecycleBasePlugin.CLEAN_TASK_NAME) {
-        delete(buildDir)
+        delete(layout.buildDirectory)
     }
     dokkaHtmlMultiModule {
-        outputDirectory.set(buildDir.resolve("dokka/dokka/"))
+        outputDirectory.set(layout.buildDirectory.dir("dokka/dokka/"))
     }
 }

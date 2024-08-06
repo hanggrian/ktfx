@@ -1,6 +1,27 @@
 package ktfx.coroutines
 
-import javafx.scene.BaseSceneTest
+import com.google.common.truth.Truth.assertThat
+import com.hanggrian.ktfx.test.FakeEventTarget
+import com.hanggrian.ktfx.test.FakePickResult
+import com.hanggrian.ktfx.test.events.assertFakeDragEvent
+import com.hanggrian.ktfx.test.events.assertFakeKeyEvent
+import com.hanggrian.ktfx.test.events.assertFakeMouseDragEvent
+import com.hanggrian.ktfx.test.events.assertFakeMouseEvent
+import com.hanggrian.ktfx.test.events.assertFakeRotateEvent
+import com.hanggrian.ktfx.test.events.assertFakeScrollEvent
+import com.hanggrian.ktfx.test.events.assertFakeSwipeEvent
+import com.hanggrian.ktfx.test.events.assertFakeTouchEvent
+import com.hanggrian.ktfx.test.events.assertFakeZoomEvent
+import com.hanggrian.ktfx.test.events.fakeDragEventOf
+import com.hanggrian.ktfx.test.events.fakeKeyEventOf
+import com.hanggrian.ktfx.test.events.fakeMouseDragEventOf
+import com.hanggrian.ktfx.test.events.fakeMouseEventOf
+import com.hanggrian.ktfx.test.events.fakeRotateEventOf
+import com.hanggrian.ktfx.test.events.fakeScrollEventOf
+import com.hanggrian.ktfx.test.events.fakeSwipeEventOf
+import com.hanggrian.ktfx.test.events.fakeTouchEventOf
+import com.hanggrian.ktfx.test.events.fakeZoomEventOf
+import com.hanggrian.ktfx.test.initToolkit
 import javafx.scene.Scene
 import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.DragEvent
@@ -13,123 +34,365 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
+import javafx.scene.layout.Pane
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 
-class SceneTest : BaseSceneTest() {
-    override fun Scene.callOnMouseClicked(action: (MouseEvent) -> Unit) =
-        onMouseClicked(Dispatchers.Unconfined) { action(it) }
+class SceneTest {
+    private lateinit var scene: Scene
 
-    override fun Scene.callOnMouseDragged(action: (MouseEvent) -> Unit) =
-        onMouseDragged(Dispatchers.Unconfined) { action(it) }
+    @BeforeTest
+    fun onCreate() {
+        initToolkit()
+        scene = Scene(Pane())
+    }
 
-    override fun Scene.callOnMouseEntered(action: (MouseEvent) -> Unit) =
-        onMouseEntered(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseClicked() {
+        scene.onMouseClicked(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_CLICKED)
+        }
+        scene.onMouseClicked.handle(fakeMouseEventOf(MouseEvent.MOUSE_CLICKED))
+    }
 
-    override fun Scene.callOnMouseExited(action: (MouseEvent) -> Unit) =
-        onMouseExited(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseDragged() {
+        scene.onMouseDragged(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_DRAGGED)
+        }
+        scene.onMouseDragged.handle(fakeMouseEventOf(MouseEvent.MOUSE_DRAGGED))
+    }
 
-    override fun Scene.callOnMouseMoved(action: (MouseEvent) -> Unit) =
-        onMouseMoved(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseEntered() {
+        scene.onMouseEntered(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_ENTERED)
+        }
+        scene.onMouseEntered.handle(fakeMouseEventOf(MouseEvent.MOUSE_ENTERED))
+    }
 
-    override fun Scene.callOnMousePressed(action: (MouseEvent) -> Unit) =
-        onMousePressed(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseExited() {
+        scene.onMouseExited(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_EXITED)
+        }
+        scene.onMouseExited.handle(fakeMouseEventOf(MouseEvent.MOUSE_EXITED))
+    }
 
-    override fun Scene.callOnMouseReleased(action: (MouseEvent) -> Unit) =
-        onMouseReleased(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseMoved() {
+        scene.onMouseMoved(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_MOVED)
+        }
+        scene.onMouseMoved.handle(fakeMouseEventOf(MouseEvent.MOUSE_MOVED))
+    }
 
-    override fun Scene.callOnDragDetected(action: (MouseEvent) -> Unit) =
-        onDragDetected(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMousePressed() {
+        scene.onMousePressed(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_PRESSED)
+        }
+        scene.onMousePressed.handle(fakeMouseEventOf(MouseEvent.MOUSE_PRESSED))
+    }
 
-    override fun Scene.callOnMouseDragOver(action: (MouseDragEvent) -> Unit) =
-        onMouseDragOver(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseReleased() {
+        scene.onMouseReleased(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.MOUSE_RELEASED)
+        }
+        scene.onMouseReleased.handle(fakeMouseEventOf(MouseEvent.MOUSE_RELEASED))
+    }
 
-    override fun Scene.callOnMouseDragReleased(action: (MouseDragEvent) -> Unit) =
-        onMouseDragReleased(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragDetected() {
+        scene.onDragDetected(Dispatchers.Unconfined) {
+            assertFakeMouseEvent(it, MouseEvent.DRAG_DETECTED)
+        }
+        scene.onDragDetected.handle(fakeMouseEventOf(MouseEvent.DRAG_DETECTED))
+    }
 
-    override fun Scene.callOnMouseDragEntered(action: (MouseDragEvent) -> Unit) =
-        onMouseDragEntered(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseDragOver() {
+        scene.onMouseDragOver(Dispatchers.Unconfined) {
+            assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_OVER)
+        }
+        scene.onMouseDragOver.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_OVER))
+    }
 
-    override fun Scene.callOnMouseDragExited(action: (MouseDragEvent) -> Unit) =
-        onMouseDragExited(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseDragReleased() {
+        scene.onMouseDragReleased(Dispatchers.Unconfined) {
+            assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_RELEASED)
+        }
+        scene.onMouseDragReleased.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_RELEASED))
+    }
 
-    override fun Scene.callOnScrollStarted(action: (ScrollEvent) -> Unit) =
-        onScrollStarted(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseDragEntered() {
+        scene.onMouseDragEntered(Dispatchers.Unconfined) {
+            assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_ENTERED)
+        }
+        scene.onMouseDragEntered.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_ENTERED))
+    }
 
-    override fun Scene.callOnScroll(action: (ScrollEvent) -> Unit) =
-        onScroll(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onMouseDragExited() {
+        scene.onMouseDragExited(Dispatchers.Unconfined) {
+            assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_EXITED)
+        }
+        scene.onMouseDragExited.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_EXITED))
+    }
 
-    override fun Scene.callOnScrollFinished(action: (ScrollEvent) -> Unit) =
-        onScrollFinished(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onScrollStarted() {
+        scene.onScrollStarted(Dispatchers.Unconfined) {
+            assertFakeScrollEvent(it, ScrollEvent.SCROLL_STARTED)
+        }
+        scene.onScrollStarted.handle(fakeScrollEventOf(ScrollEvent.SCROLL_STARTED))
+    }
 
-    override fun Scene.callOnRotationStarted(action: (RotateEvent) -> Unit) =
-        onRotationStarted(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onScroll() {
+        scene.onScroll(Dispatchers.Unconfined) {
+            assertFakeScrollEvent(it, ScrollEvent.SCROLL)
+        }
+        scene.onScroll.handle(fakeScrollEventOf(ScrollEvent.SCROLL))
+    }
 
-    override fun Scene.callOnRotate(action: (RotateEvent) -> Unit) =
-        onRotate(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onScrollFinished() {
+        scene.onScrollFinished(Dispatchers.Unconfined) {
+            assertFakeScrollEvent(it, ScrollEvent.SCROLL_FINISHED)
+        }
+        scene.onScrollFinished.handle(fakeScrollEventOf(ScrollEvent.SCROLL_FINISHED))
+    }
 
-    override fun Scene.callOnRotationFinished(action: (RotateEvent) -> Unit) =
-        onRotationFinished(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onRotateStarted() {
+        scene.onRotationStarted(Dispatchers.Unconfined) {
+            assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED)
+        }
+        scene.onRotationStarted.handle(fakeRotateEventOf(RotateEvent.ROTATION_STARTED))
+    }
 
-    override fun Scene.callOnZoomStarted(action: (ZoomEvent) -> Unit) =
-        onZoomStarted(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onRotate() {
+        scene.onRotate(Dispatchers.Unconfined) {
+            assertFakeRotateEvent(it, RotateEvent.ROTATE)
+        }
+        scene.onRotate.handle(fakeRotateEventOf(RotateEvent.ROTATE))
+    }
 
-    override fun Scene.callOnZoom(action: (ZoomEvent) -> Unit) =
-        onZoom(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onRotateFinished() {
+        scene.onRotationFinished(Dispatchers.Unconfined) {
+            assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED)
+        }
+        scene.onRotationFinished.handle(fakeRotateEventOf(RotateEvent.ROTATION_FINISHED))
+    }
 
-    override fun Scene.callOnZoomFinished(action: (ZoomEvent) -> Unit) =
-        onZoomFinished(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onZoomStarted() {
+        scene.onZoomStarted(Dispatchers.Unconfined) {
+            assertFakeZoomEvent(it, ZoomEvent.ZOOM_STARTED)
+        }
+        scene.onZoomStarted.handle(fakeZoomEventOf(ZoomEvent.ZOOM_STARTED))
+    }
 
-    override fun Scene.callOnSwipeUp(action: (SwipeEvent) -> Unit) =
-        onSwipeUp(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onZoom() {
+        scene.onZoom(Dispatchers.Unconfined) {
+            assertFakeZoomEvent(it, ZoomEvent.ZOOM)
+        }
+        scene.onZoom.handle(fakeZoomEventOf(ZoomEvent.ZOOM))
+    }
 
-    override fun Scene.callOnSwipeDown(action: (SwipeEvent) -> Unit) =
-        onSwipeDown(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onZoomFinished() {
+        scene.onZoomFinished(Dispatchers.Unconfined) {
+            assertFakeZoomEvent(it, ZoomEvent.ZOOM_FINISHED)
+        }
+        scene.onZoomFinished.handle(fakeZoomEventOf(ZoomEvent.ZOOM_FINISHED))
+    }
 
-    override fun Scene.callOnSwipeRight(action: (SwipeEvent) -> Unit) =
-        onSwipeRight(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSwipeUp() {
+        scene.onSwipeUp(Dispatchers.Unconfined) {
+            assertFakeSwipeEvent(it, SwipeEvent.SWIPE_UP)
+        }
+        scene.onSwipeUp.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_UP))
+    }
 
-    override fun Scene.callOnSwipeLeft(action: (SwipeEvent) -> Unit) =
-        onSwipeLeft(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSwipeDown() {
+        scene.onSwipeDown(Dispatchers.Unconfined) {
+            assertFakeSwipeEvent(it, SwipeEvent.SWIPE_DOWN)
+        }
+        scene.onSwipeDown.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_DOWN))
+    }
 
-    override fun Scene.callOnTouchPressed(action: (TouchEvent) -> Unit) =
-        onTouchPressed(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSwipeRight() {
+        scene.onSwipeRight(Dispatchers.Unconfined) {
+            assertFakeSwipeEvent(it, SwipeEvent.SWIPE_RIGHT)
+        }
+        scene.onSwipeRight.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_RIGHT))
+    }
 
-    override fun Scene.callOnTouchMoved(action: (TouchEvent) -> Unit) =
-        onTouchMoved(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSwipeLeft() {
+        scene.onSwipeLeft(Dispatchers.Unconfined) {
+            assertFakeSwipeEvent(it, SwipeEvent.SWIPE_LEFT)
+        }
+        scene.onSwipeLeft.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_LEFT))
+    }
 
-    override fun Scene.callOnTouchReleased(action: (TouchEvent) -> Unit) =
-        onTouchReleased(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onTouchPressed() {
+        scene.onTouchPressed(Dispatchers.Unconfined) {
+            assertFakeTouchEvent(it, TouchEvent.TOUCH_PRESSED)
+        }
+        scene.onTouchPressed.handle(fakeTouchEventOf(TouchEvent.TOUCH_PRESSED))
+    }
 
-    override fun Scene.callOnTouchStationary(action: (TouchEvent) -> Unit) =
-        onTouchStationary(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onTouchMoved() {
+        scene.onTouchMoved(Dispatchers.Unconfined) {
+            assertFakeTouchEvent(it, TouchEvent.TOUCH_MOVED)
+        }
+        scene.onTouchMoved.handle(fakeTouchEventOf(TouchEvent.TOUCH_MOVED))
+    }
 
-    override fun Scene.callOnDragEntered(action: (DragEvent) -> Unit) =
-        onDragEntered(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onTouchReleased() {
+        scene.onTouchReleased(Dispatchers.Unconfined) {
+            assertFakeTouchEvent(it, TouchEvent.TOUCH_RELEASED)
+        }
+        scene.onTouchReleased.handle(fakeTouchEventOf(TouchEvent.TOUCH_RELEASED))
+    }
 
-    override fun Scene.callOnDragExited(action: (DragEvent) -> Unit) =
-        onDragExited(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onTouchStationary() {
+        scene.onTouchStationary(Dispatchers.Unconfined) {
+            assertFakeTouchEvent(it, TouchEvent.TOUCH_STATIONARY)
+        }
+        scene.onTouchStationary.handle(fakeTouchEventOf(TouchEvent.TOUCH_STATIONARY))
+    }
 
-    override fun Scene.callOnDragOver(action: (DragEvent) -> Unit) =
-        onDragOver(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragEntered() {
+        scene.onDragEntered(Dispatchers.Unconfined) {
+            assertFakeDragEvent(it, DragEvent.DRAG_ENTERED)
+        }
+        scene.onDragEntered.handle(fakeDragEventOf(DragEvent.DRAG_ENTERED))
+    }
 
-    override fun Scene.callOnDragDropped(action: (DragEvent) -> Unit) =
-        onDragDropped(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragExited() {
+        scene.onDragExited(Dispatchers.Unconfined) {
+            assertFakeDragEvent(it, DragEvent.DRAG_EXITED)
+        }
+        scene.onDragExited.handle(fakeDragEventOf(DragEvent.DRAG_EXITED))
+    }
 
-    override fun Scene.callOnDragDone(action: (DragEvent) -> Unit) =
-        onDragDone(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragOver() {
+        scene.onDragOver(Dispatchers.Unconfined) {
+            assertFakeDragEvent(it, DragEvent.DRAG_OVER)
+        }
+        scene.onDragOver.handle(fakeDragEventOf(DragEvent.DRAG_OVER))
+    }
 
-    override fun Scene.callOnKeyPressed(action: (KeyEvent) -> Unit) =
-        onKeyPressed(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragDropped() {
+        scene.onDragDropped(Dispatchers.Unconfined) {
+            assertFakeDragEvent(it, DragEvent.DRAG_DROPPED)
+        }
+        scene.onDragDropped.handle(fakeDragEventOf(DragEvent.DRAG_DROPPED))
+    }
 
-    override fun Scene.callOnKeyReleased(action: (KeyEvent) -> Unit) =
-        onKeyReleased(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onDragDone() {
+        scene.onDragDone(Dispatchers.Unconfined) {
+            assertFakeDragEvent(it, DragEvent.DRAG_DONE)
+        }
+        scene.onDragDone.handle(fakeDragEventOf(DragEvent.DRAG_DONE))
+    }
 
-    override fun Scene.callOnKeyTyped(action: (KeyEvent) -> Unit) =
-        onKeyTyped(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onKeyPressed() {
+        scene.onKeyPressed(Dispatchers.Unconfined) {
+            assertFakeKeyEvent(it, KeyEvent.KEY_PRESSED)
+        }
+        scene.onKeyPressed.handle(fakeKeyEventOf(KeyEvent.KEY_PRESSED))
+    }
 
-    override fun Scene.callOnInputMethodTextChanged(action: (InputMethodEvent) -> Unit) =
-        onInputMethodTextChanged(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onKeyReleased() {
+        scene.onKeyReleased(Dispatchers.Unconfined) {
+            assertFakeKeyEvent(it, KeyEvent.KEY_RELEASED)
+        }
+        scene.onKeyReleased.handle(fakeKeyEventOf(KeyEvent.KEY_RELEASED))
+    }
 
-    override fun Scene.callOnContextMenuRequested(action: (ContextMenuEvent) -> Unit) =
-        onContextMenuRequested(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onKeyTyped() {
+        scene.onKeyTyped(Dispatchers.Unconfined) {
+            assertFakeKeyEvent(it, KeyEvent.KEY_TYPED)
+        }
+        scene.onKeyTyped.handle(fakeKeyEventOf(KeyEvent.KEY_TYPED))
+    }
+
+    @Test
+    fun onInputMethodTextChanged() {
+        scene.onInputMethodTextChanged(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, it.eventType)
+            assertThat(it.composed).isEmpty()
+            assertEquals("Hello world", it.committed)
+            assertEquals(0, it.caretPosition)
+        }
+        scene.onInputMethodTextChanged.handle(
+            InputMethodEvent(
+                this,
+                FakeEventTarget,
+                InputMethodEvent.INPUT_METHOD_TEXT_CHANGED,
+                listOf(),
+                "Hello world",
+                0,
+            ),
+        )
+    }
+
+    @Test
+    fun onContextMenuRequested() {
+        scene.onContextMenuRequested(Dispatchers.Unconfined) {
+            assertEquals(this, it.source)
+            assertEquals(FakeEventTarget, it.target)
+            assertEquals(ContextMenuEvent.CONTEXT_MENU_REQUESTED, it.eventType)
+            assertEquals(0.0, it.x)
+            assertEquals(0.0, it.y)
+            assertEquals(0.0, it.sceneX)
+            assertEquals(0.0, it.sceneY)
+            assertFalse(it.isKeyboardTrigger)
+            assertEquals(FakePickResult, it.pickResult)
+        }
+        scene.onContextMenuRequested.handle(
+            ContextMenuEvent(
+                this,
+                FakeEventTarget,
+                ContextMenuEvent.CONTEXT_MENU_REQUESTED,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                false,
+                FakePickResult,
+            ),
+        )
+    }
 }

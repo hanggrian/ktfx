@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "ktlint:rulebook:rename-uncommon-generics")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.cells
 
@@ -15,7 +15,9 @@ fun <S> TableView<S>.rowFactory(configuration: KtfxTableRow<S>.(TableView<S>) ->
     setRowFactory { KtfxTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TableRow] configurator class. */
-class KtfxTableRow<T> : TableRow<T>(), KtfxCell<T> {
+class KtfxTableRow<T> :
+    TableRow<T>(),
+    KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

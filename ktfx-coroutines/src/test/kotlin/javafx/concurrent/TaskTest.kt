@@ -1,23 +1,60 @@
 package ktfx.coroutines
 
-import com.hendraanggrian.ktfx.test.BaseTaskTest
 import javafx.concurrent.Task
 import javafx.concurrent.WorkerStateEvent
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-class TaskTest : BaseTaskTest() {
-    override fun <E> Task<E>.callOnScheduled(action: (WorkerStateEvent) -> Unit) =
-        onScheduled(Dispatchers.Unconfined) { action(it) }
+class TaskTest {
+    private val task = HelloWorldTask()
 
-    override fun <E> Task<E>.callOnRunning(action: (WorkerStateEvent) -> Unit) =
-        onRunning(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onScheduled() {
+        task.onScheduled(Dispatchers.Unconfined) {
+            assertEquals(task, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_SCHEDULED, it.eventType)
+        }
+        task.onScheduled.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_SCHEDULED))
+    }
 
-    override fun <E> Task<E>.callOnSucceeded(action: (WorkerStateEvent) -> Unit) =
-        onSucceeded(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onRunning() {
+        task.onRunning(Dispatchers.Unconfined) {
+            assertEquals(task, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_RUNNING, it.eventType)
+        }
+        task.onRunning.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_RUNNING))
+    }
 
-    override fun <E> Task<E>.callOnCancelled(action: (WorkerStateEvent) -> Unit) =
-        onCancelled(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onSucceeded() {
+        task.onSucceeded(Dispatchers.Unconfined) {
+            assertEquals(task, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_SUCCEEDED, it.eventType)
+        }
+        task.onSucceeded.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_SUCCEEDED))
+    }
 
-    override fun <E> Task<E>.callOnFailed(action: (WorkerStateEvent) -> Unit) =
-        onFailed(Dispatchers.Unconfined) { action(it) }
+    @Test
+    fun onCancelled() {
+        task.onCancelled(Dispatchers.Unconfined) {
+            assertEquals(task, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_CANCELLED, it.eventType)
+        }
+        task.onCancelled.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_CANCELLED))
+    }
+
+    @Test
+    fun onFailed() {
+        task.onFailed(Dispatchers.Unconfined) {
+            assertEquals(task, it.source)
+            assertEquals(WorkerStateEvent.WORKER_STATE_FAILED, it.eventType)
+        }
+        task.onFailed.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_FAILED))
+    }
+
+    class HelloWorldTask : Task<String>() {
+        override fun call() = "Hello world"
+    }
 }

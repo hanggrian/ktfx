@@ -1,6 +1,6 @@
 package ktfx.dialogs
 
-import com.hendraanggrian.ktfx.test.DialogShowingTest
+import com.hanggrian.ktfx.test.DialogShowingTest
 import javafx.scene.control.ButtonType
 import kotlin.test.Ignore
 import kotlin.test.Test

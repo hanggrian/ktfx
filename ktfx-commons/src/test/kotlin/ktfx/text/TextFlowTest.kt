@@ -13,16 +13,20 @@ class TextFlowTest {
             TextFlow().append("I have ").append(3).append(" little piggies").text,
         )
         assertEquals(
-            StringBuilder().append("Here is ")
+            StringBuilder()
+                .append("Here is ")
                 .append(null as String?)
                 .append(" String and ")
                 .append(null as Any?)
-                .append(" Object").toString(),
-            TextFlow().append("Here is ")
+                .append(" Object")
+                .toString(),
+            TextFlow()
+                .append("Here is ")
                 .append(null as String?)
                 .append(" String and ")
                 .append(null as Any?)
-                .append(" Object").text,
+                .append(" Object")
+                .text,
         )
     }
 
@@ -37,16 +41,20 @@ class TextFlowTest {
             TextFlow().appendLine("A wolf just ate").appendLine(2).append("of them").text,
         )
         assertEquals(
-            StringBuilder().appendLine("Here is ")
+            StringBuilder()
+                .appendLine("Here is ")
                 .appendLine(null as String?)
                 .appendLine(" String and ")
                 .appendLine(null as Any?)
-                .appendLine(" Object").toString(),
-            TextFlow().appendLine("Here is ")
+                .appendLine(" Object")
+                .toString(),
+            TextFlow()
+                .appendLine("Here is ")
                 .appendLine(null as String?)
                 .appendLine(" String and ")
                 .appendLine(null as Any?)
-                .appendLine(" Object").text,
+                .appendLine(" Object")
+                .text,
         )
     }
 

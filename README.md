@@ -1,6 +1,6 @@
 [![CircleCI](https://img.shields.io/circleci/build/gh/hanggrian/ktfx)](https://app.circleci.com/pipelines/github/hanggrian/ktfx/)
 [![Codecov](https://img.shields.io/codecov/c/gh/hanggrian/ktfx)](https://app.codecov.io/gh/hanggrian/ktfx/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.hanggrian/ktfx)](https://repo1.maven.org/maven2/com/hanggrian/ktfx/)
+[![Maven Central](https://img.shields.io/maven-central/v/com.hanggrian.ktfx/ktfx)](https://repo1.maven.org/maven2/com/hanggrian/ktfx/ktfx/)
 [![OpenJDK](https://img.shields.io/badge/jdk-17%2B-informational)](https://openjdk.org/projects/jdk/17/)
 
 # KtFX
@@ -12,7 +12,7 @@ JavaFX app development less painful with the help of Kotlin technologies.
 - Write dynamic layout with Kotlin DSL.
 - Use coroutines directly from JavaFX API.
 
-## [Download](https://github.com/hendraanggrian/ktfx/wiki/Download/)
+## [Download](https://github.com/hanggrian/ktfx/wiki/Download/)
 
 ```gradle
 repositories {
@@ -20,22 +20,20 @@ repositories {
 }
 dependencies {
     // all the main artifacts combined
-    compile "com.hendraanggrian.ktfx:ktfx:$version"
+    compile "com.hanggrian.ktfx:ktfx:$version"
 
     // or download separately
-    compile "com.hendraanggrian.ktfx:ktfx-commons:$version"
-    compile "com.hendraanggrian.ktfx:ktfx-layouts:$version"
-    compile "com.hendraanggrian.ktfx:ktfx-coroutines:$version"
+    compile "com.hanggrian.ktfx:ktfx-commons:$version"
+    compile "com.hanggrian.ktfx:ktfx-layouts:$version"
+    compile "com.hanggrian.ktfx:ktfx-coroutines:$version"
 
     // third-party artifacts, also available individually
-    compile "com.hendraanggrian.ktfx:ktfx-controlsfx:$version"
-    compile "com.hendraanggrian.ktfx:ktfx-jfoenix:$version"
+    compile "com.hanggrian.ktfx:ktfx-controlsfx:$version"
+    compile "com.hanggrian.ktfx:ktfx-jfoenix:$version"
 }
 ```
 
-Snapshots of the development version are available in [Sonatype's snapshots repository](https://s01.oss.sonatype.org/content/repositories/snapshots/).
-
-## [Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons-–-Threads/)
+## [Ktfx Commons](https://github.com/hanggrian/ktfx/wiki/Ktfx-Commons-–-Threads/)
 
 Full of extensions for JavaFX, packaged accordingly. The main goal of core
 library is not to add any new feature to the existing JavaFX APIs. Below are
@@ -110,7 +108,7 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-## [Ktfx Layouts](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Layouts/)
+## [Ktfx Layouts](https://github.com/hanggrian/ktfx/wiki/Ktfx-Layouts/)
 
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a
 direct replacement of FXML files.
@@ -130,9 +128,9 @@ gridPane {
 }
 ```
 
-![Layouts preview.](https://github.com/hendraanggrian/ktfx/raw/assets/preview_layouts.png)
+![Layouts preview.](https://github.com/hanggrian/ktfx/raw/assets/preview_layouts.png)
 
-## [Ktfx Coroutines](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines/)
+## [Ktfx Coroutines](https://github.com/hanggrian/ktfx/wiki/Ktfx-Coroutines/)
 
 Based on the [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 library, it allows invoking JavaFX `EventHandler` the coroutine way.

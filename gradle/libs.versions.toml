@@ -24,9 +24,11 @@ kotlinx-coroutines-javafx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines
 controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx" }
 jfoenix = { module = "com.jfoenix:jfoenix", version.ref = "jfoenix" }
 commons-lang3 = "org.apache.commons:commons-lang3:3.13.0"
-commons-math3 = "org.apache.commons:commons-math3:3.6.1"
 kotlinpoet-dsl = "com.hanggrian:kotlinpoet-dsl:0.1"
 # test
 truth = "com.google.truth:truth:1.4.4"
 testfx-junit = "org.testfx:testfx-junit:4.0.18"
 testfx-monocle = "org.testfx:openjfx-monocle:17.0.10"
+
+[bundles]
+testfx = ["testfx-junit", "testfx-monocle"]

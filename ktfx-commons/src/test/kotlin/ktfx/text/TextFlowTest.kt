@@ -7,6 +7,23 @@ import kotlin.test.assertEquals
 
 class TextFlowTest {
     @Test
+    fun set() {
+        val flow = TextFlow()
+        flow.children += Text("Hello")
+        flow[0] = "World"
+        assertEquals("World", flow.text)
+    }
+
+    @Test
+    fun clear() {
+        val flow = TextFlow()
+        flow.children += Text("Hello")
+        flow.children += Text("World")
+        flow.clear()
+        assertEquals(0, flow.children.size)
+    }
+
+    @Test
     fun append() {
         assertEquals(
             "I have 3 little piggies",

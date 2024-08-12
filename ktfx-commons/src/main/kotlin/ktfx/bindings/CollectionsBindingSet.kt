@@ -25,10 +25,10 @@ inline fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit =
     Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableSet]. */
-inline fun <E> ObservableSet<E>.size(): IntegerBinding = Bindings.size(this)
+inline val <E> ObservableSet<E>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is empty. */
-inline val <E> ObservableSet<E>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <E> ObservableSet<E>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is not empty. */
-inline val <E> ObservableSet<E>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <E> ObservableSet<E>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)

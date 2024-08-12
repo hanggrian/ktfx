@@ -26,14 +26,6 @@ inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): Boole
     Bindings.or(this, other)
 
 /**
- * Creates a [BooleanBinding] that calculates the conditional-OR
- * operation on the value of two instance of [ObservableBooleanValue].
- *
- * @see BooleanExpression.not
- */
-inline operator fun ObservableBooleanValue.not(): BooleanBinding = Bindings.not(this)
-
-/**
  * Creates a new [BooleanBinding] that holds `true`
  * if the values of two instances of [ObservableBooleanValue] are equal.
  *

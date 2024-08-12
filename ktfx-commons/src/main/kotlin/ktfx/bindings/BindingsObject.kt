@@ -31,127 +31,127 @@ fun <T> bindingOf(dependencies: Collection<Observable>, valueProvider: () -> T?)
     bindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [ObjectBinding] with single [ObservableList] dependency. */
-fun <E, T> ObservableList<E>.asAny(valueProvider: (List<E>) -> T?): ObjectBinding<T> =
+fun <E, T> ObservableList<E>.bindingBy(valueProvider: (List<E>) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny)
+        override fun computeValue(): T? = valueProvider(this@bindingBy)
 
-        override fun getDependencies(): ObservableList<*> = this@asAny
+        override fun getDependencies(): ObservableList<*> = this@bindingBy
     }
 
 /** Create an [ObjectBinding] with single [ObservableSet] dependency. */
-fun <E, T> ObservableSet<E>.asAny(valueProvider: (Set<E>) -> T?): ObjectBinding<T> =
+fun <E, T> ObservableSet<E>.bindingBy(valueProvider: (Set<E>) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny)
+        override fun computeValue(): T? = valueProvider(this@bindingBy)
 
-        override fun getDependencies(): ObservableList<*> = this@asAny.toObservableList()
+        override fun getDependencies(): ObservableList<*> = this@bindingBy.toObservableList()
     }
 
 /** Create an [ObjectBinding] with single [ObservableMap] dependency. */
-fun <K, V, T> ObservableMap<K, V>.asAny(valueProvider: (Map<K, V>) -> T?): ObjectBinding<T> =
+fun <K, V, T> ObservableMap<K, V>.bindingBy(valueProvider: (Map<K, V>) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny)
+        override fun computeValue(): T? = valueProvider(this@bindingBy)
 
-        override fun getDependencies(): ObservableList<*> = this@asAny.keys.toObservableList()
+        override fun getDependencies(): ObservableList<*> = this@bindingBy.keys.toObservableList()
     }
 
 /** Create an [ObjectBinding] with single [ObservableObjectValue] dependency. */
-fun <V, T> ObservableObjectValue<V>.asAny(valueProvider: (V?) -> T?): ObjectBinding<T> =
+fun <V, T> ObservableObjectValue<V>.bindingBy(valueProvider: (V?) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }
 
 /** Create an [ObjectBinding] with single [ObservableBooleanValue] dependency. */
-fun <T> ObservableBooleanValue.asAny(valueProvider: (Boolean) -> T?): ObjectBinding<T> =
+fun <T> ObservableBooleanValue.bindingBy(valueProvider: (Boolean) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }
 
 /** Create an [ObjectBinding] with single [ObservableDoubleValue] dependency. */
-fun <T> ObservableDoubleValue.asAny(valueProvider: (Double) -> T?): ObjectBinding<T> =
+fun <T> ObservableDoubleValue.bindingBy(valueProvider: (Double) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value as Double)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value as Double)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }
 
 /** Create an [ObjectBinding] with single [ObservableFloatValue] dependency. */
-fun <T> ObservableFloatValue.asAny(valueProvider: (Float) -> T?): ObjectBinding<T> =
+fun <T> ObservableFloatValue.bindingBy(valueProvider: (Float) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value as Float)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value as Float)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }
 
 /** Create an [ObjectBinding] with single [ObservableIntegerValue] dependency. */
-fun <T> ObservableIntegerValue.asAny(valueProvider: (Int) -> T?): ObjectBinding<T> =
+fun <T> ObservableIntegerValue.bindingBy(valueProvider: (Int) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value as Int)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value as Int)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }
 
 /** Create an [ObjectBinding] with single [ObservableLongValue] dependency. */
-fun <T> ObservableLongValue.asAny(valueProvider: (Long) -> T?): ObjectBinding<T> =
+fun <T> ObservableLongValue.bindingBy(valueProvider: (Long) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
-            bind(this@asAny)
+            bind(this@bindingBy)
         }
 
-        override fun dispose(): Unit = unbind(this@asAny)
+        override fun dispose(): Unit = unbind(this@bindingBy)
 
-        override fun computeValue(): T? = valueProvider(this@asAny.value as Long)
+        override fun computeValue(): T? = valueProvider(this@bindingBy.value as Long)
 
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@asAny)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@bindingBy)
     }

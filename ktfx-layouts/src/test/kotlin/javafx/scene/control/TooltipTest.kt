@@ -8,7 +8,8 @@ import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class TooltipTest {
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun node() {

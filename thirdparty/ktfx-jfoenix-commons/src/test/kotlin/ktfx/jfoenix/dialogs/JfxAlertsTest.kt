@@ -2,7 +2,7 @@ package ktfx.jfoenix.dialogs
 
 import com.hanggrian.ktfx.test.DialogShowingTest
 import javafx.scene.control.ButtonType.CLOSE
-import ktfx.callbackOf
+import javafx.util.Callback
 import ktfx.dialogs.buttons
 import kotlin.test.Ignore
 import kotlin.test.Test
@@ -21,7 +21,7 @@ class JfxAlertsTest : DialogShowingTest() {
                         assertEquals("Jfoenix alert", title)
                         assertEquals(sampleGraphic, graphic)
                         buttons.add(CLOSE)
-                        resultConverter = callbackOf { it.text }
+                        resultConverter = Callback { it.text }
                     }.get(),
             )
         }

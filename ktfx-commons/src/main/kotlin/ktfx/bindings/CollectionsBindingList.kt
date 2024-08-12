@@ -4,7 +4,6 @@
 
 package ktfx.bindings
 
-import javafx.beans.binding.Binding
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.DoubleBinding
@@ -34,13 +33,13 @@ inline fun <E> List<E>.unbindContent(other: ObservableList<E>): Unit =
     Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableList]. */
-inline fun <E> ObservableList<E>.size(): IntegerBinding = Bindings.size(this)
+inline val <E> ObservableList<E>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is empty. */
-inline val <E> ObservableList<E>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <E> ObservableList<E>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is not empty. */
-inline val <E> ObservableList<E>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <E> ObservableList<E>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
 
 /**
  * Creates a new [ObjectBinding] that contains the element of an [ObservableList] at the specified
@@ -188,25 +187,3 @@ inline fun ObservableList<String>.getBinding(index: ObservableNumberValue): Stri
  */
 inline fun ObservableList<String>.getBinding(index: ObservableIntegerValue): StringBinding =
     Bindings.stringValueAt(this, index)
-
-/**
- * Performs the given [action] on each element.
- *
- * @see List.forEach
- */
-inline fun <E> ObservableList<E>.forEachBinding(action: (Binding<E>) -> Unit) {
-    for (index in 0 until size) {
-        action(getBinding(index))
-    }
-}
-
-/**
- * Performs the given [action] on each element, providing sequential index with the element.
- *
- * @see List.forEachIndexed
- */
-inline fun <E> ObservableList<E>.forEachBindingIndexed(action: (index: Int, Binding<E>) -> Unit) {
-    for (index in 0 until size) {
-        action(index, getBinding(index))
-    }
-}

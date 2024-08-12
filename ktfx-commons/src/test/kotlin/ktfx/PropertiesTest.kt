@@ -1,6 +1,10 @@
 package ktfx
 
+import com.google.common.truth.Truth.assertThat
 import javafx.beans.property.ReadOnlyObjectWrapper
+import ktfx.collections.observableListOf
+import ktfx.collections.observableMapOf
+import ktfx.collections.observableSetOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -34,5 +38,20 @@ class PropertiesTest {
     fun long() {
         assertEquals(0L, propertyOf(0L).asPrimitive().value)
         assertEquals(0L, ReadOnlyObjectWrapper(0L).readOnlyProperty.asPrimitive().value)
+    }
+
+    @Test
+    fun list() {
+        assertThat(listPropertyOf(observableListOf(0))).containsExactly(0)
+    }
+
+    @Test
+    fun set() {
+        assertThat(setPropertyOf(observableSetOf(0))).containsExactly(0)
+    }
+
+    @Test
+    fun map() {
+        assertThat(mapPropertyOf(observableMapOf(0 to ""))).containsExactly(0, "")
     }
 }

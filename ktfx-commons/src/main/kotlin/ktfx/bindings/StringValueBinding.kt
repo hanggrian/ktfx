@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("StringValueBindingKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
@@ -157,14 +155,14 @@ inline infix fun String.lessEq(other: ObservableStringValue): BooleanBinding =
 /**
  * @see StringExpression.length
  */
-inline fun ObservableStringValue.length(): IntegerBinding = Bindings.length(this)
+inline val ObservableStringValue.sizeBinding: IntegerBinding get() = Bindings.length(this)
 
 /**
  * @see StringExpression.isEmpty
  */
-inline fun ObservableStringValue.isEmpty(): BooleanBinding = Bindings.isEmpty(this)
+inline val ObservableStringValue.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /**
  * @see StringExpression.isNotEmpty
  */
-inline fun ObservableStringValue.isNotEmpty(): BooleanBinding = Bindings.isNotEmpty(this)
+inline val ObservableStringValue.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)

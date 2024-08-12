@@ -17,7 +17,8 @@ import kotlin.test.assertTrue
 class BordersTest {
     private lateinit var region: Region
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         region = Region()
     }

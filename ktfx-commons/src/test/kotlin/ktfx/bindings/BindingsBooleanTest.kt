@@ -17,7 +17,7 @@ import kotlin.test.assertTrue
 
 class BindingsBooleanTest {
     @Test
-    fun multipleDependencies() {
+    fun booleanBindingOf() {
         val dependency1 = booleanPropertyOf(true)
         val dependency2 = booleanPropertyOf(true)
         val binding1 =
@@ -40,83 +40,59 @@ class BindingsBooleanTest {
     }
 
     @Test
-    fun listDependency() {
-        val dependency = mutableObservableListOf(1.m)
-        val binding = dependency.asBoolean { it.isNotEmpty() }
-        assertTrue(binding.value)
-        dependency.clear()
-        assertFalse(binding.value)
-    }
+    fun booleanBindingBy() {
+        val dependency1 = mutableObservableListOf(1.m)
+        val binding1 = dependency1.booleanBindingBy { it.isNotEmpty() }
+        assertTrue(binding1.value)
+        dependency1.clear()
+        assertFalse(binding1.value)
 
-    @Test
-    fun setDependency() {
-        val dependency = mutableObservableSetOf(1.m)
-        val binding = dependency.asBoolean { it.isNotEmpty() }
-        assertTrue(binding.value)
-        dependency.clear()
-        assertFalse(binding.value)
-    }
+        val dependency2 = mutableObservableSetOf(1.m)
+        val binding2 = dependency2.booleanBindingBy { it.isNotEmpty() }
+        assertTrue(binding2.value)
+        dependency2.clear()
+        assertFalse(binding2.value)
 
-    @Test
-    fun mapDependency() {
-        val dependency = mutableObservableMapOf(1.m to 2.m)
-        val binding = dependency.asBoolean { it.isNotEmpty() }
-        assertTrue(binding.value)
-        dependency.clear()
-        assertFalse(binding.value)
-    }
+        val dependency3 = mutableObservableMapOf(1.m to 2.m)
+        val binding3 = dependency3.booleanBindingBy { it.isNotEmpty() }
+        assertTrue(binding3.value)
+        dependency3.clear()
+        assertFalse(binding3.value)
 
-    @Test
-    fun anyDependency() {
-        val dependency = propertyOf(1.m)
-        val binding = dependency.asBoolean { it == 60.s }
-        assertTrue(binding.value)
-        dependency.value = null
-        assertFalse(binding.value)
-    }
+        val dependency4 = propertyOf(1.m)
+        val binding4 = dependency4.booleanBindingBy { it == 60.s }
+        assertTrue(binding4.value)
+        dependency4.value = null
+        assertFalse(binding4.value)
 
-    @Test
-    fun booleanDependency() {
-        val dependency = booleanPropertyOf()
-        val binding = dependency.asBoolean { !it }
-        assertTrue(binding.value)
-        dependency.value = true
-        assertFalse(binding.value)
-    }
+        val dependency5 = booleanPropertyOf()
+        val binding5 = dependency5.booleanBindingBy { !it }
+        assertTrue(binding5.value)
+        dependency5.value = true
+        assertFalse(binding5.value)
 
-    @Test
-    fun doubleDependency() {
-        val dependency = doublePropertyOf()
-        val binding = dependency.asBoolean { it == 0.0 }
-        assertTrue(binding.value)
-        dependency.value = Double.MAX_VALUE
-        assertFalse(binding.value)
-    }
+        val dependency6 = doublePropertyOf()
+        val binding6 = dependency6.booleanBindingBy { it == 0.0 }
+        assertTrue(binding6.value)
+        dependency6.value = Double.MAX_VALUE
+        assertFalse(binding6.value)
 
-    @Test
-    fun floatDependency() {
-        val dependency = floatPropertyOf()
-        val binding = dependency.asBoolean { it == 0f }
-        assertTrue(binding.value)
-        dependency.value = Float.MAX_VALUE
-        assertFalse(binding.value)
-    }
+        val dependency7 = floatPropertyOf()
+        val binding7 = dependency7.booleanBindingBy { it == 0f }
+        assertTrue(binding7.value)
+        dependency7.value = Float.MAX_VALUE
+        assertFalse(binding7.value)
 
-    @Test
-    fun intDependency() {
-        val dependency = intPropertyOf()
-        val binding = dependency.asBoolean { it == 0 }
-        assertTrue(binding.value)
-        dependency.value = Int.MAX_VALUE
-        assertFalse(binding.value)
-    }
+        val dependency8 = intPropertyOf()
+        val binding8 = dependency8.booleanBindingBy { it == 0 }
+        assertTrue(binding8.value)
+        dependency8.value = Int.MAX_VALUE
+        assertFalse(binding8.value)
 
-    @Test
-    fun longDependency() {
-        val dependency = longPropertyOf()
-        val binding = dependency.asBoolean { it == 0L }
-        assertTrue(binding.value)
-        dependency.value = Long.MAX_VALUE
-        assertFalse(binding.value)
+        val dependency9 = longPropertyOf()
+        val binding9 = dependency9.booleanBindingBy { it == 0L }
+        assertTrue(binding9.value)
+        dependency9.value = Long.MAX_VALUE
+        assertFalse(binding9.value)
     }
 }

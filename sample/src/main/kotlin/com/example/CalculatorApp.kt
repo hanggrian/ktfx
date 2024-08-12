@@ -3,8 +3,8 @@ package com.example
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
-import ktfx.bindings.asBoolean
-import ktfx.bindings.asString
+import ktfx.bindings.booleanBindingBy
+import ktfx.bindings.stringBindingBy
 import ktfx.controls.insetsOf
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
@@ -35,7 +35,7 @@ class CalculatorApp : Application() {
                     calculationLabel = label("")
 
                     resultLabel = label {
-                        textProperty().bind(calculationLabel.textProperty().asString {
+                        textProperty().bind(calculationLabel.textProperty().stringBindingBy {
                             if (endsWithOperator(calculationLabel.text)) "..." else {
                                 val operators = calculationLabel.text
                                     .split("\\d".toRegex())
@@ -142,7 +142,7 @@ class CalculatorApp : Application() {
                 button("=") {
                     setMinSize(40.0, 40.0)
                     isDefaultButton = true
-                    disableProperty().bind(calculationLabel.textProperty().asBoolean(::endsWithOperator))
+                    disableProperty().bind(calculationLabel.textProperty().booleanBindingBy(::endsWithOperator))
                     onAction { infoAlert("Result", content = resultLabel.text) }
                 }.grid(4, 4)
             }

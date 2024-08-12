@@ -9,7 +9,8 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 class ContextMenuTest {
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun stringInvocation() {

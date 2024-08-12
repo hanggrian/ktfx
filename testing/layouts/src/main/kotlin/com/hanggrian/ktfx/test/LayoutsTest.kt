@@ -8,7 +8,8 @@ import kotlin.test.assertEquals
 abstract class LayoutsTest<M : Any, C> {
     private lateinit var manager: M
 
-    @BeforeTest open fun onCreate() {
+    @BeforeTest
+    open fun onCreate() {
         initToolkit()
         manager = manager()
     }

@@ -9,7 +9,8 @@ import kotlin.test.Test
 class JfxAnimationTimerTest {
     private lateinit var timer: JFXAnimationTimer
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         timer = JFXAnimationTimer()
     }

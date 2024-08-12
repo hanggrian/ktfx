@@ -53,12 +53,12 @@ inline infix fun Any.neq(other: ObservableObjectValue<*>): BooleanBinding =
 /**
  * @see ObjectExpression.isNull
  */
-inline fun ObservableObjectValue<*>.isNull(): BooleanBinding = Bindings.isNull(this)
+inline val ObservableObjectValue<*>.nullBinding: BooleanBinding get() = Bindings.isNull(this)
 
 /**
  * @see ObjectExpression.isNotNull
  */
-inline fun ObservableObjectValue<*>.isNotNull(): BooleanBinding = Bindings.isNotNull(this)
+inline val ObservableObjectValue<*>.notNullBinding: BooleanBinding get() = Bindings.isNotNull(this)
 
 /** Creates an object binding used to get a member. */
 inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)

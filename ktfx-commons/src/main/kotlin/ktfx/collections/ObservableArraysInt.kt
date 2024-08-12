@@ -42,7 +42,7 @@ inline fun IntArray.toObservableArray(): ObservableIntegerArray =
     FXCollections.observableIntegerArray(*this)
 
 /** Returns an array containing copy of the observable array. */
-fun ObservableIntegerArray.toFloatArray(): IntArray = toArray(IntArray(size()))
+fun ObservableIntegerArray.toIntArray(): IntArray = toArray(IntArray(size()))
 
 /**
  * Returns new observable array which is a copy of the original array.

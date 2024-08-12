@@ -13,7 +13,8 @@ import kotlin.test.assertEquals
 class PopupWindowTest {
     private lateinit var window: PopupWindow
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         window = ContextMenu()
     }

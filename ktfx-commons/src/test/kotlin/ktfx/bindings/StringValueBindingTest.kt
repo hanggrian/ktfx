@@ -64,5 +64,29 @@ class StringValueBindingTest {
     }
 
     @Test
-    fun length() = assertEquals(5, (stringPropertyOf("Hello").length().value))
+    fun sizeBinding() {
+        val property = stringPropertyOf("A")
+        val binding = property.sizeBinding
+        assertEquals(1, binding.value)
+        property.set("")
+        assertEquals(0, binding.value)
+    }
+
+    @Test
+    fun emptyBinding() {
+        val property = stringPropertyOf("A")
+        val binding = property.emptyBinding
+        assertFalse(binding.value)
+        property.set("")
+        assertTrue(binding.value)
+    }
+
+    @Test
+    fun notEmptyBinding() {
+        val property = stringPropertyOf("A")
+        val binding = property.notEmptyBinding
+        assertTrue(binding.value)
+        property.set("")
+        assertFalse(binding.value)
+    }
 }

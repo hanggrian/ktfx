@@ -23,8 +23,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(view =
-        view, item = item) { }
+public inline fun <T> NodeContainer.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> =
+        jfxChip(view = view, item = item) { }
 
 /**
  * Create a [JFXChip] with configuration block.
@@ -32,7 +32,7 @@ public fun <T> NodeContainer.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> 
  *
  * @return the control created.
  */
-public inline fun <T> jfxChip(
+public fun <T> jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun <T> jfxChip(
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxChip(
+public fun <T> NodeContainer.jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit,
@@ -67,12 +67,12 @@ public inline fun <T> NodeContainer.jfxChip(
  *
  * @return the styled control created.
  */
-public fun <T> styledJFXChip(
+public inline fun <T> styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
     id: String? = null,
-): JFXChip<T> = styledJFXChip(view = view, item = item, styleClass = *styleClass, id = id) { }
+): JFXChip<T> = styledJfxChip(view = view, item = item, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXChip] to this container.
@@ -81,12 +81,12 @@ public fun <T> styledJFXChip(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXChip(
+public inline fun <T> NodeContainer.styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
     id: String? = null,
-): JFXChip<T> = styledJFXChip(view = view, item = item, styleClass = *styleClass, id = id) { }
+): JFXChip<T> = styledJfxChip(view = view, item = item, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXChip] with configuration block.
@@ -96,7 +96,7 @@ public fun <T> NodeContainer.styledJFXChip(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledJFXChip(
+public fun <T> styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -119,7 +119,7 @@ public inline fun <T> styledJFXChip(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXChip(
+public fun <T> NodeContainer.styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

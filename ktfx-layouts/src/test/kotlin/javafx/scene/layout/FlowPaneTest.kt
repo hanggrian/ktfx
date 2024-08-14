@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.geometry.Orientation
 import javafx.scene.layout.FlowPane
 import ktfx.controls.insetsOf
@@ -8,16 +8,18 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class FlowPaneTest : LayoutsTest<KtfxPane, FlowPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class FlowPaneTest : LayoutsStyledTest<KtfxPane, FlowPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): FlowPane = flowPane { }
+    override fun child1() = flowPane {}
 
-    override fun KtfxPane.child2(): FlowPane = flowPane()
+    override fun KtfxPane.child2() = flowPane()
 
-    override fun KtfxPane.child3(): FlowPane = flowPane { }
+    override fun child3() = styledFlowPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledFlowPane(styleClass = arrayOf("style"))
 
     override fun FlowPane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)

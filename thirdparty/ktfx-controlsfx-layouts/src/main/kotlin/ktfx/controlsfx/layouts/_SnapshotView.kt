@@ -22,7 +22,7 @@ import org.controlsfx.control.SnapshotView
  *
  * @return the control added.
  */
-public fun NodeContainer.snapshotView(): SnapshotView = snapshotView() { }
+public inline fun NodeContainer.snapshotView(): SnapshotView = snapshotView() { }
 
 /**
  * Create a [SnapshotView] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.snapshotView(): SnapshotView = snapshotView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
+public fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
         SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -44,7 +44,7 @@ public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshot
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarker
         KtfxSnapshotView).() -> Unit): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarke
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
-        styledSnapshotView(styleClass = *styleClass, id = id) { }
+public inline fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
+        styledSnapshotView(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [SnapshotView] to this container.
@@ -69,8 +69,8 @@ public fun styledSnapshotView(vararg styleClass: String, id: String? = null): Sn
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSnapshotView(vararg styleClass: String, id: String? = null):
-        SnapshotView = styledSnapshotView(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledSnapshotView(vararg styleClass: String, id: String? = null):
+        SnapshotView = styledSnapshotView(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [SnapshotView] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledSnapshotView(vararg styleClass: String, id: Strin
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledSnapshotView(
+public fun styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledSnapshotView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledSnapshotView(
+public fun NodeContainer.styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit,

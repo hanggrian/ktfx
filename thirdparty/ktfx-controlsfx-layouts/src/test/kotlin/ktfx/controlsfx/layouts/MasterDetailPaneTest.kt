@@ -1,6 +1,6 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.geometry.Side
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.pane
@@ -10,16 +10,18 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
-class MasterDetailPaneTest : LayoutsTest<KtfxPane, MasterDetailPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class MasterDetailPaneTest : LayoutsStyledTest<KtfxPane, MasterDetailPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): MasterDetailPane = masterDetailPane { }
+    override fun child1() = masterDetailPane {}
 
-    override fun KtfxPane.child2(): MasterDetailPane = masterDetailPane()
+    override fun KtfxPane.child2() = masterDetailPane()
 
-    override fun KtfxPane.child3(): MasterDetailPane = masterDetailPane { }
+    override fun child3() = styledMasterDetailPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledMasterDetailPane(styleClass = arrayOf("style"))
 
     override fun MasterDetailPane.testDefaultValues() {
         assertEquals(Side.RIGHT, detailSide)

@@ -13,7 +13,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Create a [Tooltip] with configuration block. */
-inline fun tooltip(
+public inline fun tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
@@ -22,10 +22,11 @@ inline fun tooltip(
 }
 
 /** Set a [Tooltip] to this [Node]. */
-fun Node.tooltip(text: String? = null): Tooltip = Tooltip(text).also { Tooltip.install(this, it) }
+public fun Node.tooltip(text: String? = null): Tooltip =
+    Tooltip(text).also { Tooltip.install(this, it) }
 
 /** Set a [Tooltip] with configuration block to this [Node]. */
-inline fun Node.tooltip(
+public inline fun Node.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
@@ -34,10 +35,10 @@ inline fun Node.tooltip(
 }
 
 /** Set a [Tooltip] to this [Control]. */
-fun Control.tooltip(text: String? = null): Tooltip = Tooltip(text).also { tooltip = it }
+public fun Control.tooltip(text: String? = null): Tooltip = Tooltip(text).also { tooltip = it }
 
 /** Set a [Tooltip] with configuration block to this [Control]. */
-inline fun Control.tooltip(
+public inline fun Control.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
@@ -46,10 +47,10 @@ inline fun Control.tooltip(
 }
 
 /** Set a [Tooltip] to this [Tab]. */
-fun Tab.tooltip(text: String? = null): Tooltip = Tooltip(text).also { tooltip = it }
+public fun Tab.tooltip(text: String? = null): Tooltip = Tooltip(text).also { tooltip = it }
 
 /** Set a [Tooltip] with configuration block to this [Tab]. */
-inline fun Tab.tooltip(
+public inline fun Tab.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {

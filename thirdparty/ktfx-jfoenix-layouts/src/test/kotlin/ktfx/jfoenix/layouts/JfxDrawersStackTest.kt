@@ -1,17 +1,19 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXDrawersStack
 import ktfx.layouts.KtfxPane
 
-class JfxDrawersStackTest : LayoutsTest<KtfxPane, JFXDrawersStack>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxDrawersStackTest : LayoutsStyledTest<KtfxPane, JFXDrawersStack>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXDrawersStack = jfxDrawersStack { }
+    override fun child1() = jfxDrawersStack {}
 
-    override fun KtfxPane.child2(): JFXDrawersStack = jfxDrawersStack()
+    override fun KtfxPane.child2() = jfxDrawersStack()
 
-    override fun KtfxPane.child3(): JFXDrawersStack = jfxDrawersStack { }
+    override fun child3() = styledJfxDrawersStack(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxDrawersStack(styleClass = arrayOf("style"))
 }

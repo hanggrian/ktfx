@@ -22,7 +22,7 @@ import org.controlsfx.control.PrefixSelectionComboBox
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
+public inline fun <T> NodeContainer.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
         prefixSelectionComboBox() { }
 
 /**
@@ -31,7 +31,7 @@ public fun <T> NodeContainer.prefixSelectionComboBox(): PrefixSelectionComboBox<
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
+public fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>).() -> Unit): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionComboBox<T>()
@@ -45,7 +45,7 @@ public inline fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMark
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
+public fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>).() -> Unit): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionComboBox<T>()
@@ -60,9 +60,9 @@ public inline fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@Ktf
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
-        PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(styleClass = *styleClass, id =
-        id) { }
+public inline fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
+        PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(styleClass = styleClass, id = id)
+        { }
 
 /**
  * Add a styled [PrefixSelectionComboBox] to this container.
@@ -71,9 +71,9 @@ public fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: Stri
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledPrefixSelectionComboBox(vararg styleClass: String, id: String? =
-        null): PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(styleClass = *styleClass,
-        id = id) { }
+public inline fun <T> NodeContainer.styledPrefixSelectionComboBox(vararg styleClass: String,
+        id: String? = null): PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(styleClass =
+        styleClass, id = id) { }
 
 /**
  * Create a styled [PrefixSelectionComboBox] with configuration block.
@@ -83,7 +83,7 @@ public fun <T> NodeContainer.styledPrefixSelectionComboBox(vararg styleClass: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun <T> styledPrefixSelectionComboBox(
+public fun <T> styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit,
@@ -104,7 +104,7 @@ public inline fun <T> styledPrefixSelectionComboBox(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledPrefixSelectionComboBox(
+public fun <T> NodeContainer.styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit,

@@ -21,16 +21,16 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text =
-        text, graphic = graphic) { }
+public inline fun MenuItemContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text
+        = text, graphic = graphic) { }
 
 /**
  * Add a [Menu] to this container.
  *
  * @return the control added.
  */
-public fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text,
-        graphic = graphic) { }
+public inline fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text =
+        text, graphic = graphic) { }
 
 /**
  * Create a [Menu] with configuration block.
@@ -38,7 +38,7 @@ public fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu = 
  *
  * @return the control created.
  */
-public inline fun menu(
+public fun menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -55,7 +55,7 @@ public inline fun menu(
  *
  * @return the control added.
  */
-public inline fun MenuItemContainer.menu(
+public fun MenuItemContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -72,7 +72,7 @@ public inline fun MenuItemContainer.menu(
  *
  * @return the control added.
  */
-public inline fun MenuContainer.menu(
+public fun MenuContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -90,12 +90,12 @@ public inline fun MenuContainer.menu(
  *
  * @return the styled control created.
  */
-public fun styledMenu(
+public inline fun styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Menu] to this container.
@@ -104,12 +104,12 @@ public fun styledMenu(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledMenu(
+public inline fun MenuItemContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Menu] to this container.
@@ -118,12 +118,12 @@ public fun MenuItemContainer.styledMenu(
  *
  * @return the styled control added.
  */
-public fun MenuContainer.styledMenu(
+public inline fun MenuContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Menu] with configuration block.
@@ -133,7 +133,7 @@ public fun MenuContainer.styledMenu(
  *
  * @return the styled control created.
  */
-public inline fun styledMenu(
+public fun styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -156,7 +156,7 @@ public inline fun styledMenu(
  *
  * @return the styled control added.
  */
-public inline fun MenuItemContainer.styledMenu(
+public fun MenuItemContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -179,7 +179,7 @@ public inline fun MenuItemContainer.styledMenu(
  *
  * @return the styled control added.
  */
-public inline fun MenuContainer.styledMenu(
+public fun MenuContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,

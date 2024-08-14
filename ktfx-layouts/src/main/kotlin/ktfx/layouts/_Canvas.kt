@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width =
-        width, height = height) { }
+public inline fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canvas =
+        canvas(width = width, height = height) { }
 
 /**
  * Create a [Canvas] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canv
  *
  * @return the control created.
  */
-public inline fun canvas(
+public fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun canvas(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.canvas(
+public fun NodeContainer.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
@@ -65,12 +65,12 @@ public inline fun NodeContainer.canvas(
  *
  * @return the styled control created.
  */
-public fun styledCanvas(
+public inline fun styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
+): Canvas = styledCanvas(width = width, height = height, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Canvas] to this container.
@@ -79,12 +79,12 @@ public fun styledCanvas(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCanvas(
+public inline fun NodeContainer.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
+): Canvas = styledCanvas(width = width, height = height, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Canvas] with configuration block.
@@ -94,7 +94,7 @@ public fun NodeContainer.styledCanvas(
  *
  * @return the styled control created.
  */
-public inline fun styledCanvas(
+public fun styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -117,7 +117,7 @@ public inline fun styledCanvas(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledCanvas(
+public fun NodeContainer.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,

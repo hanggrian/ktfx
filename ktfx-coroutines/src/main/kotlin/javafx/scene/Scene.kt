@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this scene. */
-fun <E : Event> Scene.eventFilter(
+public fun <E : Event> Scene.eventFilter(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -26,7 +26,7 @@ fun <E : Event> Scene.eventFilter(
         .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this scene. */
-fun <E : Event> Scene.eventHandler(
+public fun <E : Event> Scene.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -35,7 +35,7 @@ fun <E : Event> Scene.eventHandler(
         .also { addEventHandler(type, it) }
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
-fun Scene.capture(
+public fun Scene.capture(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit,

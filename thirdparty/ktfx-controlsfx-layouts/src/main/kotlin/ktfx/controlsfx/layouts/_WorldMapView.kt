@@ -22,7 +22,7 @@ import org.controlsfx.control.WorldMapView
  *
  * @return the control added.
  */
-public fun NodeContainer.worldMapView(): WorldMapView = worldMapView() { }
+public inline fun NodeContainer.worldMapView(): WorldMapView = worldMapView() { }
 
 /**
  * Create a [WorldMapView] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.worldMapView(): WorldMapView = worldMapView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
+public fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
         WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WorldMapView()
@@ -44,7 +44,7 @@ public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarker
         WorldMapView).() -> Unit): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WorldMapView()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarke
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapView =
-        styledWorldMapView(styleClass = *styleClass, id = id) { }
+public inline fun styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapView =
+        styledWorldMapView(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [WorldMapView] to this container.
@@ -69,8 +69,8 @@ public fun styledWorldMapView(vararg styleClass: String, id: String? = null): Wo
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledWorldMapView(vararg styleClass: String, id: String? = null):
-        WorldMapView = styledWorldMapView(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledWorldMapView(vararg styleClass: String, id: String? = null):
+        WorldMapView = styledWorldMapView(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [WorldMapView] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledWorldMapView(vararg styleClass: String, id: Strin
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledWorldMapView(
+public fun styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledWorldMapView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledWorldMapView(
+public fun NodeContainer.styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit,

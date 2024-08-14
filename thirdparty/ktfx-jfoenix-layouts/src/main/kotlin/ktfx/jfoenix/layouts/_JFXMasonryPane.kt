@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
+public inline fun NodeContainer.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
 
 /**
  * Create a [JFXMasonryPane] with configuration block.
@@ -30,8 +30,8 @@ public fun NodeContainer.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
-        KtfxJfxMasonryPane).() -> Unit): JFXMasonryPane {
+public fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit):
+        JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxMasonryPane()
     child.configuration()
@@ -44,7 +44,7 @@ public inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxMasonryPane).() -> Unit): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxMasonryPane()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMar
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
-        styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxMasonryPane(vararg styleClass: String, id: String? = null):
+        JFXMasonryPane = styledJfxMasonryPane(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXMasonryPane] to this container.
@@ -69,8 +69,8 @@ public fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): 
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXMasonryPane(vararg styleClass: String, id: String? = null):
-        JFXMasonryPane = styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxMasonryPane(vararg styleClass: String, id: String? = null):
+        JFXMasonryPane = styledJfxMasonryPane(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXMasonryPane] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledJFXMasonryPane(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXMasonryPane(
+public fun styledJfxMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledJFXMasonryPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXMasonryPane(
+public fun NodeContainer.styledJfxMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit,

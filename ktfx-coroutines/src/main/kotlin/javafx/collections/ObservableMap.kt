@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Add a listener to this observable map. */
-fun <K, V> ObservableMap<K, V>.listener(
+public fun <K, V> ObservableMap<K, V>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
     listener: suspend CoroutineScope.(MapChangeListener.Change<out K, out V>) -> Unit,
 ): MapChangeListener<K, V> =

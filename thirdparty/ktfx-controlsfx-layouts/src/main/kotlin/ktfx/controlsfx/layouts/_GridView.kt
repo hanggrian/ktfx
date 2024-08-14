@@ -24,8 +24,8 @@ import org.controlsfx.control.GridView
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList()): GridView<T>
-        = gridView(items = items) { }
+public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList()):
+        GridView<T> = gridView(items = items) { }
 
 /**
  * Create a [GridView] with configuration block.
@@ -33,7 +33,7 @@ public fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArray
  *
  * @return the control created.
  */
-public inline fun <T> gridView(items: ObservableList<T> = observableArrayList(),
+public fun <T> gridView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = GridView<T>(items)
@@ -47,7 +47,7 @@ public inline fun <T> gridView(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = GridView<T>(items)
@@ -62,11 +62,11 @@ public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observab
  *
  * @return the styled control created.
  */
-public fun <T> styledGridView(
+public inline fun <T> styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): GridView<T> = styledGridView(items = items, styleClass = *styleClass, id = id) { }
+): GridView<T> = styledGridView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [GridView] to this container.
@@ -75,11 +75,11 @@ public fun <T> styledGridView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledGridView(
+public inline fun <T> NodeContainer.styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): GridView<T> = styledGridView(items = items, styleClass = *styleClass, id = id) { }
+): GridView<T> = styledGridView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [GridView] with configuration block.
@@ -89,7 +89,7 @@ public fun <T> NodeContainer.styledGridView(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledGridView(
+public fun <T> styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun <T> styledGridView(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledGridView(
+public fun <T> NodeContainer.styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

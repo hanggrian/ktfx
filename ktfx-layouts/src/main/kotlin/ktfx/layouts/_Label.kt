@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.label(text: String? = null, graphic: Node? = null): Label = label(text =
-        text, graphic = graphic) { }
+public inline fun NodeContainer.label(text: String? = null, graphic: Node? = null): Label =
+        label(text = text, graphic = graphic) { }
 
 /**
  * Create a [Label] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.label(text: String? = null, graphic: Node? = null): Lab
  *
  * @return the control created.
  */
-public inline fun label(
+public fun label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun label(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.label(
+public fun NodeContainer.label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit,
@@ -65,12 +65,12 @@ public inline fun NodeContainer.label(
  *
  * @return the styled control created.
  */
-public fun styledLabel(
+public inline fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Label = styledLabel(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Label] to this container.
@@ -79,12 +79,12 @@ public fun styledLabel(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledLabel(
+public inline fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Label = styledLabel(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Label] with configuration block.
@@ -94,7 +94,7 @@ public fun NodeContainer.styledLabel(
  *
  * @return the styled control created.
  */
-public inline fun styledLabel(
+public fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +117,7 @@ public inline fun styledLabel(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledLabel(
+public fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

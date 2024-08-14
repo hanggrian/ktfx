@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.CheckComboBox
 
-class CheckComboBoxTest : LayoutsTest<KtfxPane, CheckComboBox<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class CheckComboBoxTest : LayoutsStyledTest<KtfxPane, CheckComboBox<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): CheckComboBox<String> = checkComboBox<String> { }
+    override fun child1() = checkComboBox<String> {}
 
-    override fun KtfxPane.child2(): CheckComboBox<String> = checkComboBox<String>()
+    override fun KtfxPane.child2() = checkComboBox<String>()
 
-    override fun KtfxPane.child3(): CheckComboBox<String> = checkComboBox<String> { }
+    override fun child3() = styledCheckComboBox<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledCheckComboBox<String>(styleClass = arrayOf("style"))
 
     override fun CheckComboBox<String>.testDefaultValues() {
         assertThat(items).isEmpty()

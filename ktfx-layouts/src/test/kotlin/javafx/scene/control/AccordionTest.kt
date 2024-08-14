@@ -1,23 +1,25 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.Accordion
 import javafx.scene.control.Label
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : LayoutsTest<KtfxPane, Accordion>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class AccordionTest : LayoutsStyledTest<KtfxPane, Accordion>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Accordion = accordion { }
+    override fun child1() = accordion {}
 
-    override fun KtfxPane.child2(): Accordion = accordion()
+    override fun KtfxPane.child2() = accordion()
 
-    override fun KtfxPane.child3(): Accordion = accordion { }
+    override fun child3() = styledAccordion(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledAccordion(styleClass = arrayOf("style"))
 
     @Test
     fun stringInvocation() {

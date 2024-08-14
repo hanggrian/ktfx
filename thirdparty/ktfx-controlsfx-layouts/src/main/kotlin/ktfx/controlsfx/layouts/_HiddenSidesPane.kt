@@ -22,7 +22,7 @@ import org.controlsfx.control.HiddenSidesPane
  *
  * @return the control added.
  */
-public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
+public inline fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
 
 /**
  * Create a [HiddenSidesPane] with configuration block.
@@ -30,8 +30,8 @@ public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
-        KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
+public fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit):
+        HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHiddenSidesPane()
     child.configuration()
@@ -44,7 +44,7 @@ public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
         KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHiddenSidesPane()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null): HiddenSidesPane =
-        styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
+public inline fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
+        HiddenSidesPane = styledHiddenSidesPane(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [HiddenSidesPane] to this container.
@@ -69,8 +69,8 @@ public fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
-        HiddenSidesPane = styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String, id: String? =
+        null): HiddenSidesPane = styledHiddenSidesPane(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [HiddenSidesPane] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledHiddenSidesPane(
+public fun styledHiddenSidesPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledHiddenSidesPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledHiddenSidesPane(
+public fun NodeContainer.styledHiddenSidesPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,

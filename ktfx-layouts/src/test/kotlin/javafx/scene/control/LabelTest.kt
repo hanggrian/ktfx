@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.Label
 import kotlin.test.assertNull
 
-class LabelTest : LayoutsTest<KtfxPane, Label>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class LabelTest : LayoutsStyledTest<KtfxPane, Label>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Label = label { }
+    override fun child1() = label {}
 
-    override fun KtfxPane.child2(): Label = label()
+    override fun KtfxPane.child2() = label()
 
-    override fun KtfxPane.child3(): Label = label { }
+    override fun child3() = styledLabel(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledLabel(styleClass = arrayOf("style"))
 
     override fun Label.testDefaultValues() {
         assertNull(text)

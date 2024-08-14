@@ -1,17 +1,19 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXClippedPane
 import ktfx.layouts.KtfxPane
 
-class JfxClippedPaneTest : LayoutsTest<KtfxPane, JFXClippedPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxClippedPaneTest : LayoutsStyledTest<KtfxPane, JFXClippedPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXClippedPane = jfxClippedPane { }
+    override fun child1() = jfxClippedPane {}
 
-    override fun KtfxPane.child2(): JFXClippedPane = jfxClippedPane()
+    override fun KtfxPane.child2() = jfxClippedPane()
 
-    override fun KtfxPane.child3(): JFXClippedPane = jfxClippedPane { }
+    override fun child3() = styledJfxClippedPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxClippedPane(styleClass = arrayOf("style"))
 }

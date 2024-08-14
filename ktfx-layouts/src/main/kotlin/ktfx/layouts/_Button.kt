@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.button(text: String? = null, graphic: Node? = null): Button = button(text =
-        text, graphic = graphic) { }
+public inline fun NodeContainer.button(text: String? = null, graphic: Node? = null): Button =
+        button(text = text, graphic = graphic) { }
 
 /**
  * Create a [Button] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.button(text: String? = null, graphic: Node? = null): Bu
  *
  * @return the control created.
  */
-public inline fun button(
+public fun button(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Button).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun button(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.button(
+public fun NodeContainer.button(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Button).() -> Unit,
@@ -65,12 +65,12 @@ public inline fun NodeContainer.button(
  *
  * @return the styled control created.
  */
-public fun styledButton(
+public inline fun styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Button = styledButton(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Button] to this container.
@@ -79,12 +79,12 @@ public fun styledButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledButton(
+public inline fun NodeContainer.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Button = styledButton(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Button] with configuration block.
@@ -94,7 +94,7 @@ public fun NodeContainer.styledButton(
  *
  * @return the styled control created.
  */
-public inline fun styledButton(
+public fun styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +117,7 @@ public inline fun styledButton(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledButton(
+public fun NodeContainer.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

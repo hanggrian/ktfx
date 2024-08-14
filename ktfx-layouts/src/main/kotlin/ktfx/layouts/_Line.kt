@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.line(
+public inline fun NodeContainer.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -34,7 +34,7 @@ public fun NodeContainer.line(
  *
  * @return the control created.
  */
-public inline fun line(
+public fun line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -53,7 +53,7 @@ public inline fun line(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.line(
+public fun NodeContainer.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -73,7 +73,7 @@ public inline fun NodeContainer.line(
  *
  * @return the styled control created.
  */
-public fun styledLine(
+public inline fun styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -81,7 +81,7 @@ public fun styledLine(
     vararg styleClass: String,
     id: String? = null,
 ): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [Line] to this container.
@@ -90,7 +90,7 @@ public fun styledLine(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledLine(
+public inline fun NodeContainer.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -98,7 +98,7 @@ public fun NodeContainer.styledLine(
     vararg styleClass: String,
     id: String? = null,
 ): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [Line] with configuration block.
@@ -108,7 +108,7 @@ public fun NodeContainer.styledLine(
  *
  * @return the styled control created.
  */
-public inline fun styledLine(
+public fun styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -133,7 +133,7 @@ public inline fun styledLine(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledLine(
+public fun NodeContainer.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

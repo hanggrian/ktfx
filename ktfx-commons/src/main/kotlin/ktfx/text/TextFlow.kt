@@ -10,7 +10,7 @@ import javafx.scene.text.TextFlow
  *
  * @see kotlin.text.set
  */
-operator fun TextFlow.set(index: Int, value: String) {
+public operator fun TextFlow.set(index: Int, value: String) {
     val child = children[index]
     require(child is Text) { "TextFlow child is not a Text" }
     child.text = value
@@ -21,42 +21,42 @@ operator fun TextFlow.set(index: Int, value: String) {
  *
  * @see kotlin.text.clear
  */
-inline fun TextFlow.clear(): TextFlow = apply { children.clear() }
+public inline fun TextFlow.clear(): TextFlow = apply { children.clear() }
 
 /**
  * Appends [value] to this flow.
  *
  * @see java.lang.Appendable.append
  */
-fun TextFlow.append(value: String?): TextFlow = apply { children += Text(value ?: "null") }
+public fun TextFlow.append(value: String?): TextFlow = apply { children += Text(value ?: "null") }
 
 /**
  * Appends [value] to this flow.
  *
  * @see java.lang.StringBuilder.append
  */
-fun TextFlow.append(value: Any?): TextFlow = append(value?.toString())
+public fun TextFlow.append(value: Any?): TextFlow = append(value?.toString())
 
 /**
  * Appends a line separator to this flow.
  *
  * @see kotlin.text.appendLine
  */
-fun TextFlow.appendLine(): TextFlow = append(SystemProperties.LINE_SEPARATOR)
+public fun TextFlow.appendLine(): TextFlow = append(SystemProperties.LINE_SEPARATOR)
 
 /**
  * Appends [value] to this flow, followed by a line separator.
  *
  * @see kotlin.text.appendLine
  */
-inline fun TextFlow.appendLine(value: String?): TextFlow = append(value).appendLine()
+public inline fun TextFlow.appendLine(value: String?): TextFlow = append(value).appendLine()
 
 /**
  * Appends [value] to this flow, followed by a line separator.
  *
  * @see kotlin.text.appendLine
  */
-inline fun TextFlow.appendLine(value: Any?): TextFlow = append(value).appendLine()
+public inline fun TextFlow.appendLine(value: Any?): TextFlow = append(value).appendLine()
 
 /**
  * @see kotlin.text.SystemProperties

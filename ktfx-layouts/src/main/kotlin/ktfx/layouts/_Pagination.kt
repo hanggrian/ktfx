@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0):
-        Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
+public inline fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int =
+        0): Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
 
 /**
  * Create a [Pagination] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, currentPageI
  *
  * @return the control created.
  */
-public inline fun pagination(
+public fun pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
@@ -48,7 +48,7 @@ public inline fun pagination(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.pagination(
+public fun NodeContainer.pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
@@ -66,13 +66,13 @@ public inline fun NodeContainer.pagination(
  *
  * @return the styled control created.
  */
-public fun styledPagination(
+public inline fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
 ): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Pagination] to this container.
@@ -81,13 +81,13 @@ public fun styledPagination(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledPagination(
+public inline fun NodeContainer.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
 ): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Pagination] with configuration block.
@@ -97,7 +97,7 @@ public fun NodeContainer.styledPagination(
  *
  * @return the styled control created.
  */
-public inline fun styledPagination(
+public fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -120,7 +120,7 @@ public inline fun styledPagination(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledPagination(
+public fun NodeContainer.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,

@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.canvas.Canvas
 import kotlin.test.assertEquals
 
-class CanvasTest : LayoutsTest<KtfxPane, Canvas>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class CanvasTest : LayoutsStyledTest<KtfxPane, Canvas>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Canvas = canvas { }
+    override fun child1() = canvas {}
 
-    override fun KtfxPane.child2(): Canvas = canvas()
+    override fun KtfxPane.child2() = canvas()
 
-    override fun KtfxPane.child3(): Canvas = canvas { }
+    override fun child3() = styledCanvas(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledCanvas(styleClass = arrayOf("style"))
 
     override fun Canvas.testDefaultValues() {
         assertEquals(0.0, width)

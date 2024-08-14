@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.vlineTo(y: Double = 0.0): VLineTo = vlineTo(y = y) { }
+public inline fun PathElementContainer.vlineTo(y: Double = 0.0): VLineTo = vlineTo(y = y) { }
 
 /**
  * Create a [VLineTo] with configuration block.
@@ -28,8 +28,8 @@ public fun PathElementContainer.vlineTo(y: Double = 0.0): VLineTo = vlineTo(y = 
  *
  * @return the control created.
  */
-public inline fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        VLineTo).() -> Unit): VLineTo {
+public fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker VLineTo).() -> Unit):
+        VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = VLineTo(y)
     child.configuration()
@@ -42,7 +42,7 @@ public inline fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public fun PathElementContainer.vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         VLineTo).() -> Unit): VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = VLineTo(y)

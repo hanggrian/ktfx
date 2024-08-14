@@ -1,20 +1,22 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.layout.AnchorPane
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutsTest<KtfxPane, AnchorPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class AnchorPaneTest : LayoutsStyledTest<KtfxPane, AnchorPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): AnchorPane = anchorPane { }
+    override fun child1() = anchorPane {}
 
-    override fun KtfxPane.child2(): AnchorPane = anchorPane()
+    override fun KtfxPane.child2() = anchorPane()
 
-    override fun KtfxPane.child3(): AnchorPane = anchorPane { }
+    override fun child3() = styledAnchorPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledAnchorPane(styleClass = arrayOf("style"))
 
     @Test
     fun anchors() {

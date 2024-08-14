@@ -22,7 +22,7 @@ import org.controlsfx.control.PlusMinusSlider
  *
  * @return the control added.
  */
-public fun NodeContainer.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
+public inline fun NodeContainer.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
 
 /**
  * Create a [PlusMinusSlider] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
+public fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
         PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -44,7 +44,7 @@ public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinus
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
         PlusMinusSlider).() -> Unit): PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null): PlusMinusSlider =
-        styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
+public inline fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
+        PlusMinusSlider = styledPlusMinusSlider(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [PlusMinusSlider] to this container.
@@ -69,8 +69,8 @@ public fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
-        PlusMinusSlider = styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledPlusMinusSlider(vararg styleClass: String, id: String? =
+        null): PlusMinusSlider = styledPlusMinusSlider(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [PlusMinusSlider] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledPlusMinusSlider(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledPlusMinusSlider(
+public fun styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledPlusMinusSlider(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledPlusMinusSlider(
+public fun NodeContainer.styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit,

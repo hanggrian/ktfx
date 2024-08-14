@@ -23,8 +23,8 @@ import org.controlsfx.control.InfoOverlay
  *
  * @return the control added.
  */
-public fun NodeContainer.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
-        infoOverlay(content = content, text = text) { }
+public inline fun NodeContainer.infoOverlay(content: Node? = null, text: String? = null):
+        InfoOverlay = infoOverlay(content = content, text = text) { }
 
 /**
  * Create an [InfoOverlay] with configuration block.
@@ -32,7 +32,7 @@ public fun NodeContainer.infoOverlay(content: Node? = null, text: String? = null
  *
  * @return the control created.
  */
-public inline fun infoOverlay(
+public fun infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun infoOverlay(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.infoOverlay(
+public fun NodeContainer.infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
@@ -67,13 +67,13 @@ public inline fun NodeContainer.infoOverlay(
  *
  * @return the styled control created.
  */
-public fun styledInfoOverlay(
+public inline fun styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = styleClass, id = id)
+        { }
 
 /**
  * Add a styled [InfoOverlay] to this container.
@@ -82,13 +82,13 @@ public fun styledInfoOverlay(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledInfoOverlay(
+public inline fun NodeContainer.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = styleClass, id = id)
+        { }
 
 /**
  * Create a styled [InfoOverlay] with configuration block.
@@ -98,7 +98,7 @@ public fun NodeContainer.styledInfoOverlay(
  *
  * @return the styled control created.
  */
-public inline fun styledInfoOverlay(
+public fun styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -121,7 +121,7 @@ public inline fun styledInfoOverlay(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledInfoOverlay(
+public fun NodeContainer.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,

@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.controlsfx.controls
 
 import javafx.scene.control.Control
@@ -17,12 +15,12 @@ private val singletonSupport: ValidationSupport
     }
 
 /** Set control's required flag. */
-inline var Control.isValidationRequired: Boolean
+public inline var Control.isValidationRequired: Boolean
     get() = ValidationSupport.isRequired(this)
     set(value) = ValidationSupport.setRequired(this, value)
 
 /** Register empty validation. */
-fun <T> Control.registerEmptyValidator(
+public fun <T> Control.registerEmptyValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
@@ -35,7 +33,7 @@ fun <T> Control.registerEmptyValidator(
     )
 
 /** Register equals validation. */
-fun <T> Control.registerEqualsValidator(
+public fun <T> Control.registerEqualsValidator(
     message: String,
     collection: Collection<T>,
     severity: Severity = Severity.ERROR,
@@ -49,7 +47,7 @@ fun <T> Control.registerEqualsValidator(
     )
 
 /** Register predicate validation. */
-fun <T> Control.registerPredicateValidator(
+public fun <T> Control.registerPredicateValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
@@ -63,7 +61,7 @@ fun <T> Control.registerPredicateValidator(
     )
 
 /** Register regex validation. */
-fun Control.registerRegexValidator(
+public fun Control.registerRegexValidator(
     message: String,
     regex: String,
     severity: Severity = Severity.ERROR,
@@ -77,7 +75,7 @@ fun Control.registerRegexValidator(
     )
 
 /** Register regex validation. */
-fun Control.registerRegexValidator(
+public fun Control.registerRegexValidator(
     message: String,
     regex: Regex,
     severity: Severity = Severity.ERROR,

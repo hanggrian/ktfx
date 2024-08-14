@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Add a listener to this observable map. */
-fun <E> ObservableSet<E>.listener(
+public fun <E> ObservableSet<E>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
     listener: suspend CoroutineScope.(SetChangeListener.Change<out E>) -> Unit,
 ): SetChangeListener<E> =

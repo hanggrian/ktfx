@@ -18,7 +18,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return dialog result.
  */
-fun <T> Stage.jfxAlert(
+public fun <T> Stage.jfxAlert(
     title: String? = null,
     graphic: Node? = null,
     dialogAction: (JFXAlert<T>.() -> Unit)? = null,
@@ -39,6 +39,6 @@ fun <T> Stage.jfxAlert(
  * @param dialogAction custom dialog action.
  * @return dialog result.
  */
-inline fun <T> Stage.jfxAlert(
+public inline fun <T> Stage.jfxAlert(
     noinline dialogAction: (JFXAlert<T>.() -> Unit)? = null,
 ): Optional<T> = jfxAlert(null, null, dialogAction)

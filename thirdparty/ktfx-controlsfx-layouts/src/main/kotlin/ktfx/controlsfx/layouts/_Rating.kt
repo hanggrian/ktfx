@@ -23,8 +23,8 @@ import org.controlsfx.control.Rating
  *
  * @return the control added.
  */
-public fun NodeContainer.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max, rating =
-        rating) { }
+public inline fun NodeContainer.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max,
+        rating = rating) { }
 
 /**
  * Create a [Rating] with configuration block.
@@ -32,7 +32,7 @@ public fun NodeContainer.rating(max: Int = 5, rating: Int = -1): Rating = rating
  *
  * @return the control created.
  */
-public inline fun rating(
+public fun rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun rating(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.rating(
+public fun NodeContainer.rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit,
@@ -67,12 +67,12 @@ public inline fun NodeContainer.rating(
  *
  * @return the styled control created.
  */
-public fun styledRating(
+public inline fun styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
     id: String? = null,
-): Rating = styledRating(max = max, rating = rating, styleClass = *styleClass, id = id) { }
+): Rating = styledRating(max = max, rating = rating, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Rating] to this container.
@@ -81,12 +81,12 @@ public fun styledRating(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRating(
+public inline fun NodeContainer.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
     id: String? = null,
-): Rating = styledRating(max = max, rating = rating, styleClass = *styleClass, id = id) { }
+): Rating = styledRating(max = max, rating = rating, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Rating] with configuration block.
@@ -96,7 +96,7 @@ public fun NodeContainer.styledRating(
  *
  * @return the styled control created.
  */
-public inline fun styledRating(
+public fun styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -119,7 +119,7 @@ public inline fun styledRating(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledRating(
+public fun NodeContainer.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,

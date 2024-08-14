@@ -1,12 +1,12 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXChip
 import com.jfoenix.controls.JFXChipView
 import ktfx.layouts.KtfxPane
 import kotlin.test.assertEquals
 
-class JfxChipTest : LayoutsTest<KtfxPane, JFXChip<String>>() {
+class JfxChipTest : LayoutsStyledTest<KtfxPane, JFXChip<String>>() {
     private lateinit var jfxChipView: JFXChipView<String>
 
     override fun onCreate() {
@@ -14,15 +14,17 @@ class JfxChipTest : LayoutsTest<KtfxPane, JFXChip<String>>() {
         jfxChipView = JFXChipView()
     }
 
-    override fun manager(): KtfxPane = KtfxPane()
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXChip<String> = jfxChip(jfxChipView, "Yo") { }
+    override fun child1() = jfxChip(jfxChipView, "Yo") {}
 
-    override fun KtfxPane.child2(): JFXChip<String> = jfxChip(jfxChipView, "Yo")
+    override fun KtfxPane.child2() = jfxChip(jfxChipView, "Yo")
 
-    override fun KtfxPane.child3(): JFXChip<String> = jfxChip(jfxChipView, "Yo") { }
+    override fun child3() = styledJfxChip(jfxChipView, "Yo", styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxChip(jfxChipView, "Yo", styleClass = arrayOf("style"))
 
     override fun JFXChip<String>.testDefaultValues() {
         assertEquals(jfxChipView, chipView)

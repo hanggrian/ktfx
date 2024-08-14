@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.textArea(text: String = ""): TextArea = textArea(text = text) { }
+public inline fun NodeContainer.textArea(text: String = ""): TextArea = textArea(text = text) { }
 
 /**
  * Create a [TextArea] with configuration block.
@@ -28,8 +28,8 @@ public fun NodeContainer.textArea(text: String = ""): TextArea = textArea(text =
  *
  * @return the control created.
  */
-public inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
-        TextArea).() -> Unit): TextArea {
+public fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit):
+        TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
     child.configuration()
@@ -42,7 +42,7 @@ public inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMark
  *
  * @return the control added.
  */
-public inline fun NodeContainer.textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
         TextArea).() -> Unit): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
@@ -57,11 +57,11 @@ public inline fun NodeContainer.textArea(text: String = "", configuration: (@Ktf
  *
  * @return the styled control created.
  */
-public fun styledTextArea(
+public inline fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
+): TextArea = styledTextArea(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [TextArea] to this container.
@@ -70,11 +70,11 @@ public fun styledTextArea(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTextArea(
+public inline fun NodeContainer.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
+): TextArea = styledTextArea(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [TextArea] with configuration block.
@@ -84,7 +84,7 @@ public fun NodeContainer.styledTextArea(
  *
  * @return the styled control created.
  */
-public inline fun styledTextArea(
+public fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +106,7 @@ public inline fun styledTextArea(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledTextArea(
+public fun NodeContainer.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

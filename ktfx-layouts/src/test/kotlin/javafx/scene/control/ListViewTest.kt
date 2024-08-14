@@ -1,19 +1,21 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.ListView
 
-class ListViewTest : LayoutsTest<KtfxPane, ListView<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ListViewTest : LayoutsStyledTest<KtfxPane, ListView<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ListView<String> = listView { }
+    override fun child1() = listView<String> {}
 
-    override fun KtfxPane.child2(): ListView<String> = listView()
+    override fun KtfxPane.child2() = listView<String>()
 
-    override fun KtfxPane.child3(): ListView<String> = listView { }
+    override fun child3() = styledListView<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledListView<String>(styleClass = arrayOf("style"))
 
     override fun ListView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

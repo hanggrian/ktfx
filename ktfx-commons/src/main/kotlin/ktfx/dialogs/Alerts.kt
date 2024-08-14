@@ -22,7 +22,7 @@ import java.util.Optional
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-fun alert(
+public fun alert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
@@ -47,7 +47,7 @@ fun alert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-inline fun alert(
+public inline fun alert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     noinline alertAction: (Alert.() -> Unit)? = null,
@@ -63,7 +63,7 @@ inline fun alert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-fun infoAlert(
+public fun infoAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
@@ -88,7 +88,7 @@ fun infoAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-inline fun infoAlert(
+public inline fun infoAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     noinline alertAction: (Alert.() -> Unit)? = null,
@@ -104,7 +104,7 @@ inline fun infoAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-fun warningAlert(
+public fun warningAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
@@ -129,7 +129,7 @@ fun warningAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-inline fun warningAlert(
+public inline fun warningAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     noinline alertAction: (Alert.() -> Unit)? = null,
@@ -145,7 +145,7 @@ inline fun warningAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-fun confirmAlert(
+public fun confirmAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
@@ -170,7 +170,7 @@ fun confirmAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-inline fun confirmAlert(
+public inline fun confirmAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
     noinline alertAction: (Alert.() -> Unit)? = null,
@@ -186,7 +186,7 @@ inline fun confirmAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-fun errorAlert(
+public fun errorAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
@@ -211,7 +211,7 @@ fun errorAlert(
  * @param alertAction custom dialog action.
  * @return selected alert button.
  */
-inline fun errorAlert(
+public inline fun errorAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     noinline alertAction: (Alert.() -> Unit)? = null,

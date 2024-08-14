@@ -23,7 +23,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxButton(text: String? = null, graphic: Node? = null): JFXButton =
+public inline fun NodeContainer.jfxButton(text: String? = null, graphic: Node? = null): JFXButton =
         jfxButton(text = text, graphic = graphic) { }
 
 /**
@@ -32,7 +32,7 @@ public fun NodeContainer.jfxButton(text: String? = null, graphic: Node? = null):
  *
  * @return the control created.
  */
-public inline fun jfxButton(
+public fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun jfxButton(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxButton(
+public fun NodeContainer.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit,
@@ -67,13 +67,12 @@ public inline fun NodeContainer.jfxButton(
  *
  * @return the styled control created.
  */
-public fun styledJFXButton(
+public inline fun styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXButton = styledJFXButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+): JFXButton = styledJfxButton(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXButton] to this container.
@@ -82,13 +81,12 @@ public fun styledJFXButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXButton(
+public inline fun NodeContainer.styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXButton = styledJFXButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+): JFXButton = styledJfxButton(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXButton] with configuration block.
@@ -98,7 +96,7 @@ public fun NodeContainer.styledJFXButton(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXButton(
+public fun styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -121,7 +119,7 @@ public inline fun styledJFXButton(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXButton(
+public fun NodeContainer.styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

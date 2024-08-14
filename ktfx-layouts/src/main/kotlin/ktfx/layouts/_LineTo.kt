@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x = x, y =
-        y) { }
+public inline fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x =
+        x, y = y) { }
 
 /**
  * Create a [LineTo] with configuration block.
@@ -29,7 +29,7 @@ public fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo
  *
  * @return the control created.
  */
-public inline fun lineTo(
+public fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit,
@@ -46,7 +46,7 @@ public inline fun lineTo(
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.lineTo(
+public fun PathElementContainer.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit,

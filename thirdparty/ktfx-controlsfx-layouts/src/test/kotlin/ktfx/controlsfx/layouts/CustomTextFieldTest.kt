@@ -1,17 +1,19 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.textfield.CustomTextField
 
-class CustomTextFieldTest : LayoutsTest<KtfxPane, CustomTextField>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class CustomTextFieldTest : LayoutsStyledTest<KtfxPane, CustomTextField>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): CustomTextField = customTextField { }
+    override fun child1() = customTextField {}
 
-    override fun KtfxPane.child2(): CustomTextField = customTextField()
+    override fun KtfxPane.child2() = customTextField()
 
-    override fun KtfxPane.child3(): CustomTextField = customTextField { }
+    override fun child3() = styledCustomTextField(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledCustomTextField(styleClass = arrayOf("style"))
 }

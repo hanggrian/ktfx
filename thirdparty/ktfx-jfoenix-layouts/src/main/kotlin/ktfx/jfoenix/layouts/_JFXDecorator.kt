@@ -25,7 +25,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDecorator(
+public inline fun NodeContainer.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -40,7 +40,7 @@ public fun NodeContainer.jfxDecorator(
  *
  * @return the control created.
  */
-public inline fun jfxDecorator(
+public fun jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -60,7 +60,7 @@ public inline fun jfxDecorator(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxDecorator(
+public fun NodeContainer.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -81,7 +81,7 @@ public inline fun NodeContainer.jfxDecorator(
  *
  * @return the styled control created.
  */
-public fun styledJFXDecorator(
+public inline fun styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -89,8 +89,8 @@ public fun styledJFXDecorator(
     min: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-): JFXDecorator = styledJFXDecorator(stage = stage, node = node, fullScreen = fullScreen, max = max,
-        min = min, styleClass = *styleClass, id = id) { }
+): JFXDecorator = styledJfxDecorator(stage = stage, node = node, fullScreen = fullScreen, max = max,
+        min = min, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDecorator] to this container.
@@ -99,7 +99,7 @@ public fun styledJFXDecorator(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXDecorator(
+public inline fun NodeContainer.styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -107,8 +107,8 @@ public fun NodeContainer.styledJFXDecorator(
     min: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-): JFXDecorator = styledJFXDecorator(stage = stage, node = node, fullScreen = fullScreen, max = max,
-        min = min, styleClass = *styleClass, id = id) { }
+): JFXDecorator = styledJfxDecorator(stage = stage, node = node, fullScreen = fullScreen, max = max,
+        min = min, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDecorator] with configuration block.
@@ -118,7 +118,7 @@ public fun NodeContainer.styledJFXDecorator(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXDecorator(
+public fun styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -144,7 +144,7 @@ public inline fun styledJFXDecorator(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXDecorator(
+public fun NodeContainer.styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,

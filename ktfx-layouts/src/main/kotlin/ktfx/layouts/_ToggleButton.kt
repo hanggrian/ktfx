@@ -21,15 +21,15 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+public inline fun NodeContainer.toggleButton(text: String? = null, graphic: Node? = null):
+        ToggleButton = toggleButton(text = text, graphic = graphic) { }
 
 /**
  * Add a [ToggleButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.toggleButton(text: String? = null, graphic: Node? = null):
+public inline fun ToggleButtonContainer.toggleButton(text: String? = null, graphic: Node? = null):
         ToggleButton = toggleButton(text = text, graphic = graphic) { }
 
 /**
@@ -38,7 +38,7 @@ public fun ToggleButtonContainer.toggleButton(text: String? = null, graphic: Nod
  *
  * @return the control created.
  */
-public inline fun toggleButton(
+public fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -55,7 +55,7 @@ public inline fun toggleButton(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.toggleButton(
+public fun NodeContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -72,7 +72,7 @@ public inline fun NodeContainer.toggleButton(
  *
  * @return the control added.
  */
-public inline fun ToggleButtonContainer.toggleButton(
+public fun ToggleButtonContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -90,12 +90,12 @@ public inline fun ToggleButtonContainer.toggleButton(
  *
  * @return the styled control created.
  */
-public fun styledToggleButton(
+public inline fun styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -105,12 +105,12 @@ public fun styledToggleButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledToggleButton(
+public inline fun NodeContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -120,12 +120,12 @@ public fun NodeContainer.styledToggleButton(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledToggleButton(
+public inline fun ToggleButtonContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -136,7 +136,7 @@ public fun ToggleButtonContainer.styledToggleButton(
  *
  * @return the styled control created.
  */
-public inline fun styledToggleButton(
+public fun styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -159,7 +159,7 @@ public inline fun styledToggleButton(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledToggleButton(
+public fun NodeContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -182,7 +182,7 @@ public inline fun NodeContainer.styledToggleButton(
  *
  * @return the styled control added.
  */
-public inline fun ToggleButtonContainer.styledToggleButton(
+public fun ToggleButtonContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.test.assertNull
 
-class HyperlinkLabelTest : LayoutsTest<KtfxPane, HyperlinkLabel>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class HyperlinkLabelTest : LayoutsStyledTest<KtfxPane, HyperlinkLabel>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): HyperlinkLabel = hyperlinkLabel { }
+    override fun child1() = hyperlinkLabel {}
 
-    override fun KtfxPane.child2(): HyperlinkLabel = hyperlinkLabel()
+    override fun KtfxPane.child2() = hyperlinkLabel()
 
-    override fun KtfxPane.child3(): HyperlinkLabel = hyperlinkLabel { }
+    override fun child3() = styledHyperlinkLabel(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledHyperlinkLabel(styleClass = arrayOf("style"))
 
     override fun HyperlinkLabel.testDefaultValues() {
         assertNull(text)

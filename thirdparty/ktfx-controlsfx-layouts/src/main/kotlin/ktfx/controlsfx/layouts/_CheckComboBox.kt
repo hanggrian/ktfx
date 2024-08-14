@@ -24,7 +24,7 @@ import org.controlsfx.control.CheckComboBox
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList()):
+public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList()):
         CheckComboBox<T> = checkComboBox(items = items) { }
 
 /**
@@ -33,7 +33,7 @@ public fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observable
  *
  * @return the control created.
  */
-public inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckComboBox<T>(items)
@@ -47,7 +47,7 @@ public inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayLi
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckComboBox<T>(items)
@@ -62,11 +62,11 @@ public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = obs
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckComboBox(
+public inline fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = *styleClass, id = id) { }
+): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [CheckComboBox] to this container.
@@ -75,11 +75,11 @@ public fun <T> styledCheckComboBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckComboBox(
+public inline fun <T> NodeContainer.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = *styleClass, id = id) { }
+): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [CheckComboBox] with configuration block.
@@ -89,7 +89,7 @@ public fun <T> NodeContainer.styledCheckComboBox(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledCheckComboBox(
+public fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun <T> styledCheckComboBox(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledCheckComboBox(
+public fun <T> NodeContainer.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

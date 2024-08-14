@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxHamburger(): JFXHamburger = jfxHamburger() { }
+public inline fun NodeContainer.jfxHamburger(): JFXHamburger = jfxHamburger() { }
 
 /**
  * Create a [JFXHamburger] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.jfxHamburger(): JFXHamburger = jfxHamburger() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit):
+public fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit):
         JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXHamburger()
@@ -44,7 +44,7 @@ public inline fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxHamburger(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxHamburger(configuration: (@KtfxLayoutDslMarker
         JFXHamburger).() -> Unit): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXHamburger()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.jfxHamburger(configuration: (@KtfxLayoutDslMarke
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXHamburger(vararg styleClass: String, id: String? = null): JFXHamburger =
-        styledJFXHamburger(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxHamburger(vararg styleClass: String, id: String? = null): JFXHamburger =
+        styledJfxHamburger(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXHamburger] to this container.
@@ -69,8 +69,8 @@ public fun styledJFXHamburger(vararg styleClass: String, id: String? = null): JF
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXHamburger(vararg styleClass: String, id: String? = null):
-        JFXHamburger = styledJFXHamburger(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxHamburger(vararg styleClass: String, id: String? = null):
+        JFXHamburger = styledJfxHamburger(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXHamburger] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledJFXHamburger(vararg styleClass: String, id: Strin
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXHamburger(
+public fun styledJfxHamburger(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledJFXHamburger(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXHamburger(
+public fun NodeContainer.styledJfxHamburger(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit,

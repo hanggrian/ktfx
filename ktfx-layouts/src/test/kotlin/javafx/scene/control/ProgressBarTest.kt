@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.ProgressBar
 import kotlin.test.assertEquals
 
-class ProgressBarTest : LayoutsTest<KtfxPane, ProgressBar>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ProgressBarTest : LayoutsStyledTest<KtfxPane, ProgressBar>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ProgressBar = progressBar { }
+    override fun child1() = progressBar {}
 
-    override fun KtfxPane.child2(): ProgressBar = progressBar()
+    override fun KtfxPane.child2() = progressBar()
 
-    override fun KtfxPane.child3(): ProgressBar = progressBar { }
+    override fun child3() = styledProgressBar(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledProgressBar(styleClass = arrayOf("style"))
 
     override fun ProgressBar.testDefaultValues() {
         assertEquals(ProgressBar.INDETERMINATE_PROGRESS, progress)

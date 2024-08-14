@@ -11,6 +11,8 @@ plugins {
 
 javafx.modules("javafx.controls")
 
+kotlin.explicitApi()
+
 dependencies {
     ktlintRuleset(libs.rulebook.ktlint)
 

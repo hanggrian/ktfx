@@ -23,7 +23,7 @@ import org.controlsfx.control.RangeSlider
  *
  * @return the control added.
  */
-public fun NodeContainer.rangeSlider(
+public inline fun NodeContainer.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -36,7 +36,7 @@ public fun NodeContainer.rangeSlider(
  *
  * @return the control created.
  */
-public inline fun rangeSlider(
+public fun rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -55,7 +55,7 @@ public inline fun rangeSlider(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.rangeSlider(
+public fun NodeContainer.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -75,7 +75,7 @@ public inline fun NodeContainer.rangeSlider(
  *
  * @return the styled control created.
  */
-public fun styledRangeSlider(
+public inline fun styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -83,7 +83,7 @@ public fun styledRangeSlider(
     vararg styleClass: String,
     id: String? = null,
 ): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [RangeSlider] to this container.
@@ -92,7 +92,7 @@ public fun styledRangeSlider(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRangeSlider(
+public inline fun NodeContainer.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -100,7 +100,7 @@ public fun NodeContainer.styledRangeSlider(
     vararg styleClass: String,
     id: String? = null,
 ): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [RangeSlider] with configuration block.
@@ -110,7 +110,7 @@ public fun NodeContainer.styledRangeSlider(
  *
  * @return the styled control created.
  */
-public inline fun styledRangeSlider(
+public fun styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -135,7 +135,7 @@ public inline fun styledRangeSlider(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledRangeSlider(
+public fun NodeContainer.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,

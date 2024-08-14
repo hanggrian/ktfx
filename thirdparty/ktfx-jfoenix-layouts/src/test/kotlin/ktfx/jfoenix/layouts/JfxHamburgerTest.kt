@@ -1,17 +1,19 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXHamburger
 import ktfx.layouts.KtfxPane
 
-class JfxHamburgerTest : LayoutsTest<KtfxPane, JFXHamburger>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxHamburgerTest : LayoutsStyledTest<KtfxPane, JFXHamburger>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXHamburger = jfxHamburger { }
+    override fun child1() = jfxHamburger {}
 
-    override fun KtfxPane.child2(): JFXHamburger = jfxHamburger()
+    override fun KtfxPane.child2() = jfxHamburger()
 
-    override fun KtfxPane.child3(): JFXHamburger = jfxHamburger { }
+    override fun child3() = styledJfxHamburger(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxHamburger(styleClass = arrayOf("style"))
 }

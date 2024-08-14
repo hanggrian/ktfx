@@ -23,14 +23,14 @@ import ktfx.layouts.ToggleButtonContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
+public inline fun NodeContainer.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
 
 /**
  * Add a [JFXToggleButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
+public inline fun ToggleButtonContainer.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
 
 /**
  * Create a [JFXToggleButton] with configuration block.
@@ -38,7 +38,7 @@ public fun ToggleButtonContainer.jfxToggleButton(): JFXToggleButton = jfxToggleB
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxToggleButton(configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit):
+public fun jfxToggleButton(configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit):
         JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleButton()
@@ -52,7 +52,7 @@ public inline fun jfxToggleButton(configuration: (@KtfxLayoutDslMarker JFXToggle
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxToggleButton(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxToggleButton(configuration: (@KtfxLayoutDslMarker
         JFXToggleButton).() -> Unit): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleButton()
@@ -66,7 +66,7 @@ public inline fun NodeContainer.jfxToggleButton(configuration: (@KtfxLayoutDslMa
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun ToggleButtonContainer.jfxToggleButton(configuration: (@KtfxLayoutDslMarker
+public fun ToggleButtonContainer.jfxToggleButton(configuration: (@KtfxLayoutDslMarker
         JFXToggleButton).() -> Unit): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleButton()
@@ -81,8 +81,8 @@ public inline fun ToggleButtonContainer.jfxToggleButton(configuration: (@KtfxLay
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXToggleButton(vararg styleClass: String, id: String? = null): JFXToggleButton =
-        styledJFXToggleButton(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxToggleButton(vararg styleClass: String, id: String? = null):
+        JFXToggleButton = styledJfxToggleButton(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXToggleButton] to this container.
@@ -91,8 +91,8 @@ public fun styledJFXToggleButton(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXToggleButton(vararg styleClass: String, id: String? = null):
-        JFXToggleButton = styledJFXToggleButton(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxToggleButton(vararg styleClass: String, id: String? =
+        null): JFXToggleButton = styledJfxToggleButton(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXToggleButton] to this container.
@@ -101,8 +101,8 @@ public fun NodeContainer.styledJFXToggleButton(vararg styleClass: String, id: St
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledJFXToggleButton(vararg styleClass: String, id: String? =
-        null): JFXToggleButton = styledJFXToggleButton(styleClass = *styleClass, id = id) { }
+public inline fun ToggleButtonContainer.styledJfxToggleButton(vararg styleClass: String, id: String?
+        = null): JFXToggleButton = styledJfxToggleButton(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXToggleButton] with configuration block.
@@ -112,7 +112,7 @@ public fun ToggleButtonContainer.styledJFXToggleButton(vararg styleClass: String
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXToggleButton(
+public fun styledJfxToggleButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit,
@@ -133,7 +133,7 @@ public inline fun styledJFXToggleButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXToggleButton(
+public fun NodeContainer.styledJfxToggleButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit,
@@ -154,7 +154,7 @@ public inline fun NodeContainer.styledJFXToggleButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun ToggleButtonContainer.styledJFXToggleButton(
+public fun ToggleButtonContainer.styledJfxToggleButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit,

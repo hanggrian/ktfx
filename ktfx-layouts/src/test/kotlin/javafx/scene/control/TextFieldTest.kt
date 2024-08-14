@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.TextField
 import kotlin.test.assertEquals
 
-class TextFieldTest : LayoutsTest<KtfxPane, TextField>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class TextFieldTest : LayoutsStyledTest<KtfxPane, TextField>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): TextField = textField { }
+    override fun child1() = textField {}
 
-    override fun KtfxPane.child2(): TextField = textField()
+    override fun KtfxPane.child2() = textField()
 
-    override fun KtfxPane.child3(): TextField = textField { }
+    override fun child3() = styledTextField(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledTextField(styleClass = arrayOf("style"))
 
     override fun TextField.testDefaultValues() {
         assertEquals("", text)

@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.spinner(): Spinner<T> = spinner() { }
+public inline fun <T> NodeContainer.spinner(): Spinner<T> = spinner() { }
 
 /**
  * Create a [Spinner] with configuration block.
@@ -28,8 +28,7 @@ public fun <T> NodeContainer.spinner(): Spinner<T> = spinner() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit):
-        Spinner<T> {
+public fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Spinner<T>()
     child.configuration()
@@ -42,8 +41,8 @@ public inline fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker
-        Spinner<T>).() -> Unit): Spinner<T> {
+public fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit):
+        Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Spinner<T>()
     child.configuration()
@@ -57,8 +56,8 @@ public inline fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledSpinner(vararg styleClass: String, id: String? = null): Spinner<T> =
-        styledSpinner(styleClass = *styleClass, id = id) { }
+public inline fun <T> styledSpinner(vararg styleClass: String, id: String? = null): Spinner<T> =
+        styledSpinner(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Spinner] to this container.
@@ -67,8 +66,8 @@ public fun <T> styledSpinner(vararg styleClass: String, id: String? = null): Spi
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledSpinner(vararg styleClass: String, id: String? = null):
-        Spinner<T> = styledSpinner(styleClass = *styleClass, id = id) { }
+public inline fun <T> NodeContainer.styledSpinner(vararg styleClass: String, id: String? = null):
+        Spinner<T> = styledSpinner(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Spinner] with configuration block.
@@ -78,7 +77,7 @@ public fun <T> NodeContainer.styledSpinner(vararg styleClass: String, id: String
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun <T> styledSpinner(
+public fun <T> styledSpinner(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit,
@@ -99,7 +98,7 @@ public inline fun <T> styledSpinner(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledSpinner(
+public fun <T> NodeContainer.styledSpinner(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit,

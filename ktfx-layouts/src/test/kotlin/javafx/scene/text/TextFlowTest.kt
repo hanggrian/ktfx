@@ -1,21 +1,23 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.paint.Color
 import javafx.scene.text.TextFlow
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TextFlowTest : LayoutsTest<KtfxPane, TextFlow>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class TextFlowTest : LayoutsStyledTest<KtfxPane, TextFlow>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): TextFlow = textFlow { }
+    override fun child1() = textFlow {}
 
-    override fun KtfxPane.child2(): TextFlow = textFlow()
+    override fun KtfxPane.child2() = textFlow()
 
-    override fun KtfxPane.child3(): TextFlow = textFlow { }
+    override fun child3() = styledTextFlow(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledTextFlow(styleClass = arrayOf("style"))
 
     @Test
     fun stringInvocation() {

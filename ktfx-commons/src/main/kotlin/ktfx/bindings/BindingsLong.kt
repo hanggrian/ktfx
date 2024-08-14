@@ -21,17 +21,19 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [LongBinding] with multiple [Observable] dependencies. */
-inline fun longBindingOf(
+public inline fun longBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> Long,
 ): LongBinding = Bindings.createLongBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [LongBinding] with multiple [Observable] dependencies using collection. */
-fun longBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Long): LongBinding =
-    longBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+public fun longBindingOf(
+    dependencies: Collection<Observable>,
+    valueProvider: () -> Long,
+): LongBinding = longBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [LongBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.longBindingBy(valueProvider: (List<E>) -> Long): LongBinding =
+public fun <E> ObservableList<E>.longBindingBy(valueProvider: (List<E>) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -45,7 +47,7 @@ fun <E> ObservableList<E>.longBindingBy(valueProvider: (List<E>) -> Long): LongB
     }
 
 /** Create an [LongBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.longBindingBy(valueProvider: (Set<E>) -> Long): LongBinding =
+public fun <E> ObservableSet<E>.longBindingBy(valueProvider: (Set<E>) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -59,7 +61,9 @@ fun <E> ObservableSet<E>.longBindingBy(valueProvider: (Set<E>) -> Long): LongBin
     }
 
 /** Create an [LongBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.longBindingBy(valueProvider: (Map<K, V>) -> Long): LongBinding =
+public fun <K, V> ObservableMap<K, V>.longBindingBy(
+    valueProvider: (Map<K, V>) -> Long,
+): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -74,7 +78,7 @@ fun <K, V> ObservableMap<K, V>.longBindingBy(valueProvider: (Map<K, V>) -> Long)
     }
 
 /** Create a [LongBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.longBindingBy(valueProvider: (V?) -> Long): LongBinding =
+public fun <V> ObservableObjectValue<V>.longBindingBy(valueProvider: (V?) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -88,7 +92,7 @@ fun <V> ObservableObjectValue<V>.longBindingBy(valueProvider: (V?) -> Long): Lon
     }
 
 /** Create a [LongBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.longBindingBy(valueProvider: (Boolean) -> Long): LongBinding =
+public fun ObservableBooleanValue.longBindingBy(valueProvider: (Boolean) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -102,7 +106,7 @@ fun ObservableBooleanValue.longBindingBy(valueProvider: (Boolean) -> Long): Long
     }
 
 /** Create a [LongBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.longBindingBy(valueProvider: (Double) -> Long): LongBinding =
+public fun ObservableDoubleValue.longBindingBy(valueProvider: (Double) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -116,7 +120,7 @@ fun ObservableDoubleValue.longBindingBy(valueProvider: (Double) -> Long): LongBi
     }
 
 /** Create a [LongBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.longBindingBy(valueProvider: (Float) -> Long): LongBinding =
+public fun ObservableFloatValue.longBindingBy(valueProvider: (Float) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -130,7 +134,7 @@ fun ObservableFloatValue.longBindingBy(valueProvider: (Float) -> Long): LongBind
     }
 
 /** Create a [LongBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.longBindingBy(valueProvider: (Int) -> Long): LongBinding =
+public fun ObservableIntegerValue.longBindingBy(valueProvider: (Int) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)
@@ -144,7 +148,7 @@ fun ObservableIntegerValue.longBindingBy(valueProvider: (Int) -> Long): LongBind
     }
 
 /** Create a [LongBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.longBindingBy(valueProvider: (Long) -> Long): LongBinding =
+public fun ObservableLongValue.longBindingBy(valueProvider: (Long) -> Long): LongBinding =
     object : LongBinding() {
         init {
             bind(this@longBindingBy)

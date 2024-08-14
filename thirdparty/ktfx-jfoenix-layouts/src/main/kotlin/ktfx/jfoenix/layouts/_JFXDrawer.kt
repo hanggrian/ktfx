@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDrawer(): JFXDrawer = jfxDrawer() { }
+public inline fun NodeContainer.jfxDrawer(): JFXDrawer = jfxDrawer() { }
 
 /**
  * Create a [JFXDrawer] with configuration block.
@@ -30,8 +30,7 @@ public fun NodeContainer.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit):
-        JFXDrawer {
+public fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit): JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxDrawer()
     child.configuration()
@@ -44,8 +43,8 @@ public inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxDrawer(configuration: (@KtfxLayoutDslMarker
-        KtfxJfxDrawer).() -> Unit): JFXDrawer {
+public fun NodeContainer.jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit):
+        JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxDrawer()
     child.configuration()
@@ -59,8 +58,8 @@ public inline fun NodeContainer.jfxDrawer(configuration: (@KtfxLayoutDslMarker
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
-        styledJFXDrawer(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
+        styledJfxDrawer(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDrawer] to this container.
@@ -69,8 +68,8 @@ public fun styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDr
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
-        styledJFXDrawer(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxDrawer(vararg styleClass: String, id: String? = null):
+        JFXDrawer = styledJfxDrawer(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDrawer] with configuration block.
@@ -80,7 +79,7 @@ public fun NodeContainer.styledJFXDrawer(vararg styleClass: String, id: String? 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXDrawer(
+public fun styledJfxDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit,
@@ -101,7 +100,7 @@ public inline fun styledJFXDrawer(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXDrawer(
+public fun NodeContainer.styledJfxDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit,

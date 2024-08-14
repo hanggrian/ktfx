@@ -22,7 +22,7 @@ import org.controlsfx.control.StatusBar
  *
  * @return the control added.
  */
-public fun NodeContainer.statusBar(): StatusBar = statusBar() { }
+public inline fun NodeContainer.statusBar(): StatusBar = statusBar() { }
 
 /**
  * Create a [StatusBar] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.statusBar(): StatusBar = statusBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit): StatusBar {
+public fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StatusBar()
     child.configuration()
@@ -43,8 +43,8 @@ public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker
-        StatusBar).() -> Unit): StatusBar {
+public fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit):
+        StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StatusBar()
     child.configuration()
@@ -58,8 +58,8 @@ public inline fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+public inline fun styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
+        styledStatusBar(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [StatusBar] to this container.
@@ -68,8 +68,8 @@ public fun styledStatusBar(vararg styleClass: String, id: String? = null): Statu
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledStatusBar(vararg styleClass: String, id: String? = null):
+        StatusBar = styledStatusBar(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [StatusBar] with configuration block.
@@ -79,7 +79,7 @@ public fun NodeContainer.styledStatusBar(vararg styleClass: String, id: String? 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledStatusBar(
+public fun styledStatusBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,
@@ -100,7 +100,7 @@ public inline fun styledStatusBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledStatusBar(
+public fun NodeContainer.styledStatusBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,

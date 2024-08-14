@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.radioMenuItem(text: String? = null, graphic: Node? = null):
+public inline fun MenuItemContainer.radioMenuItem(text: String? = null, graphic: Node? = null):
         RadioMenuItem = radioMenuItem(text = text, graphic = graphic) { }
 
 /**
@@ -30,7 +30,7 @@ public fun MenuItemContainer.radioMenuItem(text: String? = null, graphic: Node? 
  *
  * @return the control created.
  */
-public inline fun radioMenuItem(
+public fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun radioMenuItem(
  *
  * @return the control added.
  */
-public inline fun MenuItemContainer.radioMenuItem(
+public fun MenuItemContainer.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
@@ -65,13 +65,13 @@ public inline fun MenuItemContainer.radioMenuItem(
  *
  * @return the styled control created.
  */
-public fun styledRadioMenuItem(
+public inline fun styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-        = id) { }
+): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = styleClass, id =
+        id) { }
 
 /**
  * Add a styled [RadioMenuItem] to this container.
@@ -80,13 +80,13 @@ public fun styledRadioMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledRadioMenuItem(
+public inline fun MenuItemContainer.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-        = id) { }
+): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = styleClass, id =
+        id) { }
 
 /**
  * Create a styled [RadioMenuItem] with configuration block.
@@ -96,7 +96,7 @@ public fun MenuItemContainer.styledRadioMenuItem(
  *
  * @return the styled control created.
  */
-public inline fun styledRadioMenuItem(
+public fun styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +119,7 @@ public inline fun styledRadioMenuItem(
  *
  * @return the styled control added.
  */
-public inline fun MenuItemContainer.styledRadioMenuItem(
+public fun MenuItemContainer.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

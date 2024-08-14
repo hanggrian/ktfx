@@ -23,8 +23,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time
-        = time) { }
+public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null): JFXTimePicker =
+        jfxTimePicker(time = time) { }
 
 /**
  * Create a [JFXTimePicker] with configuration block.
@@ -32,7 +32,7 @@ public fun NodeContainer.jfxTimePicker(time: LocalTime? = null): JFXTimePicker =
  *
  * @return the control created.
  */
-public inline fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
+public fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
         JFXTimePicker).() -> Unit): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
@@ -46,8 +46,8 @@ public inline fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLa
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null,
-        configuration: (@KtfxLayoutDslMarker JFXTimePicker).() -> Unit): JFXTimePicker {
+public fun NodeContainer.jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
+        JFXTimePicker).() -> Unit): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
     child.configuration()
@@ -61,11 +61,11 @@ public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null,
  *
  * @return the styled control created.
  */
-public fun styledJFXTimePicker(
+public inline fun styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTimePicker = styledJFXTimePicker(time = time, styleClass = *styleClass, id = id) { }
+): JFXTimePicker = styledJfxTimePicker(time = time, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTimePicker] to this container.
@@ -74,11 +74,11 @@ public fun styledJFXTimePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXTimePicker(
+public inline fun NodeContainer.styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTimePicker = styledJFXTimePicker(time = time, styleClass = *styleClass, id = id) { }
+): JFXTimePicker = styledJfxTimePicker(time = time, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTimePicker] with configuration block.
@@ -88,7 +88,7 @@ public fun NodeContainer.styledJFXTimePicker(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXTimePicker(
+public fun styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +110,7 @@ public inline fun styledJFXTimePicker(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXTimePicker(
+public fun NodeContainer.styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,

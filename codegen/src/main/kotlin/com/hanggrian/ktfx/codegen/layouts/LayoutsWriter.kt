@@ -50,6 +50,7 @@ object LayoutsWriter {
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             receiver = containerClassName
+                            modifiers(INLINE)
                             kdoc(
                                 entry.getFileComment(
                                     add = true,
@@ -78,7 +79,6 @@ object LayoutsWriter {
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
-                            modifiers(INLINE)
                             kdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
@@ -125,6 +125,7 @@ object LayoutsWriter {
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
+                            modifiers(INLINE)
                             kdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
@@ -150,7 +151,7 @@ object LayoutsWriter {
                                         namedArgument = true,
                                         commaSuffix = true,
                                     )
-                                }styleClass = *styleClass, id = id) { }",
+                                }styleClass = styleClass, id = id) { }",
                             )
                         }
                     }
@@ -158,7 +159,6 @@ object LayoutsWriter {
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
-                            modifiers(INLINE)
                             kdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,

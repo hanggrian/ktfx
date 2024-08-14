@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.areaChart(
+public inline fun <X, Y> NodeContainer.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -36,7 +36,7 @@ public fun <X, Y> NodeContainer.areaChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> areaChart(
+public fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +54,7 @@ public inline fun <X, Y> areaChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.areaChart(
+public fun <X, Y> NodeContainer.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -73,13 +73,13 @@ public inline fun <X, Y> NodeContainer.areaChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledAreaChart(
+public inline fun <X, Y> styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
+): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = styleClass, id = id) {
         }
 
 /**
@@ -89,13 +89,13 @@ public fun <X, Y> styledAreaChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledAreaChart(
+public inline fun <X, Y> NodeContainer.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
+): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = styleClass, id = id) {
         }
 
 /**
@@ -106,7 +106,7 @@ public fun <X, Y> NodeContainer.styledAreaChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledAreaChart(
+public fun <X, Y> styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +130,7 @@ public inline fun <X, Y> styledAreaChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledAreaChart(
+public fun <X, Y> NodeContainer.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

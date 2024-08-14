@@ -8,7 +8,7 @@ import ktfx.layouts.NodeContainer
 import org.controlsfx.control.SnapshotView
 
 /** [SnapshotView] with dynamic-layout dsl support. Invoking dsl will only set its node. */
-open class KtfxSnapshotView :
+public open class KtfxSnapshotView :
     SnapshotView(),
     NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { this.node = it }

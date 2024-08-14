@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.QuadCurve
 import kotlin.test.assertEquals
 
-class QuadCurveTest : LayoutsTest<KtfxPane, QuadCurve>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class QuadCurveTest : LayoutsStyledTest<KtfxPane, QuadCurve>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): QuadCurve = quadCurve { }
+    override fun child1() = quadCurve {}
 
-    override fun KtfxPane.child2(): QuadCurve = quadCurve()
+    override fun KtfxPane.child2() = quadCurve()
 
-    override fun KtfxPane.child3(): QuadCurve = quadCurve { }
+    override fun child3() = styledQuadCurve(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledQuadCurve(styleClass = arrayOf("style"))
 
     override fun QuadCurve.testDefaultValues() {
         assertEquals(0.0, startX)

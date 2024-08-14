@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.cubicCurveTo(
+public inline fun PathElementContainer.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
     controlX2: Double = 0.0,
@@ -36,7 +36,7 @@ public fun PathElementContainer.cubicCurveTo(
  *
  * @return the control created.
  */
-public inline fun cubicCurveTo(
+public fun cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
     controlX2: Double = 0.0,
@@ -57,7 +57,7 @@ public inline fun cubicCurveTo(
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.cubicCurveTo(
+public fun PathElementContainer.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
     controlX2: Double = 0.0,

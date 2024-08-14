@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.ToolBar
 
-class ToolBarTest : LayoutsTest<KtfxPane, ToolBar>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ToolBarTest : LayoutsStyledTest<KtfxPane, ToolBar>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ToolBar = toolBar { }
+    override fun child1() = toolBar {}
 
-    override fun KtfxPane.child2(): ToolBar = toolBar()
+    override fun KtfxPane.child2() = toolBar()
 
-    override fun KtfxPane.child3(): ToolBar = toolBar { }
+    override fun child3() = styledToolBar(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledToolBar(styleClass = arrayOf("style"))
 }

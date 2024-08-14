@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.TreeView
 import kotlin.test.assertNull
 
-class TreeViewTest : LayoutsTest<KtfxPane, TreeView<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class TreeViewTest : LayoutsStyledTest<KtfxPane, TreeView<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): TreeView<String> = treeView { }
+    override fun child1() = treeView<String> {}
 
-    override fun KtfxPane.child2(): TreeView<String> = treeView()
+    override fun KtfxPane.child2() = treeView<String>()
 
-    override fun KtfxPane.child3(): TreeView<String> = treeView { }
+    override fun child3() = styledTreeView<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledTreeView<String>(styleClass = arrayOf("style"))
 
     override fun TreeView<String>.testDefaultValues() {
         assertNull(root)

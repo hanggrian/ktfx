@@ -23,7 +23,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> =
+public inline fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> =
         jfxTreeView(root = root) { }
 
 /**
@@ -32,7 +32,7 @@ public fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView
  *
  * @return the control created.
  */
-public inline fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@KtfxLayoutDslMarker
+public fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@KtfxLayoutDslMarker
         JFXTreeView<T>).() -> Unit): JFXTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeView<T>(root)
@@ -46,7 +46,7 @@ public inline fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@Kt
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null,
+public fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker JFXTreeView<T>).() -> Unit): JFXTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeView<T>(root)
@@ -61,11 +61,11 @@ public inline fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null,
  *
  * @return the styled control created.
  */
-public fun <T> styledJFXTreeView(
+public inline fun <T> styledJfxTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTreeView<T> = styledJFXTreeView(root = root, styleClass = *styleClass, id = id) { }
+): JFXTreeView<T> = styledJfxTreeView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTreeView] to this container.
@@ -74,11 +74,11 @@ public fun <T> styledJFXTreeView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXTreeView(
+public inline fun <T> NodeContainer.styledJfxTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTreeView<T> = styledJFXTreeView(root = root, styleClass = *styleClass, id = id) { }
+): JFXTreeView<T> = styledJfxTreeView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTreeView] with configuration block.
@@ -88,7 +88,7 @@ public fun <T> NodeContainer.styledJFXTreeView(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledJFXTreeView(
+public fun <T> styledJfxTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +110,7 @@ public inline fun <T> styledJFXTreeView(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXTreeView(
+public fun <T> NodeContainer.styledJfxTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

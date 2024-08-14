@@ -22,7 +22,8 @@ import org.controlsfx.control.ListSelectionView
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSelectionView() { }
+public inline fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSelectionView()
+        { }
 
 /**
  * Create a [ListSelectionView] with configuration block.
@@ -30,7 +31,7 @@ public fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSel
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
+public fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
         ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListSelectionView<T>()
@@ -44,7 +45,7 @@ public inline fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayoutDslMarker
+public fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayoutDslMarker
         ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListSelectionView<T>()
@@ -59,8 +60,8 @@ public inline fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayou
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null):
-        ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
+public inline fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null):
+        ListSelectionView<T> = styledListSelectionView(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ListSelectionView] to this container.
@@ -69,8 +70,8 @@ public fun <T> styledListSelectionView(vararg styleClass: String, id: String? = 
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledListSelectionView(vararg styleClass: String, id: String? = null):
-        ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
+public inline fun <T> NodeContainer.styledListSelectionView(vararg styleClass: String, id: String? =
+        null): ListSelectionView<T> = styledListSelectionView(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ListSelectionView] with configuration block.
@@ -80,7 +81,7 @@ public fun <T> NodeContainer.styledListSelectionView(vararg styleClass: String, 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun <T> styledListSelectionView(
+public fun <T> styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,
@@ -101,7 +102,7 @@ public inline fun <T> styledListSelectionView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledListSelectionView(
+public fun <T> NodeContainer.styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,

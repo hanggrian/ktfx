@@ -19,7 +19,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-fun exceptionDialog(
+public fun exceptionDialog(
     title: String? = null,
     graphic: Node? = null,
     exception: Throwable,
@@ -42,7 +42,7 @@ fun exceptionDialog(
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-inline fun exceptionDialog(
+public inline fun exceptionDialog(
     exception: Throwable,
     noinline dialogAction: (ExceptionDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = exceptionDialog(null, null, exception, dialogAction)

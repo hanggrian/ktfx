@@ -23,7 +23,7 @@ import ktfx.time.ms
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Node.fadeTransition(
+public fun Node.fadeTransition(
     duration: Duration = 400.0.ms,
     configuration: FadeTransition.() -> Unit,
 ): FadeTransition =
@@ -39,7 +39,7 @@ fun Node.fadeTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Shape.fillTransition(
+public fun Shape.fillTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
@@ -57,7 +57,7 @@ fun Shape.fillTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Node.pathTransition(
+public fun Node.pathTransition(
     duration: Duration = 400.0.ms,
     path: Shape? = null,
     configuration: PathTransition.() -> Unit,
@@ -74,7 +74,7 @@ fun Node.pathTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Node.rotateTransition(
+public fun Node.rotateTransition(
     duration: Duration = 400.0.ms,
     configuration: RotateTransition.() -> Unit,
 ): RotateTransition =
@@ -90,7 +90,7 @@ fun Node.rotateTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Node.scaleTransition(
+public fun Node.scaleTransition(
     duration: Duration = 400.0.ms,
     configuration: ScaleTransition.() -> Unit,
 ): ScaleTransition =
@@ -106,7 +106,7 @@ fun Node.scaleTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Shape.strokeTransition(
+public fun Shape.strokeTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
@@ -124,7 +124,7 @@ fun Shape.strokeTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-fun Node.translateTransition(
+public fun Node.translateTransition(
     duration: Duration = 400.0.ms,
     configuration: TranslateTransition.() -> Unit,
 ): TranslateTransition =
@@ -139,7 +139,7 @@ fun Node.translateTransition(
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelTransition =
+public fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelTransition =
     ParallelTransition(
         this,
         *object : AnimationScope {
@@ -154,7 +154,7 @@ fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelT
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-fun Shape.shapeParallelTransition(
+public fun Shape.shapeParallelTransition(
     configuration: ShapeAnimationScope.() -> Unit,
 ): ParallelTransition =
     ParallelTransition(
@@ -171,7 +171,9 @@ fun Shape.shapeParallelTransition(
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-fun Node.sequentialTransition(configuration: AnimationScope.() -> Unit): SequentialTransition =
+public fun Node.sequentialTransition(
+    configuration: AnimationScope.() -> Unit,
+): SequentialTransition =
     SequentialTransition(
         this,
         *object : AnimationScope {
@@ -186,7 +188,7 @@ fun Node.sequentialTransition(configuration: AnimationScope.() -> Unit): Sequent
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-fun Shape.shapeSequentialTransition(
+public fun Shape.shapeSequentialTransition(
     configuration: ShapeAnimationScope.() -> Unit,
 ): SequentialTransition =
     SequentialTransition(
@@ -198,7 +200,7 @@ fun Shape.shapeSequentialTransition(
     )
 
 /** Shape animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
-interface ShapeAnimationScope : AnimationScope {
+public interface ShapeAnimationScope : AnimationScope {
     override val node: Shape
 
     /**
@@ -208,7 +210,7 @@ interface ShapeAnimationScope : AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun fill(
+    public fun fill(
         duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
@@ -226,7 +228,7 @@ interface ShapeAnimationScope : AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun stroke(
+    public fun stroke(
         duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
@@ -239,12 +241,12 @@ interface ShapeAnimationScope : AnimationScope {
 }
 
 /** Node animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
-interface AnimationScope {
+public interface AnimationScope {
     /** Node that the animations belong to. */
-    val node: Node
+    public val node: Node
 
     /** Collection of animations within this scope. */
-    val animations: MutableCollection<Animation>
+    public val animations: MutableCollection<Animation>
 
     /**
      * Append a [FadeTransition].
@@ -253,7 +255,7 @@ interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun fade(
+    public fun fade(
         duration: Duration = 400.0.ms,
         configuration: FadeTransition.() -> Unit,
     ): FadeTransition =
@@ -269,7 +271,7 @@ interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun path(
+    public fun path(
         duration: Duration = 400.0.ms,
         path: Shape? = null,
         configuration: PathTransition.() -> Unit,
@@ -286,7 +288,7 @@ interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun rotate(
+    public fun rotate(
         duration: Duration = 400.0.ms,
         configuration: RotateTransition.() -> Unit,
     ): RotateTransition =
@@ -302,7 +304,7 @@ interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun scale(
+    public fun scale(
         duration: Duration = 400.0.ms,
         configuration: ScaleTransition.() -> Unit,
     ): ScaleTransition =
@@ -318,7 +320,7 @@ interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    fun translate(
+    public fun translate(
         duration: Duration = 400.0.ms,
         configuration: TranslateTransition.() -> Unit,
     ): TranslateTransition =
@@ -328,5 +330,5 @@ interface AnimationScope {
         }
 
     /** Return array of animations based on current configuration. */
-    fun build(): Array<Animation> = animations.toTypedArray()
+    public fun build(): Array<Animation> = animations.toTypedArray()
 }

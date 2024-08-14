@@ -1,17 +1,21 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.PrefixSelectionComboBox
 
-class PrefixSelectionComboBoxTest : LayoutsTest<KtfxPane, PrefixSelectionComboBox<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class PrefixSelectionComboBoxTest :
+    LayoutsStyledTest<KtfxPane, PrefixSelectionComboBox<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): PrefixSelectionComboBox<String> = prefixSelectionComboBox { }
+    override fun child1() = prefixSelectionComboBox<String> {}
 
-    override fun KtfxPane.child2(): PrefixSelectionComboBox<String> = prefixSelectionComboBox()
+    override fun KtfxPane.child2() = prefixSelectionComboBox<String>()
 
-    override fun KtfxPane.child3(): PrefixSelectionComboBox<String> = prefixSelectionComboBox { }
+    override fun child3() = styledPrefixSelectionComboBox<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() =
+        styledPrefixSelectionComboBox<String>(styleClass = arrayOf("style"))
 }

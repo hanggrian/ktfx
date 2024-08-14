@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -23,7 +21,7 @@ import kotlin.DeprecationLevel.ERROR
  * @param builderAction populate newly created fill and/or image.
  * @return created background.
  */
-inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
+public inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
     BackgroundBuilder().apply(builderAction).build()
 
 /**
@@ -32,7 +30,7 @@ inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Backgro
  * @param builderAction populate newly created fill and/or image.
  * @return applied background.
  */
-inline fun Region.background(noinline builderAction: BackgroundBuilder.() -> Unit): Background =
+public fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background =
     buildBackground(builderAction).also { background = it }
 
 /**
@@ -41,8 +39,8 @@ inline fun Region.background(noinline builderAction: BackgroundBuilder.() -> Uni
  * @param builderAction fill configurator.
  * @return applied background.
  */
-inline fun Region.backgroundFill(
-    noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit,
+public fun Region.fillBackground(
+    builderAction: BackgroundBuilder.FillBuilder.() -> Unit,
 ): Background = background { fill(builderAction) }
 
 /**
@@ -51,18 +49,18 @@ inline fun Region.backgroundFill(
  * @param builderAction image configurator.
  * @return applied background.
  */
-inline fun Region.backgroundImage(
+public fun Region.imageBackground(
     image: Image,
-    noinline builderAction: BackgroundBuilder.ImageBuilder.() -> Unit,
+    builderAction: BackgroundBuilder.ImageBuilder.() -> Unit,
 ): Background = background { image(image, builderAction) }
 
 /** Background configurator class. */
-class BackgroundBuilder {
+public class BackgroundBuilder {
     /** Current fills within this background. */
-    val fills: MutableList<BackgroundFill> = mutableListOf()
+    public val fills: MutableList<BackgroundFill> = mutableListOf()
 
     /** Current images within this background. */
-    val images: MutableList<BackgroundImage> = mutableListOf()
+    public val images: MutableList<BackgroundImage> = mutableListOf()
 
     /**
      * Append a [BackgroundFill].
@@ -70,7 +68,7 @@ class BackgroundBuilder {
      * @param builderAction fill configurator.
      * @return added fill.
      */
-    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
+    public inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
         FillBuilder().apply(builderAction).build().also { fills += it }
 
     /**
@@ -79,43 +77,46 @@ class BackgroundBuilder {
      * @param builderAction image configurator.
      * @return added image.
      */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
+    public inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
         ImageBuilder(image).apply(builderAction).build().also { images += it }
 
     /** Return background based on current configuration. */
-    fun build(): Background = Background(fills, images)
+    public fun build(): Background = Background(fills, images)
 
     /** Background fill configurator class. */
-    class FillBuilder {
+    public class FillBuilder {
         /** Any Paint. If null, the value [javafx.scene.paint.Color.TRANSPARENT] is used.. */
-        var fill: Paint? = null
+        public var fill: Paint? = null
 
         /** The corner Radii. If null, the value Radii.EMPTY is used. */
-        var radii: CornerRadii? = null
+        public var radii: CornerRadii? = null
 
         /** The insets. If null, the value Insets.EMPTY is used. */
-        var insets: Insets? = null
+        public var insets: Insets? = null
 
         /** Return background fill based on current configuration. */
-        fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
+        public fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
     }
 
     /** Background image configurator class. */
-    class ImageBuilder(private val image: Image) {
+    public class ImageBuilder(private val image: Image) {
         /** The repeat for the x axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
-        var repeatX: BackgroundRepeat? = null
+        public var repeatX: BackgroundRepeat? = null
 
         /** The repeat for the y axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
-        var repeatY: BackgroundRepeat? = null
+        public var repeatY: BackgroundRepeat? = null
 
         /** The position to use. If null, defaults to [BackgroundPosition.DEFAULT]. */
-        var position: BackgroundPosition? = null
+        public var position: BackgroundPosition? = null
 
         /** The size. If null, defaults to [BackgroundSize.DEFAULT]. */
-        var size: BackgroundSize? = null
+        public var size: BackgroundSize? = null
 
-        /** The repeat for the x and y axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
-        var repeat: BackgroundRepeat?
+        /**
+         * The repeat for the x and y axis. If null, this value defaults to
+         * [BackgroundRepeat.REPEAT].
+         */
+        public var repeat: BackgroundRepeat?
             @Deprecated(NO_GETTER, level = ERROR)
             get() = noGetter()
             set(value) {
@@ -124,6 +125,7 @@ class BackgroundBuilder {
             }
 
         /** Return background image based on current configuration. */
-        fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)
+        public fun build(): BackgroundImage =
+            BackgroundImage(image, repeatX, repeatY, position, size)
     }
 }

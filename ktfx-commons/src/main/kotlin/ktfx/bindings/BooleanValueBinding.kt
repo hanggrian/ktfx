@@ -13,7 +13,7 @@ import javafx.beans.value.ObservableBooleanValue
  *
  * @see BooleanExpression.and
  */
-inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): BooleanBinding =
+public inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): BooleanBinding =
     Bindings.and(this, other)
 
 /**
@@ -22,7 +22,7 @@ inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): Bool
  *
  * @see BooleanExpression.or
  */
-inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding =
+public inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding =
     Bindings.or(this, other)
 
 /**
@@ -31,7 +31,7 @@ inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): Boole
  *
  * @see BooleanExpression.isEqualTo
  */
-inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): BooleanBinding =
+public inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): BooleanBinding =
     Bindings.equal(this, other)
 
 /**
@@ -40,5 +40,5 @@ inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): Boole
  *
  * @see BooleanExpression.isNotEqualTo
  */
-inline infix fun ObservableBooleanValue.neq(other: ObservableBooleanValue): BooleanBinding =
+public inline infix fun ObservableBooleanValue.neq(other: ObservableBooleanValue): BooleanBinding =
     Bindings.notEqual(this, other)

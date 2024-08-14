@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.BreadCrumbBar
 import kotlin.test.assertNull
 
-class BreadCrumbBarTest : LayoutsTest<KtfxPane, BreadCrumbBar<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class BreadCrumbBarTest : LayoutsStyledTest<KtfxPane, BreadCrumbBar<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): BreadCrumbBar<String> = breadCrumbBar<String> { }
+    override fun child1() = breadCrumbBar<String> {}
 
-    override fun KtfxPane.child2(): BreadCrumbBar<String> = breadCrumbBar<String>()
+    override fun KtfxPane.child2() = breadCrumbBar<String>()
 
-    override fun KtfxPane.child3(): BreadCrumbBar<String> = breadCrumbBar<String> { }
+    override fun child3() = styledBreadCrumbBar<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledBreadCrumbBar<String>(styleClass = arrayOf("style"))
 
     override fun BreadCrumbBar<String>.testDefaultValues() {
         assertNull(selectedCrumb)

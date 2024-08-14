@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
-        CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
+public inline fun MenuItemContainer.customMenuItem(content: Node? = null, hideOnClick: Boolean =
+        true): CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
 
 /**
  * Create a [CustomMenuItem] with configuration block.
@@ -31,7 +31,7 @@ public fun MenuItemContainer.customMenuItem(content: Node? = null, hideOnClick: 
  *
  * @return the control created.
  */
-public inline fun customMenuItem(
+public fun customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
@@ -48,7 +48,7 @@ public inline fun customMenuItem(
  *
  * @return the control added.
  */
-public inline fun MenuItemContainer.customMenuItem(
+public fun MenuItemContainer.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
@@ -66,13 +66,13 @@ public inline fun MenuItemContainer.customMenuItem(
  *
  * @return the styled control created.
  */
-public fun styledCustomMenuItem(
+public inline fun styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
 ): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [CustomMenuItem] to this container.
@@ -81,13 +81,13 @@ public fun styledCustomMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledCustomMenuItem(
+public inline fun MenuItemContainer.styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
 ): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [CustomMenuItem] with configuration block.
@@ -97,7 +97,7 @@ public fun MenuItemContainer.styledCustomMenuItem(
  *
  * @return the styled control created.
  */
-public inline fun styledCustomMenuItem(
+public fun styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
@@ -120,7 +120,7 @@ public inline fun styledCustomMenuItem(
  *
  * @return the styled control added.
  */
-public inline fun MenuItemContainer.styledCustomMenuItem(
+public fun MenuItemContainer.styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,

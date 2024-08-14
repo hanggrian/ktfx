@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.Ellipse
 import kotlin.test.assertEquals
 
-class EllipseTest : LayoutsTest<KtfxPane, Ellipse>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class EllipseTest : LayoutsStyledTest<KtfxPane, Ellipse>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Ellipse = ellipse { }
+    override fun child1() = ellipse {}
 
-    override fun KtfxPane.child2(): Ellipse = ellipse()
+    override fun KtfxPane.child2() = ellipse()
 
-    override fun KtfxPane.child3(): Ellipse = ellipse { }
+    override fun child3() = styledEllipse(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledEllipse(styleClass = arrayOf("style"))
 
     override fun Ellipse.testDefaultValues() {
         assertEquals(0.0, centerX)

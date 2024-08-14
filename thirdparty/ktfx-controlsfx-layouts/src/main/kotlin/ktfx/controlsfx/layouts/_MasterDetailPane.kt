@@ -25,8 +25,8 @@ import org.controlsfx.control.MasterDetailPane
  *
  * @return the control added.
  */
-public fun NodeContainer.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
-        MasterDetailPane = masterDetailPane(detailSide = detailSide, showDetailNode =
+public inline fun NodeContainer.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean =
+        true): MasterDetailPane = masterDetailPane(detailSide = detailSide, showDetailNode =
         showDetailNode) { }
 
 /**
@@ -35,7 +35,7 @@ public fun NodeContainer.masterDetailPane(detailSide: Side = RIGHT, showDetailNo
  *
  * @return the control created.
  */
-public inline fun masterDetailPane(
+public fun masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit,
@@ -52,7 +52,7 @@ public inline fun masterDetailPane(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.masterDetailPane(
+public fun NodeContainer.masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit,
@@ -70,13 +70,13 @@ public inline fun NodeContainer.masterDetailPane(
  *
  * @return the styled control created.
  */
-public fun styledMasterDetailPane(
+public inline fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
 ): MasterDetailPane = styledMasterDetailPane(detailSide = detailSide, showDetailNode =
-        showDetailNode, styleClass = *styleClass, id = id) { }
+        showDetailNode, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [MasterDetailPane] to this container.
@@ -85,13 +85,13 @@ public fun styledMasterDetailPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMasterDetailPane(
+public inline fun NodeContainer.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
 ): MasterDetailPane = styledMasterDetailPane(detailSide = detailSide, showDetailNode =
-        showDetailNode, styleClass = *styleClass, id = id) { }
+        showDetailNode, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [MasterDetailPane] with configuration block.
@@ -101,7 +101,7 @@ public fun NodeContainer.styledMasterDetailPane(
  *
  * @return the styled control created.
  */
-public inline fun styledMasterDetailPane(
+public fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -124,7 +124,7 @@ public inline fun styledMasterDetailPane(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledMasterDetailPane(
+public fun NodeContainer.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,

@@ -1,17 +1,19 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.ListSelectionView
 
-class ListSelectionViewTest : LayoutsTest<KtfxPane, ListSelectionView<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ListSelectionViewTest : LayoutsStyledTest<KtfxPane, ListSelectionView<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ListSelectionView<String> = listSelectionView { }
+    override fun child1() = listSelectionView<String> {}
 
-    override fun KtfxPane.child2(): ListSelectionView<String> = listSelectionView()
+    override fun KtfxPane.child2() = listSelectionView<String>()
 
-    override fun KtfxPane.child3(): ListSelectionView<String> = listSelectionView { }
+    override fun child3() = styledListSelectionView<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledListSelectionView<String>(styleClass = arrayOf("style"))
 }

@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.layout.BorderPane
 
-class BorderPaneTest : LayoutsTest<KtfxPane, BorderPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class BorderPaneTest : LayoutsStyledTest<KtfxPane, BorderPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): BorderPane = borderPane { }
+    override fun child1() = borderPane {}
 
-    override fun KtfxPane.child2(): BorderPane = borderPane()
+    override fun KtfxPane.child2() = borderPane()
 
-    override fun KtfxPane.child3(): BorderPane = borderPane { }
+    override fun child3() = styledBorderPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledBorderPane(styleClass = arrayOf("style"))
 }

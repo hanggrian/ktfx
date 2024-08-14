@@ -17,7 +17,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return selected item.
  */
-fun <T> selector(
+public fun <T> selector(
     title: String? = null,
     graphic: Node? = null,
     items: Collection<T>? = null,
@@ -42,7 +42,7 @@ fun <T> selector(
  * @param dialogAction custom dialog action.
  * @return selected item.
  */
-inline fun <T> selector(
+public inline fun <T> selector(
     items: Collection<T>? = null,
     prefill: T? = null,
     noinline dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,
@@ -58,7 +58,7 @@ inline fun <T> selector(
  * @param dialogAction custom dialog action.
  * @return selected item.
  */
-fun <T> selector(
+public fun <T> selector(
     title: String? = null,
     graphic: Node? = null,
     vararg items: T,
@@ -83,7 +83,7 @@ fun <T> selector(
  * @param dialogAction custom dialog action.
  * @return selected item.
  */
-inline fun <T> selector(
+public inline fun <T> selector(
     vararg items: T,
     prefill: T? = null,
     noinline dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,

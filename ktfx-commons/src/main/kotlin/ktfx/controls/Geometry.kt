@@ -7,76 +7,76 @@ import javafx.geometry.Side
 import javafx.geometry.VPos
 
 /** Represents positioning on the top vertically and on the left horizontally. */
-val TOP_LEFT: Pos = Pos.TOP_LEFT
+public val TOP_LEFT: Pos = Pos.TOP_LEFT
 
 /** Represents positioning on the top vertically and on the center horizontally. */
-val TOP: Pos = Pos.TOP_CENTER
+public val TOP: Pos = Pos.TOP_CENTER
 
 /** Represents positioning on the top vertically and on the right horizontally. */
-val TOP_RIGHT: Pos = Pos.TOP_RIGHT
+public val TOP_RIGHT: Pos = Pos.TOP_RIGHT
 
 /** Represents positioning on the center vertically and on the left horizontally. */
-val LEFT: Pos = Pos.CENTER_LEFT
+public val LEFT: Pos = Pos.CENTER_LEFT
 
 /** Represents positioning on the center both vertically and horizontally. */
-val CENTER: Pos = Pos.CENTER
+public val CENTER: Pos = Pos.CENTER
 
 /** Represents positioning on the center vertically and on the right horizontally. */
-val RIGHT: Pos = Pos.CENTER_RIGHT
+public val RIGHT: Pos = Pos.CENTER_RIGHT
 
 /** Represents positioning on the bottom vertically and on the left horizontally. */
-val BOTTOM_LEFT: Pos = Pos.BOTTOM_LEFT
+public val BOTTOM_LEFT: Pos = Pos.BOTTOM_LEFT
 
 /** Represents positioning on the bottom vertically and on the center horizontally. */
-val BOTTOM: Pos = Pos.BOTTOM_CENTER
+public val BOTTOM: Pos = Pos.BOTTOM_CENTER
 
 /** Represents positioning on the bottom vertically and on the right horizontally. */
-val BOTTOM_RIGHT: Pos = Pos.BOTTOM_RIGHT
+public val BOTTOM_RIGHT: Pos = Pos.BOTTOM_RIGHT
 
 /** Represents positioning on the baseline vertically and on the left horizontally. */
-val BASELINE_LEFT: Pos = Pos.BASELINE_LEFT
+public val BASELINE_LEFT: Pos = Pos.BASELINE_LEFT
 
 /** Represents positioning on the baseline vertically and on the center horizontally. */
-val BASELINE: Pos = Pos.BASELINE_CENTER
+public val BASELINE: Pos = Pos.BASELINE_CENTER
 
 /** Represents positioning on the baseline vertically and on the right horizontally. */
-val BASELINE_RIGHT: Pos = Pos.BASELINE_RIGHT
+public val BASELINE_RIGHT: Pos = Pos.BASELINE_RIGHT
 
 /** Indicates left horizontal position. */
-val H_LEFT: HPos = HPos.LEFT
+public val H_LEFT: HPos = HPos.LEFT
 
 /** Indicates centered horizontal position. */
-val H_CENTER: HPos = HPos.CENTER
+public val H_CENTER: HPos = HPos.CENTER
 
 /** Indicates right horizontal position. */
-val H_RIGHT: HPos = HPos.RIGHT
+public val H_RIGHT: HPos = HPos.RIGHT
 
 /** Indicates top vertical position. */
-val V_TOP: VPos = VPos.TOP
+public val V_TOP: VPos = VPos.TOP
 
 /** Indicates centered vertical position. */
-val V_CENTER: VPos = VPos.CENTER
+public val V_CENTER: VPos = VPos.CENTER
 
 /** Indicates baseline vertical position. */
-val V_BASELINE: VPos = VPos.BASELINE
+public val V_BASELINE: VPos = VPos.BASELINE
 
 /** Indicates bottom vertical position. */
-val V_BOTTOM: VPos = VPos.BOTTOM
+public val V_BOTTOM: VPos = VPos.BOTTOM
 
 /** The horizontal (right <-> left) orientation. */
-val HORIZONTAL: Orientation = Orientation.HORIZONTAL
+public val HORIZONTAL: Orientation = Orientation.HORIZONTAL
 
 /** The vertical (top <-> bottom) orientation. */
-val VERTICAL: Orientation = Orientation.VERTICAL
+public val VERTICAL: Orientation = Orientation.VERTICAL
 
 /** Represents top side of a rectangle. */
-val SIDE_TOP: Side = Side.TOP
+public val SIDE_TOP: Side = Side.TOP
 
 /** Represents bottom side of a rectangle. */
-val SIDE_BOTTOM: Side = Side.BOTTOM
+public val SIDE_BOTTOM: Side = Side.BOTTOM
 
 /** Represents left side of a rectangle. */
-val SIDE_LEFT: Side = Side.LEFT
+public val SIDE_LEFT: Side = Side.LEFT
 
 /** Represents right side of a rectangle. */
-val SIDE_RIGHT: Side = Side.RIGHT
+public val SIDE_RIGHT: Side = Side.RIGHT

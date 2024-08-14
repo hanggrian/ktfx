@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList()):
+public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList()):
         ChoiceBox<T> = choiceBox(items = items) { }
 
 /**
@@ -31,7 +31,7 @@ public fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArra
  *
  * @return the control created.
  */
-public inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -45,7 +45,7 @@ public inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList()
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -60,11 +60,11 @@ public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observa
  *
  * @return the styled control created.
  */
-public fun <T> styledChoiceBox(
+public inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass, id = id) { }
+): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ChoiceBox] to this container.
@@ -73,11 +73,11 @@ public fun <T> styledChoiceBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledChoiceBox(
+public inline fun <T> NodeContainer.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass, id = id) { }
+): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ChoiceBox] with configuration block.
@@ -87,7 +87,7 @@ public fun <T> NodeContainer.styledChoiceBox(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledChoiceBox(
+public fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun <T> styledChoiceBox(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledChoiceBox(
+public fun <T> NodeContainer.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

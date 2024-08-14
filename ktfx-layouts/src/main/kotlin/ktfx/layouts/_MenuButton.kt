@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
-        menuButton(text = text, graphic = graphic) { }
+public inline fun NodeContainer.menuButton(text: String? = null, graphic: Node? = null): MenuButton
+        = menuButton(text = text, graphic = graphic) { }
 
 /**
  * Create a [MenuButton] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.menuButton(text: String? = null, graphic: Node? = null)
  *
  * @return the control created.
  */
-public inline fun menuButton(
+public fun menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun menuButton(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.menuButton(
+public fun NodeContainer.menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
@@ -65,13 +65,13 @@ public inline fun NodeContainer.menuButton(
  *
  * @return the styled control created.
  */
-public fun styledMenuButton(
+public inline fun styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-        { }
+): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = styleClass, id = id) {
+        }
 
 /**
  * Add a styled [MenuButton] to this container.
@@ -80,13 +80,13 @@ public fun styledMenuButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMenuButton(
+public inline fun NodeContainer.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-        { }
+): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = styleClass, id = id) {
+        }
 
 /**
  * Create a styled [MenuButton] with configuration block.
@@ -96,7 +96,7 @@ public fun NodeContainer.styledMenuButton(
  *
  * @return the styled control created.
  */
-public inline fun styledMenuButton(
+public fun styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +119,7 @@ public inline fun styledMenuButton(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledMenuButton(
+public fun NodeContainer.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

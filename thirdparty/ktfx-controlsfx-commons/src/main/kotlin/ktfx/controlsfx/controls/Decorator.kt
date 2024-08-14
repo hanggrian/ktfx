@@ -8,15 +8,16 @@ import org.controlsfx.control.decoration.Decoration
 import org.controlsfx.control.decoration.Decorator
 
 /** Adds the given decoration to the given node. */
-inline fun Node.addDecoration(decoration: Decoration): Unit =
+public inline fun Node.addDecoration(decoration: Decoration): Unit =
     Decorator.addDecoration(this, decoration)
 
 /** Removes the given decoration from the given node. */
-inline fun Node.removeDecoration(decoration: Decoration): Unit =
+public inline fun Node.removeDecoration(decoration: Decoration): Unit =
     Decorator.removeDecoration(this, decoration)
 
 /** Removes all the decorations that have previously been set on the given node. */
-inline fun Node.clearDecorations(): Unit = Decorator.removeAllDecorations(this)
+public inline fun Node.clearDecorations(): Unit = Decorator.removeAllDecorations(this)
 
 /** Returns all the currently set decorations for the given node. */
-inline val Node.decorations: ObservableList<Decoration> get() = Decorator.getDecorations(this)
+public inline val Node.decorations: ObservableList<Decoration> get() =
+    Decorator.getDecorations(this)

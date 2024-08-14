@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this node. */
-fun <E : Event> Node.eventFilter(
+public fun <E : Event> Node.eventFilter(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -27,7 +27,7 @@ fun <E : Event> Node.eventFilter(
         .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this node. */
-fun <E : Event> Node.eventHandler(
+public fun <E : Event> Node.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -36,7 +36,7 @@ fun <E : Event> Node.eventHandler(
         .also { addEventHandler(type, it) }
 
 /** Takes a snapshot of this node at the next frame and calls the specified callback method when the image is ready. */
-fun Node.capture(
+public fun Node.capture(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
     configuration: SnapshotParameters.() -> Unit = { },

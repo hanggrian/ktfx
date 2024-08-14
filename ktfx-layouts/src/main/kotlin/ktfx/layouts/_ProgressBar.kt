@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
-        progressBar(progress = progress) { }
+public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar
+        = progressBar(progress = progress) { }
 
 /**
  * Create a [ProgressBar] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS):
  *
  * @return the control created.
  */
-public inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
+public fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -45,7 +45,7 @@ public inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
+public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -60,11 +60,11 @@ public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PRO
  *
  * @return the styled control created.
  */
-public fun styledProgressBar(
+public inline fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): ProgressBar = styledProgressBar(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ProgressBar] to this container.
@@ -73,11 +73,11 @@ public fun styledProgressBar(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledProgressBar(
+public inline fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): ProgressBar = styledProgressBar(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ProgressBar] with configuration block.
@@ -87,7 +87,7 @@ public fun NodeContainer.styledProgressBar(
  *
  * @return the styled control created.
  */
-public inline fun styledProgressBar(
+public fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun styledProgressBar(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledProgressBar(
+public fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

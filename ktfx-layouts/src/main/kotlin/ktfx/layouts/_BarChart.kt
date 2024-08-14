@@ -25,7 +25,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.barChart(
+public inline fun <X, Y> NodeContainer.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -38,7 +38,7 @@ public fun <X, Y> NodeContainer.barChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> barChart(
+public fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -57,7 +57,7 @@ public inline fun <X, Y> barChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.barChart(
+public fun <X, Y> NodeContainer.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -77,7 +77,7 @@ public inline fun <X, Y> NodeContainer.barChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledBarChart(
+public inline fun <X, Y> styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -85,7 +85,7 @@ public fun <X, Y> styledBarChart(
     vararg styleClass: String,
     id: String? = null,
 ): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-        = *styleClass, id = id) { }
+        = styleClass, id = id) { }
 
 /**
  * Add a styled [BarChart] to this container.
@@ -94,7 +94,7 @@ public fun <X, Y> styledBarChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledBarChart(
+public inline fun <X, Y> NodeContainer.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -102,7 +102,7 @@ public fun <X, Y> NodeContainer.styledBarChart(
     vararg styleClass: String,
     id: String? = null,
 ): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-        = *styleClass, id = id) { }
+        = styleClass, id = id) { }
 
 /**
  * Create a styled [BarChart] with configuration block.
@@ -112,7 +112,7 @@ public fun <X, Y> NodeContainer.styledBarChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledBarChart(
+public fun <X, Y> styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -137,7 +137,7 @@ public inline fun <X, Y> styledBarChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledBarChart(
+public fun <X, Y> NodeContainer.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

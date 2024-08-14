@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.DatePicker
 import kotlin.test.assertNull
 
-class DatePickerTest : LayoutsTest<KtfxPane, DatePicker>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class DatePickerTest : LayoutsStyledTest<KtfxPane, DatePicker>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): DatePicker = datePicker { }
+    override fun child1() = datePicker {}
 
-    override fun KtfxPane.child2(): DatePicker = datePicker()
+    override fun KtfxPane.child2() = datePicker()
 
-    override fun KtfxPane.child3(): DatePicker = datePicker { }
+    override fun child3() = styledDatePicker(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledDatePicker(styleClass = arrayOf("style"))
 
     override fun DatePicker.testDefaultValues() {
         assertNull(value)

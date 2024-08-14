@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event handler to this table column. */
-fun <E : Event> TableColumnBase<*, *>.eventHandler(
+public fun <E : Event> TableColumnBase<*, *>.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(Event) -> Unit,

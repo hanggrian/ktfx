@@ -4,9 +4,9 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-/** There are 3 ways to create/add a child. This test ensures that each way produces the same child result. */
+/** There are several ways to create a control, this class test each of them. */
 abstract class LayoutsTest<M : Any, C> {
-    private lateinit var manager: M
+    protected lateinit var manager: M
 
     @BeforeTest
     open fun onCreate() {
@@ -22,14 +22,12 @@ abstract class LayoutsTest<M : Any, C> {
 
     abstract fun M.child2(): C
 
-    abstract fun M.child3(): C
-
     /** Override to test default values. */
     open fun C.testDefaultValues() {
     }
 
     @Test
-    fun createChildWithBuilder() {
+    fun createChild() {
         val child = child1()
         child.testDefaultValues()
         assertEquals(0, manager.childCount())
@@ -37,13 +35,6 @@ abstract class LayoutsTest<M : Any, C> {
 
     @Test
     fun addChild() {
-        val child = manager.child3()
-        child.testDefaultValues()
-        assertEquals(1, manager.childCount())
-    }
-
-    @Test
-    fun addChildWithBuilder() {
         val child = manager.child2()
         child.testDefaultValues()
         assertEquals(1, manager.childCount())

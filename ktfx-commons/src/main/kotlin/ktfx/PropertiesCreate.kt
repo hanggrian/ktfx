@@ -30,40 +30,42 @@ import javafx.collections.ObservableMap
 import javafx.collections.ObservableSet
 
 /** Create a [Property] with [initialValue]. */
-inline fun <T> propertyOf(initialValue: T? = null): ObjectProperty<T> =
+public inline fun <T> propertyOf(initialValue: T? = null): ObjectProperty<T> =
     SimpleObjectProperty<T>(initialValue)
 
 /** Create a [StringProperty] with [initialValue]. */
-inline fun stringPropertyOf(initialValue: String? = null): StringProperty =
+public inline fun stringPropertyOf(initialValue: String? = null): StringProperty =
     SimpleStringProperty(initialValue)
 
 /** Create a [BooleanProperty] with [initialValue]. */
-inline fun booleanPropertyOf(initialValue: Boolean = false): BooleanProperty =
+public inline fun booleanPropertyOf(initialValue: Boolean = false): BooleanProperty =
     SimpleBooleanProperty(initialValue)
 
 /** Create a [DoubleProperty] with [initialValue]. */
-inline fun doublePropertyOf(initialValue: Double = 0.0): DoubleProperty =
+public inline fun doublePropertyOf(initialValue: Double = 0.0): DoubleProperty =
     SimpleDoubleProperty(initialValue)
 
 /** Create a [FloatProperty] with [initialValue]. */
-inline fun floatPropertyOf(initialValue: Float = 0f): FloatProperty =
+public inline fun floatPropertyOf(initialValue: Float = 0f): FloatProperty =
     SimpleFloatProperty(initialValue)
 
 /** Create a [LongProperty] with [initialValue]. */
-inline fun longPropertyOf(initialValue: Long = 0L): LongProperty = SimpleLongProperty(initialValue)
+public inline fun longPropertyOf(initialValue: Long = 0L): LongProperty =
+    SimpleLongProperty(initialValue)
 
 /** Create a [IntegerProperty] with [initialValue]. */
-inline fun intPropertyOf(initialValue: Int = 0): IntegerProperty =
+public inline fun intPropertyOf(initialValue: Int = 0): IntegerProperty =
     SimpleIntegerProperty(initialValue)
 
 /** Create a [ListProperty] with [initialValue]. */
-inline fun <E> listPropertyOf(initialValue: ObservableList<E>? = null): ListProperty<E> =
-    SimpleListProperty<E>(initialValue)
+public inline fun <E> listPropertyOf(initialValue: ObservableList<E>? = null): ListProperty<E> =
+    SimpleListProperty(initialValue)
 
 /** Create a [SetProperty] with [initialValue]. */
-inline fun <E> setPropertyOf(initialValue: ObservableSet<E>? = null): SetProperty<E> =
-    SimpleSetProperty<E>(initialValue)
+public inline fun <E> setPropertyOf(initialValue: ObservableSet<E>? = null): SetProperty<E> =
+    SimpleSetProperty(initialValue)
 
 /** Create a [MapProperty] with [initialValue]. */
-inline fun <K, V> mapPropertyOf(initialValue: ObservableMap<K, V>? = null): MapProperty<K, V> =
-    SimpleMapProperty<K, V>(initialValue)
+public inline fun <K, V> mapPropertyOf(
+    initialValue: ObservableMap<K, V>? = null,
+): MapProperty<K, V> = SimpleMapProperty(initialValue)

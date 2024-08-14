@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
+public inline fun NodeContainer.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
 
 /**
  * Create a [VBox] with configuration block.
@@ -29,8 +29,8 @@ public fun NodeContainer.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spac
  *
  * @return the control created.
  */
-public inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        KtfxVBox).() -> Unit): VBox {
+public fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxVBox).() -> Unit):
+        VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)
     child.configuration()
@@ -43,7 +43,7 @@ public inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMark
  *
  * @return the control added.
  */
-public inline fun NodeContainer.vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         KtfxVBox).() -> Unit): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)
@@ -58,11 +58,11 @@ public inline fun NodeContainer.vbox(spacing: Double = 0.0, configuration: (@Ktf
  *
  * @return the styled control created.
  */
-public fun styledVBox(
+public inline fun styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): VBox = styledVBox(spacing = spacing, styleClass = *styleClass, id = id) { }
+): VBox = styledVBox(spacing = spacing, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [VBox] to this container.
@@ -71,11 +71,11 @@ public fun styledVBox(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledVBox(
+public inline fun NodeContainer.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): VBox = styledVBox(spacing = spacing, styleClass = *styleClass, id = id) { }
+): VBox = styledVBox(spacing = spacing, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [VBox] with configuration block.
@@ -85,7 +85,7 @@ public fun NodeContainer.styledVBox(
  *
  * @return the styled control created.
  */
-public inline fun styledVBox(
+public fun styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +107,7 @@ public inline fun styledVBox(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledVBox(
+public fun NodeContainer.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

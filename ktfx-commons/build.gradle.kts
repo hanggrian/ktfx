@@ -9,6 +9,8 @@ plugins {
 
 javafx.modules("javafx.controls", "javafx.swing")
 
+kotlin.explicitApi()
+
 dependencies {
     ktlintRuleset(libs.rulebook.ktlint)
 

@@ -16,7 +16,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return input text.
  */
-fun inputDialog(
+public fun inputDialog(
     title: String? = null,
     graphic: Node? = null,
     prefill: String = "",
@@ -39,7 +39,7 @@ fun inputDialog(
  * @param dialogAction custom dialog action.
  * @return input text.
  */
-inline fun inputDialog(
+public inline fun inputDialog(
     prefill: String = "",
     noinline dialogAction: (TextInputDialog.() -> Unit)? = null,
 ): Optional<String> = inputDialog(null, null, prefill, dialogAction)

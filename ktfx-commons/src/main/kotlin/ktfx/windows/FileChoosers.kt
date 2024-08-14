@@ -15,7 +15,7 @@ import java.io.File
  * @param initialDirectory starting point of chooser.
  * @return chosen directory.
  */
-fun Window.chooseDirectory(title: String? = null, initialDirectory: File? = null): File? =
+public fun Window.chooseDirectory(title: String? = null, initialDirectory: File? = null): File? =
     DirectoryChooser()
         .also {
             if (title != null) it.title = title
@@ -31,7 +31,7 @@ fun Window.chooseDirectory(title: String? = null, initialDirectory: File? = null
  * @param filters expected file extensions.
  * @return chosen file.
  */
-fun Window.chooseFile(
+public fun Window.chooseFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -54,7 +54,7 @@ fun Window.chooseFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseFile(
+public inline fun Window.chooseFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -67,7 +67,7 @@ inline fun Window.chooseFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? =
+public inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? =
     chooseFile(null, null, null, *filters)
 
 /**
@@ -76,7 +76,7 @@ inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? =
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? =
+public inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? =
     chooseFile(null, null, null, *filters)
 
 /**
@@ -88,7 +88,7 @@ inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? =
  * @param filters expected file extensions.
  * @return chosen files.
  */
-fun Window.chooseFiles(
+public fun Window.chooseFiles(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -111,7 +111,7 @@ fun Window.chooseFiles(
  * @param filters expected file extensions.
  * @return chosen files.
  */
-inline fun Window.chooseFiles(
+public inline fun Window.chooseFiles(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -124,7 +124,7 @@ inline fun Window.chooseFiles(
  * @param filters expected file extensions.
  * @return chosen files.
  */
-inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> =
+public inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> =
     chooseFiles(null, null, null, *filters)
 
 /**
@@ -133,7 +133,7 @@ inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> =
  * @param filters expected file extensions.
  * @return chosen files.
  */
-inline fun Window.chooseFiles(vararg filters: Pair<String, String>): List<File> =
+public inline fun Window.chooseFiles(vararg filters: Pair<String, String>): List<File> =
     chooseFiles(null, null, null, *filters)
 
 /**
@@ -145,7 +145,7 @@ inline fun Window.chooseFiles(vararg filters: Pair<String, String>): List<File> 
  * @param filters expected file extensions.
  * @return chosen file.
  */
-fun Window.chooseSaveFile(
+public fun Window.chooseSaveFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -168,7 +168,7 @@ fun Window.chooseSaveFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseSaveFile(
+public inline fun Window.chooseSaveFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -181,7 +181,7 @@ inline fun Window.chooseSaveFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? =
+public inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? =
     chooseSaveFile(null, null, null, *filters)
 
 /**
@@ -190,7 +190,7 @@ inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? =
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseSaveFile(vararg filters: Pair<String, String>): File? =
+public inline fun Window.chooseSaveFile(vararg filters: Pair<String, String>): File? =
     chooseSaveFile(null, null, null, *filters)
 
 @PublishedApi

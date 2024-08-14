@@ -1,21 +1,23 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.SplitMenuButton
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SplitMenuButtonTest : LayoutsTest<KtfxPane, SplitMenuButton>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class SplitMenuButtonTest : LayoutsStyledTest<KtfxPane, SplitMenuButton>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): SplitMenuButton = splitMenuButton { }
+    override fun child1() = splitMenuButton {}
 
-    override fun KtfxPane.child2(): SplitMenuButton = splitMenuButton()
+    override fun KtfxPane.child2() = splitMenuButton()
 
-    override fun KtfxPane.child3(): SplitMenuButton = splitMenuButton { }
+    override fun child3() = styledSplitMenuButton(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledSplitMenuButton(styleClass = arrayOf("style"))
 
     @Test
     fun stringInvocation() {

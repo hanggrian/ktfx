@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.ButtonBar
 import javafx.scene.control.ButtonBar.BUTTON_ORDER_LINUX
 import javafx.scene.control.ButtonBar.BUTTON_ORDER_MAC_OS
@@ -13,16 +13,18 @@ import org.apache.commons.lang3.SystemUtils.IS_OS_WINDOWS
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ButtonBarTest : LayoutsTest<KtfxPane, ButtonBar>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ButtonBarTest : LayoutsStyledTest<KtfxPane, ButtonBar>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ButtonBar = buttonBar { }
+    override fun child1() = buttonBar {}
 
-    override fun KtfxPane.child2(): ButtonBar = buttonBar()
+    override fun KtfxPane.child2() = buttonBar()
 
-    override fun KtfxPane.child3(): ButtonBar = buttonBar { }
+    override fun child3() = styledButtonBar(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledButtonBar(styleClass = arrayOf("style"))
 
     override fun ButtonBar.testDefaultValues() {
         assertEquals(

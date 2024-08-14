@@ -19,7 +19,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return nothing.
  */
-fun progressDialog(
+public fun progressDialog(
     title: String? = null,
     graphic: Node? = null,
     worker: Worker<*>?,
@@ -42,7 +42,7 @@ fun progressDialog(
  * @param dialogAction custom dialog action.
  * @return nothing.
  */
-inline fun progressDialog(
+public inline fun progressDialog(
     worker: Worker<*>?,
     noinline dialogAction: (ProgressDialog.() -> Unit)? = null,
 ): Optional<Void> = progressDialog(null, null, worker, dialogAction)

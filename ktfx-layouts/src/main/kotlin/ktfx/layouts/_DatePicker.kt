@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.datePicker(date: LocalDate? = null): DatePicker = datePicker(date = date) {
-        }
+public inline fun NodeContainer.datePicker(date: LocalDate? = null): DatePicker = datePicker(date =
+        date) { }
 
 /**
  * Create a [DatePicker] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.datePicker(date: LocalDate? = null): DatePicker = dateP
  *
  * @return the control created.
  */
-public inline fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+public fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
         DatePicker).() -> Unit): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
@@ -44,8 +44,8 @@ public inline fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayou
  *
  * @return the control added.
  */
-public inline fun NodeContainer.datePicker(date: LocalDate? = null,
-        configuration: (@KtfxLayoutDslMarker DatePicker).() -> Unit): DatePicker {
+public fun NodeContainer.datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+        DatePicker).() -> Unit): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
     child.configuration()
@@ -59,11 +59,11 @@ public inline fun NodeContainer.datePicker(date: LocalDate? = null,
  *
  * @return the styled control created.
  */
-public fun styledDatePicker(
+public inline fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
+): DatePicker = styledDatePicker(date = date, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [DatePicker] to this container.
@@ -72,11 +72,11 @@ public fun styledDatePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledDatePicker(
+public inline fun NodeContainer.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
+): DatePicker = styledDatePicker(date = date, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [DatePicker] with configuration block.
@@ -86,7 +86,7 @@ public fun NodeContainer.styledDatePicker(
  *
  * @return the styled control created.
  */
-public inline fun styledDatePicker(
+public fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +108,7 @@ public inline fun styledDatePicker(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledDatePicker(
+public fun NodeContainer.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

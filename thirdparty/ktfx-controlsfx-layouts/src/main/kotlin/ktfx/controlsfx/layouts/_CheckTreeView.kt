@@ -23,8 +23,8 @@ import org.controlsfx.control.CheckTreeView
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
-        checkTreeView(root = root) { }
+public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null):
+        CheckTreeView<T> = checkTreeView(root = root) { }
 
 /**
  * Create a [CheckTreeView] with configuration block.
@@ -32,8 +32,8 @@ public fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null): C
  *
  * @return the control created.
  */
-public inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null,
-        configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
+public fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null, configuration: (@KtfxLayoutDslMarker
+        CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
     child.configuration()
@@ -46,7 +46,7 @@ public inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null,
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null,
+public fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
@@ -61,11 +61,11 @@ public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = n
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckTreeView(
+public inline fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = *styleClass, id = id) { }
+): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [CheckTreeView] to this container.
@@ -74,11 +74,11 @@ public fun <T> styledCheckTreeView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckTreeView(
+public inline fun <T> NodeContainer.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = *styleClass, id = id) { }
+): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [CheckTreeView] with configuration block.
@@ -88,7 +88,7 @@ public fun <T> NodeContainer.styledCheckTreeView(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledCheckTreeView(
+public fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +110,7 @@ public inline fun <T> styledCheckTreeView(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledCheckTreeView(
+public fun <T> NodeContainer.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

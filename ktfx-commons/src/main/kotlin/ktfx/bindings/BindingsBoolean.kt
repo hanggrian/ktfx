@@ -21,19 +21,21 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies. */
-inline fun booleanBindingOf(
+public inline fun booleanBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> Boolean,
 ): BooleanBinding = Bindings.createBooleanBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies using collection. */
-fun booleanBindingOf(
+public fun booleanBindingOf(
     dependencies: Collection<Observable>,
     valueProvider: () -> Boolean,
 ): BooleanBinding = booleanBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [BooleanBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.booleanBindingBy(valueProvider: (List<E>) -> Boolean): BooleanBinding =
+public fun <E> ObservableList<E>.booleanBindingBy(
+    valueProvider: (List<E>) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -47,7 +49,9 @@ fun <E> ObservableList<E>.booleanBindingBy(valueProvider: (List<E>) -> Boolean):
     }
 
 /** Create an [BooleanBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.booleanBindingBy(valueProvider: (Set<E>) -> Boolean): BooleanBinding =
+public fun <E> ObservableSet<E>.booleanBindingBy(
+    valueProvider: (Set<E>) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -61,7 +65,7 @@ fun <E> ObservableSet<E>.booleanBindingBy(valueProvider: (Set<E>) -> Boolean): B
     }
 
 /** Create an [BooleanBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.booleanBindingBy(
+public fun <K, V> ObservableMap<K, V>.booleanBindingBy(
     valueProvider: (Map<K, V>) -> Boolean,
 ): BooleanBinding =
     object : BooleanBinding() {
@@ -78,7 +82,9 @@ fun <K, V> ObservableMap<K, V>.booleanBindingBy(
     }
 
 /** Create a [BooleanBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.booleanBindingBy(valueProvider: (V?) -> Boolean): BooleanBinding =
+public fun <V> ObservableObjectValue<V>.booleanBindingBy(
+    valueProvider: (V?) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -92,7 +98,9 @@ fun <V> ObservableObjectValue<V>.booleanBindingBy(valueProvider: (V?) -> Boolean
     }
 
 /** Create a [BooleanBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.booleanBindingBy(valueProvider: (Boolean) -> Boolean): BooleanBinding =
+public fun ObservableBooleanValue.booleanBindingBy(
+    valueProvider: (Boolean) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -106,7 +114,9 @@ fun ObservableBooleanValue.booleanBindingBy(valueProvider: (Boolean) -> Boolean)
     }
 
 /** Create a [BooleanBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.booleanBindingBy(valueProvider: (Double) -> Boolean): BooleanBinding =
+public fun ObservableDoubleValue.booleanBindingBy(
+    valueProvider: (Double) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -120,7 +130,9 @@ fun ObservableDoubleValue.booleanBindingBy(valueProvider: (Double) -> Boolean): 
     }
 
 /** Create a [BooleanBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.booleanBindingBy(valueProvider: (Float) -> Boolean): BooleanBinding =
+public fun ObservableFloatValue.booleanBindingBy(
+    valueProvider: (Float) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -134,7 +146,9 @@ fun ObservableFloatValue.booleanBindingBy(valueProvider: (Float) -> Boolean): Bo
     }
 
 /** Create a [BooleanBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.booleanBindingBy(valueProvider: (Int) -> Boolean): BooleanBinding =
+public fun ObservableIntegerValue.booleanBindingBy(
+    valueProvider: (Int) -> Boolean,
+): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)
@@ -148,7 +162,7 @@ fun ObservableIntegerValue.booleanBindingBy(valueProvider: (Int) -> Boolean): Bo
     }
 
 /** Create a [BooleanBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.booleanBindingBy(valueProvider: (Long) -> Boolean): BooleanBinding =
+public fun ObservableLongValue.booleanBindingBy(valueProvider: (Long) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         init {
             bind(this@booleanBindingBy)

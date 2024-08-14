@@ -6,21 +6,21 @@ import javafx.scene.control.TableView
 import javafx.scene.control.TreeTableView
 
 /** Apply [TableView.CONSTRAINED_RESIZE_POLICY] to this [TableView]. */
-inline fun TableView<*>.constrained() {
+public inline fun TableView<*>.constrained() {
     columnResizePolicy = TableView.CONSTRAINED_RESIZE_POLICY
 }
 
 /** Apply [TableView.UNCONSTRAINED_RESIZE_POLICY] to this [TableView]. */
-inline fun TableView<*>.unconstrained() {
+public inline fun TableView<*>.unconstrained() {
     columnResizePolicy = TableView.UNCONSTRAINED_RESIZE_POLICY
 }
 
 /** Apply [TreeTableView.CONSTRAINED_RESIZE_POLICY] to this [TreeTableView]. */
-inline fun TreeTableView<*>.constrained() {
+public inline fun TreeTableView<*>.constrained() {
     columnResizePolicy = TreeTableView.CONSTRAINED_RESIZE_POLICY
 }
 
 /** Apply [TreeTableView.UNCONSTRAINED_RESIZE_POLICY] to this [TreeTableView]. */
-inline fun TreeTableView<*>.unconstrained() {
+public inline fun TreeTableView<*>.unconstrained() {
     columnResizePolicy = TreeTableView.UNCONSTRAINED_RESIZE_POLICY
 }

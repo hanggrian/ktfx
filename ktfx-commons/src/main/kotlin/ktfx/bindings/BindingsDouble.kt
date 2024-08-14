@@ -21,19 +21,21 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies. */
-inline fun doubleBindingOf(
+public inline fun doubleBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> Double,
 ): DoubleBinding = Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies using collection. */
-fun doubleBindingOf(
+public fun doubleBindingOf(
     dependencies: Collection<Observable>,
     valueProvider: () -> Double,
 ): DoubleBinding = doubleBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [DoubleBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.doubleBindingBy(valueProvider: (List<E>) -> Double): DoubleBinding =
+public fun <E> ObservableList<E>.doubleBindingBy(
+    valueProvider: (List<E>) -> Double,
+): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -47,7 +49,7 @@ fun <E> ObservableList<E>.doubleBindingBy(valueProvider: (List<E>) -> Double): D
     }
 
 /** Create an [DoubleBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.doubleBindingBy(valueProvider: (Set<E>) -> Double): DoubleBinding =
+public fun <E> ObservableSet<E>.doubleBindingBy(valueProvider: (Set<E>) -> Double): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -61,7 +63,7 @@ fun <E> ObservableSet<E>.doubleBindingBy(valueProvider: (Set<E>) -> Double): Dou
     }
 
 /** Create an [DoubleBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.doubleBindingBy(
+public fun <K, V> ObservableMap<K, V>.doubleBindingBy(
     valueProvider: (Map<K, V>) -> Double,
 ): DoubleBinding =
     object : DoubleBinding() {
@@ -78,7 +80,9 @@ fun <K, V> ObservableMap<K, V>.doubleBindingBy(
     }
 
 /** Create a [DoubleBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.doubleBindingBy(valueProvider: (V?) -> Double): DoubleBinding =
+public fun <V> ObservableObjectValue<V>.doubleBindingBy(
+    valueProvider: (V?) -> Double,
+): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -92,7 +96,9 @@ fun <V> ObservableObjectValue<V>.doubleBindingBy(valueProvider: (V?) -> Double):
     }
 
 /** Create a [DoubleBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.doubleBindingBy(valueProvider: (Boolean) -> Double): DoubleBinding =
+public fun ObservableBooleanValue.doubleBindingBy(
+    valueProvider: (Boolean) -> Double,
+): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -106,7 +112,7 @@ fun ObservableBooleanValue.doubleBindingBy(valueProvider: (Boolean) -> Double): 
     }
 
 /** Create a [DoubleBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.doubleBindingBy(valueProvider: (Double) -> Double): DoubleBinding =
+public fun ObservableDoubleValue.doubleBindingBy(valueProvider: (Double) -> Double): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -120,7 +126,7 @@ fun ObservableDoubleValue.doubleBindingBy(valueProvider: (Double) -> Double): Do
     }
 
 /** Create a [DoubleBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.doubleBindingBy(valueProvider: (Float) -> Double): DoubleBinding =
+public fun ObservableFloatValue.doubleBindingBy(valueProvider: (Float) -> Double): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -134,7 +140,7 @@ fun ObservableFloatValue.doubleBindingBy(valueProvider: (Float) -> Double): Doub
     }
 
 /** Create a [DoubleBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.doubleBindingBy(valueProvider: (Int) -> Double): DoubleBinding =
+public fun ObservableIntegerValue.doubleBindingBy(valueProvider: (Int) -> Double): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)
@@ -148,7 +154,7 @@ fun ObservableIntegerValue.doubleBindingBy(valueProvider: (Int) -> Double): Doub
     }
 
 /** Create a [DoubleBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.doubleBindingBy(valueProvider: (Long) -> Double): DoubleBinding =
+public fun ObservableLongValue.doubleBindingBy(valueProvider: (Long) -> Double): DoubleBinding =
     object : DoubleBinding() {
         init {
             bind(this@doubleBindingBy)

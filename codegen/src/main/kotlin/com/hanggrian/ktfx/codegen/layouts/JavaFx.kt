@@ -148,15 +148,15 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 // javafx.scene.control
                 Accordion::class(customClass = true)
                 Button::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 ButtonBar::class(customClass = true) {
                     "buttonOrder"(STRING.nullable()) { defaultValue("null") }
                 }
-                CheckBox::class { text() }
+                CheckBox::class { nullText() }
                 CheckMenuItem::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 ChoiceBox::class(T) { items(T) }
@@ -168,11 +168,11 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
                 DatePicker::class { date() }
                 Hyperlink::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 Label::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 ListView::class(T) { items(T) }
@@ -182,11 +182,11 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
                 MenuBar::class(customClass = true)
                 MenuButton::class(customClass = true) {
-                    text()
+                    nullText()
                     graphic()
                 }
                 MenuItem::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 Pagination::class {
@@ -198,9 +198,9 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 PasswordField::class()
                 ProgressBar::class { progress() }
                 ProgressIndicator::class { progress() }
-                RadioButton::class { text() }
+                RadioButton::class { nullText() }
                 RadioMenuItem::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 ScrollBar::class()
@@ -212,7 +212,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 SplitMenuButton::class(customClass = true)
                 SplitPane::class(customClass = true)
                 Tab::class(customClass = true) {
-                    text()
+                    nullText()
                     content()
                 }
                 TableView::class(S) { items(S) }
@@ -223,7 +223,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     "title"(STRING.nullable()) { defaultValue("null") }
                 }
                 ToggleButton::class {
-                    text()
+                    nullText()
                     graphic()
                 }
                 ToolBar::class(customClass = true)
@@ -367,7 +367,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 VLineTo::class { y() }
 
                 // javafx.scene.text
-                Text::class { text() }
+                Text::class { nullText() }
                 TextFlow::class(customClass = true)
 
                 // javafx.scene.web

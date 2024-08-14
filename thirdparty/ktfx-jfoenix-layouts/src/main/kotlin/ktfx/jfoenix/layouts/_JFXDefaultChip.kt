@@ -23,8 +23,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
-        jfxDefaultChip(view = view, item = item) { }
+public inline fun <T> NodeContainer.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T>
+        = jfxDefaultChip(view = view, item = item) { }
 
 /**
  * Create a [JFXDefaultChip] with configuration block.
@@ -32,7 +32,7 @@ public fun <T> NodeContainer.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXD
  *
  * @return the control created.
  */
-public inline fun <T> jfxDefaultChip(
+public fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXDefaultChip<T>).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun <T> jfxDefaultChip(
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxDefaultChip(
+public fun <T> NodeContainer.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXDefaultChip<T>).() -> Unit,
@@ -67,12 +67,12 @@ public inline fun <T> NodeContainer.jfxDefaultChip(
  *
  * @return the styled control created.
  */
-public fun <T> styledJFXDefaultChip(
+public inline fun <T> styledJfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
     id: String? = null,
-): JFXDefaultChip<T> = styledJFXDefaultChip(view = view, item = item, styleClass = *styleClass, id =
+): JFXDefaultChip<T> = styledJfxDefaultChip(view = view, item = item, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -82,12 +82,12 @@ public fun <T> styledJFXDefaultChip(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXDefaultChip(
+public inline fun <T> NodeContainer.styledJfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
     id: String? = null,
-): JFXDefaultChip<T> = styledJFXDefaultChip(view = view, item = item, styleClass = *styleClass, id =
+): JFXDefaultChip<T> = styledJfxDefaultChip(view = view, item = item, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -98,7 +98,7 @@ public fun <T> NodeContainer.styledJFXDefaultChip(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledJFXDefaultChip(
+public fun <T> styledJfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -121,7 +121,7 @@ public inline fun <T> styledJFXDefaultChip(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXDefaultChip(
+public fun <T> NodeContainer.styledJfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

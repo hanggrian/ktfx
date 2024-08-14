@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.scatterChart(
+public inline fun <X, Y> NodeContainer.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -36,7 +36,7 @@ public fun <X, Y> NodeContainer.scatterChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> scatterChart(
+public fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +54,7 @@ public inline fun <X, Y> scatterChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.scatterChart(
+public fun <X, Y> NodeContainer.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -73,13 +73,13 @@ public inline fun <X, Y> NodeContainer.scatterChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledScatterChart(
+public inline fun <X, Y> styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -89,13 +89,13 @@ public fun <X, Y> styledScatterChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledScatterChart(
+public inline fun <X, Y> NodeContainer.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -106,7 +106,7 @@ public fun <X, Y> NodeContainer.styledScatterChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledScatterChart(
+public fun <X, Y> styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +130,7 @@ public inline fun <X, Y> styledScatterChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledScatterChart(
+public fun <X, Y> NodeContainer.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

@@ -12,7 +12,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
 /** Add a listener to this observable array. */
-fun <T : ObservableArray<T>> ObservableArray<T>.listener(
+public fun <T : ObservableArray<T>> ObservableArray<T>.listener(
     context: kotlin.coroutines.CoroutineContext = Dispatchers.JavaFx,
     listener: suspend CoroutineScope.(array: T, changed: Boolean, from: Int, to: Int) -> Unit,
 ): ArrayChangeListener<T> =

@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.MenuItem
 import kotlin.test.assertNull
 
-class MenuItemTest : LayoutsTest<KtfxMenu, MenuItem>() {
-    override fun manager(): KtfxMenu = KtfxMenu("", null)
+class MenuItemTest : LayoutsStyledTest<KtfxMenu, MenuItem>() {
+    override fun manager() = KtfxMenu("", null)
 
-    override fun KtfxMenu.childCount(): Int = items.size
+    override fun KtfxMenu.childCount() = items.size
 
-    override fun child1(): MenuItem = menuItem { }
+    override fun child1() = menuItem {}
 
-    override fun KtfxMenu.child2(): MenuItem = menuItem()
+    override fun KtfxMenu.child2() = menuItem()
 
-    override fun KtfxMenu.child3(): MenuItem = menuItem { }
+    override fun child3() = styledMenuItem(styleClass = arrayOf("style"))
+
+    override fun KtfxMenu.child4() = styledMenuItem(styleClass = arrayOf("style"))
 
     override fun MenuItem.testDefaultValues() {
         assertNull(text)

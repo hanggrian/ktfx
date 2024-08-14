@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
+public inline fun NodeContainer.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
 
 /**
  * Create a [JFXTogglePane] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit):
+public fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit):
         JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxTogglePane()
@@ -44,7 +44,7 @@ public inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogg
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxTogglePane(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxTogglePane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxTogglePane).() -> Unit): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxTogglePane()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.jfxTogglePane(configuration: (@KtfxLayoutDslMark
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
-        styledJFXTogglePane(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane
+        = styledJfxTogglePane(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTogglePane] to this container.
@@ -69,8 +69,8 @@ public fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): J
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXTogglePane(vararg styleClass: String, id: String? = null):
-        JFXTogglePane = styledJFXTogglePane(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxTogglePane(vararg styleClass: String, id: String? = null):
+        JFXTogglePane = styledJfxTogglePane(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTogglePane] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledJFXTogglePane(vararg styleClass: String, id: Stri
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXTogglePane(
+public fun styledJfxTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledJFXTogglePane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXTogglePane(
+public fun NodeContainer.styledJfxTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit,

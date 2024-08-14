@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.image.ImageView
 import kotlin.test.assertNull
 
-class ImageViewTest : LayoutsTest<KtfxPane, ImageView>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ImageViewTest : LayoutsStyledTest<KtfxPane, ImageView>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ImageView = imageView { }
+    override fun child1() = imageView {}
 
-    override fun KtfxPane.child2(): ImageView = imageView()
+    override fun KtfxPane.child2() = imageView()
 
-    override fun KtfxPane.child3(): ImageView = imageView { }
+    override fun child3() = styledImageView(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledImageView(styleClass = arrayOf("style"))
 
     override fun ImageView.testDefaultValues() {
         assertNull(image)

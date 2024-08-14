@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.Slider
 import kotlin.test.assertEquals
 
-class SliderTest : LayoutsTest<KtfxPane, Slider>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class SliderTest : LayoutsStyledTest<KtfxPane, Slider>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Slider = slider { }
+    override fun child1() = slider {}
 
-    override fun KtfxPane.child2(): Slider = slider()
+    override fun KtfxPane.child2() = slider()
 
-    override fun KtfxPane.child3(): Slider = slider { }
+    override fun child3() = styledSlider(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledSlider(styleClass = arrayOf("style"))
 
     override fun Slider.testDefaultValues() {
         assertEquals(0.0, min)

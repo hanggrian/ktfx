@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxChipView(): JFXChipView<T> = jfxChipView() { }
+public inline fun <T> NodeContainer.jfxChipView(): JFXChipView<T> = jfxChipView() { }
 
 /**
  * Create a [JFXChipView] with configuration block.
@@ -30,7 +30,7 @@ public fun <T> NodeContainer.jfxChipView(): JFXChipView<T> = jfxChipView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit):
+public fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit):
         JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXChipView<T>()
@@ -44,7 +44,7 @@ public inline fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipVi
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMarker
+public fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMarker
         JFXChipView<T>).() -> Unit): JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXChipView<T>()
@@ -59,8 +59,8 @@ public inline fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledJFXChipView(vararg styleClass: String, id: String? = null): JFXChipView<T> =
-        styledJFXChipView(styleClass = *styleClass, id = id) { }
+public inline fun <T> styledJfxChipView(vararg styleClass: String, id: String? = null):
+        JFXChipView<T> = styledJfxChipView(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXChipView] to this container.
@@ -69,8 +69,8 @@ public fun <T> styledJFXChipView(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXChipView(vararg styleClass: String, id: String? = null):
-        JFXChipView<T> = styledJFXChipView(styleClass = *styleClass, id = id) { }
+public inline fun <T> NodeContainer.styledJfxChipView(vararg styleClass: String, id: String? =
+        null): JFXChipView<T> = styledJfxChipView(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXChipView] with configuration block.
@@ -80,7 +80,7 @@ public fun <T> NodeContainer.styledJFXChipView(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun <T> styledJFXChipView(
+public fun <T> styledJfxChipView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun <T> styledJFXChipView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXChipView(
+public fun <T> NodeContainer.styledJfxChipView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit,

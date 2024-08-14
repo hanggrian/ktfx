@@ -1,17 +1,19 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.SnapshotView
 
-class SnapshotViewTest : LayoutsTest<KtfxPane, SnapshotView>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class SnapshotViewTest : LayoutsStyledTest<KtfxPane, SnapshotView>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): SnapshotView = snapshotView { }
+    override fun child1() = snapshotView {}
 
-    override fun KtfxPane.child2(): SnapshotView = snapshotView()
+    override fun KtfxPane.child2() = snapshotView()
 
-    override fun KtfxPane.child3(): SnapshotView = snapshotView { }
+    override fun child3() = styledSnapshotView(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledSnapshotView(styleClass = arrayOf("style"))
 }

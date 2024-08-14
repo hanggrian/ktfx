@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) { }
+public inline fun PathElementContainer.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) { }
 
 /**
  * Create a [HLineTo] with configuration block.
@@ -28,8 +28,8 @@ public fun PathElementContainer.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = 
  *
  * @return the control created.
  */
-public inline fun hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        HLineTo).() -> Unit): HLineTo {
+public fun hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker HLineTo).() -> Unit):
+        HLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = HLineTo(x)
     child.configuration()
@@ -42,7 +42,7 @@ public inline fun hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public fun PathElementContainer.hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         HLineTo).() -> Unit): HLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = HLineTo(x)

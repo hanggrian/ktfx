@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.circle(
+public inline fun NodeContainer.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -35,7 +35,7 @@ public fun NodeContainer.circle(
  *
  * @return the control created.
  */
-public inline fun circle(
+public fun circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -54,7 +54,7 @@ public inline fun circle(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.circle(
+public fun NodeContainer.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -74,7 +74,7 @@ public inline fun NodeContainer.circle(
  *
  * @return the styled control created.
  */
-public fun styledCircle(
+public inline fun styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -82,7 +82,7 @@ public fun styledCircle(
     vararg styleClass: String,
     id: String? = null,
 ): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Circle] to this container.
@@ -91,7 +91,7 @@ public fun styledCircle(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCircle(
+public inline fun NodeContainer.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -99,7 +99,7 @@ public fun NodeContainer.styledCircle(
     vararg styleClass: String,
     id: String? = null,
 ): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Circle] with configuration block.
@@ -109,7 +109,7 @@ public fun NodeContainer.styledCircle(
  *
  * @return the styled control created.
  */
-public inline fun styledCircle(
+public fun styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -134,7 +134,7 @@ public inline fun styledCircle(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledCircle(
+public fun NodeContainer.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

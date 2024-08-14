@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.arc(
+public inline fun NodeContainer.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -37,7 +37,7 @@ public fun NodeContainer.arc(
  *
  * @return the control created.
  */
-public inline fun arc(
+public fun arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -58,7 +58,7 @@ public inline fun arc(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.arc(
+public fun NodeContainer.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -80,7 +80,7 @@ public inline fun NodeContainer.arc(
  *
  * @return the styled control created.
  */
-public fun styledArc(
+public inline fun styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -90,7 +90,7 @@ public fun styledArc(
     vararg styleClass: String,
     id: String? = null,
 ): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+        startAngle = startAngle, length = length, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Arc] to this container.
@@ -99,7 +99,7 @@ public fun styledArc(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledArc(
+public inline fun NodeContainer.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -109,7 +109,7 @@ public fun NodeContainer.styledArc(
     vararg styleClass: String,
     id: String? = null,
 ): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+        startAngle = startAngle, length = length, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Arc] with configuration block.
@@ -119,7 +119,7 @@ public fun NodeContainer.styledArc(
  *
  * @return the styled control created.
  */
-public inline fun styledArc(
+public fun styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -146,7 +146,7 @@ public inline fun styledArc(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledArc(
+public fun NodeContainer.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

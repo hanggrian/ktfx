@@ -15,7 +15,7 @@ import kotlin.contracts.contract
  *
  * @param configuration the configuration block.
  */
-inline fun JFXToolbar.leftItems(
+public inline fun JFXToolbar.leftItems(
     configuration: (@KtfxLayoutDslMarker KtfxJfxToolbar.HBoxConstraints).() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
@@ -27,7 +27,7 @@ inline fun JFXToolbar.leftItems(
  *
  * @param configuration the configuration block.
  */
-inline fun JFXToolbar.rightItems(
+public inline fun JFXToolbar.rightItems(
     configuration: (@KtfxLayoutDslMarker KtfxJfxToolbar.HBoxConstraints).() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }

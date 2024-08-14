@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.menuItem(text: String? = null, graphic: Node? = null): MenuItem =
-        menuItem(text = text, graphic = graphic) { }
+public inline fun MenuItemContainer.menuItem(text: String? = null, graphic: Node? = null): MenuItem
+        = menuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [MenuItem] with configuration block.
@@ -30,7 +30,7 @@ public fun MenuItemContainer.menuItem(text: String? = null, graphic: Node? = nul
  *
  * @return the control created.
  */
-public inline fun menuItem(
+public fun menuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun menuItem(
  *
  * @return the control added.
  */
-public inline fun MenuItemContainer.menuItem(
+public fun MenuItemContainer.menuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit,
@@ -65,12 +65,12 @@ public inline fun MenuItemContainer.menuItem(
  *
  * @return the styled control created.
  */
-public fun styledMenuItem(
+public inline fun styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [MenuItem] to this container.
@@ -79,12 +79,12 @@ public fun styledMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledMenuItem(
+public inline fun MenuItemContainer.styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [MenuItem] with configuration block.
@@ -94,7 +94,7 @@ public fun MenuItemContainer.styledMenuItem(
  *
  * @return the styled control created.
  */
-public inline fun styledMenuItem(
+public fun styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +117,7 @@ public inline fun styledMenuItem(
  *
  * @return the styled control added.
  */
-public inline fun MenuItemContainer.styledMenuItem(
+public fun MenuItemContainer.styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

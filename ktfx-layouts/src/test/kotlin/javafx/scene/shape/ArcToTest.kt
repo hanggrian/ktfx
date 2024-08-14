@@ -6,15 +6,13 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
 class ArcToTest : LayoutsTest<KtfxPath, ArcTo>() {
-    override fun manager(): KtfxPath = KtfxPath()
+    override fun manager() = KtfxPath()
 
-    override fun KtfxPath.childCount(): Int = elements.size
+    override fun KtfxPath.childCount() = elements.size
 
-    override fun child1(): ArcTo = arcTo { }
+    override fun child1() = arcTo {}
 
-    override fun KtfxPath.child2(): ArcTo = arcTo()
-
-    override fun KtfxPath.child3(): ArcTo = arcTo { }
+    override fun KtfxPath.child2() = arcTo()
 
     override fun ArcTo.testDefaultValues() {
         assertEquals(0.0, radiusX)

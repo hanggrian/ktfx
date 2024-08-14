@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.cells
 
 import javafx.scene.control.TreeTableRow
@@ -11,12 +9,12 @@ import javafx.scene.control.TreeTableView
  * @param S The type of the elements contained within the [TreeTableView].
  * @param configuration custom initialization block that configures [KtfxTreeTableRow].
  */
-fun <S> TreeTableView<S>.rowFactory(
+public fun <S> TreeTableView<S>.rowFactory(
     configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit,
 ): Unit = setRowFactory { KtfxTreeTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TreeTableRow] configurator class. */
-class KtfxTreeTableRow<T> :
+public class KtfxTreeTableRow<T> :
     TreeTableRow<T>(),
     KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null

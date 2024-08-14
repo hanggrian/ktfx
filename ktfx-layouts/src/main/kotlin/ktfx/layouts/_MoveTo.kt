@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo(x = x, y =
-        y) { }
+public inline fun PathElementContainer.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo(x =
+        x, y = y) { }
 
 /**
  * Create a [MoveTo] with configuration block.
@@ -29,7 +29,7 @@ public fun PathElementContainer.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo
  *
  * @return the control created.
  */
-public inline fun moveTo(
+public fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit,
@@ -46,7 +46,7 @@ public inline fun moveTo(
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.moveTo(
+public fun PathElementContainer.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit,

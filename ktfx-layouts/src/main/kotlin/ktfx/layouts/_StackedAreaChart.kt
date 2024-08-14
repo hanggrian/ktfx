@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.stackedAreaChart(
+public inline fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -36,7 +36,7 @@ public fun <X, Y> NodeContainer.stackedAreaChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> stackedAreaChart(
+public fun <X, Y> stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +54,7 @@ public inline fun <X, Y> stackedAreaChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.stackedAreaChart(
+public fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -73,14 +73,14 @@ public inline fun <X, Y> NodeContainer.stackedAreaChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledStackedAreaChart(
+public inline fun <X, Y> styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
 ): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [StackedAreaChart] to this container.
@@ -89,14 +89,14 @@ public fun <X, Y> styledStackedAreaChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledStackedAreaChart(
+public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
 ): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [StackedAreaChart] with configuration block.
@@ -106,7 +106,7 @@ public fun <X, Y> NodeContainer.styledStackedAreaChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledStackedAreaChart(
+public fun <X, Y> styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +130,7 @@ public inline fun <X, Y> styledStackedAreaChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
+public fun <X, Y> NodeContainer.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

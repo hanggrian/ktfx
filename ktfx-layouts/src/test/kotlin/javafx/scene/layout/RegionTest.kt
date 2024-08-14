@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.layout.Region
 
-class RegionTest : LayoutsTest<KtfxPane, Region>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class RegionTest : LayoutsStyledTest<KtfxPane, Region>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Region = region { }
+    override fun child1() = region {}
 
-    override fun KtfxPane.child2(): Region = region()
+    override fun KtfxPane.child2() = region()
 
-    override fun KtfxPane.child3(): Region = region { }
+    override fun child3() = styledRegion(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledRegion(styleClass = arrayOf("style"))
 }

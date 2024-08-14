@@ -11,7 +11,7 @@ import ktfx.layouts.NodeContainer
  * [JFXBadge] with dynamic-layout dsl support.
  * Invoking dsl will only set its control.
  */
-open class KtfxJfxBadge :
+public open class KtfxJfxBadge :
     JFXBadge(),
     NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { control = it }

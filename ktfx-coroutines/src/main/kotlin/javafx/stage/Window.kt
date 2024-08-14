@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this node. */
-fun <E : Event> Window.eventFilter(
+public fun <E : Event> Window.eventFilter(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -24,7 +24,7 @@ fun <E : Event> Window.eventFilter(
         .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this node. */
-fun <E : Event> Window.eventHandler(
+public fun <E : Event> Window.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,

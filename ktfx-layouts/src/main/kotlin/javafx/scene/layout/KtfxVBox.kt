@@ -13,13 +13,13 @@ import javafx.scene.layout.VBox
  * [VBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxVBox(spacing: Double) :
+public open class KtfxVBox(spacing: Double) :
     VBox(spacing),
     NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children vertical grow priority in this layout. */
-    inline var Node.vgrow: Priority?
+    public inline var Node.vgrow: Priority?
         @JvmName("getVgrow2")
         get() = getVgrow(this)
 
@@ -27,13 +27,13 @@ open class KtfxVBox(spacing: Double) :
         set(value) = setVgrow(this, value)
 
     /** Configure [vgrow] fluidly. */
-    fun <T : Node> T.vgrow(always: Boolean = true): T {
+    public fun <T : Node> T.vgrow(always: Boolean = true): T {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
 
     /** Children margin in this layout. */
-    inline var Node.margin: Insets?
+    public inline var Node.margin: Insets?
         @JvmName("getMargin2")
         get() = getMargin(this)
 
@@ -41,12 +41,12 @@ open class KtfxVBox(spacing: Double) :
         set(value) = setMargin(this, value)
 
     /** Configure [margin] fluidly. */
-    fun <T : Node> T.margin(insets: Insets): T {
+    public fun <T : Node> T.margin(insets: Insets): T {
         margin = insets
         return this
     }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
+    public inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 }

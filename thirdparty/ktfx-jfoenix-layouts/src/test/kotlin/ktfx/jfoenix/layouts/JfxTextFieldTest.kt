@@ -1,22 +1,24 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXTextField
 import ktfx.layouts.KtfxPane
-import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
-class JfxTextFieldTest : LayoutsTest<KtfxPane, JFXTextField>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxTextFieldTest : LayoutsStyledTest<KtfxPane, JFXTextField>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXTextField = jfxTextField { }
+    override fun child1() = jfxTextField {}
 
-    override fun KtfxPane.child2(): JFXTextField = jfxTextField()
+    override fun KtfxPane.child2() = jfxTextField()
 
-    override fun KtfxPane.child3(): JFXTextField = jfxTextField { }
+    override fun child3() = styledJfxTextField(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxTextField(styleClass = arrayOf("style"))
 
     override fun JFXTextField.testDefaultValues() {
-        assertNull(text)
+        assertTrue(text.isEmpty())
     }
 }

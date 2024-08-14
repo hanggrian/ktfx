@@ -16,14 +16,14 @@ import kotlin.contracts.contract
  *
  * @see emptySet
  */
-inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
+public inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
 
 /**
  * Returns a new read-only [ObservableSet] of given elements.
  *
  * @see setOf
  */
-fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
+public fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
     if (elements.isNotEmpty()) {
         FXCollections.unmodifiableObservableSet(elements.toMutableObservableSet())
     } else {
@@ -35,21 +35,21 @@ fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
  *
  * @see setOf
  */
-inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
+public inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
 
 /**
  * Returns an empty [ObservableSet].
  *
  * @see mutableSetOf
  */
-inline fun <T> mutableObservableSetOf(): ObservableSet<T> = FXCollections.observableSet()
+public inline fun <T> mutableObservableSetOf(): ObservableSet<T> = FXCollections.observableSet()
 
 /**
  * Returns a new [ObservableSet] with the given elements.
  *
  * @see mutableSetOf
  */
-fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> =
+public fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> =
     if (elements.isEmpty()) mutableObservableSetOf() else FXCollections.observableSet(*elements)
 
 /**
@@ -58,7 +58,7 @@ fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> =
  *
  * @see setOfNotNull
  */
-fun <T : Any> observableSetOfNotNull(element: T?): ObservableSet<T> =
+public fun <T : Any> observableSetOfNotNull(element: T?): ObservableSet<T> =
     if (element != null) observableSetOf(element) else emptyObservableSet()
 
 /**
@@ -66,7 +66,7 @@ fun <T : Any> observableSetOfNotNull(element: T?): ObservableSet<T> =
  *
  * @see setOfNotNull
  */
-fun <T : Any> observableSetOfNotNull(vararg elements: T?): ObservableSet<T> =
+public fun <T : Any> observableSetOfNotNull(vararg elements: T?): ObservableSet<T> =
     elements.filterNotNullTo(mutableObservableSetOf())
 
 /**
@@ -76,7 +76,7 @@ fun <T : Any> observableSetOfNotNull(vararg elements: T?): ObservableSet<T> =
  * @see buildSet
  */
 @ExperimentalStdlibApi
-inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<T> {
+public inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<T> {
     contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
     return buildSet(builderAction).toObservableSet()
 }
@@ -86,7 +86,7 @@ inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<
  *
  * @see Array.toSet
  */
-fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
+public fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
     when (size) {
         0 -> emptyObservableSet()
         else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
@@ -97,7 +97,7 @@ fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
  *
  * @see Array.toSet
  */
-fun ByteArray.toObservableSet(): ObservableSet<Byte> =
+public fun ByteArray.toObservableSet(): ObservableSet<Byte> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -109,7 +109,7 @@ fun ByteArray.toObservableSet(): ObservableSet<Byte> =
  *
  * @see Array.toSet
  */
-fun CharArray.toObservableSet(): ObservableSet<Char> =
+public fun CharArray.toObservableSet(): ObservableSet<Char> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -121,7 +121,7 @@ fun CharArray.toObservableSet(): ObservableSet<Char> =
  *
  * @see Array.toSet
  */
-fun ShortArray.toObservableSet(): ObservableSet<Short> =
+public fun ShortArray.toObservableSet(): ObservableSet<Short> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -133,7 +133,7 @@ fun ShortArray.toObservableSet(): ObservableSet<Short> =
  *
  * @see Array.toSet
  */
-fun IntArray.toObservableSet(): ObservableSet<Int> =
+public fun IntArray.toObservableSet(): ObservableSet<Int> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -145,7 +145,7 @@ fun IntArray.toObservableSet(): ObservableSet<Int> =
  *
  * @see Array.toSet
  */
-fun LongArray.toObservableSet(): ObservableSet<Long> =
+public fun LongArray.toObservableSet(): ObservableSet<Long> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -157,7 +157,7 @@ fun LongArray.toObservableSet(): ObservableSet<Long> =
  *
  * @see Array.toSet
  */
-fun FloatArray.toObservableSet(): ObservableSet<Float> =
+public fun FloatArray.toObservableSet(): ObservableSet<Float> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -169,7 +169,7 @@ fun FloatArray.toObservableSet(): ObservableSet<Float> =
  *
  * @see Array.toSet
  */
-fun DoubleArray.toObservableSet(): ObservableSet<Double> =
+public fun DoubleArray.toObservableSet(): ObservableSet<Double> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -181,7 +181,7 @@ fun DoubleArray.toObservableSet(): ObservableSet<Double> =
  *
  * @see Array.toSet
  */
-fun BooleanArray.toObservableSet(): ObservableSet<Boolean> =
+public fun BooleanArray.toObservableSet(): ObservableSet<Boolean> =
     when (size) {
         0 -> emptyObservableSet()
         1 -> observableSetOf(this[0])
@@ -193,7 +193,7 @@ fun BooleanArray.toObservableSet(): ObservableSet<Boolean> =
  *
  * @see Array.toMutableSet
  */
-inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
+public inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
     FXCollections.observableSet(*this)
 
 /**
@@ -201,7 +201,7 @@ inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
  *
  * @see Array.toMutableSet
  */
-inline fun ByteArray.toMutableObservableSet(): ObservableSet<Byte> =
+public inline fun ByteArray.toMutableObservableSet(): ObservableSet<Byte> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -209,7 +209,7 @@ inline fun ByteArray.toMutableObservableSet(): ObservableSet<Byte> =
  *
  * @see Array.toMutableSet
  */
-inline fun CharArray.toMutableObservableSet(): ObservableSet<Char> =
+public inline fun CharArray.toMutableObservableSet(): ObservableSet<Char> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -217,7 +217,7 @@ inline fun CharArray.toMutableObservableSet(): ObservableSet<Char> =
  *
  * @see Array.toMutableSet
  */
-inline fun ShortArray.toMutableObservableSet(): ObservableSet<Short> =
+public inline fun ShortArray.toMutableObservableSet(): ObservableSet<Short> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -225,7 +225,7 @@ inline fun ShortArray.toMutableObservableSet(): ObservableSet<Short> =
  *
  * @see Array.toMutableSet
  */
-inline fun IntArray.toMutableObservableSet(): ObservableSet<Int> =
+public inline fun IntArray.toMutableObservableSet(): ObservableSet<Int> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -233,7 +233,7 @@ inline fun IntArray.toMutableObservableSet(): ObservableSet<Int> =
  *
  * @see Array.toMutableSet
  */
-inline fun LongArray.toMutableObservableSet(): ObservableSet<Long> =
+public inline fun LongArray.toMutableObservableSet(): ObservableSet<Long> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -241,7 +241,7 @@ inline fun LongArray.toMutableObservableSet(): ObservableSet<Long> =
  *
  * @see Array.toMutableSet
  */
-inline fun FloatArray.toMutableObservableSet(): ObservableSet<Float> =
+public inline fun FloatArray.toMutableObservableSet(): ObservableSet<Float> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -249,7 +249,7 @@ inline fun FloatArray.toMutableObservableSet(): ObservableSet<Float> =
  *
  * @see Array.toMutableSet
  */
-inline fun DoubleArray.toMutableObservableSet(): ObservableSet<Double> =
+public inline fun DoubleArray.toMutableObservableSet(): ObservableSet<Double> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -257,7 +257,7 @@ inline fun DoubleArray.toMutableObservableSet(): ObservableSet<Double> =
  *
  * @see Array.toMutableSet
  */
-inline fun BooleanArray.toMutableObservableSet(): ObservableSet<Boolean> =
+public inline fun BooleanArray.toMutableObservableSet(): ObservableSet<Boolean> =
     FXCollections.observableSet(*this.toTypedArray())
 
 /**
@@ -265,7 +265,7 @@ inline fun BooleanArray.toMutableObservableSet(): ObservableSet<Boolean> =
  *
  * @see Iterable.toSet
  */
-fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
+public fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
     if (this is Collection) {
         return when (size) {
             0 -> emptyObservableSet()
@@ -280,7 +280,7 @@ fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
  *
  * @see Iterable.toMutableSet
  */
-fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
+public fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
     when (this) {
         is Set<T> -> FXCollections.observableSet(this)
         else -> toCollection(FXCollections.observableSet())
@@ -291,7 +291,7 @@ fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
  *
  * @see Sequence.toSet
  */
-fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> =
+public fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> =
     toMutableObservableSet().optimizeReadOnlySet()
 
 /**
@@ -299,5 +299,5 @@ fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> =
  *
  * @see Sequence.toMutableSet
  */
-fun <T> Sequence<T>.toMutableObservableSet(): ObservableSet<T> =
+public fun <T> Sequence<T>.toMutableObservableSet(): ObservableSet<T> =
     toCollection(FXCollections.observableSet())

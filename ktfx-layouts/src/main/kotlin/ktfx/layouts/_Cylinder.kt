@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.cylinder(
+public inline fun NodeContainer.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -34,7 +34,7 @@ public fun NodeContainer.cylinder(
  *
  * @return the control created.
  */
-public inline fun cylinder(
+public fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -52,7 +52,7 @@ public inline fun cylinder(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.cylinder(
+public fun NodeContainer.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -71,14 +71,14 @@ public inline fun NodeContainer.cylinder(
  *
  * @return the styled control created.
  */
-public fun styledCylinder(
+public inline fun styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
 ): Cylinder = styledCylinder(radius = radius, height = height, division = division, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [Cylinder] to this container.
@@ -87,14 +87,14 @@ public fun styledCylinder(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCylinder(
+public inline fun NodeContainer.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
 ): Cylinder = styledCylinder(radius = radius, height = height, division = division, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [Cylinder] with configuration block.
@@ -104,7 +104,7 @@ public fun NodeContainer.styledCylinder(
  *
  * @return the styled control created.
  */
-public inline fun styledCylinder(
+public fun styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -128,7 +128,7 @@ public inline fun styledCylinder(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledCylinder(
+public fun NodeContainer.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

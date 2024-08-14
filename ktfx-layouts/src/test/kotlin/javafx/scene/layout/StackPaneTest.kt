@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.layout.StackPane
 
-class StackPaneTest : LayoutsTest<KtfxPane, StackPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class StackPaneTest : LayoutsStyledTest<KtfxPane, StackPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): StackPane = stackPane { }
+    override fun child1() = stackPane {}
 
-    override fun KtfxPane.child2(): StackPane = stackPane()
+    override fun KtfxPane.child2() = stackPane()
 
-    override fun KtfxPane.child3(): StackPane = stackPane { }
+    override fun child3() = styledStackPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledStackPane(styleClass = arrayOf("style"))
 }

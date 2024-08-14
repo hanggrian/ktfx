@@ -1,17 +1,19 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.PlusMinusSlider
 
-class PlusMinusSliderTest : LayoutsTest<KtfxPane, PlusMinusSlider>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class PlusMinusSliderTest : LayoutsStyledTest<KtfxPane, PlusMinusSlider>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): PlusMinusSlider = plusMinusSlider { }
+    override fun child1() = plusMinusSlider {}
 
-    override fun KtfxPane.child2(): PlusMinusSlider = plusMinusSlider()
+    override fun KtfxPane.child2() = plusMinusSlider()
 
-    override fun KtfxPane.child3(): PlusMinusSlider = plusMinusSlider { }
+    override fun child3() = styledPlusMinusSlider(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledPlusMinusSlider(styleClass = arrayOf("style"))
 }

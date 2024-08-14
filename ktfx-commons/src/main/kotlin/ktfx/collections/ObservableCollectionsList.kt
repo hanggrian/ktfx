@@ -18,14 +18,14 @@ import kotlin.random.asJavaRandom
  *
  * @see emptyList
  */
-inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
+public inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
 /**
  * Returns a new read-only [ObservableList] of given elements.
  *
  * @see listOf
  */
-fun <T> observableListOf(vararg elements: T): ObservableList<T> =
+public fun <T> observableListOf(vararg elements: T): ObservableList<T> =
     if (elements.isNotEmpty()) {
         FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
     } else {
@@ -37,7 +37,7 @@ fun <T> observableListOf(vararg elements: T): ObservableList<T> =
  *
  * @see listOf
  */
-inline fun <T> observableListOf(element: T): ObservableList<T> =
+public inline fun <T> observableListOf(element: T): ObservableList<T> =
     FXCollections.singletonObservableList(element)
 
 /**
@@ -45,21 +45,22 @@ inline fun <T> observableListOf(element: T): ObservableList<T> =
  *
  * @see listOf
  */
-inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
+public inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
 
 /**
  * Returns an empty [ObservableList].
  *
  * @see mutableListOf
  */
-inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
+public inline fun <T> mutableObservableListOf(): ObservableList<T> =
+    FXCollections.observableArrayList()
 
 /**
  * Returns a new [ObservableList] with the given elements.
  *
  * @see mutableListOf
  */
-fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
+public fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
     if (elements.isEmpty()) {
         mutableObservableListOf()
     } else {
@@ -74,7 +75,7 @@ fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
  *
  * @see listOfNotNull
  */
-fun <T : Any> observableListOfNotNull(element: T?): ObservableList<T> =
+public fun <T : Any> observableListOfNotNull(element: T?): ObservableList<T> =
     if (element != null) observableListOf(element) else emptyObservableList()
 
 /**
@@ -82,7 +83,7 @@ fun <T : Any> observableListOfNotNull(element: T?): ObservableList<T> =
  *
  * @see listOfNotNull
  */
-fun <T : Any> observableListOfNotNull(vararg elements: T?): ObservableList<T> =
+public fun <T : Any> observableListOfNotNull(vararg elements: T?): ObservableList<T> =
     elements.filterNotNullTo(mutableObservableListOf())
 
 /**
@@ -92,7 +93,7 @@ fun <T : Any> observableListOfNotNull(vararg elements: T?): ObservableList<T> =
  * @see buildList
  */
 @ExperimentalStdlibApi
-inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): List<T> {
+public inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): List<T> {
     contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
     return buildList(builderAction).toObservableList()
 }
@@ -102,7 +103,7 @@ inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): Li
  *
  * @see Array.toList
  */
-fun <T> Array<out T>.toObservableList(): ObservableList<T> =
+public fun <T> Array<out T>.toObservableList(): ObservableList<T> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -114,7 +115,7 @@ fun <T> Array<out T>.toObservableList(): ObservableList<T> =
  *
  * @see Array.toList
  */
-fun ByteArray.toObservableList(): ObservableList<Byte> =
+public fun ByteArray.toObservableList(): ObservableList<Byte> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -126,7 +127,7 @@ fun ByteArray.toObservableList(): ObservableList<Byte> =
  *
  * @see Array.toList
  */
-fun CharArray.toObservableList(): ObservableList<Char> =
+public fun CharArray.toObservableList(): ObservableList<Char> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -138,7 +139,7 @@ fun CharArray.toObservableList(): ObservableList<Char> =
  *
  * @see Array.toList
  */
-fun ShortArray.toObservableList(): ObservableList<Short> =
+public fun ShortArray.toObservableList(): ObservableList<Short> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -150,7 +151,7 @@ fun ShortArray.toObservableList(): ObservableList<Short> =
  *
  * @see Array.toList
  */
-fun IntArray.toObservableList(): ObservableList<Int> =
+public fun IntArray.toObservableList(): ObservableList<Int> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -162,7 +163,7 @@ fun IntArray.toObservableList(): ObservableList<Int> =
  *
  * @see Array.toList
  */
-fun LongArray.toObservableList(): ObservableList<Long> =
+public fun LongArray.toObservableList(): ObservableList<Long> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -174,7 +175,7 @@ fun LongArray.toObservableList(): ObservableList<Long> =
  *
  * @see Array.toList
  */
-fun FloatArray.toObservableList(): ObservableList<Float> =
+public fun FloatArray.toObservableList(): ObservableList<Float> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -186,7 +187,7 @@ fun FloatArray.toObservableList(): ObservableList<Float> =
  *
  * @see Array.toList
  */
-fun DoubleArray.toObservableList(): ObservableList<Double> =
+public fun DoubleArray.toObservableList(): ObservableList<Double> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -198,7 +199,7 @@ fun DoubleArray.toObservableList(): ObservableList<Double> =
  *
  * @see Array.toList
  */
-fun BooleanArray.toObservableList(): ObservableList<Boolean> =
+public fun BooleanArray.toObservableList(): ObservableList<Boolean> =
     when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
@@ -210,7 +211,7 @@ fun BooleanArray.toObservableList(): ObservableList<Boolean> =
  *
  * @see Array.toMutableList
  */
-inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
+public inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
     FXCollections.observableArrayList(*this)
 
 /**
@@ -218,7 +219,7 @@ inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
  *
  * @see Array.toMutableList
  */
-inline fun ByteArray.toMutableObservableList(): ObservableList<Byte> =
+public inline fun ByteArray.toMutableObservableList(): ObservableList<Byte> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -226,7 +227,7 @@ inline fun ByteArray.toMutableObservableList(): ObservableList<Byte> =
  *
  * @see Array.toMutableList
  */
-inline fun CharArray.toMutableObservableList(): ObservableList<Char> =
+public inline fun CharArray.toMutableObservableList(): ObservableList<Char> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -234,7 +235,7 @@ inline fun CharArray.toMutableObservableList(): ObservableList<Char> =
  *
  * @see Array.toMutableList
  */
-inline fun ShortArray.toMutableObservableList(): ObservableList<Short> =
+public inline fun ShortArray.toMutableObservableList(): ObservableList<Short> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -242,7 +243,7 @@ inline fun ShortArray.toMutableObservableList(): ObservableList<Short> =
  *
  * @see Array.toMutableList
  */
-inline fun IntArray.toMutableObservableList(): ObservableList<Int> =
+public inline fun IntArray.toMutableObservableList(): ObservableList<Int> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -250,7 +251,7 @@ inline fun IntArray.toMutableObservableList(): ObservableList<Int> =
  *
  * @see Array.toMutableList
  */
-inline fun LongArray.toMutableObservableList(): ObservableList<Long> =
+public inline fun LongArray.toMutableObservableList(): ObservableList<Long> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -258,7 +259,7 @@ inline fun LongArray.toMutableObservableList(): ObservableList<Long> =
  *
  * @see Array.toMutableList
  */
-inline fun FloatArray.toMutableObservableList(): ObservableList<Float> =
+public inline fun FloatArray.toMutableObservableList(): ObservableList<Float> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -266,7 +267,7 @@ inline fun FloatArray.toMutableObservableList(): ObservableList<Float> =
  *
  * @see Array.toMutableList
  */
-inline fun DoubleArray.toMutableObservableList(): ObservableList<Double> =
+public inline fun DoubleArray.toMutableObservableList(): ObservableList<Double> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -274,7 +275,7 @@ inline fun DoubleArray.toMutableObservableList(): ObservableList<Double> =
  *
  * @see Array.toMutableList
  */
-inline fun BooleanArray.toMutableObservableList(): ObservableList<Boolean> =
+public inline fun BooleanArray.toMutableObservableList(): ObservableList<Boolean> =
     FXCollections.observableArrayList(*this.toTypedArray())
 
 /**
@@ -282,7 +283,7 @@ inline fun BooleanArray.toMutableObservableList(): ObservableList<Boolean> =
  *
  * @see Iterable.toList
  */
-fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
+public fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
     if (this is Collection) {
         return when (size) {
             0 -> emptyObservableList()
@@ -298,7 +299,7 @@ fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
  *
  * @see Iterable.toMutableList
  */
-fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
+public fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
     if (this is Collection) {
         return this.toMutableObservableList()
     }
@@ -310,7 +311,7 @@ fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
  *
  * @see Collection.toMutableList
  */
-inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> =
+public inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> =
     FXCollections.observableArrayList(this)
 
 /**
@@ -318,7 +319,7 @@ inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> =
  *
  * @see Sequence.toList
  */
-fun <T> Sequence<T>.toObservableList(): ObservableList<T> =
+public fun <T> Sequence<T>.toObservableList(): ObservableList<T> =
     toMutableObservableList().optimizeReadOnlyList()
 
 /**
@@ -326,35 +327,36 @@ fun <T> Sequence<T>.toObservableList(): ObservableList<T> =
  *
  * @see Sequence.toMutableList
  */
-fun <T> Sequence<T>.toMutableObservableList(): ObservableList<T> =
+public fun <T> Sequence<T>.toMutableObservableList(): ObservableList<T> =
     toCollection(FXCollections.observableArrayList())
 
 /** Copies elements from src to list, firing change notification once. */
-inline fun <T> ObservableList<T>.copyFrom(src: List<T>): Unit = FXCollections.copy(this, src)
+public inline fun <T> ObservableList<T>.copyFrom(src: List<T>): Unit = FXCollections.copy(this, src)
 
 /** Fills the list with obj, firing change notification once. */
-inline fun <T> ObservableList<T>.fillWith(obj: T): Unit = FXCollections.fill(this, obj)
+public inline fun <T> ObservableList<T>.fillWith(obj: T): Unit = FXCollections.fill(this, obj)
 
 /** Replace all oldVal elements in the list with newVal element, firing change notification once. */
-inline fun <T> ObservableList<T>.replaceAll(oldVal: T, newVal: T): Boolean =
+public inline fun <T> ObservableList<T>.replaceAll(oldVal: T, newVal: T): Boolean =
     FXCollections.replaceAll(this, oldVal, newVal)
 
 /** Reverse the order in the list, firing change notification once. */
-inline fun ObservableList<*>.reverse(): Unit = FXCollections.reverse(this)
+public inline fun ObservableList<*>.reverse(): Unit = FXCollections.reverse(this)
 
 /** Rotates the list by distance, firing change notification once. */
-inline fun ObservableList<*>.rotate(distance: Int): Unit = FXCollections.rotate(this, distance)
+public inline fun ObservableList<*>.rotate(distance: Int): Unit =
+    FXCollections.rotate(this, distance)
 
 /** Shuffles all elements in the observable list, firing change notification once. */
-fun ObservableList<*>.shuffle(rnd: Random? = null): Unit =
+public fun ObservableList<*>.shuffle(rnd: Random? = null): Unit =
     when (rnd) {
         null -> FXCollections.shuffle(this)
         else -> FXCollections.shuffle(this, rnd.asJavaRandom())
     }
 
 /** Sorts the provided observable list, firing change notification once. */
-inline fun <T : Comparable<T>> ObservableList<T>.sort(): Unit = FXCollections.sort(this)
+public inline fun <T : Comparable<T>> ObservableList<T>.sort(): Unit = FXCollections.sort(this)
 
 /** Sorts the provided observable list using the c comparator, firing change notification once. */
-inline infix fun <T> ObservableList<T>.sortWith(c: Comparator<T>): Unit =
+public inline infix fun <T> ObservableList<T>.sortWith(c: Comparator<T>): Unit =
     FXCollections.sort(this, c)

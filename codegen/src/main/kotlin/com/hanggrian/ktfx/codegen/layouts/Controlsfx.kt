@@ -65,10 +65,10 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 }
                 GridView::class(T) { items(T) }
                 HiddenSidesPane::class(customClass = true)
-                HyperlinkLabel::class { text() }
+                HyperlinkLabel::class { nullText() }
                 InfoOverlay::class(customClass = true) {
                     content()
-                    text()
+                    nullText()
                 }
                 ListSelectionView::class(T)
                 MaskerPane::class()
@@ -106,7 +106,7 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 TaskProgressView::class(
                     "T".genericsBy(Task::class.name.parameterizedBy("*".generics)),
                 )
-                ToggleSwitch::class { text() }
+                ToggleSwitch::class { nullText() }
                 WorldMapView::class()
             }
         }

@@ -24,8 +24,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? = null):
-        JFXTreeTableView<S> = jfxTreeTableView(root = root) { }
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? =
+        null): JFXTreeTableView<S> = jfxTreeTableView(root = root) { }
 
 /**
  * Create a [JFXTreeTableView] with configuration block.
@@ -33,7 +33,7 @@ public fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: Tre
  *
  * @return the control created.
  */
-public inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = null,
+public fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = null,
         configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeTableView<S>(root)
@@ -47,9 +47,8 @@ public inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S
  *
  * @return the control added.
  */
-public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? =
-        null, configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit):
-        JFXTreeTableView<S> {
+public fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? = null,
+        configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeTableView<S>(root)
     child.configuration()
@@ -63,11 +62,11 @@ public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(ro
  *
  * @return the styled control created.
  */
-public fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
+public inline fun <S : RecursiveTreeObject<S>> styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTreeTableView<S> = styledJFXTreeTableView(root = root, styleClass = *styleClass, id = id) { }
+): JFXTreeTableView<S> = styledJfxTreeTableView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTreeTableView] to this container.
@@ -76,11 +75,11 @@ public fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
  *
  * @return the styled control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeContainer.styledJFXTreeTableView(
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXTreeTableView<S> = styledJFXTreeTableView(root = root, styleClass = *styleClass, id = id) { }
+): JFXTreeTableView<S> = styledJfxTreeTableView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTreeTableView] with configuration block.
@@ -90,7 +89,7 @@ public fun <S : RecursiveTreeObject<S>> NodeContainer.styledJFXTreeTableView(
  *
  * @return the styled control created.
  */
-public inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
+public fun <S : RecursiveTreeObject<S>> styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +111,7 @@ public inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
  *
  * @return the styled control added.
  */
-public inline fun <S : RecursiveTreeObject<S>> NodeContainer.styledJFXTreeTableView(
+public fun <S : RecursiveTreeObject<S>> NodeContainer.styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

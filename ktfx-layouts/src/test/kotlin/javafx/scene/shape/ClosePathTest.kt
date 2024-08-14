@@ -4,13 +4,11 @@ import com.hanggrian.ktfx.test.LayoutsTest
 import javafx.scene.shape.ClosePath
 
 class ClosePathTest : LayoutsTest<KtfxPath, ClosePath>() {
-    override fun manager(): KtfxPath = KtfxPath()
+    override fun manager() = KtfxPath()
 
-    override fun KtfxPath.childCount(): Int = elements.size
+    override fun KtfxPath.childCount() = elements.size
 
-    override fun child1(): ClosePath = closePath { }
+    override fun child1() = closePath {}
 
-    override fun KtfxPath.child2(): ClosePath = closePath()
-
-    override fun KtfxPath.child3(): ClosePath = closePath { }
+    override fun KtfxPath.child2() = closePath()
 }

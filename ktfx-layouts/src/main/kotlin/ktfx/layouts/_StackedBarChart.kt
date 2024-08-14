@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.stackedBarChart(
+public inline fun <X, Y> NodeContainer.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -36,7 +36,7 @@ public fun <X, Y> NodeContainer.stackedBarChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> stackedBarChart(
+public fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +54,7 @@ public inline fun <X, Y> stackedBarChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.stackedBarChart(
+public fun <X, Y> NodeContainer.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -73,14 +73,14 @@ public inline fun <X, Y> NodeContainer.stackedBarChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledStackedBarChart(
+public inline fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass = styleClass,
+        id = id) { }
 
 /**
  * Add a styled [StackedBarChart] to this container.
@@ -89,14 +89,14 @@ public fun <X, Y> styledStackedBarChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledStackedBarChart(
+public inline fun <X, Y> NodeContainer.styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass = styleClass,
+        id = id) { }
 
 /**
  * Create a styled [StackedBarChart] with configuration block.
@@ -106,7 +106,7 @@ public fun <X, Y> NodeContainer.styledStackedBarChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledStackedBarChart(
+public fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +130,7 @@ public inline fun <X, Y> styledStackedBarChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledStackedBarChart(
+public fun <X, Y> NodeContainer.styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

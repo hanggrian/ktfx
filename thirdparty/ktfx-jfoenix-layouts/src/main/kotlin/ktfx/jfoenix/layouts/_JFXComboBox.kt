@@ -24,7 +24,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList()):
+public inline fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList()):
         JFXComboBox<T> = jfxComboBox(items = items) { }
 
 /**
@@ -33,7 +33,7 @@ public fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableAr
  *
  * @return the control created.
  */
-public inline fun <T> jfxComboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> jfxComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker JFXComboBox<T>).() -> Unit): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXComboBox<T>(items)
@@ -47,7 +47,7 @@ public inline fun <T> jfxComboBox(items: ObservableList<T> = observableArrayList
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker JFXComboBox<T>).() -> Unit): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXComboBox<T>(items)
@@ -62,11 +62,11 @@ public inline fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = obser
  *
  * @return the styled control created.
  */
-public fun <T> styledJFXComboBox(
+public inline fun <T> styledJfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): JFXComboBox<T> = styledJFXComboBox(items = items, styleClass = *styleClass, id = id) { }
+): JFXComboBox<T> = styledJfxComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXComboBox] to this container.
@@ -75,11 +75,11 @@ public fun <T> styledJFXComboBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXComboBox(
+public inline fun <T> NodeContainer.styledJfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): JFXComboBox<T> = styledJFXComboBox(items = items, styleClass = *styleClass, id = id) { }
+): JFXComboBox<T> = styledJfxComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXComboBox] with configuration block.
@@ -89,7 +89,7 @@ public fun <T> NodeContainer.styledJFXComboBox(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledJFXComboBox(
+public fun <T> styledJfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun <T> styledJFXComboBox(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXComboBox(
+public fun <T> NodeContainer.styledJfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

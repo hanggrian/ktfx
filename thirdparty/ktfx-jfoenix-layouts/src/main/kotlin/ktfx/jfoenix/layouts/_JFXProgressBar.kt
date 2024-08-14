@@ -24,8 +24,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXProgressBar =
-        jfxProgressBar(progress = progress) { }
+public inline fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS):
+        JFXProgressBar = jfxProgressBar(progress = progress) { }
 
 /**
  * Create a [JFXProgressBar] with configuration block.
@@ -33,7 +33,7 @@ public fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRES
  *
  * @return the control created.
  */
-public inline fun jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
+public fun jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXProgressBar).() -> Unit): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXProgressBar(progress)
@@ -47,7 +47,7 @@ public inline fun jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
+public fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXProgressBar).() -> Unit): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXProgressBar(progress)
@@ -62,11 +62,11 @@ public inline fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_
  *
  * @return the styled control created.
  */
-public fun styledJFXProgressBar(
+public inline fun styledJfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): JFXProgressBar = styledJFXProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): JFXProgressBar = styledJfxProgressBar(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXProgressBar] to this container.
@@ -75,11 +75,11 @@ public fun styledJFXProgressBar(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXProgressBar(
+public inline fun NodeContainer.styledJfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): JFXProgressBar = styledJFXProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): JFXProgressBar = styledJfxProgressBar(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXProgressBar] with configuration block.
@@ -89,7 +89,7 @@ public fun NodeContainer.styledJFXProgressBar(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXProgressBar(
+public fun styledJfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun styledJFXProgressBar(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXProgressBar(
+public fun NodeContainer.styledJfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

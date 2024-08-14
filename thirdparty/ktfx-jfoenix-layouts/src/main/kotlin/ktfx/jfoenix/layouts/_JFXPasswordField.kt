@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
+public inline fun NodeContainer.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
 
 /**
  * Create a [JFXPasswordField] with configuration block.
@@ -30,8 +30,8 @@ public fun NodeContainer.jfxPasswordField(): JFXPasswordField = jfxPasswordField
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker
-        JFXPasswordField).() -> Unit): JFXPasswordField {
+public fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit):
+        JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXPasswordField()
     child.configuration()
@@ -44,7 +44,7 @@ public inline fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
         JFXPasswordField).() -> Unit): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXPasswordField()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslM
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXPasswordField(vararg styleClass: String, id: String? = null): JFXPasswordField =
-        styledJFXPasswordField(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxPasswordField(vararg styleClass: String, id: String? = null):
+        JFXPasswordField = styledJfxPasswordField(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXPasswordField] to this container.
@@ -69,8 +69,8 @@ public fun styledJFXPasswordField(vararg styleClass: String, id: String? = null)
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXPasswordField(vararg styleClass: String, id: String? = null):
-        JFXPasswordField = styledJFXPasswordField(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxPasswordField(vararg styleClass: String, id: String? =
+        null): JFXPasswordField = styledJfxPasswordField(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXPasswordField] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledJFXPasswordField(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXPasswordField(
+public fun styledJfxPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledJFXPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXPasswordField(
+public fun NodeContainer.styledJfxPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit,

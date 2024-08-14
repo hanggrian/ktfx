@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.ellipse(
+public inline fun NodeContainer.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -34,7 +34,7 @@ public fun NodeContainer.ellipse(
  *
  * @return the control created.
  */
-public inline fun ellipse(
+public fun ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -53,7 +53,7 @@ public inline fun ellipse(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.ellipse(
+public fun NodeContainer.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -73,7 +73,7 @@ public inline fun NodeContainer.ellipse(
  *
  * @return the styled control created.
  */
-public fun styledEllipse(
+public inline fun styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -81,7 +81,7 @@ public fun styledEllipse(
     vararg styleClass: String,
     id: String? = null,
 ): Ellipse = styledEllipse(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY =
-        radiusY, styleClass = *styleClass, id = id) { }
+        radiusY, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Ellipse] to this container.
@@ -90,7 +90,7 @@ public fun styledEllipse(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledEllipse(
+public inline fun NodeContainer.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -98,7 +98,7 @@ public fun NodeContainer.styledEllipse(
     vararg styleClass: String,
     id: String? = null,
 ): Ellipse = styledEllipse(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY =
-        radiusY, styleClass = *styleClass, id = id) { }
+        radiusY, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Ellipse] with configuration block.
@@ -108,7 +108,7 @@ public fun NodeContainer.styledEllipse(
  *
  * @return the styled control created.
  */
-public inline fun styledEllipse(
+public fun styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -133,7 +133,7 @@ public inline fun styledEllipse(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledEllipse(
+public fun NodeContainer.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

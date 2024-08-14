@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Adds a [ChangeListener] which will be notified whenever the value of the [ObservableValue] changes. */
-fun <T> ObservableValue<T>.listener(
+public fun <T> ObservableValue<T>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
     listener: suspend CoroutineScope.(Observable, oldValue: T, value: T) -> Unit,
 ): ChangeListener<T> =

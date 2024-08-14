@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.RangeSlider
 import kotlin.test.assertEquals
 
-class RangeSliderTest : LayoutsTest<KtfxPane, RangeSlider>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class RangeSliderTest : LayoutsStyledTest<KtfxPane, RangeSlider>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): RangeSlider = rangeSlider { }
+    override fun child1() = rangeSlider {}
 
-    override fun KtfxPane.child2(): RangeSlider = rangeSlider()
+    override fun KtfxPane.child2() = rangeSlider()
 
-    override fun KtfxPane.child3(): RangeSlider = rangeSlider { }
+    override fun child3() = styledRangeSlider(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledRangeSlider(styleClass = arrayOf("style"))
 
     override fun RangeSlider.testDefaultValues() {
         assertEquals(0.0, min)

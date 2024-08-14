@@ -1,20 +1,22 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXCheckBox
 import ktfx.layouts.KtfxPane
 import kotlin.test.assertNull
 
-class JfxCheckBoxTest : LayoutsTest<KtfxPane, JFXCheckBox>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxCheckBoxTest : LayoutsStyledTest<KtfxPane, JFXCheckBox>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXCheckBox = jfxCheckBox { }
+    override fun child1() = jfxCheckBox {}
 
-    override fun KtfxPane.child2(): JFXCheckBox = jfxCheckBox()
+    override fun KtfxPane.child2() = jfxCheckBox()
 
-    override fun KtfxPane.child3(): JFXCheckBox = jfxCheckBox { }
+    override fun child3() = styledJfxCheckBox(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxCheckBox(styleClass = arrayOf("style"))
 
     override fun JFXCheckBox.testDefaultValues() {
         assertNull(text)

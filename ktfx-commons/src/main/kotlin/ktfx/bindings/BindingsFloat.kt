@@ -21,17 +21,19 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [FloatBinding] with multiple [Observable] dependencies. */
-inline fun floatBindingOf(
+public inline fun floatBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> Float,
 ): FloatBinding = Bindings.createFloatBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [FloatBinding] with multiple [Observable] dependencies using collection. */
-fun floatBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Float): FloatBinding =
-    floatBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+public fun floatBindingOf(
+    dependencies: Collection<Observable>,
+    valueProvider: () -> Float,
+): FloatBinding = floatBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [FloatBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.floatBindingBy(valueProvider: (List<E>) -> Float): FloatBinding =
+public fun <E> ObservableList<E>.floatBindingBy(valueProvider: (List<E>) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -45,7 +47,7 @@ fun <E> ObservableList<E>.floatBindingBy(valueProvider: (List<E>) -> Float): Flo
     }
 
 /** Create an [FloatBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.floatBindingBy(valueProvider: (Set<E>) -> Float): FloatBinding =
+public fun <E> ObservableSet<E>.floatBindingBy(valueProvider: (Set<E>) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -59,7 +61,9 @@ fun <E> ObservableSet<E>.floatBindingBy(valueProvider: (Set<E>) -> Float): Float
     }
 
 /** Create an [FloatBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.floatBindingBy(valueProvider: (Map<K, V>) -> Float): FloatBinding =
+public fun <K, V> ObservableMap<K, V>.floatBindingBy(
+    valueProvider: (Map<K, V>) -> Float,
+): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -74,7 +78,7 @@ fun <K, V> ObservableMap<K, V>.floatBindingBy(valueProvider: (Map<K, V>) -> Floa
     }
 
 /** Create a [FloatBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.floatBindingBy(valueProvider: (V?) -> Float): FloatBinding =
+public fun <V> ObservableObjectValue<V>.floatBindingBy(valueProvider: (V?) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -88,7 +92,7 @@ fun <V> ObservableObjectValue<V>.floatBindingBy(valueProvider: (V?) -> Float): F
     }
 
 /** Create a [FloatBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.floatBindingBy(valueProvider: (Boolean) -> Float): FloatBinding =
+public fun ObservableBooleanValue.floatBindingBy(valueProvider: (Boolean) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -102,7 +106,7 @@ fun ObservableBooleanValue.floatBindingBy(valueProvider: (Boolean) -> Float): Fl
     }
 
 /** Create a [FloatBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.floatBindingBy(valueProvider: (Double) -> Float): FloatBinding =
+public fun ObservableDoubleValue.floatBindingBy(valueProvider: (Double) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -116,7 +120,7 @@ fun ObservableDoubleValue.floatBindingBy(valueProvider: (Double) -> Float): Floa
     }
 
 /** Create a [FloatBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.floatBindingBy(valueProvider: (Float) -> Float): FloatBinding =
+public fun ObservableFloatValue.floatBindingBy(valueProvider: (Float) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -130,7 +134,7 @@ fun ObservableFloatValue.floatBindingBy(valueProvider: (Float) -> Float): FloatB
     }
 
 /** Create a [FloatBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.floatBindingBy(valueProvider: (Int) -> Float): FloatBinding =
+public fun ObservableIntegerValue.floatBindingBy(valueProvider: (Int) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)
@@ -144,7 +148,7 @@ fun ObservableIntegerValue.floatBindingBy(valueProvider: (Int) -> Float): FloatB
     }
 
 /** Create a [FloatBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.floatBindingBy(valueProvider: (Long) -> Float): FloatBinding =
+public fun ObservableLongValue.floatBindingBy(valueProvider: (Long) -> Float): FloatBinding =
     object : FloatBinding() {
         init {
             bind(this@floatBindingBy)

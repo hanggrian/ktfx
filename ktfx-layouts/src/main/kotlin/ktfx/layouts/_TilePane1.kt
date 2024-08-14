@@ -23,7 +23,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0):
+public inline fun NodeContainer.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0):
         TilePane = tilePane(orientation = orientation, gap = gap) { }
 
 /**
@@ -32,7 +32,7 @@ public fun NodeContainer.tilePane(orientation: Orientation = HORIZONTAL, gap: Do
  *
  * @return the control created.
  */
-public inline fun tilePane(
+public fun tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
@@ -49,7 +49,7 @@ public inline fun tilePane(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.tilePane(
+public fun NodeContainer.tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
@@ -67,13 +67,13 @@ public inline fun NodeContainer.tilePane(
  *
  * @return the styled control created.
  */
-public fun styledTilePane(
+public inline fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-        id) { }
+): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = styleClass, id = id)
+        { }
 
 /**
  * Add a styled [TilePane] to this container.
@@ -82,13 +82,13 @@ public fun styledTilePane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTilePane(
+public inline fun NodeContainer.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-        id) { }
+): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = styleClass, id = id)
+        { }
 
 /**
  * Create a styled [TilePane] with configuration block.
@@ -98,7 +98,7 @@ public fun NodeContainer.styledTilePane(
  *
  * @return the styled control created.
  */
-public inline fun styledTilePane(
+public fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -121,7 +121,7 @@ public inline fun styledTilePane(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledTilePane(
+public fun NodeContainer.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,

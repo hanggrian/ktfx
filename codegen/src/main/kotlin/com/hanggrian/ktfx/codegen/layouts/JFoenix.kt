@@ -62,10 +62,10 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
             init {
                 JFXBadge::class(customClass = true)
                 JFXButton::class {
-                    text()
+                    nullText()
                     graphic()
                 }
-                JFXCheckBox::class { text() }
+                JFXCheckBox::class { nullText() }
                 JFXChip::class(T) {
                     chipView()
                     item()
@@ -95,14 +95,14 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXNodesList::class(customClass = true)
                 JFXPasswordField::class()
                 JFXProgressBar::class { progress() }
-                JFXRadioButton::class { text() }
+                JFXRadioButton::class { nullText() }
                 JFXRippler::class(customClass = true)
                 JFXScrollPane::class(customClass = true)
                 JFXSlider::class { slider("50.0") }
                 JFXSpinner::class { progress() }
                 JFXTabPane::class(customClass = true)
-                JFXTextArea::class { text() }
-                JFXTextField::class { text() }
+                JFXTextArea::class { emptyText() }
+                JFXTextField::class { emptyText() }
                 JFXTimePicker::class {
                     "time"(LocalTime::class.name.nullable()) { defaultValue("null") }
                 }

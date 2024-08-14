@@ -14,19 +14,19 @@ import javafx.collections.ObservableFloatArray
  * Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the
  * specified position.
  */
-inline fun ObservableFloatArray.getBinding(index: Int): FloatBinding =
+public inline fun ObservableFloatArray.getBinding(index: Int): FloatBinding =
     Bindings.floatValueAt(this, index)
 
 /**
  * Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the
  * specified position.
  */
-inline fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding =
+public inline fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding =
     Bindings.floatValueAt(this, index)
 
 /**
  * Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the
  * specified position.
  */
-inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
+public inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
     Bindings.floatValueAt(this, index)

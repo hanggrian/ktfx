@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.Box
 import kotlin.test.assertEquals
 
-class BoxTest : LayoutsTest<KtfxPane, Box>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class BoxTest : LayoutsStyledTest<KtfxPane, Box>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Box = box { }
+    override fun child1() = box {}
 
-    override fun KtfxPane.child2(): Box = box()
+    override fun KtfxPane.child2() = box()
 
-    override fun KtfxPane.child3(): Box = box { }
+    override fun child3() = styledBox(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledBox(styleClass = arrayOf("style"))
 
     override fun Box.testDefaultValues() {
         assertEquals(Box.DEFAULT_SIZE, width)

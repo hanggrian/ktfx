@@ -21,19 +21,21 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [StringBinding] with multiple [Observable] dependencies. */
-inline fun stringBindingOf(
+public inline fun stringBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> String?,
 ): StringBinding = Bindings.createStringBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [StringBinding] with multiple [Observable] dependencies using collection. */
-fun stringBindingOf(
+public fun stringBindingOf(
     dependencies: Collection<Observable>,
     valueProvider: () -> String?,
 ): StringBinding = stringBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [StringBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.stringBindingBy(valueProvider: (List<E>) -> String?): StringBinding =
+public fun <E> ObservableList<E>.stringBindingBy(
+    valueProvider: (List<E>) -> String?,
+): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -47,7 +49,7 @@ fun <E> ObservableList<E>.stringBindingBy(valueProvider: (List<E>) -> String?): 
     }
 
 /** Create an [StringBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.stringBindingBy(valueProvider: (Set<E>) -> String?): StringBinding =
+public fun <E> ObservableSet<E>.stringBindingBy(valueProvider: (Set<E>) -> String?): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -61,7 +63,7 @@ fun <E> ObservableSet<E>.stringBindingBy(valueProvider: (Set<E>) -> String?): St
     }
 
 /** Create an [StringBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.stringBindingBy(
+public fun <K, V> ObservableMap<K, V>.stringBindingBy(
     valueProvider: (Map<K, V>) -> String?,
 ): StringBinding =
     object : StringBinding() {
@@ -78,7 +80,9 @@ fun <K, V> ObservableMap<K, V>.stringBindingBy(
     }
 
 /** Create a [StringBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.stringBindingBy(valueProvider: (V?) -> String?): StringBinding =
+public fun <V> ObservableObjectValue<V>.stringBindingBy(
+    valueProvider: (V?) -> String?,
+): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -92,7 +96,9 @@ fun <V> ObservableObjectValue<V>.stringBindingBy(valueProvider: (V?) -> String?)
     }
 
 /** Create a [StringBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.stringBindingBy(valueProvider: (Boolean) -> String?): StringBinding =
+public fun ObservableBooleanValue.stringBindingBy(
+    valueProvider: (Boolean) -> String?,
+): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -106,7 +112,9 @@ fun ObservableBooleanValue.stringBindingBy(valueProvider: (Boolean) -> String?):
     }
 
 /** Create a [StringBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.stringBindingBy(valueProvider: (Double) -> String?): StringBinding =
+public fun ObservableDoubleValue.stringBindingBy(
+    valueProvider: (Double) -> String?,
+): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -120,7 +128,7 @@ fun ObservableDoubleValue.stringBindingBy(valueProvider: (Double) -> String?): S
     }
 
 /** Create a [StringBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.stringBindingBy(valueProvider: (Float) -> String?): StringBinding =
+public fun ObservableFloatValue.stringBindingBy(valueProvider: (Float) -> String?): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -134,7 +142,7 @@ fun ObservableFloatValue.stringBindingBy(valueProvider: (Float) -> String?): Str
     }
 
 /** Create a [StringBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.stringBindingBy(valueProvider: (Int) -> String?): StringBinding =
+public fun ObservableIntegerValue.stringBindingBy(valueProvider: (Int) -> String?): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)
@@ -148,7 +156,7 @@ fun ObservableIntegerValue.stringBindingBy(valueProvider: (Int) -> String?): Str
     }
 
 /** Create a [StringBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.stringBindingBy(valueProvider: (Long) -> String?): StringBinding =
+public fun ObservableLongValue.stringBindingBy(valueProvider: (Long) -> String?): StringBinding =
     object : StringBinding() {
         init {
             bind(this@stringBindingBy)

@@ -1,20 +1,22 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXTimePicker
 import ktfx.layouts.KtfxPane
 import kotlin.test.assertNull
 
-class JfxTimePickerTest : LayoutsTest<KtfxPane, JFXTimePicker>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxTimePickerTest : LayoutsStyledTest<KtfxPane, JFXTimePicker>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXTimePicker = jfxTimePicker { }
+    override fun child1() = jfxTimePicker {}
 
-    override fun KtfxPane.child2(): JFXTimePicker = jfxTimePicker()
+    override fun KtfxPane.child2() = jfxTimePicker()
 
-    override fun KtfxPane.child3(): JFXTimePicker = jfxTimePicker { }
+    override fun child3() = styledJfxTimePicker(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxTimePicker(styleClass = arrayOf("style"))
 
     override fun JFXTimePicker.testDefaultValues() {
         assertNull(value)

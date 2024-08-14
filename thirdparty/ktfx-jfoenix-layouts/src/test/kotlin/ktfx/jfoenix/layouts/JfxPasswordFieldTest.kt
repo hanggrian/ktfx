@@ -1,17 +1,19 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXPasswordField
 import ktfx.layouts.KtfxPane
 
-class JfxPasswordFieldTest : LayoutsTest<KtfxPane, JFXPasswordField>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxPasswordFieldTest : LayoutsStyledTest<KtfxPane, JFXPasswordField>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXPasswordField = jfxPasswordField { }
+    override fun child1() = jfxPasswordField {}
 
-    override fun KtfxPane.child2(): JFXPasswordField = jfxPasswordField()
+    override fun KtfxPane.child2() = jfxPasswordField()
 
-    override fun KtfxPane.child3(): JFXPasswordField = jfxPasswordField { }
+    override fun child3() = styledJfxPasswordField(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxPasswordField(styleClass = arrayOf("style"))
 }

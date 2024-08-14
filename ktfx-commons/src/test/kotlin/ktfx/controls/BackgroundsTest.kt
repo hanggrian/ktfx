@@ -34,7 +34,7 @@ class BackgroundsTest {
 
     @Test
     fun singleFill() {
-        region.backgroundFill {
+        region.fillBackground {
             fill = Color.RED
             radii = CornerRadii(5.0)
             insets = Insets(10.0)
@@ -49,7 +49,7 @@ class BackgroundsTest {
     fun singleImage() {
         val sample = SampleImage()
         val backgroundSize = BackgroundSize(1.0, 2.0, true, true, true, true)
-        region.backgroundImage(sample) {
+        region.imageBackground(sample) {
             repeat = BackgroundRepeat.ROUND
             position = BackgroundPosition.CENTER
             size = backgroundSize

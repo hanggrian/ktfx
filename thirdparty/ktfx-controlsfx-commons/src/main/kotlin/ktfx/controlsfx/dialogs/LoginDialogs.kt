@@ -21,7 +21,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return login user and password credential.
  */
-fun loginDialog(
+public fun loginDialog(
     title: String? = null,
     graphic: Node? = null,
     initialUserInfo: Pair<String, String>? = null,
@@ -50,7 +50,7 @@ fun loginDialog(
  * @param dialogAction custom dialog action.
  * @return login user and password credential.
  */
-inline fun loginDialog(
+public inline fun loginDialog(
     initialUserInfo: Pair<String, String>? = null,
     noinline authenticator: (Pair<String, String>) -> Unit,
     noinline dialogAction: (LoginDialog.() -> Unit)? = null,

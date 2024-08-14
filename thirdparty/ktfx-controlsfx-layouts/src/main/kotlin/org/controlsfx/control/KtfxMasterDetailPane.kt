@@ -12,7 +12,7 @@ import org.controlsfx.control.MasterDetailPane
  * [MasterDetailPane] with dynamic-layout dsl support. Invoking dsl will only set its master and
  * detail, in order.
  */
-open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
+public open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
     MasterDetailPane(detailSide, showDetail),
     NodeContainer {
     private var size = 0

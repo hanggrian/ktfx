@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.rectangle(
+public inline fun NodeContainer.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -34,7 +34,7 @@ public fun NodeContainer.rectangle(
  *
  * @return the control created.
  */
-public inline fun rectangle(
+public fun rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -53,7 +53,7 @@ public inline fun rectangle(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.rectangle(
+public fun NodeContainer.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -73,7 +73,7 @@ public inline fun NodeContainer.rectangle(
  *
  * @return the styled control created.
  */
-public fun styledRectangle(
+public inline fun styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -81,7 +81,7 @@ public fun styledRectangle(
     vararg styleClass: String,
     id: String? = null,
 ): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [Rectangle] to this container.
@@ -90,7 +90,7 @@ public fun styledRectangle(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRectangle(
+public inline fun NodeContainer.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -98,7 +98,7 @@ public fun NodeContainer.styledRectangle(
     vararg styleClass: String,
     id: String? = null,
 ): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [Rectangle] with configuration block.
@@ -108,7 +108,7 @@ public fun NodeContainer.styledRectangle(
  *
  * @return the styled control created.
  */
-public inline fun styledRectangle(
+public fun styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -133,7 +133,7 @@ public inline fun styledRectangle(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledRectangle(
+public fun NodeContainer.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,

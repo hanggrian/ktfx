@@ -22,8 +22,8 @@ import org.controlsfx.control.ToggleSwitch
  *
  * @return the control added.
  */
-public fun NodeContainer.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text =
-        text) { }
+public inline fun NodeContainer.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text
+        = text) { }
 
 /**
  * Create a [ToggleSwitch] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.toggleSwitch(text: String? = null): ToggleSwitch = togg
  *
  * @return the control created.
  */
-public inline fun toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
         ToggleSwitch).() -> Unit): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
@@ -45,8 +45,8 @@ public inline fun toggleSwitch(text: String? = null, configuration: (@KtfxLayout
  *
  * @return the control added.
  */
-public inline fun NodeContainer.toggleSwitch(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker ToggleSwitch).() -> Unit): ToggleSwitch {
+public fun NodeContainer.toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
+        ToggleSwitch).() -> Unit): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
     child.configuration()
@@ -60,11 +60,11 @@ public inline fun NodeContainer.toggleSwitch(text: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledToggleSwitch(
+public inline fun styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleSwitch = styledToggleSwitch(text = text, styleClass = *styleClass, id = id) { }
+): ToggleSwitch = styledToggleSwitch(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ToggleSwitch] to this container.
@@ -73,11 +73,11 @@ public fun styledToggleSwitch(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledToggleSwitch(
+public inline fun NodeContainer.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleSwitch = styledToggleSwitch(text = text, styleClass = *styleClass, id = id) { }
+): ToggleSwitch = styledToggleSwitch(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ToggleSwitch] with configuration block.
@@ -87,7 +87,7 @@ public fun NodeContainer.styledToggleSwitch(
  *
  * @return the styled control created.
  */
-public inline fun styledToggleSwitch(
+public fun styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun styledToggleSwitch(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledToggleSwitch(
+public fun NodeContainer.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

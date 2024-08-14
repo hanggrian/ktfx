@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.text.Text
 import kotlin.test.assertEquals
 
-class TextTest : LayoutsTest<KtfxTextFlow, Text>() {
-    override fun manager(): KtfxTextFlow = KtfxTextFlow()
+class TextTest : LayoutsStyledTest<KtfxTextFlow, Text>() {
+    override fun manager() = KtfxTextFlow()
 
-    override fun KtfxTextFlow.childCount(): Int = children.size
+    override fun KtfxTextFlow.childCount() = children.size
 
-    override fun child1(): Text = text { }
+    override fun child1() = text {}
 
-    override fun KtfxTextFlow.child2(): Text = text()
+    override fun KtfxTextFlow.child2() = text()
 
-    override fun KtfxTextFlow.child3(): Text = text { }
+    override fun child3() = styledText(styleClass = arrayOf("style"))
+
+    override fun KtfxTextFlow.child4() = styledText(styleClass = arrayOf("style"))
 
     override fun Text.testDefaultValues() {
         assertEquals("", text)

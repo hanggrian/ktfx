@@ -23,8 +23,8 @@ import org.controlsfx.control.BreadCrumbBar
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
-        breadCrumbBar(selectedCrumb = selectedCrumb) { }
+public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null):
+        BreadCrumbBar<T> = breadCrumbBar(selectedCrumb = selectedCrumb) { }
 
 /**
  * Create a [BreadCrumbBar] with configuration block.
@@ -32,7 +32,7 @@ public fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): 
  *
  * @return the control created.
  */
-public inline fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
+public fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BreadCrumbBar<T>(selectedCrumb)
@@ -46,7 +46,7 @@ public inline fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
+public fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BreadCrumbBar<T>(selectedCrumb)
@@ -61,12 +61,12 @@ public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = 
  *
  * @return the styled control created.
  */
-public fun <T> styledBreadCrumbBar(
+public inline fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = styleClass, id
+        = id) { }
 
 /**
  * Add a styled [BreadCrumbBar] to this container.
@@ -75,12 +75,12 @@ public fun <T> styledBreadCrumbBar(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledBreadCrumbBar(
+public inline fun <T> NodeContainer.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = styleClass, id
+        = id) { }
 
 /**
  * Create a styled [BreadCrumbBar] with configuration block.
@@ -90,7 +90,7 @@ public fun <T> NodeContainer.styledBreadCrumbBar(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledBreadCrumbBar(
+public fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +112,7 @@ public inline fun <T> styledBreadCrumbBar(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledBreadCrumbBar(
+public fun <T> NodeContainer.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

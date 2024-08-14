@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.windows
 
 import javafx.scene.Scene
@@ -11,17 +9,17 @@ import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Get window as [Stage]. */
-inline val Scene.stage: Stage get() = window as Stage
+public inline val Scene.stage: Stage get() = window as Stage
 
 /** Removes old icons and set a new one to this stage. */
-inline var Stage.icon: Image
+public inline var Stage.icon: Image
     get() = icons.first()
     set(value) {
         icons.setAll(value)
     }
 
 /** Sets minimum width and height of this [Stage]. */
-var Stage.minSize: Pair<Number, Number>
+public var Stage.minSize: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR)
     get() = noGetter()
     set(value) {
@@ -30,7 +28,7 @@ var Stage.minSize: Pair<Number, Number>
     }
 
 /** Sets width and height of this [Stage]. */
-var Stage.size2: Pair<Number, Number>
+public var Stage.size2: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR)
     get() = noGetter()
     set(value) {
@@ -39,7 +37,7 @@ var Stage.size2: Pair<Number, Number>
     }
 
 /** Sets maximum width and height of this [Stage]. */
-var Stage.maxSize: Pair<Number, Number>
+public var Stage.maxSize: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR)
     get() = noGetter()
     set(value) {
@@ -48,7 +46,7 @@ var Stage.maxSize: Pair<Number, Number>
     }
 
 /** Creates a stage with options. */
-inline fun stage(
+public inline fun stage(
     title: String? = null,
     icon: Image? = null,
     style: StageStyle = StageStyle.DECORATED,
@@ -61,5 +59,7 @@ inline fun stage(
     }
 
 /** Creates a stage with options. */
-inline fun stage(style: StageStyle = StageStyle.DECORATED, configuration: Stage.() -> Unit): Stage =
-    stage(null, null, style, configuration)
+public inline fun stage(
+    style: StageStyle = StageStyle.DECORATED,
+    configuration: Stage.() -> Unit,
+): Stage = stage(null, null, style, configuration)

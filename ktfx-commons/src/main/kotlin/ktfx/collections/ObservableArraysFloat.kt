@@ -12,21 +12,23 @@ import javafx.collections.ObservableFloatArray
  *
  * @see emptyArray
  */
-inline fun emptyObservableFloatArray(): ObservableFloatArray = FXCollections.observableFloatArray()
+public inline fun emptyObservableFloatArray(): ObservableFloatArray =
+    FXCollections.observableFloatArray()
 
 /**
  * Creates a new empty observable [Float] array.
  *
  * @see floatArrayOf
  */
-inline fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observableFloatArray()
+public inline fun observableFloatArrayOf(): ObservableFloatArray =
+    FXCollections.observableFloatArray()
 
 /**
  * Returns an observable array containing the specified [Float] numbers.
  *
  * @see floatArrayOf
  */
-fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
+public fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
     when {
         elements.isNotEmpty() -> FXCollections.observableFloatArray(*elements)
         else -> FXCollections.observableFloatArray()
@@ -37,18 +39,18 @@ fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
  *
  * @see FloatArray.toTypedArray
  */
-inline fun FloatArray.toObservableArray(): ObservableFloatArray =
+public inline fun FloatArray.toObservableArray(): ObservableFloatArray =
     FXCollections.observableFloatArray(*this)
 
 /** Returns an array containing copy of the observable array. */
-fun ObservableFloatArray.toFloatArray(): FloatArray = toArray(FloatArray(size()))
+public fun ObservableFloatArray.toFloatArray(): FloatArray = toArray(FloatArray(size()))
 
 /**
  * Returns new observable array which is a copy of the original array.
  *
  * @see FloatArray.copyOf
  */
-inline fun ObservableFloatArray.copyOf(): ObservableFloatArray =
+public inline fun ObservableFloatArray.copyOf(): ObservableFloatArray =
     FXCollections.observableFloatArray(this)
 
 /**
@@ -56,14 +58,14 @@ inline fun ObservableFloatArray.copyOf(): ObservableFloatArray =
  *
  * @see FloatArray.contains
  */
-operator fun ObservableFloatArray.contains(element: Float): Boolean = indexOf(element) >= 0
+public operator fun ObservableFloatArray.contains(element: Float): Boolean = indexOf(element) >= 0
 
 /**
  * Returns first index of [element], or -1 if the array does not contain element.
  *
  * @see FloatArray.indexOf
  */
-fun ObservableFloatArray.indexOf(element: Float): Int {
+public fun ObservableFloatArray.indexOf(element: Float): Int {
     for (index in indices) {
         if (element == this[index]) {
             return index
@@ -77,7 +79,7 @@ fun ObservableFloatArray.indexOf(element: Float): Int {
  *
  * @see FloatArray.lastIndexOf
  */
-fun ObservableFloatArray.lastIndexOf(element: Float): Int {
+public fun ObservableFloatArray.lastIndexOf(element: Float): Int {
     for (index in indices.reversed()) {
         if (element == this[index]) {
             return index
@@ -92,7 +94,7 @@ fun ObservableFloatArray.lastIndexOf(element: Float): Int {
  *
  * @see FloatArray.getOrElse
  */
-inline fun ObservableFloatArray.getOrElse(index: Int, defaultValue: (Int) -> Float): Float =
+public inline fun ObservableFloatArray.getOrElse(index: Int, defaultValue: (Int) -> Float): Float =
     if (index in 0..lastIndex) get(index) else defaultValue(index)
 
 /**
@@ -100,17 +102,18 @@ inline fun ObservableFloatArray.getOrElse(index: Int, defaultValue: (Int) -> Flo
  *
  * @see FloatArray.getOrNull
  */
-fun ObservableFloatArray.getOrNull(index: Int): Float? =
+public fun ObservableFloatArray.getOrNull(index: Int): Float? =
     if (index in 0..lastIndex) get(index) else null
 
 /** Adds the specified [element] to this observable array. */
-inline operator fun ObservableFloatArray.plusAssign(element: Float): Unit = addAll(element)
+public inline operator fun ObservableFloatArray.plusAssign(element: Float): Unit = addAll(element)
 
 /** Adds all elements of the given [elements] array to this observable array. */
-inline operator fun ObservableFloatArray.plusAssign(elements: FloatArray): Unit = addAll(*elements)
+public inline operator fun ObservableFloatArray.plusAssign(elements: FloatArray): Unit =
+    addAll(*elements)
 
 /** Adds all elements of the given [elements] observable array to this observable array. */
-inline operator fun ObservableFloatArray.plusAssign(elements: ObservableFloatArray): Unit =
+public inline operator fun ObservableFloatArray.plusAssign(elements: ObservableFloatArray): Unit =
     addAll(elements)
 
 /**
@@ -118,7 +121,7 @@ inline operator fun ObservableFloatArray.plusAssign(elements: ObservableFloatArr
  *
  * @see FloatArray.forEach
  */
-inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
+public inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
     for (index in 0 until size()) {
         action(this[index])
     }
@@ -129,7 +132,7 @@ inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
  *
  * @see FloatArray.forEachIndexed
  */
-inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Unit) {
+public inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Unit) {
     for (index in 0 until size()) {
         action(index, this[index])
     }
@@ -140,7 +143,7 @@ inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Un
  *
  * @see FloatArray.iterator
  */
-operator fun ObservableFloatArray.iterator(): FloatIterator =
+public operator fun ObservableFloatArray.iterator(): FloatIterator =
     object : FloatIterator() {
         var index = 0
 

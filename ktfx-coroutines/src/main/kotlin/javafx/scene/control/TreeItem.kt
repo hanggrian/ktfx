@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event handler to this [TreeItem]. */
-fun <E : Event> TreeItem<*>.eventHandler(
+public fun <E : Event> TreeItem<*>.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,

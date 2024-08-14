@@ -23,15 +23,15 @@ import ktfx.layouts.ToggleButtonContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text
-        = text) { }
+public inline fun NodeContainer.jfxRadioButton(text: String? = null): JFXRadioButton =
+        jfxRadioButton(text = text) { }
 
 /**
  * Add a [JFXRadioButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.jfxRadioButton(text: String? = null): JFXRadioButton =
+public inline fun ToggleButtonContainer.jfxRadioButton(text: String? = null): JFXRadioButton =
         jfxRadioButton(text = text) { }
 
 /**
@@ -40,7 +40,7 @@ public fun ToggleButtonContainer.jfxRadioButton(text: String? = null): JFXRadioB
  *
  * @return the control created.
  */
-public inline fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
         JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
@@ -54,8 +54,8 @@ public inline fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayo
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxRadioButton(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker JFXRadioButton).() -> Unit): JFXRadioButton {
+public fun NodeContainer.jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
+        JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
     child.configuration()
@@ -68,7 +68,7 @@ public inline fun NodeContainer.jfxRadioButton(text: String? = null,
  *
  * @return the control added.
  */
-public inline fun ToggleButtonContainer.jfxRadioButton(text: String? = null,
+public fun ToggleButtonContainer.jfxRadioButton(text: String? = null,
         configuration: (@KtfxLayoutDslMarker JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
@@ -83,11 +83,11 @@ public inline fun ToggleButtonContainer.jfxRadioButton(text: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledJFXRadioButton(
+public inline fun styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
+): JFXRadioButton = styledJfxRadioButton(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXRadioButton] to this container.
@@ -96,11 +96,11 @@ public fun styledJFXRadioButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXRadioButton(
+public inline fun NodeContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
+): JFXRadioButton = styledJfxRadioButton(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXRadioButton] to this container.
@@ -109,11 +109,11 @@ public fun NodeContainer.styledJFXRadioButton(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledJFXRadioButton(
+public inline fun ToggleButtonContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
+): JFXRadioButton = styledJfxRadioButton(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXRadioButton] with configuration block.
@@ -123,7 +123,7 @@ public fun ToggleButtonContainer.styledJFXRadioButton(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXRadioButton(
+public fun styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -145,7 +145,7 @@ public inline fun styledJFXRadioButton(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXRadioButton(
+public fun NodeContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -167,7 +167,7 @@ public inline fun NodeContainer.styledJFXRadioButton(
  *
  * @return the styled control added.
  */
-public inline fun ToggleButtonContainer.styledJFXRadioButton(
+public fun ToggleButtonContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -47,7 +47,10 @@ open class LayoutsFactory(val path: String, val packageName: String, val classNa
     }
 
     companion object {
-        fun ParameterSpecHandlerScope.text() = "text"(STRING.nullable()) { defaultValue("null") }
+        fun ParameterSpecHandlerScope.nullText() =
+            "text"(STRING.nullable()) { defaultValue("null") }
+
+        fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
 
         fun ParameterSpecHandlerScope.graphic() =
             "graphic"(Node::class.name.nullable()) { defaultValue("null") }

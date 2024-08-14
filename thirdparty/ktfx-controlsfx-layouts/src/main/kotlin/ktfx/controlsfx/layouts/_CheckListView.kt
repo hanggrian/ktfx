@@ -24,7 +24,7 @@ import org.controlsfx.control.CheckListView
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList()):
+public inline fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList()):
         CheckListView<T> = checkListView(items = items) { }
 
 /**
@@ -33,7 +33,7 @@ public fun <T> NodeContainer.checkListView(items: ObservableList<T> = observable
  *
  * @return the control created.
  */
-public inline fun <T> checkListView(items: ObservableList<T> = observableArrayList(),
+public fun <T> checkListView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit): CheckListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckListView<T>(items)
@@ -47,7 +47,7 @@ public inline fun <T> checkListView(items: ObservableList<T> = observableArrayLi
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit): CheckListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckListView<T>(items)
@@ -62,11 +62,11 @@ public inline fun <T> NodeContainer.checkListView(items: ObservableList<T> = obs
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckListView(
+public inline fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): CheckListView<T> = styledCheckListView(items = items, styleClass = *styleClass, id = id) { }
+): CheckListView<T> = styledCheckListView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [CheckListView] to this container.
@@ -75,11 +75,11 @@ public fun <T> styledCheckListView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckListView(
+public inline fun <T> NodeContainer.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): CheckListView<T> = styledCheckListView(items = items, styleClass = *styleClass, id = id) { }
+): CheckListView<T> = styledCheckListView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [CheckListView] with configuration block.
@@ -89,7 +89,7 @@ public fun <T> NodeContainer.styledCheckListView(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledCheckListView(
+public fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun <T> styledCheckListView(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledCheckListView(
+public fun <T> NodeContainer.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

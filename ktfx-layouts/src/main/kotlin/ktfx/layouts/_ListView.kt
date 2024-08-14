@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList()): ListView<T>
-        = listView(items = items) { }
+public inline fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList()):
+        ListView<T> = listView(items = items) { }
 
 /**
  * Create a [ListView] with configuration block.
@@ -31,7 +31,7 @@ public fun <T> NodeContainer.listView(items: ObservableList<T> = observableArray
  *
  * @return the control created.
  */
-public inline fun <T> listView(items: ObservableList<T> = observableArrayList(),
+public fun <T> listView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -45,7 +45,7 @@ public inline fun <T> listView(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -60,11 +60,11 @@ public inline fun <T> NodeContainer.listView(items: ObservableList<T> = observab
  *
  * @return the styled control created.
  */
-public fun <T> styledListView(
+public inline fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ListView<T> = styledListView(items = items, styleClass = *styleClass, id = id) { }
+): ListView<T> = styledListView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ListView] to this container.
@@ -73,11 +73,11 @@ public fun <T> styledListView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledListView(
+public inline fun <T> NodeContainer.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ListView<T> = styledListView(items = items, styleClass = *styleClass, id = id) { }
+): ListView<T> = styledListView(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ListView] with configuration block.
@@ -87,7 +87,7 @@ public fun <T> NodeContainer.styledListView(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledListView(
+public fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun <T> styledListView(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledListView(
+public fun <T> NodeContainer.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

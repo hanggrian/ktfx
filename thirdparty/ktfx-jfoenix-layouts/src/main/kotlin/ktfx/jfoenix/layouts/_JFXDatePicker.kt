@@ -23,8 +23,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date
-        = date) { }
+public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null): JFXDatePicker =
+        jfxDatePicker(date = date) { }
 
 /**
  * Create a [JFXDatePicker] with configuration block.
@@ -32,7 +32,7 @@ public fun NodeContainer.jfxDatePicker(date: LocalDate? = null): JFXDatePicker =
  *
  * @return the control created.
  */
-public inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+public fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
         JFXDatePicker).() -> Unit): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
@@ -46,8 +46,8 @@ public inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLa
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null,
-        configuration: (@KtfxLayoutDslMarker JFXDatePicker).() -> Unit): JFXDatePicker {
+public fun NodeContainer.jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+        JFXDatePicker).() -> Unit): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
     child.configuration()
@@ -61,11 +61,11 @@ public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null,
  *
  * @return the styled control created.
  */
-public fun styledJFXDatePicker(
+public inline fun styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXDatePicker = styledJFXDatePicker(date = date, styleClass = *styleClass, id = id) { }
+): JFXDatePicker = styledJfxDatePicker(date = date, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDatePicker] to this container.
@@ -74,11 +74,11 @@ public fun styledJFXDatePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXDatePicker(
+public inline fun NodeContainer.styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-): JFXDatePicker = styledJFXDatePicker(date = date, styleClass = *styleClass, id = id) { }
+): JFXDatePicker = styledJfxDatePicker(date = date, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDatePicker] with configuration block.
@@ -88,7 +88,7 @@ public fun NodeContainer.styledJFXDatePicker(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXDatePicker(
+public fun styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +110,7 @@ public inline fun styledJFXDatePicker(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXDatePicker(
+public fun NodeContainer.styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

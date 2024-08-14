@@ -1,20 +1,22 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXSlider
 import ktfx.layouts.KtfxPane
 import kotlin.test.assertEquals
 
-class JfxSliderTest : LayoutsTest<KtfxPane, JFXSlider>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxSliderTest : LayoutsStyledTest<KtfxPane, JFXSlider>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXSlider = jfxSlider { }
+    override fun child1() = jfxSlider {}
 
-    override fun KtfxPane.child2(): JFXSlider = jfxSlider()
+    override fun KtfxPane.child2() = jfxSlider()
 
-    override fun KtfxPane.child3(): JFXSlider = jfxSlider { }
+    override fun child3() = styledJfxSlider(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxSlider(styleClass = arrayOf("style"))
 
     override fun JFXSlider.testDefaultValues() {
         assertEquals(0.0, min)

@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
+public inline fun NodeContainer.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
 
 /**
  * Create a [JFXDrawersStack] with configuration block.
@@ -30,7 +30,7 @@ public fun NodeContainer.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
+public fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
         JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -44,7 +44,7 @@ public inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawer
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
         JFXDrawersStack).() -> Unit): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -59,8 +59,8 @@ public inline fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDrawersStack =
-        styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
+public inline fun styledJfxDrawersStack(vararg styleClass: String, id: String? = null):
+        JFXDrawersStack = styledJfxDrawersStack(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDrawersStack] to this container.
@@ -69,8 +69,8 @@ public fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
-        JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledJfxDrawersStack(vararg styleClass: String, id: String? =
+        null): JFXDrawersStack = styledJfxDrawersStack(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDrawersStack] with configuration block.
@@ -80,7 +80,7 @@ public fun NodeContainer.styledJFXDrawersStack(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledJFXDrawersStack(
+public fun styledJfxDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun styledJFXDrawersStack(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXDrawersStack(
+public fun NodeContainer.styledJfxDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit,

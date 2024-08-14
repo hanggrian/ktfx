@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.Tab
 import kotlin.test.assertNull
 
-class TabTest : LayoutsTest<KtfxTabPane, Tab>() {
-    override fun manager(): KtfxTabPane = KtfxTabPane()
+class TabTest : LayoutsStyledTest<KtfxTabPane, Tab>() {
+    override fun manager() = KtfxTabPane()
 
-    override fun KtfxTabPane.childCount(): Int = tabs.size
+    override fun KtfxTabPane.childCount() = tabs.size
 
-    override fun child1(): Tab = tab { }
+    override fun child1() = tab {}
 
-    override fun KtfxTabPane.child2(): Tab = tab()
+    override fun KtfxTabPane.child2() = tab()
 
-    override fun KtfxTabPane.child3(): Tab = tab { }
+    override fun child3() = styledTab(styleClass = arrayOf("style"))
+
+    override fun KtfxTabPane.child4() = styledTab(styleClass = arrayOf("style"))
 
     override fun Tab.testDefaultValues() {
         assertNull(text)

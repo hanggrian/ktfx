@@ -8,7 +8,7 @@ import javafx.scene.Node
 import ktfx.layouts.NodeContainer
 
 /** [JFXRippler] with dynamic-layout dsl support. Invoking dsl will only set its children. */
-open class KtfxJfxRippler :
+public open class KtfxJfxRippler :
     JFXRippler(),
     NodeContainer {
     final override fun <T : Node> addChild(child: T): T = child.also { control = it }

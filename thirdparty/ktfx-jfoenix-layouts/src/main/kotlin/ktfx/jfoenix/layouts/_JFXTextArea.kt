@@ -22,8 +22,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) {
-        }
+public inline fun NodeContainer.jfxTextArea(text: String = ""): JFXTextArea = jfxTextArea(text =
+        text) { }
 
 /**
  * Create a [JFXTextArea] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.jfxTextArea(text: String? = null): JFXTextArea = jfxTex
  *
  * @return the control created.
  */
-public inline fun jfxTextArea(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
         JFXTextArea).() -> Unit): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
@@ -45,8 +45,8 @@ public inline fun jfxTextArea(text: String? = null, configuration: (@KtfxLayoutD
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxTextArea(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker JFXTextArea).() -> Unit): JFXTextArea {
+public fun NodeContainer.jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+        JFXTextArea).() -> Unit): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
     child.configuration()
@@ -60,11 +60,11 @@ public inline fun NodeContainer.jfxTextArea(text: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledJFXTextArea(
-    text: String? = null,
+public inline fun styledJfxTextArea(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): JFXTextArea = styledJFXTextArea(text = text, styleClass = *styleClass, id = id) { }
+): JFXTextArea = styledJfxTextArea(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTextArea] to this container.
@@ -73,11 +73,11 @@ public fun styledJFXTextArea(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXTextArea(
-    text: String? = null,
+public inline fun NodeContainer.styledJfxTextArea(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): JFXTextArea = styledJFXTextArea(text = text, styleClass = *styleClass, id = id) { }
+): JFXTextArea = styledJfxTextArea(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTextArea] with configuration block.
@@ -87,8 +87,8 @@ public fun NodeContainer.styledJFXTextArea(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXTextArea(
-    text: String? = null,
+public fun styledJfxTextArea(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTextArea).() -> Unit,
@@ -109,8 +109,8 @@ public inline fun styledJFXTextArea(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXTextArea(
-    text: String? = null,
+public fun NodeContainer.styledJfxTextArea(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTextArea).() -> Unit,

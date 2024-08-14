@@ -19,7 +19,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-fun commandLinksDialog(
+public fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
     vararg links: CommandLinksDialog.CommandLinksButtonType,
@@ -42,7 +42,7 @@ fun commandLinksDialog(
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-inline fun commandLinksDialog(
+public inline fun commandLinksDialog(
     vararg links: CommandLinksDialog.CommandLinksButtonType,
     noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = commandLinksDialog(null, null, *links, dialogAction = dialogAction)
@@ -56,7 +56,7 @@ inline fun commandLinksDialog(
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-fun commandLinksDialog(
+public fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
     links: List<CommandLinksDialog.CommandLinksButtonType>,
@@ -79,7 +79,7 @@ fun commandLinksDialog(
  * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
-inline fun commandLinksDialog(
+public inline fun commandLinksDialog(
     links: List<CommandLinksDialog.CommandLinksButtonType>,
     noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = commandLinksDialog(null, null, links, dialogAction = dialogAction)

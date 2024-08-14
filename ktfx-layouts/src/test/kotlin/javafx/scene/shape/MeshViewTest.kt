@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.MeshView
 import kotlin.test.assertNull
 
-class MeshViewTest : LayoutsTest<KtfxPane, MeshView>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class MeshViewTest : LayoutsStyledTest<KtfxPane, MeshView>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): MeshView = meshView { }
+    override fun child1() = meshView {}
 
-    override fun KtfxPane.child2(): MeshView = meshView()
+    override fun KtfxPane.child2() = meshView()
 
-    override fun KtfxPane.child3(): MeshView = meshView { }
+    override fun child3() = styledMeshView(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledMeshView(styleClass = arrayOf("style"))
 
     override fun MeshView.testDefaultValues() {
         assertNull(mesh)

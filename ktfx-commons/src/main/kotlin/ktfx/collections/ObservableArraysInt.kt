@@ -12,7 +12,7 @@ import javafx.collections.ObservableIntegerArray
  *
  * @see emptyArray
  */
-inline fun emptyObservableIntArray(): ObservableIntegerArray =
+public inline fun emptyObservableIntArray(): ObservableIntegerArray =
     FXCollections.observableIntegerArray()
 
 /**
@@ -20,14 +20,15 @@ inline fun emptyObservableIntArray(): ObservableIntegerArray =
  *
  * @see intArrayOf
  */
-inline fun observableIntArrayOf(): ObservableIntegerArray = FXCollections.observableIntegerArray()
+public inline fun observableIntArrayOf(): ObservableIntegerArray =
+    FXCollections.observableIntegerArray()
 
 /**
  * Returns an observable array containing the specified [Int] numbers.
  *
  * @see intArrayOf
  */
-fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
+public fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
     when {
         elements.isNotEmpty() -> FXCollections.observableIntegerArray(*elements)
         else -> FXCollections.observableIntegerArray()
@@ -38,18 +39,18 @@ fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
  *
  * @see IntArray.toTypedArray
  */
-inline fun IntArray.toObservableArray(): ObservableIntegerArray =
+public inline fun IntArray.toObservableArray(): ObservableIntegerArray =
     FXCollections.observableIntegerArray(*this)
 
 /** Returns an array containing copy of the observable array. */
-fun ObservableIntegerArray.toIntArray(): IntArray = toArray(IntArray(size()))
+public fun ObservableIntegerArray.toIntArray(): IntArray = toArray(IntArray(size()))
 
 /**
  * Returns new observable array which is a copy of the original array.
  *
  * @see IntArray.copyOf
  */
-inline fun ObservableIntegerArray.copyOf(): ObservableIntegerArray =
+public inline fun ObservableIntegerArray.copyOf(): ObservableIntegerArray =
     FXCollections.observableIntegerArray(this)
 
 /**
@@ -57,14 +58,14 @@ inline fun ObservableIntegerArray.copyOf(): ObservableIntegerArray =
  *
  * @see IntArray.contains
  */
-operator fun ObservableIntegerArray.contains(element: Int): Boolean = indexOf(element) >= 0
+public operator fun ObservableIntegerArray.contains(element: Int): Boolean = indexOf(element) >= 0
 
 /**
  * Returns first index of [element], or -1 if the array does not contain element.
  *
  * @see IntArray.indexOf
  */
-fun ObservableIntegerArray.indexOf(element: Int): Int {
+public fun ObservableIntegerArray.indexOf(element: Int): Int {
     for (index in indices) {
         if (element == this[index]) {
             return index
@@ -78,7 +79,7 @@ fun ObservableIntegerArray.indexOf(element: Int): Int {
  *
  * @see IntArray.lastIndexOf
  */
-fun ObservableIntegerArray.lastIndexOf(element: Int): Int {
+public fun ObservableIntegerArray.lastIndexOf(element: Int): Int {
     for (index in indices.reversed()) {
         if (element == this[index]) {
             return index
@@ -93,7 +94,7 @@ fun ObservableIntegerArray.lastIndexOf(element: Int): Int {
  *
  * @see IntArray.getOrElse
  */
-inline fun ObservableIntegerArray.getOrElse(index: Int, defaultValue: (Int) -> Int): Int =
+public inline fun ObservableIntegerArray.getOrElse(index: Int, defaultValue: (Int) -> Int): Int =
     if (index in 0..lastIndex) get(index) else defaultValue(index)
 
 /**
@@ -101,25 +102,27 @@ inline fun ObservableIntegerArray.getOrElse(index: Int, defaultValue: (Int) -> I
  *
  * @see IntArray.getOrNull
  */
-fun ObservableIntegerArray.getOrNull(index: Int): Int? =
+public fun ObservableIntegerArray.getOrNull(index: Int): Int? =
     if (index in 0..lastIndex) get(index) else null
 
 /** Adds the specified [element] to this observable array. */
-inline operator fun ObservableIntegerArray.plusAssign(element: Int): Unit = addAll(element)
+public inline operator fun ObservableIntegerArray.plusAssign(element: Int): Unit = addAll(element)
 
 /** Adds all elements of the given [elements] array to this observable array. */
-inline operator fun ObservableIntegerArray.plusAssign(elements: IntArray): Unit = addAll(*elements)
+public inline operator fun ObservableIntegerArray.plusAssign(elements: IntArray): Unit =
+    addAll(*elements)
 
 /** Adds all elements of the given [elements] observable array to this observable array. */
-inline operator fun ObservableIntegerArray.plusAssign(elements: ObservableIntegerArray): Unit =
-    addAll(elements)
+public inline operator fun ObservableIntegerArray.plusAssign(
+    elements: ObservableIntegerArray,
+): Unit = addAll(elements)
 
 /**
  * Performs the given [action] on each element.
  *
  * @see IntArray.forEach
  */
-inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
+public inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
     for (index in 0 until size()) {
         action(this[index])
     }
@@ -130,7 +133,7 @@ inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
  *
  * @see IntArray.forEachIndexed
  */
-inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Unit) {
+public inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Unit) {
     for (index in 0 until size()) {
         action(index, this[index])
     }
@@ -141,7 +144,7 @@ inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Un
  *
  * @see IntArray.iterator
  */
-operator fun ObservableIntegerArray.iterator(): IntIterator =
+public operator fun ObservableIntegerArray.iterator(): IntIterator =
     object : IntIterator() {
         var index = 0
 

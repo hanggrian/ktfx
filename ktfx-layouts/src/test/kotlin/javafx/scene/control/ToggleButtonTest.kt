@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.ToggleButton
 import kotlin.test.assertNull
 
-class ToggleButtonTest : LayoutsTest<KtfxPane, ToggleButton>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ToggleButtonTest : LayoutsStyledTest<KtfxPane, ToggleButton>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): ToggleButton = toggleButton { }
+    override fun child1() = toggleButton {}
 
-    override fun KtfxPane.child2(): ToggleButton = toggleButton()
+    override fun KtfxPane.child2() = toggleButton()
 
-    override fun KtfxPane.child3(): ToggleButton = toggleButton { }
+    override fun child3() = styledToggleButton(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledToggleButton(styleClass = arrayOf("style"))
 
     override fun ToggleButton.testDefaultValues() {
         assertNull(text)

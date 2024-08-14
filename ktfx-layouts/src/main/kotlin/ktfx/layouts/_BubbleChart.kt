@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.bubbleChart(
+public inline fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -36,7 +36,7 @@ public fun <X, Y> NodeContainer.bubbleChart(
  *
  * @return the control created.
  */
-public inline fun <X, Y> bubbleChart(
+public fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +54,7 @@ public inline fun <X, Y> bubbleChart(
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeContainer.bubbleChart(
+public fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -73,13 +73,13 @@ public inline fun <X, Y> NodeContainer.bubbleChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledBubbleChart(
+public inline fun <X, Y> styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -89,13 +89,13 @@ public fun <X, Y> styledBubbleChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledBubbleChart(
+public inline fun <X, Y> NodeContainer.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -106,7 +106,7 @@ public fun <X, Y> NodeContainer.styledBubbleChart(
  *
  * @return the styled control created.
  */
-public inline fun <X, Y> styledBubbleChart(
+public fun <X, Y> styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +130,7 @@ public inline fun <X, Y> styledBubbleChart(
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeContainer.styledBubbleChart(
+public fun <X, Y> NodeContainer.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

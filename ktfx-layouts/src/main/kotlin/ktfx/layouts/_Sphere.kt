@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(radius =
-        radius, division = division) { }
+public inline fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Sphere =
+        sphere(radius = radius, division = division) { }
 
 /**
  * Create a [Sphere] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Spher
  *
  * @return the control created.
  */
-public inline fun sphere(
+public fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
@@ -48,7 +48,7 @@ public inline fun sphere(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.sphere(
+public fun NodeContainer.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
@@ -66,13 +66,12 @@ public inline fun NodeContainer.sphere(
  *
  * @return the styled control created.
  */
-public fun styledSphere(
+public inline fun styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-        }
+): Sphere = styledSphere(radius = radius, division = division, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Sphere] to this container.
@@ -81,13 +80,12 @@ public fun styledSphere(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledSphere(
+public inline fun NodeContainer.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-        }
+): Sphere = styledSphere(radius = radius, division = division, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Sphere] with configuration block.
@@ -97,7 +95,7 @@ public fun NodeContainer.styledSphere(
  *
  * @return the styled control created.
  */
-public inline fun styledSphere(
+public fun styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -120,7 +118,7 @@ public inline fun styledSphere(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledSphere(
+public fun NodeContainer.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,

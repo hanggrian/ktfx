@@ -23,7 +23,7 @@ import org.controlsfx.control.PropertySheet
  *
  * @return the control added.
  */
-public fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null):
+public inline fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null):
         PropertySheet = propertySheet(items = items) { }
 
 /**
@@ -32,7 +32,7 @@ public fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>
  *
  * @return the control created.
  */
-public inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
+public fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
         configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PropertySheet(items)
@@ -46,7 +46,7 @@ public inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = nul
  *
  * @return the control added.
  */
-public inline fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
+public fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
         configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PropertySheet(items)
@@ -61,11 +61,11 @@ public inline fun NodeContainer.propertySheet(items: ObservableList<PropertyShee
  *
  * @return the styled control created.
  */
-public fun styledPropertySheet(
+public inline fun styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
-): PropertySheet = styledPropertySheet(items = items, styleClass = *styleClass, id = id) { }
+): PropertySheet = styledPropertySheet(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [PropertySheet] to this container.
@@ -74,11 +74,11 @@ public fun styledPropertySheet(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledPropertySheet(
+public inline fun NodeContainer.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
-): PropertySheet = styledPropertySheet(items = items, styleClass = *styleClass, id = id) { }
+): PropertySheet = styledPropertySheet(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [PropertySheet] with configuration block.
@@ -88,7 +88,7 @@ public fun NodeContainer.styledPropertySheet(
  *
  * @return the styled control created.
  */
-public inline fun styledPropertySheet(
+public fun styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +110,7 @@ public inline fun styledPropertySheet(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledPropertySheet(
+public fun NodeContainer.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,

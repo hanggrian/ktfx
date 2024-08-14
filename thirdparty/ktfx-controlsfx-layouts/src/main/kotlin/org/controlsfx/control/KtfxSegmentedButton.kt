@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controlsfx.layouts
 
@@ -11,14 +12,14 @@ import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
 /** [SegmentedButton] with dynamic-layout dsl support. Invoking dsl will add its children. */
-open class KtfxSegmentedButton :
+public open class KtfxSegmentedButton :
     SegmentedButton(),
     ToggleButtonContainer {
     final override fun <T : ToggleButton> addChild(child: T): T = child.also { buttons += it }
 
     /** Call [ToggleButtonContainer.toggleButton] by string invocation. */
-    inline operator fun String.invoke(
+    public inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
+        noinline configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
     ): ToggleButton = toggleButton(this, graphic, configuration)
 }

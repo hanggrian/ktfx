@@ -24,8 +24,8 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color
-        = color) { }
+public inline fun NodeContainer.jfxColorPicker(color: Color = WHITE): JFXColorPicker =
+        jfxColorPicker(color = color) { }
 
 /**
  * Create a [JFXColorPicker] with configuration block.
@@ -33,7 +33,7 @@ public fun NodeContainer.jfxColorPicker(color: Color = WHITE): JFXColorPicker = 
  *
  * @return the control created.
  */
-public inline fun jfxColorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
+public fun jfxColorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
         JFXColorPicker).() -> Unit): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXColorPicker(color)
@@ -47,8 +47,8 @@ public inline fun jfxColorPicker(color: Color = WHITE, configuration: (@KtfxLayo
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxColorPicker(color: Color = WHITE,
-        configuration: (@KtfxLayoutDslMarker JFXColorPicker).() -> Unit): JFXColorPicker {
+public fun NodeContainer.jfxColorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
+        JFXColorPicker).() -> Unit): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXColorPicker(color)
     child.configuration()
@@ -62,11 +62,11 @@ public inline fun NodeContainer.jfxColorPicker(color: Color = WHITE,
  *
  * @return the styled control created.
  */
-public fun styledJFXColorPicker(
+public inline fun styledJfxColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): JFXColorPicker = styledJFXColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): JFXColorPicker = styledJfxColorPicker(color = color, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXColorPicker] to this container.
@@ -75,11 +75,11 @@ public fun styledJFXColorPicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXColorPicker(
+public inline fun NodeContainer.styledJfxColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): JFXColorPicker = styledJFXColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): JFXColorPicker = styledJfxColorPicker(color = color, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXColorPicker] with configuration block.
@@ -89,7 +89,7 @@ public fun NodeContainer.styledJFXColorPicker(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXColorPicker(
+public fun styledJfxColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun styledJFXColorPicker(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXColorPicker(
+public fun NodeContainer.styledJfxColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

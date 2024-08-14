@@ -21,17 +21,19 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create an [IntegerBinding] with multiple [Observable] dependencies. */
-inline fun intBindingOf(
+public inline fun intBindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> Int,
 ): IntegerBinding = Bindings.createIntegerBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [IntegerBinding] with multiple [Observable] dependencies using collection. */
-fun intBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Int): IntegerBinding =
-    intBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+public fun intBindingOf(
+    dependencies: Collection<Observable>,
+    valueProvider: () -> Int,
+): IntegerBinding = intBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [IntegerBinding] with single [ObservableList] dependency. */
-fun <E> ObservableList<E>.intBindingBy(valueProvider: (List<E>) -> Int): IntegerBinding =
+public fun <E> ObservableList<E>.intBindingBy(valueProvider: (List<E>) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -45,7 +47,7 @@ fun <E> ObservableList<E>.intBindingBy(valueProvider: (List<E>) -> Int): Integer
     }
 
 /** Create an [IntegerBinding] with single [ObservableSet] dependency. */
-fun <E> ObservableSet<E>.intBindingBy(valueProvider: (Set<E>) -> Int): IntegerBinding =
+public fun <E> ObservableSet<E>.intBindingBy(valueProvider: (Set<E>) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -59,7 +61,9 @@ fun <E> ObservableSet<E>.intBindingBy(valueProvider: (Set<E>) -> Int): IntegerBi
     }
 
 /** Create an [IntegerBinding] with single [ObservableMap] dependency. */
-fun <K, V> ObservableMap<K, V>.intBindingBy(valueProvider: (Map<K, V>) -> Int): IntegerBinding =
+public fun <K, V> ObservableMap<K, V>.intBindingBy(
+    valueProvider: (Map<K, V>) -> Int,
+): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -74,7 +78,7 @@ fun <K, V> ObservableMap<K, V>.intBindingBy(valueProvider: (Map<K, V>) -> Int): 
     }
 
 /** Create an [IntegerBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.intBindingBy(valueProvider: (V?) -> Int): IntegerBinding =
+public fun <V> ObservableObjectValue<V>.intBindingBy(valueProvider: (V?) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -88,7 +92,7 @@ fun <V> ObservableObjectValue<V>.intBindingBy(valueProvider: (V?) -> Int): Integ
     }
 
 /** Create an [IntegerBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.intBindingBy(valueProvider: (Boolean) -> Int): IntegerBinding =
+public fun ObservableBooleanValue.intBindingBy(valueProvider: (Boolean) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -102,7 +106,7 @@ fun ObservableBooleanValue.intBindingBy(valueProvider: (Boolean) -> Int): Intege
     }
 
 /** Create an [IntegerBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.intBindingBy(valueProvider: (Double) -> Int): IntegerBinding =
+public fun ObservableDoubleValue.intBindingBy(valueProvider: (Double) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -116,7 +120,7 @@ fun ObservableDoubleValue.intBindingBy(valueProvider: (Double) -> Int): IntegerB
     }
 
 /** Create an [IntegerBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.intBindingBy(valueProvider: (Float) -> Int): IntegerBinding =
+public fun ObservableFloatValue.intBindingBy(valueProvider: (Float) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -130,7 +134,7 @@ fun ObservableFloatValue.intBindingBy(valueProvider: (Float) -> Int): IntegerBin
     }
 
 /** Create an [IntegerBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.intBindingBy(valueProvider: (Int) -> Int): IntegerBinding =
+public fun ObservableIntegerValue.intBindingBy(valueProvider: (Int) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)
@@ -144,7 +148,7 @@ fun ObservableIntegerValue.intBindingBy(valueProvider: (Int) -> Int): IntegerBin
     }
 
 /** Create an [IntegerBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.intBindingBy(valueProvider: (Long) -> Int): IntegerBinding =
+public fun ObservableLongValue.intBindingBy(valueProvider: (Long) -> Int): IntegerBinding =
     object : IntegerBinding() {
         init {
             bind(this@intBindingBy)

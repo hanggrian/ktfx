@@ -1,17 +1,19 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXToggleButton
 import ktfx.layouts.KtfxPane
 
-class JfxToggleButtonTest : LayoutsTest<KtfxPane, JFXToggleButton>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxToggleButtonTest : LayoutsStyledTest<KtfxPane, JFXToggleButton>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXToggleButton = jfxToggleButton { }
+    override fun child1() = jfxToggleButton {}
 
-    override fun KtfxPane.child2(): JFXToggleButton = jfxToggleButton()
+    override fun KtfxPane.child2() = jfxToggleButton()
 
-    override fun KtfxPane.child3(): JFXToggleButton = jfxToggleButton { }
+    override fun child3() = styledJfxToggleButton(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxToggleButton(styleClass = arrayOf("style"))
 }

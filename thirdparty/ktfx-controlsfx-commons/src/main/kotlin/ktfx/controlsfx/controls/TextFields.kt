@@ -11,12 +11,12 @@ import org.controlsfx.control.textfield.TextFields
  * Create a new auto-completion binding between the given [TextField] using the given auto-complete
  * suggestions.
  */
-inline fun <T> TextField.bindAutoCompletion(
+public inline fun <T> TextField.bindAutoCompletion(
     vararg possibleSuggestions: T,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, *possibleSuggestions)
 
 /** Alias of [bindAutoCompletion] with collection input. */
-inline fun <T> TextField.bindAutoCompletion(
+public inline fun <T> TextField.bindAutoCompletion(
     possibleSuggestions: Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, possibleSuggestions)
 
@@ -24,7 +24,7 @@ inline fun <T> TextField.bindAutoCompletion(
  * Create a new auto-completion binding between the given [TextField] and the given suggestion
  * provider.
  */
-inline fun <T> TextField.bindAutoCompletion(
+public inline fun <T> TextField.bindAutoCompletion(
     noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider)
 
@@ -32,7 +32,7 @@ inline fun <T> TextField.bindAutoCompletion(
  * Create a new auto-completion binding between the given [TextField] and the given suggestion
  * provider.
  */
-inline fun <T> TextField.bindAutoCompletion(
+public inline fun <T> TextField.bindAutoCompletion(
     converter: StringConverter<T>,
     noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider, converter)

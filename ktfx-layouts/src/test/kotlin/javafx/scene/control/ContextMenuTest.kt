@@ -29,7 +29,7 @@ class ContextMenuTest {
             assertNotNull(contextMenu)
         }
         button {
-            contextMenu { }
+            contextMenu {}
             assertNotNull(contextMenu)
         }
     }
@@ -41,7 +41,7 @@ class ContextMenuTest {
             assertNotNull(contextMenu)
         }
         tab {
-            contextMenu { }
+            contextMenu {}
             assertNotNull(contextMenu)
         }
     }

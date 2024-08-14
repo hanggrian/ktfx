@@ -16,14 +16,15 @@ import kotlin.contracts.contract
  *
  * @see emptyMap
  */
-inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.emptyObservableMap()
+public inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> =
+    FXCollections.emptyObservableMap()
 
 /**
  * Returns a new read-only [ObservableMap] of given pairs.
  *
  * @see mapOf
  */
-fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
+public fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
     if (pairs.isNotEmpty()) {
         FXCollections.unmodifiableObservableMap(pairs.toMap(FXCollections.observableHashMap()))
     } else {
@@ -35,21 +36,22 @@ fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
  *
  * @see mapOf
  */
-inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
+public inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
 
 /**
  * Returns an empty [ObservableMap].
  *
  * @see mutableMapOf
  */
-inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = FXCollections.observableHashMap()
+public inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> =
+    FXCollections.observableHashMap()
 
 /**
  * Returns a new [ObservableMap] with the given elements.
  *
  * @see mutableMapOf
  */
-fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
+public fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
     if (pairs.isEmpty()) {
         mutableObservableMapOf()
     } else {
@@ -67,7 +69,7 @@ fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V>
  * @see buildMap
  */
 @ExperimentalStdlibApi
-inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit): Map<K, V> {
+public inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit): Map<K, V> {
     contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
     return buildMap(builderAction).toObservableMap()
 }
@@ -77,7 +79,7 @@ inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit)
  *
  * @see Map.toMap
  */
-fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> =
+public fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> =
     when (size) {
         0 -> emptyObservableMap()
         else -> FXCollections.unmodifiableObservableMap(this.toMutableObservableMap())
@@ -88,5 +90,5 @@ fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> =
  *
  * @see Map.toMutableMap
  */
-inline fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> =
+public inline fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> =
     FXCollections.observableMap(this)

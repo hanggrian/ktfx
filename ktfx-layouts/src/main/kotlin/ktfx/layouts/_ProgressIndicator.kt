@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
+public inline fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
         ProgressIndicator = progressIndicator(progress = progress) { }
 
 /**
@@ -31,7 +31,7 @@ public fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROG
  *
  * @return the control created.
  */
-public inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
+public fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -45,7 +45,7 @@ public inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public inline fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
+public fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -60,11 +60,11 @@ public inline fun NodeContainer.progressIndicator(progress: Double = INDETERMINA
  *
  * @return the styled control created.
  */
-public fun styledProgressIndicator(
+public inline fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
+): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -74,11 +74,11 @@ public fun styledProgressIndicator(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledProgressIndicator(
+public inline fun NodeContainer.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
+): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -89,7 +89,7 @@ public fun NodeContainer.styledProgressIndicator(
  *
  * @return the styled control created.
  */
-public inline fun styledProgressIndicator(
+public fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun styledProgressIndicator(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledProgressIndicator(
+public fun NodeContainer.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.Separator
 
-class SeparatorTest : LayoutsTest<KtfxPane, Separator>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class SeparatorTest : LayoutsStyledTest<KtfxPane, Separator>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Separator = separator { }
+    override fun child1() = separator {}
 
-    override fun KtfxPane.child2(): Separator = separator()
+    override fun KtfxPane.child2() = separator()
 
-    override fun KtfxPane.child3(): Separator = separator { }
+    override fun child3() = styledSeparator(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledSeparator(styleClass = arrayOf("style"))
 }

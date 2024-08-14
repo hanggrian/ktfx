@@ -17,7 +17,7 @@ class TooltipTest {
             tooltip()
         }
         imageView {
-            tooltip { }
+            tooltip {}
         }
     }
 
@@ -28,7 +28,7 @@ class TooltipTest {
             assertNotNull(tooltip)
         }
         button {
-            tooltip { }
+            tooltip {}
             assertNotNull(tooltip)
         }
     }
@@ -40,7 +40,7 @@ class TooltipTest {
             assertNotNull(tooltip)
         }
         tab {
-            tooltip { }
+            tooltip {}
             assertNotNull(tooltip)
         }
     }

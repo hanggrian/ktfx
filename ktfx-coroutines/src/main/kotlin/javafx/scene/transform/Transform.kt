@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this transform. */
-fun <E : Event> Transform.eventFilter(
+public fun <E : Event> Transform.eventFilter(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,
@@ -24,7 +24,7 @@ fun <E : Event> Transform.eventFilter(
         .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this transform. */
-fun <E : Event> Transform.eventHandler(
+public fun <E : Event> Transform.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit,

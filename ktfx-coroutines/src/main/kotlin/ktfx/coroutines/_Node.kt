@@ -67,7 +67,7 @@ public fun Node.onDragDone(context: CoroutineContext = Dispatchers.JavaFx,
  */
 public fun Node.onContextMenuRequested(context: CoroutineContext = Dispatchers.JavaFx,
         action: suspend CoroutineScope.(ContextMenuEvent) -> Unit): Unit =
-    setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
+        setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 
 /**
  * @see Node.setOnMouseClicked

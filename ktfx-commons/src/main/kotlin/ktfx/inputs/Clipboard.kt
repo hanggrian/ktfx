@@ -6,11 +6,12 @@ import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 
 /** Convenient method to put single content to clipboard. */
-inline operator fun Clipboard.set(dataFormat: DataFormat, content: Any): Boolean =
+public operator fun Clipboard.set(dataFormat: DataFormat, content: Any): Boolean =
     setContent(mapOf(dataFormat to content))
 
 /** The content associated with this type, or null if there is none. */
-inline operator fun Clipboard.get(dataFormat: DataFormat): Any? = getContent(dataFormat)
+public inline operator fun Clipboard.get(dataFormat: DataFormat): Any? = getContent(dataFormat)
 
 /** Returns true if there is content on this clipboard for this type. */
-inline operator fun Clipboard.contains(dataFormat: DataFormat): Boolean = hasContent(dataFormat)
+public inline operator fun Clipboard.contains(dataFormat: DataFormat): Boolean =
+    hasContent(dataFormat)

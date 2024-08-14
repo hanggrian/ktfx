@@ -20,7 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.imageView(imageUrl: String): ImageView = imageView(imageUrl = imageUrl) { }
+public inline fun NodeContainer.imageView(imageUrl: String): ImageView = imageView(imageUrl =
+        imageUrl) { }
 
 /**
  * Create an [ImageView] with configuration block.
@@ -28,8 +29,8 @@ public fun NodeContainer.imageView(imageUrl: String): ImageView = imageView(imag
  *
  * @return the control created.
  */
-public inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
-        ImageView).() -> Unit): ImageView {
+public fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit):
+        ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
     child.configuration()
@@ -42,7 +43,7 @@ public inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMark
  *
  * @return the control added.
  */
-public inline fun NodeContainer.imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
         ImageView).() -> Unit): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
@@ -57,11 +58,11 @@ public inline fun NodeContainer.imageView(imageUrl: String, configuration: (@Ktf
  *
  * @return the styled control created.
  */
-public fun styledImageView(
+public inline fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
-): ImageView = styledImageView(imageUrl = imageUrl, styleClass = *styleClass, id = id) { }
+): ImageView = styledImageView(imageUrl = imageUrl, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ImageView] to this container.
@@ -70,11 +71,11 @@ public fun styledImageView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledImageView(
+public inline fun NodeContainer.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
-): ImageView = styledImageView(imageUrl = imageUrl, styleClass = *styleClass, id = id) { }
+): ImageView = styledImageView(imageUrl = imageUrl, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ImageView] with configuration block.
@@ -84,7 +85,7 @@ public fun NodeContainer.styledImageView(
  *
  * @return the styled control created.
  */
-public inline fun styledImageView(
+public fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +107,7 @@ public inline fun styledImageView(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledImageView(
+public fun NodeContainer.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,

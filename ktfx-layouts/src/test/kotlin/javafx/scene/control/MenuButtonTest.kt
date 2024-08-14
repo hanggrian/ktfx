@@ -1,22 +1,24 @@
 package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.MenuButton
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class MenuButtonTest : LayoutsTest<KtfxPane, MenuButton>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class MenuButtonTest : LayoutsStyledTest<KtfxPane, MenuButton>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): MenuButton = menuButton { }
+    override fun child1() = menuButton {}
 
-    override fun KtfxPane.child2(): MenuButton = menuButton()
+    override fun KtfxPane.child2() = menuButton()
 
-    override fun KtfxPane.child3(): MenuButton = menuButton { }
+    override fun child3() = styledMenuButton(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledMenuButton(styleClass = arrayOf("style"))
 
     override fun MenuButton.testDefaultValues() {
         assertEquals("", text)

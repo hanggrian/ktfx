@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T>
-        = comboBox(items = items) { }
+public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList()):
+        ComboBox<T> = comboBox(items = items) { }
 
 /**
  * Create a [ComboBox] with configuration block.
@@ -31,7 +31,7 @@ public fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArray
  *
  * @return the control created.
  */
-public inline fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -45,7 +45,7 @@ public inline fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList(),
+public fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -60,11 +60,11 @@ public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observab
  *
  * @return the styled control created.
  */
-public fun <T> styledComboBox(
+public inline fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ComboBox<T> = styledComboBox(items = items, styleClass = *styleClass, id = id) { }
+): ComboBox<T> = styledComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ComboBox] to this container.
@@ -73,11 +73,11 @@ public fun <T> styledComboBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledComboBox(
+public inline fun <T> NodeContainer.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ComboBox<T> = styledComboBox(items = items, styleClass = *styleClass, id = id) { }
+): ComboBox<T> = styledComboBox(items = items, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ComboBox] with configuration block.
@@ -87,7 +87,7 @@ public fun <T> NodeContainer.styledComboBox(
  *
  * @return the styled control created.
  */
-public inline fun <T> styledComboBox(
+public fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun <T> styledComboBox(
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledComboBox(
+public fun <T> NodeContainer.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

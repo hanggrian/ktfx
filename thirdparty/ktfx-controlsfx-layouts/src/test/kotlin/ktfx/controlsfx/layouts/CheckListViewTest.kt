@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.CheckListView
 
-class CheckListViewTest : LayoutsTest<KtfxPane, CheckListView<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class CheckListViewTest : LayoutsStyledTest<KtfxPane, CheckListView<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): CheckListView<String> = checkListView { }
+    override fun child1() = checkListView<String> {}
 
-    override fun KtfxPane.child2(): CheckListView<String> = checkListView()
+    override fun KtfxPane.child2() = checkListView<String>()
 
-    override fun KtfxPane.child3(): CheckListView<String> = checkListView { }
+    override fun child3() = styledCheckListView<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledCheckListView<String>(styleClass = arrayOf("style"))
 
     override fun CheckListView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

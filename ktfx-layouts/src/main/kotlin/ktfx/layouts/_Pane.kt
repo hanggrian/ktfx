@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.pane(): Pane = pane() { }
+public inline fun NodeContainer.pane(): Pane = pane() { }
 
 /**
  * Create a [Pane] with configuration block.
@@ -28,7 +28,7 @@ public fun NodeContainer.pane(): Pane = pane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
+public fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -41,8 +41,7 @@ public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
-        Pane {
+public fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -56,8 +55,8 @@ public inline fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane(styleClass =
-        *styleClass, id = id) { }
+public inline fun styledPane(vararg styleClass: String, id: String? = null): Pane =
+        styledPane(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Pane] to this container.
@@ -66,8 +65,8 @@ public fun styledPane(vararg styleClass: String, id: String? = null): Pane = sty
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPane(vararg styleClass: String, id: String? = null): Pane =
-        styledPane(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledPane(vararg styleClass: String, id: String? = null): Pane =
+        styledPane(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Pane] with configuration block.
@@ -77,7 +76,7 @@ public fun NodeContainer.styledPane(vararg styleClass: String, id: String? = nul
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledPane(
+public fun styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit,
@@ -98,7 +97,7 @@ public inline fun styledPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledPane(
+public fun NodeContainer.styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit,

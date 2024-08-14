@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text =
+public inline fun NodeContainer.jfxTextField(text: String = ""): JFXTextField = jfxTextField(text =
         text) { }
 
 /**
@@ -31,7 +31,7 @@ public fun NodeContainer.jfxTextField(text: String? = null): JFXTextField = jfxT
  *
  * @return the control created.
  */
-public inline fun jfxTextField(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun jfxTextField(text: String = "", configuration: (@KtfxLayoutDslMarker
         JFXTextField).() -> Unit): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextField(text)
@@ -45,8 +45,8 @@ public inline fun jfxTextField(text: String? = null, configuration: (@KtfxLayout
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxTextField(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker JFXTextField).() -> Unit): JFXTextField {
+public fun NodeContainer.jfxTextField(text: String = "", configuration: (@KtfxLayoutDslMarker
+        JFXTextField).() -> Unit): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextField(text)
     child.configuration()
@@ -60,11 +60,11 @@ public inline fun NodeContainer.jfxTextField(text: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledJFXTextField(
-    text: String? = null,
+public inline fun styledJfxTextField(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): JFXTextField = styledJFXTextField(text = text, styleClass = *styleClass, id = id) { }
+): JFXTextField = styledJfxTextField(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTextField] to this container.
@@ -73,11 +73,11 @@ public fun styledJFXTextField(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXTextField(
-    text: String? = null,
+public inline fun NodeContainer.styledJfxTextField(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
-): JFXTextField = styledJFXTextField(text = text, styleClass = *styleClass, id = id) { }
+): JFXTextField = styledJfxTextField(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTextField] with configuration block.
@@ -87,8 +87,8 @@ public fun NodeContainer.styledJFXTextField(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXTextField(
-    text: String? = null,
+public fun styledJfxTextField(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTextField).() -> Unit,
@@ -109,8 +109,8 @@ public inline fun styledJFXTextField(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXTextField(
-    text: String? = null,
+public fun NodeContainer.styledJfxTextField(
+    text: String = "",
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTextField).() -> Unit,

@@ -12,27 +12,27 @@ import javafx.util.StringConverter
  * @return configured string converter.
  * @see kotlin.text.buildString
  */
-inline fun <T> buildStringConverter(
+public inline fun <T> buildStringConverter(
     builderAction: StringConverterBuilder<T>.() -> Unit,
 ): StringConverter<T> = StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Receiver for `buildStringConverter` block. */
-class StringConverterBuilder<T> {
+public class StringConverterBuilder<T> {
     private var format: (T?) -> String = { it?.toString() ?: "" }
     private var parse: (String) -> T? = { null }
 
     /** Convert the object to String. */
-    fun toString(listener: (T?) -> String) {
+    public fun toString(listener: (T?) -> String) {
         format = listener
     }
 
     /** Convert String back to object. */
-    fun fromString(listener: (String) -> T?) {
+    public fun fromString(listener: (String) -> T?) {
         parse = listener
     }
 
     /** Create to native builder. */
-    fun build(): StringConverter<T> =
+    public fun build(): StringConverter<T> =
         object : StringConverter<T>() {
             override fun fromString(value: String): T? = parse(value)
 
@@ -41,7 +41,7 @@ class StringConverterBuilder<T> {
 }
 
 /** Converts the object provided into its string form. */
-inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)
+public inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)
 
 /** Converts the string provided into an object defined by the specific converter. */
-inline operator fun <T> StringConverter<T>.get(s: String): T = fromString(s)
+public inline operator fun <T> StringConverter<T>.get(s: String): T = fromString(s)

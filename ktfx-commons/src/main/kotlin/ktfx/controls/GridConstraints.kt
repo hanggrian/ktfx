@@ -15,7 +15,7 @@ import kotlin.contracts.contract
  *
  * @param configuration the configuration block.
  */
-fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
+public fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     object : RowConstraintsScope {
         override val constraints: ObservableList<RowConstraints> get() = rowConstraints
@@ -27,7 +27,7 @@ fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
  *
  * @param configuration the configuration block.
  */
-fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit) {
+public fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     object : ColumnConstraintsScope {
         override val constraints: ObservableList<ColumnConstraints> get() = columnConstraints
@@ -35,15 +35,15 @@ fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit)
 }
 
 /** [RowConstraints] configurator interface. */
-interface RowConstraintsScope {
+public interface RowConstraintsScope {
     /** Constraints of this scope. */
-    val constraints: ObservableList<RowConstraints>
+    public val constraints: ObservableList<RowConstraints>
 
     /** Add a default [RowConstraints], returning the constraints added. */
-    fun append(): RowConstraints = RowConstraints().also { constraints += it }
+    public fun append(): RowConstraints = RowConstraints().also { constraints += it }
 
     /** Add a [RowConstraints] using [configuration] block, returning the constraints added. */
-    fun append(configuration: RowConstraints.() -> Unit): RowConstraints =
+    public fun append(configuration: RowConstraints.() -> Unit): RowConstraints =
         RowConstraints().also {
             it.configuration()
             constraints += it
@@ -51,15 +51,15 @@ interface RowConstraintsScope {
 }
 
 /** [ColumnConstraints] configurator interface. */
-interface ColumnConstraintsScope {
+public interface ColumnConstraintsScope {
     /** Constraints of this scope. */
-    val constraints: ObservableList<ColumnConstraints>
+    public val constraints: ObservableList<ColumnConstraints>
 
     /** Add a default [ColumnConstraints], returning the constraints added. */
-    fun append(): ColumnConstraints = ColumnConstraints().also { constraints += it }
+    public fun append(): ColumnConstraints = ColumnConstraints().also { constraints += it }
 
     /** Add a [ColumnConstraints] using [configuration] block, returning the constraints added. */
-    fun append(configuration: ColumnConstraints.() -> Unit): ColumnConstraints =
+    public fun append(configuration: ColumnConstraints.() -> Unit): ColumnConstraints =
         ColumnConstraints().also {
             it.configuration()
             constraints += it

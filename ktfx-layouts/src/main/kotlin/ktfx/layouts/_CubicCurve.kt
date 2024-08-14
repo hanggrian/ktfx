@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.cubicCurve(
+public inline fun NodeContainer.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -39,7 +39,7 @@ public fun NodeContainer.cubicCurve(
  *
  * @return the control created.
  */
-public inline fun cubicCurve(
+public fun cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -62,7 +62,7 @@ public inline fun cubicCurve(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.cubicCurve(
+public fun NodeContainer.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -86,7 +86,7 @@ public inline fun NodeContainer.cubicCurve(
  *
  * @return the styled control created.
  */
-public fun styledCubicCurve(
+public inline fun styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -99,7 +99,7 @@ public fun styledCubicCurve(
     id: String? = null,
 ): CubicCurve = styledCubicCurve(startX = startX, startY = startY, controlX1 = controlX1, controlY1
         = controlY1, controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [CubicCurve] to this container.
@@ -108,7 +108,7 @@ public fun styledCubicCurve(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCubicCurve(
+public inline fun NodeContainer.styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -121,7 +121,7 @@ public fun NodeContainer.styledCubicCurve(
     id: String? = null,
 ): CubicCurve = styledCubicCurve(startX = startX, startY = startY, controlX1 = controlX1, controlY1
         = controlY1, controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
-        styleClass = *styleClass, id = id) { }
+        styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [CubicCurve] with configuration block.
@@ -131,7 +131,7 @@ public fun NodeContainer.styledCubicCurve(
  *
  * @return the styled control created.
  */
-public inline fun styledCubicCurve(
+public fun styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -160,7 +160,7 @@ public inline fun styledCubicCurve(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledCubicCurve(
+public fun NodeContainer.styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,

@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color)
-        { }
+public inline fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color =
+        color) { }
 
 /**
  * Create a [ColorPicker] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker = colorP
  *
  * @return the control created.
  */
-public inline fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
+public fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
         ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
@@ -45,8 +45,8 @@ public inline fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutD
  *
  * @return the control added.
  */
-public inline fun NodeContainer.colorPicker(color: Color = WHITE,
-        configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit): ColorPicker {
+public fun NodeContainer.colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
+        ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
     child.configuration()
@@ -60,11 +60,11 @@ public inline fun NodeContainer.colorPicker(color: Color = WHITE,
  *
  * @return the styled control created.
  */
-public fun styledColorPicker(
+public inline fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ColorPicker] to this container.
@@ -73,11 +73,11 @@ public fun styledColorPicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledColorPicker(
+public inline fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ColorPicker] with configuration block.
@@ -87,7 +87,7 @@ public fun NodeContainer.styledColorPicker(
  *
  * @return the styled control created.
  */
-public inline fun styledColorPicker(
+public fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun styledColorPicker(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledColorPicker(
+public fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

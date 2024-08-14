@@ -16,7 +16,7 @@ import kotlin.contracts.contract
  *
  * @param configuration the configuration block.
  */
-fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
+public fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
     configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
@@ -31,7 +31,7 @@ fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
  *
  * @param configuration the configuration block.
  */
-fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
+public fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
     configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
@@ -43,16 +43,16 @@ fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
 
 /** Container of [JFXTreeTableColumn], providing sets of useful operation. */
 @TableColumnDslMarker
-interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
+public interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
     /** Collection of columns within this scope. */
-    val columns: MutableCollection<TreeTableColumn<S, *>>
+    public val columns: MutableCollection<TreeTableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
+    public fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
         JFXTreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    fun <T> column(
+    public fun <T> column(
         text: String? = null,
         configuration: JFXTreeTableColumn<S, T>.() -> Unit,
     ): JFXTreeTableColumn<S, T> {
@@ -62,7 +62,7 @@ interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    operator fun <T> String.invoke(
+    public operator fun <T> String.invoke(
         configuration: JFXTreeTableColumn<S, T>.() -> Unit,
     ): JFXTreeTableColumn<S, T> = column(this, configuration)
 }

@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> =
+public inline fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> =
         treeTableView(root = root) { }
 
 /**
@@ -30,7 +30,7 @@ public fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null): TreeTable
  *
  * @return the control created.
  */
-public inline fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@KtfxLayoutDslMarker
+public fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@KtfxLayoutDslMarker
         TreeTableView<S>).() -> Unit): TreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeTableView<S>(root)
@@ -44,7 +44,7 @@ public inline fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@
  *
  * @return the control added.
  */
-public inline fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null,
+public fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null,
         configuration: (@KtfxLayoutDslMarker TreeTableView<S>).() -> Unit): TreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeTableView<S>(root)
@@ -59,11 +59,11 @@ public inline fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null,
  *
  * @return the styled control created.
  */
-public fun <S> styledTreeTableView(
+public inline fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
-): TreeTableView<S> = styledTreeTableView(root = root, styleClass = *styleClass, id = id) { }
+): TreeTableView<S> = styledTreeTableView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [TreeTableView] to this container.
@@ -72,11 +72,11 @@ public fun <S> styledTreeTableView(
  *
  * @return the styled control added.
  */
-public fun <S> NodeContainer.styledTreeTableView(
+public inline fun <S> NodeContainer.styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
-): TreeTableView<S> = styledTreeTableView(root = root, styleClass = *styleClass, id = id) { }
+): TreeTableView<S> = styledTreeTableView(root = root, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [TreeTableView] with configuration block.
@@ -86,7 +86,7 @@ public fun <S> NodeContainer.styledTreeTableView(
  *
  * @return the styled control created.
  */
-public inline fun <S> styledTreeTableView(
+public fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +108,7 @@ public inline fun <S> styledTreeTableView(
  *
  * @return the styled control added.
  */
-public inline fun <S> NodeContainer.styledTreeTableView(
+public fun <S> NodeContainer.styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

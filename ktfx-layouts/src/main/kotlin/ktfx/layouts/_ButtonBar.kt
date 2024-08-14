@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(buttonOrder =
-        buttonOrder) { }
+public inline fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBar =
+        buttonBar(buttonOrder = buttonOrder) { }
 
 /**
  * Create a [ButtonBar] with configuration block.
@@ -29,7 +29,7 @@ public fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBar = but
  *
  * @return the control created.
  */
-public inline fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
         KtfxButtonBar).() -> Unit): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
@@ -43,8 +43,8 @@ public inline fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLa
  *
  * @return the control added.
  */
-public inline fun NodeContainer.buttonBar(buttonOrder: String? = null,
-        configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit): ButtonBar {
+public fun NodeContainer.buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
+        KtfxButtonBar).() -> Unit): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
     child.configuration()
@@ -58,11 +58,11 @@ public inline fun NodeContainer.buttonBar(buttonOrder: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledButtonBar(
+public inline fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ButtonBar] to this container.
@@ -71,11 +71,11 @@ public fun styledButtonBar(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledButtonBar(
+public inline fun NodeContainer.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ButtonBar] with configuration block.
@@ -85,7 +85,7 @@ public fun NodeContainer.styledButtonBar(
  *
  * @return the styled control created.
  */
-public inline fun styledButtonBar(
+public fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +107,7 @@ public inline fun styledButtonBar(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledButtonBar(
+public fun NodeContainer.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,

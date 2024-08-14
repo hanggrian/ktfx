@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.quadCurve(
+public inline fun NodeContainer.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -37,7 +37,7 @@ public fun NodeContainer.quadCurve(
  *
  * @return the control created.
  */
-public inline fun quadCurve(
+public fun quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -58,7 +58,7 @@ public inline fun quadCurve(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.quadCurve(
+public fun NodeContainer.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -80,7 +80,7 @@ public inline fun NodeContainer.quadCurve(
  *
  * @return the styled control created.
  */
-public fun styledQuadCurve(
+public inline fun styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -90,7 +90,7 @@ public fun styledQuadCurve(
     vararg styleClass: String,
     id: String? = null,
 ): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-        controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+        controlY, endX = endX, endY = endY, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [QuadCurve] to this container.
@@ -99,7 +99,7 @@ public fun styledQuadCurve(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledQuadCurve(
+public inline fun NodeContainer.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -109,7 +109,7 @@ public fun NodeContainer.styledQuadCurve(
     vararg styleClass: String,
     id: String? = null,
 ): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-        controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+        controlY, endX = endX, endY = endY, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [QuadCurve] with configuration block.
@@ -119,7 +119,7 @@ public fun NodeContainer.styledQuadCurve(
  *
  * @return the styled control created.
  */
-public inline fun styledQuadCurve(
+public fun styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -146,7 +146,7 @@ public inline fun styledQuadCurve(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledQuadCurve(
+public fun NodeContainer.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,

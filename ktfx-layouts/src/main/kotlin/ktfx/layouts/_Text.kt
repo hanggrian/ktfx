@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.text(text: String? = null): Text = text(text = text) { }
+public inline fun NodeContainer.text(text: String? = null): Text = text(text = text) { }
 
 /**
  * Create a [Text] with configuration block.
@@ -28,8 +28,7 @@ public fun NodeContainer.text(text: String? = null): Text = text(text = text) { 
  *
  * @return the control created.
  */
-public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit):
-        Text {
+public fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
     child.configuration()
@@ -42,7 +41,7 @@ public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public inline fun NodeContainer.text(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.text(text: String? = null, configuration: (@KtfxLayoutDslMarker
         Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
@@ -57,11 +56,11 @@ public inline fun NodeContainer.text(text: String? = null, configuration: (@Ktfx
  *
  * @return the styled control created.
  */
-public fun styledText(
+public inline fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): Text = styledText(text = text, styleClass = *styleClass, id = id) { }
+): Text = styledText(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Text] to this container.
@@ -70,11 +69,11 @@ public fun styledText(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledText(
+public inline fun NodeContainer.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): Text = styledText(text = text, styleClass = *styleClass, id = id) { }
+): Text = styledText(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Text] with configuration block.
@@ -84,7 +83,7 @@ public fun NodeContainer.styledText(
  *
  * @return the styled control created.
  */
-public inline fun styledText(
+public fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +105,7 @@ public inline fun styledText(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledText(
+public fun NodeContainer.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

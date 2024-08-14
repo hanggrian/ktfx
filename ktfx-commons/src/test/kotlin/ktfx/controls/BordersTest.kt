@@ -24,7 +24,7 @@ class BordersTest {
     }
 
     @Test
-    fun multiple() {
+    fun border() {
         region.border {
             stroke {}
             image(SampleImage()) {}
@@ -34,8 +34,8 @@ class BordersTest {
     }
 
     @Test
-    fun singleStroke() {
-        region.borderStroke {
+    fun strokeBorder() {
+        region.strokeBorder {
             stroke = Color.RED
             style = BorderStrokeStyle.DOTTED
             radii = CornerRadii(5.0)
@@ -58,9 +58,9 @@ class BordersTest {
     }
 
     @Test
-    fun singleImage() {
+    fun imageBorder() {
         val sample = SampleImage()
-        region.borderImage(sample) {
+        region.imageBorder(sample) {
             widths = BorderWidths.FULL
             insets = Insets(10.0)
             slices = BorderWidths.FULL

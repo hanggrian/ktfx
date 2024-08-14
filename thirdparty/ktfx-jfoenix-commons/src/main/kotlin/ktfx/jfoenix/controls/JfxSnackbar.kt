@@ -10,11 +10,11 @@ import javafx.scene.layout.Pane
 import javafx.util.Duration
 
 /** Show this snackbar with custom layout. */
-inline fun JFXSnackbar.show(content: Node, duration: Duration): Unit =
+public inline fun JFXSnackbar.show(content: Node, duration: Duration): Unit =
     enqueue(JFXSnackbar.SnackbarEvent(content, duration))
 
 /** Show this snackbar with default layout. */
-fun JFXSnackbar.show(
+public fun JFXSnackbar.show(
     message: String,
     duration: Duration,
     actionText: String? = null,
@@ -29,11 +29,11 @@ fun JFXSnackbar.show(
     )
 
 /** Show this snackbar indefinitely with custom layout. */
-inline fun JFXSnackbar.showIndefinite(content: Node): Unit =
+public inline fun JFXSnackbar.showIndefinite(content: Node): Unit =
     enqueue(JFXSnackbar.SnackbarEvent(content, Duration.INDEFINITE))
 
 /** Show this snackbar indefinitely with default layout. */
-fun JFXSnackbar.showIndefinite(
+public fun JFXSnackbar.showIndefinite(
     message: String,
     actionText: String? = null,
     action: ((ActionEvent) -> Unit)? = null,
@@ -46,11 +46,11 @@ fun JFXSnackbar.showIndefinite(
     )
 
 /** Create and show a snackbar with custom layout. */
-fun Pane.jfxSnackbar(content: Node, duration: Duration): JFXSnackbar =
+public fun Pane.jfxSnackbar(content: Node, duration: Duration): JFXSnackbar =
     JFXSnackbar(this).apply { show(content, duration) }
 
 /** Create and show a snackbar with default layout. */
-fun Pane.jfxSnackbar(
+public fun Pane.jfxSnackbar(
     message: String,
     duration: Duration,
     actionText: String? = null,
@@ -58,11 +58,11 @@ fun Pane.jfxSnackbar(
 ): JFXSnackbar = JFXSnackbar(this).apply { show(message, duration, actionText, action) }
 
 /** Create and show an indefinite snackbar with custom layout. */
-fun Pane.jfxIndefiniteSnackbar(content: Node): JFXSnackbar =
+public fun Pane.jfxIndefiniteSnackbar(content: Node): JFXSnackbar =
     JFXSnackbar(this).apply { showIndefinite(content) }
 
 /** Create and show an indefinite snackbar with default layout. */
-fun Pane.jfxIndefiniteSnackbar(
+public fun Pane.jfxIndefiniteSnackbar(
     message: String,
     actionText: String? = null,
     action: ((ActionEvent) -> Unit)? = null,

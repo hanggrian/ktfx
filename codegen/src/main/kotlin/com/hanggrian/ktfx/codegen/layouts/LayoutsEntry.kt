@@ -38,13 +38,7 @@ data class LayoutsEntry(
     val customTypeName: TypeName
         get() =
             typeName.takeUnless { isCustomClass }
-                ?: classNamed(
-                    packageName,
-                    when {
-                        simpleName.startsWith("JFX") -> "KtfxJfx${simpleName.substringAfter("JFX")}"
-                        else -> "Ktfx$simpleName"
-                    },
-                )
+                ?: classNamed(packageName, "Ktfx${simpleName.replace("JFX", "Jfx")}")
 
     val containerClassNames: List<ClassName>
         get() =
@@ -70,7 +64,13 @@ data class LayoutsEntry(
                     }
                 }.joinToString("")
 
-    val styledFunctionName: String get() = "styled$simpleName"
+    val styledFunctionName: String
+        get() =
+            "styled${
+                simpleName
+                    .replace("JFX", "Jfx")
+                    .replace("SVG", "Svg")
+            }"
 
     val isSupportStyledFunction: Boolean
         get() =

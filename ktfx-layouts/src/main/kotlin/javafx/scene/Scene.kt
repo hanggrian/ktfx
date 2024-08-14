@@ -14,7 +14,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Create a [Scene] with configuration block. */
-inline fun scene(
+public inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
@@ -25,11 +25,14 @@ inline fun scene(
 }
 
 /** Add a [Scene] to this window. */
-fun Stage.scene(width: Double = -1.0, height: Double = -1.0, fill: Paint = Color.WHITE): Scene =
-    KtfxScene(Pane(), width, height, fill).also { scene = it }
+public fun Stage.scene(
+    width: Double = -1.0,
+    height: Double = -1.0,
+    fill: Paint = Color.WHITE,
+): Scene = KtfxScene(Pane(), width, height, fill).also { scene = it }
 
 /** Add a [Scene] with configuration block to this window. */
-inline fun Stage.scene(
+public inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,

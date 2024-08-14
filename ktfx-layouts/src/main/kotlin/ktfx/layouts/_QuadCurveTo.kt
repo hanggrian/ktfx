@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.quadCurveTo(
+public inline fun PathElementContainer.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -33,7 +33,7 @@ public fun PathElementContainer.quadCurveTo(
  *
  * @return the control created.
  */
-public inline fun quadCurveTo(
+public fun quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -52,7 +52,7 @@ public inline fun quadCurveTo(
  *
  * @return the control added.
  */
-public inline fun PathElementContainer.quadCurveTo(
+public fun PathElementContainer.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,

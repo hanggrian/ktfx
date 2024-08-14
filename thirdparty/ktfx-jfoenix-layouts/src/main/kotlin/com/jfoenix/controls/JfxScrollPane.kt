@@ -24,7 +24,9 @@ internal class NodeContainerImpl : NodeContainer {
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.topBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
+public inline fun JFXScrollPane.topBar(
+    configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
+) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     topBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
@@ -34,7 +36,9 @@ inline fun JFXScrollPane.topBar(configuration: (@KtfxLayoutDslMarker NodeContain
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.midBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
+public inline fun JFXScrollPane.midBar(
+    configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
+) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     midBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
@@ -44,7 +48,9 @@ inline fun JFXScrollPane.midBar(configuration: (@KtfxLayoutDslMarker NodeContain
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.bottomBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
+public inline fun JFXScrollPane.bottomBar(
+    configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
+) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     bottomBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
@@ -54,7 +60,7 @@ inline fun JFXScrollPane.bottomBar(configuration: (@KtfxLayoutDslMarker NodeCont
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.mainHeader(
+public inline fun JFXScrollPane.mainHeader(
     configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
@@ -66,7 +72,7 @@ inline fun JFXScrollPane.mainHeader(
  *
  *  @param configuration the configuration block.
  */
-inline fun JFXScrollPane.condensedHeader(
+public inline fun JFXScrollPane.condensedHeader(
     configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }

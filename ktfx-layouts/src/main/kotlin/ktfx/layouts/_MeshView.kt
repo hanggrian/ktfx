@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
+public inline fun NodeContainer.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
 
 /**
  * Create a [MeshView] with configuration block.
@@ -29,8 +29,8 @@ public fun NodeContainer.meshView(mesh: Mesh? = null): MeshView = meshView(mesh 
  *
  * @return the control created.
  */
-public inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
-        MeshView).() -> Unit): MeshView {
+public fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker MeshView).() -> Unit):
+        MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MeshView(mesh)
     child.configuration()
@@ -43,7 +43,7 @@ public inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMar
  *
  * @return the control added.
  */
-public inline fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
         MeshView).() -> Unit): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MeshView(mesh)
@@ -58,11 +58,11 @@ public inline fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@Kt
  *
  * @return the styled control created.
  */
-public fun styledMeshView(
+public inline fun styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
-): MeshView = styledMeshView(mesh = mesh, styleClass = *styleClass, id = id) { }
+): MeshView = styledMeshView(mesh = mesh, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [MeshView] to this container.
@@ -71,11 +71,11 @@ public fun styledMeshView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMeshView(
+public inline fun NodeContainer.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
-): MeshView = styledMeshView(mesh = mesh, styleClass = *styleClass, id = id) { }
+): MeshView = styledMeshView(mesh = mesh, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [MeshView] with configuration block.
@@ -85,7 +85,7 @@ public fun NodeContainer.styledMeshView(
  *
  * @return the styled control created.
  */
-public inline fun styledMeshView(
+public fun styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +107,7 @@ public inline fun styledMeshView(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledMeshView(
+public fun NodeContainer.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,

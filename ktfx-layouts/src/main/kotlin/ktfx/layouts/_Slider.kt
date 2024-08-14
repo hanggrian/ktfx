@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.slider(
+public inline fun NodeContainer.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -33,7 +33,7 @@ public fun NodeContainer.slider(
  *
  * @return the control created.
  */
-public inline fun slider(
+public fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -51,7 +51,7 @@ public inline fun slider(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.slider(
+public fun NodeContainer.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -70,13 +70,13 @@ public inline fun NodeContainer.slider(
  *
  * @return the styled control created.
  */
-public fun styledSlider(
+public inline fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Slider] to this container.
@@ -85,13 +85,13 @@ public fun styledSlider(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledSlider(
+public inline fun NodeContainer.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Slider] with configuration block.
@@ -101,7 +101,7 @@ public fun NodeContainer.styledSlider(
  *
  * @return the styled control created.
  */
-public inline fun styledSlider(
+public fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -125,7 +125,7 @@ public inline fun styledSlider(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledSlider(
+public fun NodeContainer.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,

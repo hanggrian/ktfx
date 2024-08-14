@@ -1,22 +1,24 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.layout.GridPane
 import ktfx.controls.H_RIGHT
 import ktfx.controls.V_BOTTOM
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class GridPaneTest : LayoutsStyledTest<KtfxPane, GridPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): GridPane = gridPane { }
+    override fun child1() = gridPane {}
 
-    override fun KtfxPane.child2(): GridPane = gridPane()
+    override fun KtfxPane.child2() = gridPane()
 
-    override fun KtfxPane.child3(): GridPane = gridPane { }
+    override fun child3() = styledGridPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledGridPane(styleClass = arrayOf("style"))
 
     @Test
     fun grid() {

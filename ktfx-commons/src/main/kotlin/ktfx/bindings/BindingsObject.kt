@@ -21,17 +21,19 @@ import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create an [ObjectBinding] with multiple [Observable] dependencies. */
-inline fun <T> bindingOf(
+public inline fun <T> bindingOf(
     vararg dependencies: Observable,
     noinline valueProvider: () -> T?,
 ): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(valueProvider), *dependencies)
 
 /** Create a [ObjectBinding] with multiple [Observable] dependencies using collection. */
-fun <T> bindingOf(dependencies: Collection<Observable>, valueProvider: () -> T?): ObjectBinding<T> =
-    bindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+public fun <T> bindingOf(
+    dependencies: Collection<Observable>,
+    valueProvider: () -> T?,
+): ObjectBinding<T> = bindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [ObjectBinding] with single [ObservableList] dependency. */
-fun <E, T> ObservableList<E>.bindingBy(valueProvider: (List<E>) -> T?): ObjectBinding<T> =
+public fun <E, T> ObservableList<E>.bindingBy(valueProvider: (List<E>) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -45,7 +47,7 @@ fun <E, T> ObservableList<E>.bindingBy(valueProvider: (List<E>) -> T?): ObjectBi
     }
 
 /** Create an [ObjectBinding] with single [ObservableSet] dependency. */
-fun <E, T> ObservableSet<E>.bindingBy(valueProvider: (Set<E>) -> T?): ObjectBinding<T> =
+public fun <E, T> ObservableSet<E>.bindingBy(valueProvider: (Set<E>) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -59,7 +61,9 @@ fun <E, T> ObservableSet<E>.bindingBy(valueProvider: (Set<E>) -> T?): ObjectBind
     }
 
 /** Create an [ObjectBinding] with single [ObservableMap] dependency. */
-fun <K, V, T> ObservableMap<K, V>.bindingBy(valueProvider: (Map<K, V>) -> T?): ObjectBinding<T> =
+public fun <K, V, T> ObservableMap<K, V>.bindingBy(
+    valueProvider: (Map<K, V>) -> T?,
+): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -73,7 +77,7 @@ fun <K, V, T> ObservableMap<K, V>.bindingBy(valueProvider: (Map<K, V>) -> T?): O
     }
 
 /** Create an [ObjectBinding] with single [ObservableObjectValue] dependency. */
-fun <V, T> ObservableObjectValue<V>.bindingBy(valueProvider: (V?) -> T?): ObjectBinding<T> =
+public fun <V, T> ObservableObjectValue<V>.bindingBy(valueProvider: (V?) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -87,7 +91,7 @@ fun <V, T> ObservableObjectValue<V>.bindingBy(valueProvider: (V?) -> T?): Object
     }
 
 /** Create an [ObjectBinding] with single [ObservableBooleanValue] dependency. */
-fun <T> ObservableBooleanValue.bindingBy(valueProvider: (Boolean) -> T?): ObjectBinding<T> =
+public fun <T> ObservableBooleanValue.bindingBy(valueProvider: (Boolean) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -101,7 +105,7 @@ fun <T> ObservableBooleanValue.bindingBy(valueProvider: (Boolean) -> T?): Object
     }
 
 /** Create an [ObjectBinding] with single [ObservableDoubleValue] dependency. */
-fun <T> ObservableDoubleValue.bindingBy(valueProvider: (Double) -> T?): ObjectBinding<T> =
+public fun <T> ObservableDoubleValue.bindingBy(valueProvider: (Double) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -115,7 +119,7 @@ fun <T> ObservableDoubleValue.bindingBy(valueProvider: (Double) -> T?): ObjectBi
     }
 
 /** Create an [ObjectBinding] with single [ObservableFloatValue] dependency. */
-fun <T> ObservableFloatValue.bindingBy(valueProvider: (Float) -> T?): ObjectBinding<T> =
+public fun <T> ObservableFloatValue.bindingBy(valueProvider: (Float) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -129,7 +133,7 @@ fun <T> ObservableFloatValue.bindingBy(valueProvider: (Float) -> T?): ObjectBind
     }
 
 /** Create an [ObjectBinding] with single [ObservableIntegerValue] dependency. */
-fun <T> ObservableIntegerValue.bindingBy(valueProvider: (Int) -> T?): ObjectBinding<T> =
+public fun <T> ObservableIntegerValue.bindingBy(valueProvider: (Int) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)
@@ -143,7 +147,7 @@ fun <T> ObservableIntegerValue.bindingBy(valueProvider: (Int) -> T?): ObjectBind
     }
 
 /** Create an [ObjectBinding] with single [ObservableLongValue] dependency. */
-fun <T> ObservableLongValue.bindingBy(valueProvider: (Long) -> T?): ObjectBinding<T> =
+public fun <T> ObservableLongValue.bindingBy(valueProvider: (Long) -> T?): ObjectBinding<T> =
     object : ObjectBinding<T>() {
         init {
             bind(this@bindingBy)

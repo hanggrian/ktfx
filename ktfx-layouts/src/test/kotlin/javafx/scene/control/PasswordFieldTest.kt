@@ -1,16 +1,18 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.PasswordField
 
-class PasswordFieldTest : LayoutsTest<KtfxPane, PasswordField>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class PasswordFieldTest : LayoutsStyledTest<KtfxPane, PasswordField>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): PasswordField = passwordField { }
+    override fun child1() = passwordField {}
 
-    override fun KtfxPane.child2(): PasswordField = passwordField()
+    override fun KtfxPane.child2() = passwordField()
 
-    override fun KtfxPane.child3(): PasswordField = passwordField { }
+    override fun child3() = styledPasswordField(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledPasswordField(styleClass = arrayOf("style"))
 }

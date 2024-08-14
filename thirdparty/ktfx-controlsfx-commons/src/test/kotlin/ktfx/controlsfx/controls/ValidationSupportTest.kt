@@ -12,6 +12,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
+// requires window focus and might fail in CI
 @Ignore
 class ValidationSupportTest : ApplicationTest() {
     private lateinit var support: ValidationSupport

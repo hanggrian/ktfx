@@ -1,20 +1,22 @@
 package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import ktfx.layouts.KtfxPane
 import org.controlsfx.control.GridView
 
-class GridViewTest : LayoutsTest<KtfxPane, GridView<String>>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class GridViewTest : LayoutsStyledTest<KtfxPane, GridView<String>>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): GridView<String> = gridView { }
+    override fun child1() = gridView<String> {}
 
-    override fun KtfxPane.child2(): GridView<String> = gridView()
+    override fun KtfxPane.child2() = gridView<String>()
 
-    override fun KtfxPane.child3(): GridView<String> = gridView { }
+    override fun child3() = styledGridView<String>(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledGridView<String>(styleClass = arrayOf("style"))
 
     override fun GridView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

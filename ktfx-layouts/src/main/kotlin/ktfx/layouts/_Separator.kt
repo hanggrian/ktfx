@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.separator(orientation: Orientation = HORIZONTAL): Separator =
+public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL): Separator =
         separator(orientation = orientation) { }
 
 /**
@@ -31,8 +31,8 @@ public fun NodeContainer.separator(orientation: Orientation = HORIZONTAL): Separ
  *
  * @return the control created.
  */
-public inline fun separator(orientation: Orientation = HORIZONTAL,
-        configuration: (@KtfxLayoutDslMarker Separator).() -> Unit): Separator {
+public fun separator(orientation: Orientation = HORIZONTAL, configuration: (@KtfxLayoutDslMarker
+        Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
     child.configuration()
@@ -45,7 +45,7 @@ public inline fun separator(orientation: Orientation = HORIZONTAL,
  *
  * @return the control added.
  */
-public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
+public fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
         configuration: (@KtfxLayoutDslMarker Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -60,11 +60,11 @@ public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
  *
  * @return the styled control created.
  */
-public fun styledSeparator(
+public inline fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
-): Separator = styledSeparator(orientation = orientation, styleClass = *styleClass, id = id) { }
+): Separator = styledSeparator(orientation = orientation, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Separator] to this container.
@@ -73,11 +73,11 @@ public fun styledSeparator(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledSeparator(
+public inline fun NodeContainer.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
-): Separator = styledSeparator(orientation = orientation, styleClass = *styleClass, id = id) { }
+): Separator = styledSeparator(orientation = orientation, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Separator] with configuration block.
@@ -87,7 +87,7 @@ public fun NodeContainer.styledSeparator(
  *
  * @return the styled control created.
  */
-public inline fun styledSeparator(
+public fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun styledSeparator(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledSeparator(
+public fun NodeContainer.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,

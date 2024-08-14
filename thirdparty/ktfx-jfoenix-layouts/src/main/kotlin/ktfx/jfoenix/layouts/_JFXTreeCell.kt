@@ -22,7 +22,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
+public inline fun <T> NodeContainer.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
 
 /**
  * Create a [JFXTreeCell] with configuration block.
@@ -30,7 +30,7 @@ public fun <T> NodeContainer.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit):
+public fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit):
         JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeCell<T>()
@@ -44,7 +44,7 @@ public inline fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCe
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.jfxTreeCell(configuration: (@KtfxLayoutDslMarker
+public fun <T> NodeContainer.jfxTreeCell(configuration: (@KtfxLayoutDslMarker
         JFXTreeCell<T>).() -> Unit): JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeCell<T>()
@@ -59,8 +59,8 @@ public inline fun <T> NodeContainer.jfxTreeCell(configuration: (@KtfxLayoutDslMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledJFXTreeCell(vararg styleClass: String, id: String? = null): JFXTreeCell<T> =
-        styledJFXTreeCell(styleClass = *styleClass, id = id) { }
+public inline fun <T> styledJfxTreeCell(vararg styleClass: String, id: String? = null):
+        JFXTreeCell<T> = styledJfxTreeCell(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTreeCell] to this container.
@@ -69,8 +69,8 @@ public fun <T> styledJFXTreeCell(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJFXTreeCell(vararg styleClass: String, id: String? = null):
-        JFXTreeCell<T> = styledJFXTreeCell(styleClass = *styleClass, id = id) { }
+public inline fun <T> NodeContainer.styledJfxTreeCell(vararg styleClass: String, id: String? =
+        null): JFXTreeCell<T> = styledJfxTreeCell(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTreeCell] with configuration block.
@@ -80,7 +80,7 @@ public fun <T> NodeContainer.styledJFXTreeCell(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun <T> styledJFXTreeCell(
+public fun <T> styledJfxTreeCell(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit,
@@ -101,7 +101,7 @@ public inline fun <T> styledJFXTreeCell(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeContainer.styledJFXTreeCell(
+public fun <T> NodeContainer.styledJfxTreeCell(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit,

@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.media.MediaView
 import kotlin.test.assertNull
 
-class MediaViewTest : LayoutsTest<KtfxPane, MediaView>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class MediaViewTest : LayoutsStyledTest<KtfxPane, MediaView>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): MediaView = mediaView { }
+    override fun child1() = mediaView {}
 
-    override fun KtfxPane.child2(): MediaView = mediaView()
+    override fun KtfxPane.child2() = mediaView()
 
-    override fun KtfxPane.child3(): MediaView = mediaView { }
+    override fun child3() = styledMediaView(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledMediaView(styleClass = arrayOf("style"))
 
     override fun MediaView.testDefaultValues() {
         assertNull(mediaPlayer)

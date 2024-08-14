@@ -23,7 +23,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxSlider(
+public inline fun NodeContainer.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -35,7 +35,7 @@ public fun NodeContainer.jfxSlider(
  *
  * @return the control created.
  */
-public inline fun jfxSlider(
+public fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -53,7 +53,7 @@ public inline fun jfxSlider(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxSlider(
+public fun NodeContainer.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -72,13 +72,13 @@ public inline fun NodeContainer.jfxSlider(
  *
  * @return the styled control created.
  */
-public fun styledJFXSlider(
+public inline fun styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null,
-): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
+): JFXSlider = styledJfxSlider(min = min, max = max, value = value, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -88,13 +88,13 @@ public fun styledJFXSlider(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXSlider(
+public inline fun NodeContainer.styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null,
-): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
+): JFXSlider = styledJfxSlider(min = min, max = max, value = value, styleClass = styleClass, id =
         id) { }
 
 /**
@@ -105,7 +105,7 @@ public fun NodeContainer.styledJFXSlider(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXSlider(
+public fun styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -129,7 +129,7 @@ public inline fun styledJFXSlider(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXSlider(
+public fun NodeContainer.styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,

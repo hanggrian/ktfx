@@ -22,8 +22,8 @@ import org.controlsfx.control.HyperlinkLabel
  *
  * @return the control added.
  */
-public fun NodeContainer.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(text
-        = text) { }
+public inline fun NodeContainer.hyperlinkLabel(text: String? = null): HyperlinkLabel =
+        hyperlinkLabel(text = text) { }
 
 /**
  * Create a [HyperlinkLabel] with configuration block.
@@ -31,7 +31,7 @@ public fun NodeContainer.hyperlinkLabel(text: String? = null): HyperlinkLabel = 
  *
  * @return the control created.
  */
-public inline fun hyperlinkLabel(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public fun hyperlinkLabel(text: String? = null, configuration: (@KtfxLayoutDslMarker
         HyperlinkLabel).() -> Unit): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = HyperlinkLabel(text)
@@ -45,8 +45,8 @@ public inline fun hyperlinkLabel(text: String? = null, configuration: (@KtfxLayo
  *
  * @return the control added.
  */
-public inline fun NodeContainer.hyperlinkLabel(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit): HyperlinkLabel {
+public fun NodeContainer.hyperlinkLabel(text: String? = null, configuration: (@KtfxLayoutDslMarker
+        HyperlinkLabel).() -> Unit): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = HyperlinkLabel(text)
     child.configuration()
@@ -60,11 +60,11 @@ public inline fun NodeContainer.hyperlinkLabel(text: String? = null,
  *
  * @return the styled control created.
  */
-public fun styledHyperlinkLabel(
+public inline fun styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
+): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [HyperlinkLabel] to this container.
@@ -73,11 +73,11 @@ public fun styledHyperlinkLabel(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledHyperlinkLabel(
+public inline fun NodeContainer.styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
+): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [HyperlinkLabel] with configuration block.
@@ -87,7 +87,7 @@ public fun NodeContainer.styledHyperlinkLabel(
  *
  * @return the styled control created.
  */
-public inline fun styledHyperlinkLabel(
+public fun styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +109,7 @@ public inline fun styledHyperlinkLabel(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledHyperlinkLabel(
+public fun NodeContainer.styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

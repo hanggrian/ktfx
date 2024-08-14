@@ -14,7 +14,7 @@ import javafx.scene.control.cell.TextFieldTableCell
 import javafx.util.StringConverter
 
 /** Sets a [CheckBoxTableCell] factory for use in this [TableColumn]. */
-inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
+public inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
     setCellFactory(CheckBoxTableCell.forTableColumn(this))
 
 /**
@@ -24,7 +24,7 @@ inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
  * @param selectedPropertyProvider A provider that, given an object from `TableColumn<S,T>`, will
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
-inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider))
 
@@ -37,7 +37,7 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  * @param selectedPropertyProvider A provider that, given an object from `TableColumn<S,T>`, will
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
-inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T>,
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, converter))
@@ -51,7 +51,7 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  * @param selectedPropertyProvider A provider that, given an object from `TableColumn<S,T>`, will
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
-inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, showLabel))
@@ -63,7 +63,7 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit =
+public inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ChoiceBoxTableCell.forTableColumn(*items))
 
 /**
@@ -75,7 +75,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit 
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
     vararg items: T,
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, *items))
@@ -87,7 +87,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(items: ObservableList<T>): Unit =
+public inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(items: ObservableList<T>): Unit =
     setCellFactory(ChoiceBoxTableCell.forTableColumn(items))
 
 /**
@@ -99,7 +99,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(items: ObservableList<T
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
     items: ObservableList<T>,
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, items))
@@ -111,7 +111,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
+public inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ComboBoxTableCell.forTableColumn(*items))
 
 /**
@@ -123,7 +123,7 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
     vararg items: T,
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, *items))
@@ -135,7 +135,7 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
+public inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
     setCellFactory(ComboBoxTableCell.forTableColumn(items))
 
 /**
@@ -147,17 +147,17 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
+public inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
     items: ObservableList<T>,
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, items))
 
 /** Sets a [ProgressBarTableCell] factory for use in this [TableColumn]. */
-inline fun <S> TableColumn<S, Double>.progressBarCellFactory(): Unit =
+public inline fun <S> TableColumn<S, Double>.progressBarCellFactory(): Unit =
     setCellFactory(ProgressBarTableCell.forTableColumn<S>())
 
 /** Sets a [TextFieldTableCell] factory for use in this [TableColumn]. */
-inline fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
+public inline fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldTableCell.forTableColumn())
 
 /**
@@ -166,8 +166,9 @@ inline fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
  */
-inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(converter: StringConverter<T>): Unit =
-    setCellFactory(TextFieldTableCell.forTableColumn(converter))
+public inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
+    converter: StringConverter<T>,
+): Unit = setCellFactory(TextFieldTableCell.forTableColumn(converter))
 
 /**
  * Sets a custom cell factory to use in this [TableColumn].
@@ -175,12 +176,12 @@ inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(converter: StringConver
  * @param T The type of the elements contained within the [TableColumn].
  * @param configuration custom initialization block that configures [KtfxTableCell].
  */
-fun <S, T> TableColumn<S, T>.cellFactory(
+public fun <S, T> TableColumn<S, T>.cellFactory(
     configuration: KtfxTableCell<S, T>.(TableColumn<S, T>) -> Unit,
 ): Unit = setCellFactory { KtfxTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TableCell] configurator class. */
-class KtfxTableCell<S, T> :
+public class KtfxTableCell<S, T> :
     TableCell<S, T>(),
     KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null

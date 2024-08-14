@@ -14,7 +14,7 @@ import javafx.scene.control.cell.TextFieldTreeTableCell
 import javafx.util.StringConverter
 
 /** Sets a [CheckBoxTreeTableCell] factory for use in this [TreeTableColumn]. */
-inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
+public inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
     setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(this))
 
 /**
@@ -25,7 +25,7 @@ inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
  *   will return an `ObservableValue<Boolean>` that represents whether the given item is selected or
  *   not.
  */
-inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(selectedPropertyProvider))
 
@@ -39,7 +39,7 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
  *   will return an `ObservableValue<Boolean>` that represents whether the given item is selected or
  *   not.
  */
-inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T>,
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit =
@@ -57,7 +57,7 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
  *   will return an `ObservableValue<Boolean>` that represents whether the given item is selected or
  *   not.
  */
-inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
     noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit =
@@ -72,7 +72,7 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit =
+public inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(*items))
 
 /**
@@ -84,7 +84,7 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(vararg items: T): U
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
     vararg items: T,
 ): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, *items))
@@ -96,8 +96,9 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(items: ObservableList<T>): Unit =
-    setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(items))
+public inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+    items: ObservableList<T>,
+): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(items))
 
 /**
  * Sets a [CheckBoxTreeTableCell] factory for use in this [TreeTableColumn].
@@ -108,7 +109,7 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(items: ObservableLi
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
     items: ObservableList<T>,
 ): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, items))
@@ -120,7 +121,7 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
+public inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(*items))
 
 /**
@@ -132,7 +133,7 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(vararg items: T): Un
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
     vararg items: T,
 ): Unit = setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(converter, *items))
@@ -144,7 +145,7 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
+public inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
     setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(items))
 
 /**
@@ -156,17 +157,17 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(items: ObservableLis
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+public inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
     items: ObservableList<T>,
 ): Unit = setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(converter, items))
 
 /** Sets a [ProgressBarTreeTableCell] factory for use in this [TreeTableColumn]. */
-inline fun <S> TreeTableColumn<S, Double>.progressBarCellFactory(): Unit =
+public inline fun <S> TreeTableColumn<S, Double>.progressBarCellFactory(): Unit =
     setCellFactory(ProgressBarTreeTableCell.forTreeTableColumn<S>())
 
 /** Sets a [TextFieldTreeTableCell] factory for use in this [TreeTableColumn]. */
-inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory(): Unit =
+public inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldTreeTableCell.forTreeTableColumn())
 
 /**
@@ -175,8 +176,9 @@ inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory(): Unit =
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
  */
-inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(converter: StringConverter<T>): Unit =
-    setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter))
+public inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
+    converter: StringConverter<T>,
+): Unit = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter))
 
 /**
  * Sets a custom cell factory to use in this [TreeTableColumn].
@@ -184,12 +186,12 @@ inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(converter: StringCo
  * @param T The type of the elements contained within the [TreeTableColumn].
  * @param configuration custom initialization block that configures [TreeTableColumn].
  */
-fun <S, T> TreeTableColumn<S, T>.cellFactory(
+public fun <S, T> TreeTableColumn<S, T>.cellFactory(
     configuration: KtfxTreeTableCell<S, T>.(TreeTableColumn<S, T>) -> Unit,
 ): Unit = setCellFactory { KtfxTreeTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TreeTableCell] configurator class. */
-class KtfxTreeTableCell<S, T> :
+public class KtfxTreeTableCell<S, T> :
     TreeTableCell<S, T>(),
     KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null

@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.Cylinder
 import kotlin.test.assertEquals
 
-class CylinderTest : LayoutsTest<KtfxPane, Cylinder>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class CylinderTest : LayoutsStyledTest<KtfxPane, Cylinder>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Cylinder = cylinder { }
+    override fun child1() = cylinder {}
 
-    override fun KtfxPane.child2(): Cylinder = cylinder()
+    override fun KtfxPane.child2() = cylinder()
 
-    override fun KtfxPane.child3(): Cylinder = cylinder { }
+    override fun child3() = styledCylinder(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledCylinder(styleClass = arrayOf("style"))
 
     override fun Cylinder.testDefaultValues() {
         assertEquals(1.0, radius)

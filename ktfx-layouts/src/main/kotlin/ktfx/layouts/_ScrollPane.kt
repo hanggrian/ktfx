@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.scrollPane(content: Node? = null): ScrollPane = scrollPane(content =
+public inline fun NodeContainer.scrollPane(content: Node? = null): ScrollPane = scrollPane(content =
         content) { }
 
 /**
@@ -30,7 +30,7 @@ public fun NodeContainer.scrollPane(content: Node? = null): ScrollPane = scrollP
  *
  * @return the control created.
  */
-public inline fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
+public fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
         KtfxScrollPane).() -> Unit): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
@@ -44,8 +44,8 @@ public inline fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutD
  *
  * @return the control added.
  */
-public inline fun NodeContainer.scrollPane(content: Node? = null,
-        configuration: (@KtfxLayoutDslMarker KtfxScrollPane).() -> Unit): ScrollPane {
+public fun NodeContainer.scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
+        KtfxScrollPane).() -> Unit): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
     child.configuration()
@@ -59,11 +59,11 @@ public inline fun NodeContainer.scrollPane(content: Node? = null,
  *
  * @return the styled control created.
  */
-public fun styledScrollPane(
+public inline fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ScrollPane = styledScrollPane(content = content, styleClass = *styleClass, id = id) { }
+): ScrollPane = styledScrollPane(content = content, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [ScrollPane] to this container.
@@ -72,11 +72,11 @@ public fun styledScrollPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledScrollPane(
+public inline fun NodeContainer.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ScrollPane = styledScrollPane(content = content, styleClass = *styleClass, id = id) { }
+): ScrollPane = styledScrollPane(content = content, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [ScrollPane] with configuration block.
@@ -86,7 +86,7 @@ public fun NodeContainer.styledScrollPane(
  *
  * @return the styled control created.
  */
-public inline fun styledScrollPane(
+public fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +108,7 @@ public inline fun styledScrollPane(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledScrollPane(
+public fun NodeContainer.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,

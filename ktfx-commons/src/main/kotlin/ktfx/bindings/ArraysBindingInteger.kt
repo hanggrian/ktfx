@@ -14,19 +14,19 @@ import javafx.collections.ObservableIntegerArray
  * Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the
  * specified position.
  */
-inline fun ObservableIntegerArray.getBinding(index: Int): IntegerBinding =
+public inline fun ObservableIntegerArray.getBinding(index: Int): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
 /**
  * Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the
  * specified position.
  */
-inline fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBinding =
+public inline fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
 /**
  * Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the
  * specified position.
  */
-inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
+public inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
     Bindings.integerValueAt(this, index)

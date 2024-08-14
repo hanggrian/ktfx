@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.closePath(): ClosePath = closePath() { }
+public inline fun PathElementContainer.closePath(): ClosePath = closePath() { }
 
 /**
  * Create a [ClosePath] with configuration block.
@@ -27,7 +27,7 @@ public fun PathElementContainer.closePath(): ClosePath = closePath() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -> Unit): ClosePath {
+public fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ClosePath()
     child.configuration()
@@ -40,7 +40,7 @@ public inline fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun PathElementContainer.closePath(configuration: (@KtfxLayoutDslMarker
+public fun PathElementContainer.closePath(configuration: (@KtfxLayoutDslMarker
         ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ClosePath()

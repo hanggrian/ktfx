@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -23,17 +21,8 @@ import kotlin.DeprecationLevel.ERROR
  * @param builderAction populate newly created stroke and/or image.
  * @return created border.
  */
-inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
+public inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
     BorderBuilder().apply(builderAction).build()
-
-/**
- * Sets new border with multiple [BorderStroke] and/or [BorderImage].
- *
- * @param builderAction populate newly created stroke and/or image.
- * @return applied border.
- */
-inline fun Region.border(noinline builderAction: BorderBuilder.() -> Unit): Border =
-    buildBorder(builderAction).also { border = it }
 
 /**
  * Sets new border with single [BorderStroke].
@@ -41,9 +30,8 @@ inline fun Region.border(noinline builderAction: BorderBuilder.() -> Unit): Bord
  * @param builderAction stroke configurator.
  * @return applied border.
  */
-inline fun Region.borderStroke(
-    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit,
-): Border = border { stroke(builderAction) }
+public fun Region.strokeBorder(builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
+    border { stroke(builderAction) }
 
 /**
  * Sets new border with single [BorderImage].
@@ -51,18 +39,27 @@ inline fun Region.borderStroke(
  * @param builderAction image configurator.
  * @return applied border.
  */
-inline fun Region.borderImage(
+public fun Region.imageBorder(
     image: Image,
-    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit,
+    builderAction: BorderBuilder.ImageBuilder.() -> Unit,
 ): Border = border { image(image, builderAction) }
 
+/**
+ * Sets new border with multiple [BorderStroke] and/or [BorderImage].
+ *
+ * @param builderAction populate newly created stroke and/or image.
+ * @return applied border.
+ */
+public fun Region.border(builderAction: BorderBuilder.() -> Unit): Border =
+    buildBorder(builderAction).also { border = it }
+
 /** Border configurator class. */
-class BorderBuilder {
+public class BorderBuilder {
     /** Current strokes within this border. */
-    val strokes: MutableList<BorderStroke> = mutableListOf()
+    public val strokes: MutableList<BorderStroke> = mutableListOf()
 
     /** Current images within this border. */
-    val images: MutableList<BorderImage> = mutableListOf()
+    public val images: MutableList<BorderImage> = mutableListOf()
 
     /**
      * Append a [BorderStroke].
@@ -70,7 +67,7 @@ class BorderBuilder {
      * @param builderAction stroke configurator.
      * @return added stroke.
      */
-    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
+    public fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
         StrokeBuilder().apply(builderAction).build().also { strokes += it }
 
     /**
@@ -79,49 +76,49 @@ class BorderBuilder {
      * @param builderAction image configurator.
      * @return added image.
      */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
+    public fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
         ImageBuilder(image).apply(builderAction).build().also { images += it }
 
     /** Return border based on current configuration. */
-    fun build(): Border = Border(strokes, images)
+    public fun build(): Border = Border(strokes, images)
 
     /** Border stroke configurator class. */
-    class StrokeBuilder {
+    public class StrokeBuilder {
         /** The fill to use on the top. If null, defaults to [javafx.scene.paint.Color.BLACK]. */
-        var topStroke: Paint? = null
+        public var topStroke: Paint? = null
 
         /** The fill to use on the right. If null, defaults to the same value as [topStroke]. */
-        var rightStroke: Paint? = null
+        public var rightStroke: Paint? = null
 
         /** The fill to use on the bottom. If null, defaults to the same value as [bottomStroke]. */
-        var bottomStroke: Paint? = null
+        public var bottomStroke: Paint? = null
 
         /** The fill to use on the left. If null, defaults to the same value as [rightStroke]. */
-        var leftStroke: Paint? = null
+        public var leftStroke: Paint? = null
 
         /** The style to use on the top. If null, defaults to [BorderStrokeStyle.NONE]. */
-        var topStyle: BorderStrokeStyle? = null
+        public var topStyle: BorderStrokeStyle? = null
 
         /** The style to use on the right. If null, defaults to the same value as [topStyle]. */
-        var rightStyle: BorderStrokeStyle? = null
+        public var rightStyle: BorderStrokeStyle? = null
 
         /** The style to use on the bottom. If null, defaults to the same value as [topStyle]. */
-        var bottomStyle: BorderStrokeStyle? = null
+        public var bottomStyle: BorderStrokeStyle? = null
 
         /** The style to use on the left. If null, defaults to the same value as [rightStyle]. */
-        var leftStyle: BorderStrokeStyle? = null
+        public var leftStyle: BorderStrokeStyle? = null
 
         /** The radii. If null, we default to square corners by using [CornerRadii.EMPTY]. */
-        var radii: CornerRadii? = null
+        public var radii: CornerRadii? = null
 
         /** The thickness of each side. If null, we default to [BorderWidths.DEFAULT]. */
-        var widths: BorderWidths? = null
+        public var widths: BorderWidths? = null
 
         /** The insets indicating where to draw the border relative to the region edges. */
-        var insets: Insets? = null
+        public var insets: Insets? = null
 
         /** The stroke to use for all sides. If null, we default to [javafx.scene.paint.Color.BLACK]. */
-        var stroke: Paint?
+        public var stroke: Paint?
             @Deprecated(NO_GETTER, level = ERROR)
             get() = noGetter()
             set(value) {
@@ -132,7 +129,7 @@ class BorderBuilder {
             }
 
         /** The style to use for all sides. If null, we default to [BorderStrokeStyle.NONE]. */
-        var style: BorderStrokeStyle?
+        public var style: BorderStrokeStyle?
             @Deprecated(NO_GETTER, level = ERROR)
             get() = noGetter()
             set(value) {
@@ -143,7 +140,7 @@ class BorderBuilder {
             }
 
         /** Return border stroke based on current configuration. */
-        fun build(): BorderStroke =
+        public fun build(): BorderStroke =
             BorderStroke(
                 topStroke,
                 rightStroke,
@@ -160,26 +157,40 @@ class BorderBuilder {
     }
 
     /** Border image configurator class. */
-    class ImageBuilder(private val image: Image) {
-        /** The widths of the border in each dimension. A null value results in [BorderWidths.EMPTY]. */
-        var widths: BorderWidths? = null
+    public class ImageBuilder(private val image: Image) {
+        /**
+         * The widths of the border in each dimension. A null value results in [BorderWidths.EMPTY].
+         */
+        public var widths: BorderWidths? = null
 
-        /** The insets at which to place the border relative to the region. A null value results in [Insets.EMPTY]. */
-        var insets: Insets? = null
+        /**
+         * The insets at which to place the border relative to the region. A null value results in
+         * [Insets.EMPTY].
+         */
+        public var insets: Insets? = null
 
         /** The slices for the image. If null, defaults to [BorderWidths.DEFAULT]. */
-        var slices: BorderWidths? = null
+        public var slices: BorderWidths? = null
 
-        var isFilled: Boolean = false
+        public var isFilled: Boolean = false
 
-        /** The repeat value for the border image in the x direction. If null, defaults to [BorderRepeat.STRETCH]. */
-        var repeatX: BorderRepeat? = null
+        /**
+         * The repeat value for the border image in the x direction. If null, defaults to
+         * [BorderRepeat.STRETCH].
+         */
+        public var repeatX: BorderRepeat? = null
 
-        /** The repeat value for the border image in the y direction. If null, defaults to the same value as repeatX. */
-        var repeatY: BorderRepeat? = null
+        /**
+         * The repeat value for the border image in the y direction. If null, defaults to the same
+         * value as repeatX.
+         */
+        public var repeatY: BorderRepeat? = null
 
-        /** The repeat value for the border image in the x and y direction. If null, defaults to [BorderRepeat.STRETCH]. */
-        var repeat: BorderRepeat?
+        /**
+         * The repeat value for the border image in the x and y direction. If null, defaults to
+         * [BorderRepeat.STRETCH].
+         */
+        public var repeat: BorderRepeat?
             @Deprecated(NO_GETTER, level = ERROR)
             get() = noGetter()
             set(value) {
@@ -188,7 +199,7 @@ class BorderBuilder {
             }
 
         /** Return border image based on current configuration. */
-        fun build(): BorderImage =
+        public fun build(): BorderImage =
             BorderImage(
                 image,
                 widths,

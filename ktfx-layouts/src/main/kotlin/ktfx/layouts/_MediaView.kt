@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
+public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
         mediaView(mediaPlayer = mediaPlayer) { }
 
 /**
@@ -30,7 +30,7 @@ public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): MediaView 
  *
  * @return the control created.
  */
-public inline fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayoutDslMarker
+public fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayoutDslMarker
         MediaView).() -> Unit): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -44,7 +44,7 @@ public inline fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@K
  *
  * @return the control added.
  */
-public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
+public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
         configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -59,11 +59,11 @@ public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
  *
  * @return the styled control created.
  */
-public fun styledMediaView(
+public inline fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) { }
+): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [MediaView] to this container.
@@ -72,11 +72,11 @@ public fun styledMediaView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMediaView(
+public inline fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) { }
+): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [MediaView] with configuration block.
@@ -86,7 +86,7 @@ public fun NodeContainer.styledMediaView(
  *
  * @return the styled control created.
  */
-public inline fun styledMediaView(
+public fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +108,7 @@ public inline fun styledMediaView(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledMediaView(
+public fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,

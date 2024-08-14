@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.RadioMenuItem
 import kotlin.test.assertNull
 
-class RadioMenuItemTest : LayoutsTest<KtfxMenu, RadioMenuItem>() {
-    override fun manager(): KtfxMenu = KtfxMenu("", null)
+class RadioMenuItemTest : LayoutsStyledTest<KtfxMenu, RadioMenuItem>() {
+    override fun manager() = KtfxMenu("", null)
 
-    override fun KtfxMenu.childCount(): Int = items.size
+    override fun KtfxMenu.childCount() = items.size
 
-    override fun child1(): RadioMenuItem = radioMenuItem { }
+    override fun child1() = radioMenuItem {}
 
-    override fun KtfxMenu.child2(): RadioMenuItem = radioMenuItem()
+    override fun KtfxMenu.child2() = radioMenuItem()
 
-    override fun KtfxMenu.child3(): RadioMenuItem = radioMenuItem { }
+    override fun child3() = styledRadioMenuItem(styleClass = arrayOf("style"))
+
+    override fun KtfxMenu.child4() = styledRadioMenuItem(styleClass = arrayOf("style"))
 
     override fun RadioMenuItem.testDefaultValues() {
         assertNull(text)

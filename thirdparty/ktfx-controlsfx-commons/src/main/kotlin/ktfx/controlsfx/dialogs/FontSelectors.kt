@@ -19,7 +19,7 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return selected font.
  */
-fun fontSelector(
+public fun fontSelector(
     title: String? = null,
     graphic: Node? = null,
     defaultFont: Font? = null,
@@ -42,7 +42,7 @@ fun fontSelector(
  * @param dialogAction custom dialog action.
  * @return selected font.
  */
-inline fun fontSelector(
+public inline fun fontSelector(
     defaultFont: Font? = null,
     noinline dialogAction: (FontSelectorDialog.() -> Unit)? = null,
 ): Optional<Font> = fontSelector(null, null, defaultFont, dialogAction)

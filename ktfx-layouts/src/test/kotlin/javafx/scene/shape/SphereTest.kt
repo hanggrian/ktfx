@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.Sphere
 import kotlin.test.assertEquals
 
-class SphereTest : LayoutsTest<KtfxPane, Sphere>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class SphereTest : LayoutsStyledTest<KtfxPane, Sphere>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Sphere = sphere { }
+    override fun child1() = sphere {}
 
-    override fun KtfxPane.child2(): Sphere = sphere()
+    override fun KtfxPane.child2() = sphere()
 
-    override fun KtfxPane.child3(): Sphere = sphere { }
+    override fun child3() = styledSphere(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledSphere(styleClass = arrayOf("style"))
 
     override fun Sphere.testDefaultValues() {
         assertEquals(1.0, radius)

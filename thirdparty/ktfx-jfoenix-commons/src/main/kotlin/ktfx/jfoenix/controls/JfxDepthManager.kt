@@ -9,7 +9,7 @@ import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** This method is used to add shadow effect to the [Node]. */
-inline var Node.depth: Int
+public inline var Node.depth: Int
     @Deprecated(NO_GETTER, level = ERROR)
     get() = noGetter()
     set(value) = JFXDepthManager.setDepth(this, value)
@@ -18,7 +18,7 @@ inline var Node.depth: Int
  * This method will generate a new container node that prevent control transformation to be applied
  * to the shadow effect.
  */
-inline fun Node.wrapDepth(level: Int): Node = JFXDepthManager.createMaterialNode(this, level)
+public inline fun Node.wrapDepth(level: Int): Node = JFXDepthManager.createMaterialNode(this, level)
 
 /** Display drop shadow to this [Node]. */
-inline fun Node.popDepth(): Unit = JFXDepthManager.pop(this)
+public inline fun Node.popDepth(): Unit = JFXDepthManager.pop(this)

@@ -1,22 +1,24 @@
 package ktfx.jfoenix.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXTabPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.tab
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class JfxTabPaneTest : LayoutsTest<KtfxPane, JFXTabPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxTabPaneTest : LayoutsStyledTest<KtfxPane, JFXTabPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXTabPane = jfxTabPane { }
+    override fun child1() = jfxTabPane {}
 
-    override fun KtfxPane.child2(): JFXTabPane = jfxTabPane()
+    override fun KtfxPane.child2() = jfxTabPane()
 
-    override fun KtfxPane.child3(): JFXTabPane = jfxTabPane { }
+    override fun child3() = styledJfxTabPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxTabPane(styleClass = arrayOf("style"))
 
     @Test
     fun stringInvocation() {

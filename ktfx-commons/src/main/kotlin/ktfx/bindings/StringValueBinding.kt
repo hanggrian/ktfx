@@ -11,158 +11,161 @@ import javafx.beans.value.ObservableStringValue
 /**
  * @see StringExpression.isEqualTo
  */
-inline infix fun ObservableStringValue.eq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.eq(other: ObservableStringValue): BooleanBinding =
     Bindings.equal(this, other)
 
 /**
  * @see StringExpression.isEqualTo
  */
-inline infix fun ObservableStringValue.eq(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.eq(other: String): BooleanBinding =
     Bindings.equal(this, other)
 
 /**
  * @see StringExpression.isNotEqualTo
  */
-inline infix fun String.eq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.eq(other: ObservableStringValue): BooleanBinding =
     Bindings.equal(this, other)
 
 /**
  * @see StringExpression.isNotEqualTo
  */
-inline infix fun ObservableStringValue.neq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.neq(other: ObservableStringValue): BooleanBinding =
     Bindings.notEqual(this, other)
 
 /**
  * @see StringExpression.isNotEqualTo
  */
-inline infix fun ObservableStringValue.neq(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.neq(other: String): BooleanBinding =
     Bindings.notEqual(this, other)
 
 /**
  * @see StringExpression.isNotEqualTo
  */
-inline infix fun String.neq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.neq(other: ObservableStringValue): BooleanBinding =
     Bindings.notEqual(this, other)
 
 /**
  * @see StringExpression.isEqualToIgnoreCase
  */
-inline infix fun ObservableStringValue.eqIg(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.eqIg(other: ObservableStringValue): BooleanBinding =
     Bindings.equalIgnoreCase(this, other)
 
 /**
  * @see StringExpression.isEqualToIgnoreCase
  */
-inline infix fun ObservableStringValue.eqIg(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.eqIg(other: String): BooleanBinding =
     Bindings.equalIgnoreCase(this, other)
 
 /**
  * @see StringExpression.isEqualToIgnoreCase
  */
-inline infix fun String.eqIg(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.eqIg(other: ObservableStringValue): BooleanBinding =
     Bindings.equalIgnoreCase(this, other)
 
 /**
  * @see StringExpression.isNotEqualToIgnoreCase
  */
-inline infix fun ObservableStringValue.neqIg(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.neqIg(other: ObservableStringValue): BooleanBinding =
     Bindings.notEqualIgnoreCase(this, other)
 
 /**
  * @see StringExpression.isNotEqualToIgnoreCase
  */
-inline infix fun ObservableStringValue.neqIg(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.neqIg(other: String): BooleanBinding =
     Bindings.notEqualIgnoreCase(this, other)
 
 /**
  * @see StringExpression.isNotEqualToIgnoreCase
  */
-inline infix fun String.neqIg(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.neqIg(other: ObservableStringValue): BooleanBinding =
     Bindings.notEqualIgnoreCase(this, other)
 
 /**
  * @see StringExpression.greaterThan
  */
-inline infix fun ObservableStringValue.greater(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.greater(
+    other: ObservableStringValue,
+): BooleanBinding = Bindings.greaterThan(this, other)
+
+/**
+ * @see StringExpression.greaterThan
+ */
+public inline infix fun ObservableStringValue.greater(other: String): BooleanBinding =
     Bindings.greaterThan(this, other)
 
 /**
  * @see StringExpression.greaterThan
  */
-inline infix fun ObservableStringValue.greater(other: String): BooleanBinding =
-    Bindings.greaterThan(this, other)
-
-/**
- * @see StringExpression.greaterThan
- */
-inline infix fun String.greater(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.greater(other: ObservableStringValue): BooleanBinding =
     Bindings.greaterThan(this, other)
 
 /**
  * @see StringExpression.lessThan
  */
-inline infix fun ObservableStringValue.less(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.less(other: ObservableStringValue): BooleanBinding =
     Bindings.lessThan(this, other)
 
 /**
  * @see StringExpression.lessThan
  */
-inline infix fun ObservableStringValue.less(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.less(other: String): BooleanBinding =
     Bindings.lessThan(this, other)
 
 /**
  * @see StringExpression.lessThan
  */
-inline infix fun String.less(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.less(other: ObservableStringValue): BooleanBinding =
     Bindings.lessThan(this, other)
 
 /**
  * @see StringExpression.greaterThanOrEqualTo
  */
-inline infix fun ObservableStringValue.greaterEq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.greaterEq(
+    other: ObservableStringValue,
+): BooleanBinding = Bindings.greaterThanOrEqual(this, other)
+
+/**
+ * @see StringExpression.greaterThanOrEqualTo
+ */
+public inline infix fun ObservableStringValue.greaterEq(other: String): BooleanBinding =
     Bindings.greaterThanOrEqual(this, other)
 
 /**
  * @see StringExpression.greaterThanOrEqualTo
  */
-inline infix fun ObservableStringValue.greaterEq(other: String): BooleanBinding =
-    Bindings.greaterThanOrEqual(this, other)
-
-/**
- * @see StringExpression.greaterThanOrEqualTo
- */
-inline infix fun String.greaterEq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.greaterEq(other: ObservableStringValue): BooleanBinding =
     Bindings.greaterThanOrEqual(this, other)
 
 /**
  * @see StringExpression.lessThanOrEqualTo
  */
-inline infix fun ObservableStringValue.lessEq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun ObservableStringValue.lessEq(other: ObservableStringValue): BooleanBinding =
     Bindings.lessThanOrEqual(this, other)
 
 /**
  * @see StringExpression.lessThanOrEqualTo
  */
-inline infix fun ObservableStringValue.lessEq(other: String): BooleanBinding =
+public inline infix fun ObservableStringValue.lessEq(other: String): BooleanBinding =
     Bindings.lessThanOrEqual(this, other)
 
 /**
  * @see StringExpression.lessThanOrEqualTo
  */
-inline infix fun String.lessEq(other: ObservableStringValue): BooleanBinding =
+public inline infix fun String.lessEq(other: ObservableStringValue): BooleanBinding =
     Bindings.lessThanOrEqual(this, other)
 
 /**
  * @see StringExpression.length
  */
-inline val ObservableStringValue.sizeBinding: IntegerBinding get() = Bindings.length(this)
+public inline val ObservableStringValue.sizeBinding: IntegerBinding get() = Bindings.length(this)
 
 /**
  * @see StringExpression.isEmpty
  */
-inline val ObservableStringValue.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
+public inline val ObservableStringValue.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /**
  * @see StringExpression.isNotEmpty
  */
-inline val ObservableStringValue.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
+public inline val ObservableStringValue.notEmptyBinding: BooleanBinding
+    get() = Bindings.isNotEmpty(this)

@@ -11,15 +11,15 @@ import org.controlsfx.control.action.Action
 import kotlin.DeprecationLevel.ERROR
 
 /** Build notifications with Kotlin DSL. */
-fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
+public fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
     NotificationsBuilder().apply(builderAction).nativeNotifications
 
 /** Supporting class to use [Notifications] with DSL. */
-class NotificationsBuilder internal constructor() {
+public class NotificationsBuilder internal constructor() {
     internal val nativeNotifications: Notifications = Notifications.create()
 
     /** Specify the text to show in the notification. */
-    var text: String
+    public var text: String
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -27,7 +27,7 @@ class NotificationsBuilder internal constructor() {
         }
 
     /** Specify the title to show in the notification. */
-    var title: String
+    public var title: String
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -35,7 +35,7 @@ class NotificationsBuilder internal constructor() {
         }
 
     /** Specify the graphic to show in the notification. */
-    var graphic: Node
+    public var graphic: Node
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -43,7 +43,7 @@ class NotificationsBuilder internal constructor() {
         }
 
     /** Specify the position of the notification on screen, by default it is [Pos.BOTTOM_RIGHT]. */
-    var position: Pos
+    public var position: Pos
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -54,7 +54,7 @@ class NotificationsBuilder internal constructor() {
      * The dialog window owner - which can be [javafx.stage.Screen], [javafx.stage.Window],
      * or [javafx.scene.Node].
      */
-    var owner: Any
+    public var owner: Any
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -62,7 +62,7 @@ class NotificationsBuilder internal constructor() {
         }
 
     /** Specify the duration that the notification should show, after which it will be hidden. */
-    var hideAfter: Duration
+    public var hideAfter: Duration
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
@@ -70,7 +70,7 @@ class NotificationsBuilder internal constructor() {
         }
 
     /** Specify what to do when the user clicks on the notification. */
-    fun onAction(action: (ActionEvent) -> Unit) {
+    public fun onAction(action: (ActionEvent) -> Unit) {
         nativeNotifications.onAction(action)
     }
 
@@ -78,7 +78,7 @@ class NotificationsBuilder internal constructor() {
      * Specify that the notification should use the built-in dark styling, rather than the default
      * 'modena' notification style.
      */
-    fun darkStyle() {
+    public fun darkStyle() {
         nativeNotifications.darkStyle()
     }
 
@@ -86,12 +86,12 @@ class NotificationsBuilder internal constructor() {
      * Specify that the close button in the top-right corner of the notification should not be
      * shown.
      */
-    fun hideCloseButton() {
+    public fun hideCloseButton() {
         nativeNotifications.hideCloseButton()
     }
 
     /** Specify the actions that should be shown in the notification as buttons. */
-    fun actions(vararg actions: Action) {
+    public fun actions(vararg actions: Action) {
         nativeNotifications.action(*actions)
     }
 
@@ -100,12 +100,15 @@ class NotificationsBuilder internal constructor() {
      * notifications exceed the threshold limit. A value of zero will disable the threshold
      * behavior.
      */
-    fun threshold(threshold: Int, thresholdNotifications: Notifications) {
+    public fun threshold(threshold: Int, thresholdNotifications: Notifications) {
         nativeNotifications.threshold(threshold, thresholdNotifications)
     }
 
     /** Alias of [NotificationsBuilder.threshold] with builder DSL. */
-    fun threshold(threshold: Int, thresholdNotificationsBuilder: NotificationsBuilder.() -> Unit) {
+    public fun threshold(
+        threshold: Int,
+        thresholdNotificationsBuilder: NotificationsBuilder.() -> Unit,
+    ) {
         nativeNotifications.threshold(threshold, buildNotifications(thresholdNotificationsBuilder))
     }
 }

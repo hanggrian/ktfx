@@ -1,19 +1,21 @@
 package ktfx.layouts
 
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.shape.Arc
 import kotlin.test.assertEquals
 
-class ArcTest : LayoutsTest<KtfxPane, Arc>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class ArcTest : LayoutsStyledTest<KtfxPane, Arc>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): Arc = arc { }
+    override fun child1() = arc {}
 
-    override fun KtfxPane.child2(): Arc = arc()
+    override fun KtfxPane.child2() = arc()
 
-    override fun KtfxPane.child3(): Arc = arc { }
+    override fun child3() = styledArc(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledArc(styleClass = arrayOf("style"))
 
     override fun Arc.testDefaultValues() {
         assertEquals(0.0, centerX)

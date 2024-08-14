@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.polyline(): Polyline = polyline() { }
+public inline fun NodeContainer.polyline(): Polyline = polyline() { }
 
 /**
  * Create a [Polyline] with configuration block.
@@ -28,7 +28,7 @@ public fun NodeContainer.polyline(): Polyline = polyline() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
+public fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
     child.configuration()
@@ -41,7 +41,7 @@ public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> 
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
+public fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
         Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
@@ -56,8 +56,8 @@ public inline fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Po
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
-        styledPolyline(styleClass = *styleClass, id = id) { }
+public inline fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
+        styledPolyline(styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Polyline] to this container.
@@ -66,8 +66,8 @@ public fun styledPolyline(vararg styleClass: String, id: String? = null): Polyli
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
-        styledPolyline(styleClass = *styleClass, id = id) { }
+public inline fun NodeContainer.styledPolyline(vararg styleClass: String, id: String? = null):
+        Polyline = styledPolyline(styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Polyline] with configuration block.
@@ -77,7 +77,7 @@ public fun NodeContainer.styledPolyline(vararg styleClass: String, id: String? =
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public inline fun styledPolyline(
+public fun styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit,
@@ -98,7 +98,7 @@ public inline fun styledPolyline(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledPolyline(
+public fun NodeContainer.styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit,

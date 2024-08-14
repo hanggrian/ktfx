@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Create a [SubScene] with configuration block. */
-inline fun subScene(
+public inline fun subScene(
     width: Double = -1.0,
     height: Double = -1.0,
     configuration: (@KtfxLayoutDslMarker KtfxSubScene).() -> Unit,

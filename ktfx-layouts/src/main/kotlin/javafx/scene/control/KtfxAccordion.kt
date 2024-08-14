@@ -1,24 +1,23 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:OptIn(ExperimentalContracts::class)
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
-import kotlin.contracts.ExperimentalContracts
 
 /**
  * [Accordion] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAccordion :
+public open class KtfxAccordion :
     Accordion(),
     TitledPaneContainer {
     final override fun <T : TitledPane> addChild(child: T): T = child.also { panes += it }
 
     /** Call [NodeContainer.titledPane] by string invocation. */
-    inline operator fun String.invoke(
-        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit,
+    public inline operator fun String.invoke(
+        noinline configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit,
     ): TitledPane = titledPane(this, configuration)
 }

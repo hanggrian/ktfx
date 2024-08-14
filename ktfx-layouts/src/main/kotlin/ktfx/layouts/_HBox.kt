@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
+public inline fun NodeContainer.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
 
 /**
  * Create a [HBox] with configuration block.
@@ -29,8 +29,8 @@ public fun NodeContainer.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spac
  *
  * @return the control created.
  */
-public inline fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        KtfxHBox).() -> Unit): HBox {
+public fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxHBox).() -> Unit):
+        HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHBox(spacing)
     child.configuration()
@@ -43,7 +43,7 @@ public inline fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMark
  *
  * @return the control added.
  */
-public inline fun NodeContainer.hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public fun NodeContainer.hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         KtfxHBox).() -> Unit): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHBox(spacing)
@@ -58,11 +58,11 @@ public inline fun NodeContainer.hbox(spacing: Double = 0.0, configuration: (@Ktf
  *
  * @return the styled control created.
  */
-public fun styledHBox(
+public inline fun styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): HBox = styledHBox(spacing = spacing, styleClass = *styleClass, id = id) { }
+): HBox = styledHBox(spacing = spacing, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [HBox] to this container.
@@ -71,11 +71,11 @@ public fun styledHBox(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledHBox(
+public inline fun NodeContainer.styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): HBox = styledHBox(spacing = spacing, styleClass = *styleClass, id = id) { }
+): HBox = styledHBox(spacing = spacing, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [HBox] with configuration block.
@@ -85,7 +85,7 @@ public fun NodeContainer.styledHBox(
  *
  * @return the styled control created.
  */
-public inline fun styledHBox(
+public fun styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +107,7 @@ public inline fun styledHBox(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledHBox(
+public fun NodeContainer.styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

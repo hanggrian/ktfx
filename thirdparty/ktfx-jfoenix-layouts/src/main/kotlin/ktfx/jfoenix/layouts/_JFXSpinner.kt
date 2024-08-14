@@ -24,7 +24,7 @@ import ktfx.layouts.NodeContainer
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
+public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
         jfxSpinner(progress = progress) { }
 
 /**
@@ -33,7 +33,7 @@ public fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): 
  *
  * @return the control created.
  */
-public inline fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+public fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXSpinner(progress)
@@ -47,7 +47,7 @@ public inline fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+public fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXSpinner(progress)
@@ -62,11 +62,11 @@ public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROG
  *
  * @return the styled control created.
  */
-public fun styledJFXSpinner(
+public inline fun styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): JFXSpinner = styledJFXSpinner(progress = progress, styleClass = *styleClass, id = id) { }
+): JFXSpinner = styledJfxSpinner(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [JFXSpinner] to this container.
@@ -75,11 +75,11 @@ public fun styledJFXSpinner(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJFXSpinner(
+public inline fun NodeContainer.styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): JFXSpinner = styledJFXSpinner(progress = progress, styleClass = *styleClass, id = id) { }
+): JFXSpinner = styledJfxSpinner(progress = progress, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [JFXSpinner] with configuration block.
@@ -89,7 +89,7 @@ public fun NodeContainer.styledJFXSpinner(
  *
  * @return the styled control created.
  */
-public inline fun styledJFXSpinner(
+public fun styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ public inline fun styledJFXSpinner(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledJFXSpinner(
+public fun NodeContainer.styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

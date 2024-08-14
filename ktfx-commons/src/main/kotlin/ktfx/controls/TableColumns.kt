@@ -13,14 +13,14 @@ import kotlin.contracts.contract
 /** Delimits table column DSL configuration. */
 @DslMarker
 @Target(AnnotationTarget.CLASS)
-annotation class TableColumnDslMarker
+public annotation class TableColumnDslMarker
 
 /**
  * Configure [TableView] columns.
  *
  * @param configuration the configuration block.
  */
-fun <S> TableView<S>.columns(configuration: TableColumnScope<S>.() -> Unit) {
+public fun <S> TableView<S>.columns(configuration: TableColumnScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
     object : TableColumnScope<S> {
@@ -33,7 +33,7 @@ fun <S> TableView<S>.columns(configuration: TableColumnScope<S>.() -> Unit) {
  *
  * @param configuration the configuration block.
  */
-fun <S> TableColumn<S, *>.columns(configuration: TableColumnScope<S>.() -> Unit) {
+public fun <S> TableColumn<S, *>.columns(configuration: TableColumnScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
     object : TableColumnScope<S> {
@@ -46,7 +46,7 @@ fun <S> TableColumn<S, *>.columns(configuration: TableColumnScope<S>.() -> Unit)
  *
  * @param configuration the configuration block.
  */
-fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnScope<S>.() -> Unit) {
+public fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
     object : TreeTableColumnScope<S> {
@@ -59,7 +59,7 @@ fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnScope<S>.() -> Un
  *
  * @param configuration the configuration block.
  */
-fun <S> TreeTableColumn<S, *>.columns(configuration: TreeTableColumnScope<S>.() -> Unit) {
+public fun <S> TreeTableColumn<S, *>.columns(configuration: TreeTableColumnScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
     object : TreeTableColumnScope<S> {
@@ -69,16 +69,16 @@ fun <S> TreeTableColumn<S, *>.columns(configuration: TreeTableColumnScope<S>.() 
 
 /** [TableColumn] configurator interface. */
 @TableColumnDslMarker
-interface TableColumnScope<S> {
+public interface TableColumnScope<S> {
     /** Collection of columns within this scope. */
-    val columns: MutableCollection<TableColumn<S, *>>
+    public val columns: MutableCollection<TableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> append(text: String? = null): TableColumn<S, T> =
+    public fun <T> append(text: String? = null): TableColumn<S, T> =
         TableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    fun <T> append(
+    public fun <T> append(
         text: String? = null,
         configuration: TableColumn<S, T>.() -> Unit,
     ): TableColumn<S, T> {
@@ -88,22 +88,23 @@ interface TableColumnScope<S> {
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    operator fun <T> String.invoke(configuration: TableColumn<S, T>.() -> Unit): TableColumn<S, T> =
-        append(this, configuration)
+    public operator fun <T> String.invoke(
+        configuration: TableColumn<S, T>.() -> Unit,
+    ): TableColumn<S, T> = append(this, configuration)
 }
 
 /** [TreeTableColumn] configurator interface. */
 @TableColumnDslMarker
-interface TreeTableColumnScope<S> {
+public interface TreeTableColumnScope<S> {
     /** Collection of columns within this scope. */
-    val columns: MutableCollection<TreeTableColumn<S, *>>
+    public val columns: MutableCollection<TreeTableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> append(text: String? = null): TreeTableColumn<S, T> =
+    public fun <T> append(text: String? = null): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    fun <T> append(
+    public fun <T> append(
         text: String? = null,
         configuration: TreeTableColumn<S, T>.() -> Unit,
     ): TreeTableColumn<S, T> =
@@ -113,7 +114,7 @@ interface TreeTableColumnScope<S> {
         }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    operator fun <T> String.invoke(
+    public operator fun <T> String.invoke(
         configuration: TreeTableColumn<S, T>.() -> Unit,
     ): TreeTableColumn<S, T> = append(this, configuration)
 }

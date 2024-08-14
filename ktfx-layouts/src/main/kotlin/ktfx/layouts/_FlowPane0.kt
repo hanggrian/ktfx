@@ -23,7 +23,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.flowPane(
+public inline fun NodeContainer.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -35,7 +35,7 @@ public fun NodeContainer.flowPane(
  *
  * @return the control created.
  */
-public inline fun flowPane(
+public fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -53,7 +53,7 @@ public inline fun flowPane(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.flowPane(
+public fun NodeContainer.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -72,14 +72,14 @@ public inline fun NodeContainer.flowPane(
  *
  * @return the styled control created.
  */
-public fun styledFlowPane(
+public inline fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
 ): FlowPane = styledFlowPane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Add a styled [FlowPane] to this container.
@@ -88,14 +88,14 @@ public fun styledFlowPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledFlowPane(
+public inline fun NodeContainer.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
 ): FlowPane = styledFlowPane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+        styleClass, id = id) { }
 
 /**
  * Create a styled [FlowPane] with configuration block.
@@ -105,7 +105,7 @@ public fun NodeContainer.styledFlowPane(
  *
  * @return the styled control created.
  */
-public inline fun styledFlowPane(
+public fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -129,7 +129,7 @@ public inline fun styledFlowPane(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledFlowPane(
+public fun NodeContainer.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

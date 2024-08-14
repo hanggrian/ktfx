@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun TabContainer.tab(text: String? = null, content: Node? = null): Tab = tab(text = text,
-        content = content) { }
+public inline fun TabContainer.tab(text: String? = null, content: Node? = null): Tab = tab(text =
+        text, content = content) { }
 
 /**
  * Create a [Tab] with configuration block.
@@ -30,7 +30,7 @@ public fun TabContainer.tab(text: String? = null, content: Node? = null): Tab = 
  *
  * @return the control created.
  */
-public inline fun tab(
+public fun tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit,
@@ -47,7 +47,7 @@ public inline fun tab(
  *
  * @return the control added.
  */
-public inline fun TabContainer.tab(
+public fun TabContainer.tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit,
@@ -65,12 +65,12 @@ public inline fun TabContainer.tab(
  *
  * @return the styled control created.
  */
-public fun styledTab(
+public inline fun styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
+): Tab = styledTab(text = text, content = content, styleClass = styleClass, id = id) { }
 
 /**
  * Add a styled [Tab] to this container.
@@ -79,12 +79,12 @@ public fun styledTab(
  *
  * @return the styled control added.
  */
-public fun TabContainer.styledTab(
+public inline fun TabContainer.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
+): Tab = styledTab(text = text, content = content, styleClass = styleClass, id = id) { }
 
 /**
  * Create a styled [Tab] with configuration block.
@@ -94,7 +94,7 @@ public fun TabContainer.styledTab(
  *
  * @return the styled control created.
  */
-public inline fun styledTab(
+public fun styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -117,7 +117,7 @@ public inline fun styledTab(
  *
  * @return the styled control added.
  */
-public inline fun TabContainer.styledTab(
+public fun TabContainer.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,

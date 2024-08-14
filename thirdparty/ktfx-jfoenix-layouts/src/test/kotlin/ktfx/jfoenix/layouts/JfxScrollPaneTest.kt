@@ -1,22 +1,24 @@
 package ktfx.jfoenix.layouts
 
 import com.google.common.truth.Truth.assertThat
-import com.hanggrian.ktfx.test.LayoutsTest
+import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.layouts.KtfxPane
 import kotlin.test.Test
 
-class JfxScrollPaneTest : LayoutsTest<KtfxPane, JFXScrollPane>() {
-    override fun manager(): KtfxPane = KtfxPane()
+class JfxScrollPaneTest : LayoutsStyledTest<KtfxPane, JFXScrollPane>() {
+    override fun manager() = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+    override fun KtfxPane.childCount() = children.size
 
-    override fun child1(): JFXScrollPane = jfxScrollPane { }
+    override fun child1() = jfxScrollPane {}
 
-    override fun KtfxPane.child2(): JFXScrollPane = jfxScrollPane()
+    override fun KtfxPane.child2() = jfxScrollPane()
 
-    override fun KtfxPane.child3(): JFXScrollPane = jfxScrollPane { }
+    override fun child3() = styledJfxScrollPane(styleClass = arrayOf("style"))
+
+    override fun KtfxPane.child4() = styledJfxScrollPane(styleClass = arrayOf("style"))
 
     @Test
     fun barAndHeader() {

@@ -3,11 +3,12 @@ package com.hanggrian.ktfx.codegen.coroutines
 import com.hanggrian.kotlinpoet.FileSpecBuilder
 import com.hanggrian.kotlinpoet.ParameterSpecHandler
 import com.hanggrian.kotlinpoet.ParameterSpecHandlerScope
-import com.hanggrian.kotlinpoet.annotation
+import com.hanggrian.kotlinpoet.add
 import com.hanggrian.kotlinpoet.buildParameterSpec
 import com.hanggrian.kotlinpoet.lambdaBy
 import com.hanggrian.kotlinpoet.name
 import com.hanggrian.kotlinpoet.suspending
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
@@ -23,18 +24,21 @@ open class CoroutinesFactory(path: String, packageName: String, className: Strin
         className,
         null,
         buildParameterSpec("context", CoroutineContext::class.name) {
-            defaultValue("Dispatchers.JavaFx")
+            setDefaultValue("Dispatchers.JavaFx")
         },
         extraFileConfiguration = {
-            annotation(Suppress::class) { member("%S", "ktlint") }
-            import("kotlinx.coroutines", "GlobalScope")
-            import("kotlinx.coroutines", "Dispatchers")
-            import("kotlinx.coroutines", "launch")
-            import("kotlinx.coroutines.javafx", "JavaFx")
+            annotations.add(Suppress::class) {
+                addMember("%S", "ktlint")
+                useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+            }
+            addImport("kotlinx.coroutines", "GlobalScope")
+            addImport("kotlinx.coroutines", "Dispatchers")
+            addImport("kotlinx.coroutines", "launch")
+            addImport("kotlinx.coroutines.javafx", "JavaFx")
         },
     ) {
     override fun ParameterSpecHandlerScope.action(vararg params: TypeName): ParameterSpec =
-        parameter(
+        add(
             "action",
             CoroutineScope::class.name.lambdaBy(*params, returns = UNIT).suspending(),
         )
@@ -77,7 +81,7 @@ abstract class ListenerFactory(
             ParameterSpecHandlerScope
                 .of(
                     object : ParameterSpecHandler {
-                        override fun parameter(parameter: ParameterSpec) {
+                        override fun add(parameter: ParameterSpec) {
                             parameters += parameter
                         }
                     },

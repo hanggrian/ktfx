@@ -1,7 +1,7 @@
 [![CircleCI](https://img.shields.io/circleci/build/gh/hanggrian/ktfx)](https://app.circleci.com/pipelines/github/hanggrian/ktfx/)
 [![Codecov](https://img.shields.io/codecov/c/gh/hanggrian/ktfx)](https://app.codecov.io/gh/hanggrian/ktfx/)
 [![Maven Central](https://img.shields.io/maven-central/v/com.hanggrian.ktfx/ktfx)](https://repo1.maven.org/maven2/com/hanggrian/ktfx/ktfx/)
-[![OpenJDK](https://img.shields.io/badge/jdk-17%2B-informational)](https://openjdk.org/projects/jdk/17/)
+[![Java](https://img.shields.io/badge/java-8+-informational)](https://www.java.com/en/download/help/java8.html)
 
 # KtFX
 

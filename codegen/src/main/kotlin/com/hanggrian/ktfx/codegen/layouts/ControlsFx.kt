@@ -60,7 +60,7 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 CheckListView::class(T) { items(T) }
                 CheckTreeView::class(T) {
                     "root"(CheckBoxTreeItem::class.name.parameterizedBy(T).nullable()) {
-                        defaultValue("null")
+                        setDefaultValue("null")
                     }
                 }
                 GridView::class(T) { items(T) }
@@ -74,9 +74,9 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 MaskerPane::class()
                 MasterDetailPane::class(customClass = true) {
                     "detailSide"(Side::class.name) {
-                        defaultValue("%M", Side::class.name.member("RIGHT"))
+                        setDefaultValue("%M", Side::class.name.member("RIGHT"))
                     }
-                    "showDetailNode"(BOOLEAN) { defaultValue("true") }
+                    "showDetailNode"(BOOLEAN) { setDefaultValue("true") }
                 }
                 NotificationPane::class(customClass = true)
                 PlusMinusSlider::class()
@@ -86,18 +86,18 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                     "items"(
                         ObservableList::class.parameterizedBy(PropertySheet.Item::class).nullable(),
                     ) {
-                        defaultValue("null")
+                        setDefaultValue("null")
                     }
                 }
                 RangeSlider::class {
-                    "min"(DOUBLE) { defaultValue("0.0") }
-                    "max"(DOUBLE) { defaultValue("1.0") }
-                    "lowValue"(DOUBLE) { defaultValue("0.25") }
-                    "highValue"(DOUBLE) { defaultValue("0.75") }
+                    "min"(DOUBLE) { setDefaultValue("0.0") }
+                    "max"(DOUBLE) { setDefaultValue("1.0") }
+                    "lowValue"(DOUBLE) { setDefaultValue("0.25") }
+                    "highValue"(DOUBLE) { setDefaultValue("0.75") }
                 }
                 Rating::class {
-                    "max"(INT) { defaultValue("5") }
-                    "rating"(INT) { defaultValue("-1") }
+                    "max"(INT) { setDefaultValue("5") }
+                    "rating"(INT) { setDefaultValue("-1") }
                 }
                 SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
                 SegmentedButton::class(customClass = true)

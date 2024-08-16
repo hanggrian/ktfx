@@ -1,16 +1,15 @@
 package com.hanggrian.ktfx.codegen.coroutines
 
-import com.hanggrian.kotlinpoet.annotation
-import com.hanggrian.kotlinpoet.annotations
+import com.hanggrian.kotlinpoet.add
 import com.hanggrian.kotlinpoet.buildFileSpec
-import com.hanggrian.kotlinpoet.functions
 import com.hanggrian.kotlinpoet.generics
 import com.hanggrian.kotlinpoet.name
-import com.hanggrian.kotlinpoet.parameters
 import com.hanggrian.ktfx.codegen.toString
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.STAR
+import com.squareup.kotlinpoet.UNIT
 import java.io.File
 
 object CoroutinesWriter {
@@ -22,13 +21,18 @@ object CoroutinesWriter {
             buildFileSpec(factory.packageName, fileName) {
                 indentSize = 4
                 annotations {
-                    annotation<JvmMultifileClass>()
-                    JvmName::class.name { member("%S", factory.className) }
+                    add(JvmMultifileClass::class) {
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
+                    JvmName::class.name {
+                        addMember("%S", factory.className)
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
                 }
                 classEntry.functions.forEach { functionEntry ->
                     functions {
                         functionEntry.simpleFunctionName {
-                            kdoc(
+                            addKdoc(
                                 "@see %T.${functionEntry.functionName}",
                                 classEntry.kdocType,
                             )
@@ -36,16 +40,16 @@ object CoroutinesWriter {
 
                             if (classEntry.receiver is ParameterizedTypeName) {
                                 classEntry.receiver.typeArguments.filter { it != STAR }.forEach {
-                                    typeVariable(it.toString().generics)
+                                    typeVariables.add(it.toString().generics)
                                 }
                             }
 
-                            returns<Unit>()
+                            returns = UNIT
                             if (factory.extraFunctionModifier != null) {
-                                modifiers(factory.extraFunctionModifier)
+                                addModifiers(factory.extraFunctionModifier)
                             }
                             parameters {
-                                functionEntry.parameters.forEach(::parameter)
+                                functionEntry.parameters.forEach(::add)
                             }
 
                             appendLine(
@@ -53,7 +57,7 @@ object CoroutinesWriter {
                                 when ("coroutines") {
                                     !in factory.path ->
                                         "${functionEntry.functionName}(${
-                                            parameters.toString(
+                                            parameterSpecs.toString(
                                                 namedArgument = false,
                                                 commaSuffix = false,
                                             )
@@ -61,7 +65,7 @@ object CoroutinesWriter {
                                     else ->
                                         buildString {
                                             val hasParam =
-                                                (parameters.last().type as LambdaTypeName)
+                                                (parameterSpecs.last().type as LambdaTypeName)
                                                     .parameters
                                                     .isNotEmpty()
                                             append("${functionEntry.functionName} {")
@@ -70,7 +74,7 @@ object CoroutinesWriter {
                                             }
                                             append(
                                                 " GlobalScope.launch(context) { " +
-                                                    "${parameters.last().name}(",
+                                                    "${parameterSpecs.last().name}(",
                                             )
                                             if (hasParam) {
                                                 append("event")

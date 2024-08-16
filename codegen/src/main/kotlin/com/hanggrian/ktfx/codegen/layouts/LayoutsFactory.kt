@@ -31,7 +31,7 @@ open class LayoutsFactory(val path: String, val packageName: String, val classNa
         ParameterSpecHandlerScope
             .of(
                 object : ParameterSpecHandler {
-                    override fun parameter(parameter: ParameterSpec) {
+                    override fun add(parameter: ParameterSpec) {
                         parameters += parameter
                     }
                 },
@@ -48,19 +48,19 @@ open class LayoutsFactory(val path: String, val packageName: String, val classNa
 
     companion object {
         fun ParameterSpecHandlerScope.nullText() =
-            "text"(STRING.nullable()) { defaultValue("null") }
+            "text"(STRING.nullable()) { setDefaultValue("null") }
 
-        fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
+        fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { setDefaultValue("\"\"") }
 
         fun ParameterSpecHandlerScope.graphic() =
-            "graphic"(Node::class.name.nullable()) { defaultValue("null") }
+            "graphic"(Node::class.name.nullable()) { setDefaultValue("null") }
 
         fun ParameterSpecHandlerScope.content() =
-            "content"(Node::class.name.nullable()) { defaultValue("null") }
+            "content"(Node::class.name.nullable()) { setDefaultValue("null") }
 
         fun ParameterSpecHandlerScope.progress() =
             "progress"(DOUBLE) {
-                defaultValue(
+                setDefaultValue(
                     "%M",
                     ProgressBar::class.name.member("INDETERMINATE_PROGRESS"),
                 )
@@ -68,15 +68,15 @@ open class LayoutsFactory(val path: String, val packageName: String, val classNa
 
         fun ParameterSpecHandlerScope.color() =
             "color"(Color::class.name) {
-                defaultValue("%M", Color::class.name.member("WHITE"))
+                setDefaultValue("%M", Color::class.name.member("WHITE"))
             }
 
         fun ParameterSpecHandlerScope.date() =
-            "date"(LocalDate::class.name.nullable()) { defaultValue("null") }
+            "date"(LocalDate::class.name.nullable()) { setDefaultValue("null") }
 
         fun ParameterSpecHandlerScope.items(name: TypeVariableName) =
             "items"(ObservableList::class.name.parameterizedBy(name)) {
-                defaultValue(
+                setDefaultValue(
                     "%M()",
                     FXCollections::class.name.member("observableArrayList"),
                 )
@@ -84,13 +84,13 @@ open class LayoutsFactory(val path: String, val packageName: String, val classNa
 
         fun ParameterSpecHandlerScope.treeItem(name: String, variable: TypeVariableName) =
             name(TreeItem::class.name.parameterizedBy(variable).copy(true)) {
-                defaultValue("null")
+                setDefaultValue("null")
             }
 
         fun ParameterSpecHandlerScope.slider(value: String) {
-            "min"(DOUBLE) { defaultValue("0.0") }
-            "max"(DOUBLE) { defaultValue("100.0") }
-            "value"(DOUBLE) { defaultValue(value) }
+            "min"(DOUBLE) { setDefaultValue("0.0") }
+            "max"(DOUBLE) { setDefaultValue("100.0") }
+            "value"(DOUBLE) { setDefaultValue(value) }
         }
     }
 }

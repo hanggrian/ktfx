@@ -130,12 +130,12 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 AreaChart::class(X, Y) { xyChartParameters() }
                 BarChart::class(X, Y) {
                     xyChartParameters()
-                    "categoryGap"(DOUBLE) { defaultValue("10.0") }
+                    "categoryGap"(DOUBLE) { setDefaultValue("10.0") }
                 }
                 BubbleChart::class(X, Y) { xyChartParameters() }
                 PieChart::class {
                     "data"(ObservableList::class.parameterizedBy(PieChart.Data::class)) {
-                        defaultValue(
+                        setDefaultValue(
                             "%M()",
                             FXCollections::class.name.member("observableArrayList"),
                         )
@@ -152,7 +152,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     graphic()
                 }
                 ButtonBar::class(customClass = true) {
-                    "buttonOrder"(STRING.nullable()) { defaultValue("null") }
+                    "buttonOrder"(STRING.nullable()) { setDefaultValue("null") }
                 }
                 CheckBox::class { nullText() }
                 CheckMenuItem::class {
@@ -164,7 +164,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 ComboBox::class(T) { items(T) }
                 CustomMenuItem::class {
                     content()
-                    "hideOnClick"(BOOLEAN) { defaultValue("true") }
+                    "hideOnClick"(BOOLEAN) { setDefaultValue("true") }
                 }
                 DatePicker::class { date() }
                 Hyperlink::class {
@@ -191,9 +191,9 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
                 Pagination::class {
                     "pageCount"(INT) {
-                        defaultValue("%M", Pagination::class.name.member("INDETERMINATE"))
+                        setDefaultValue("%M", Pagination::class.name.member("INDETERMINATE"))
                     }
-                    "currentPageIndex"(INT) { defaultValue("0") }
+                    "currentPageIndex"(INT) { setDefaultValue("0") }
                 }
                 PasswordField::class()
                 ProgressBar::class { progress() }
@@ -220,7 +220,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 TextArea::class { emptyText() }
                 TextField::class { emptyText() }
                 TitledPane::class(customClass = true) {
-                    "title"(STRING.nullable()) { defaultValue("null") }
+                    "title"(STRING.nullable()) { setDefaultValue("null") }
                 }
                 ToggleButton::class {
                     nullText()
@@ -232,14 +232,14 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
 
                 // javafx.scene.image
                 ImageView::class {
-                    "image"(Image::class.name.nullable()) { defaultValue("null") }
+                    "image"(Image::class.name.nullable()) { setDefaultValue("null") }
                 }
-                ImageView::class { parameter("imageUrl", STRING) }
+                ImageView::class { add("imageUrl", STRING) }
 
                 // javafx.scene.media
                 MediaView::class {
                     "mediaPlayer"(MediaPlayer::class.name.nullable()) {
-                        defaultValue("null")
+                        setDefaultValue("null")
                     }
                 }
 
@@ -248,12 +248,12 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 BorderPane::class(customClass = true)
                 FlowPane::class(customClass = true) {
                     orientation()
-                    parameter("hgap", DOUBLE)
-                    parameter("vgap", DOUBLE)
+                    add("hgap", DOUBLE)
+                    add("vgap", DOUBLE)
                 }
                 FlowPane::class(customClass = true) {
                     orientation()
-                    "gap"(DOUBLE) { defaultValue("0.0") }
+                    "gap"(DOUBLE) { setDefaultValue("0.0") }
                 }
                 GridPane::class(customClass = true)
                 HBox::class(customClass = true) { spacing() }
@@ -262,12 +262,12 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 StackPane::class(customClass = true)
                 TilePane::class(customClass = true) {
                     orientation()
-                    parameter("hgap", DOUBLE)
-                    parameter("vgap", DOUBLE)
+                    add("hgap", DOUBLE)
+                    add("vgap", DOUBLE)
                 }
                 TilePane::class(customClass = true) {
                     orientation()
-                    "gap"(DOUBLE) { defaultValue("0.0") }
+                    "gap"(DOUBLE) { setDefaultValue("0.0") }
                 }
                 VBox::class(customClass = true) { spacing() }
 
@@ -275,26 +275,26 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 Arc::class {
                     centerXY()
                     radiusXY()
-                    "startAngle"(DOUBLE) { defaultValue("0.0") }
-                    "length"(DOUBLE) { defaultValue("0.0") }
+                    "startAngle"(DOUBLE) { setDefaultValue("0.0") }
+                    "length"(DOUBLE) { setDefaultValue("0.0") }
                 }
                 ArcTo::class {
                     radiusXY()
-                    "xAxisRotation"(DOUBLE) { defaultValue("0.0") }
+                    "xAxisRotation"(DOUBLE) { setDefaultValue("0.0") }
                     x()
                     y()
-                    "largeArcFlag"(BOOLEAN) { defaultValue("false") }
-                    "sweepFlag"(BOOLEAN) { defaultValue("false") }
+                    "largeArcFlag"(BOOLEAN) { setDefaultValue("false") }
+                    "sweepFlag"(BOOLEAN) { setDefaultValue("false") }
                 }
                 Box::class {
                     "width"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
+                        setDefaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
                     "height"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
+                        setDefaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
                     "depth"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
+                        setDefaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
                 }
                 Circle::class {
@@ -317,7 +317,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
                 Cylinder::class {
                     radius(1.0)
-                    "height"(DOUBLE) { defaultValue("2.0") }
+                    "height"(DOUBLE) { setDefaultValue("2.0") }
                     division()
                 }
                 Ellipse::class {
@@ -334,7 +334,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     y()
                 }
                 MeshView::class {
-                    "mesh"(Mesh::class.name.nullable()) { defaultValue("null") }
+                    "mesh"(Mesh::class.name.nullable()) { setDefaultValue("null") }
                 }
                 MoveTo::class {
                     x()
@@ -374,81 +374,81 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 WebView::class()
             }
 
-            fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
+            fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { setDefaultValue("\"\"") }
 
             fun ParameterSpecHandlerScope.orientation() =
                 "orientation"(Orientation::class.name) {
-                    defaultValue(
+                    setDefaultValue(
                         "%M",
                         Orientation::class.name.member("HORIZONTAL"),
                     )
                 }
 
-            fun ParameterSpecHandlerScope.spacing() = "spacing"(DOUBLE) { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.spacing() = "spacing"(DOUBLE) { setDefaultValue("0.0") }
 
-            fun ParameterSpecHandlerScope.width() = "width"(DOUBLE) { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.width() = "width"(DOUBLE) { setDefaultValue("0.0") }
 
-            fun ParameterSpecHandlerScope.height() = "height"(DOUBLE) { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.height() = "height"(DOUBLE) { setDefaultValue("0.0") }
 
             fun ParameterSpecHandlerScope.xyChartParameters() {
-                parameter("x", Axis::class.name.parameterizedBy(X))
-                parameter("y", Axis::class.name.parameterizedBy(Y))
+                add("x", Axis::class.name.parameterizedBy(X))
+                add("y", Axis::class.name.parameterizedBy(Y))
                 "data"(
                     ObservableList::class
                         .asClassName()
                         .parameterizedBy(XYChart.Series::class.asClassName().parameterizedBy(X, Y)),
                 ) {
-                    defaultValue(
+                    setDefaultValue(
                         "%M()",
                         FXCollections::class.asClassName().member("observableArrayList"),
                     )
                 }
             }
 
-            fun ParameterSpecHandlerScope.x() = "x"(DOUBLE) { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.x() = "x"(DOUBLE) { setDefaultValue("0.0") }
 
-            fun ParameterSpecHandlerScope.y() = "y"(DOUBLE) { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.y() = "y"(DOUBLE) { setDefaultValue("0.0") }
 
             fun ParameterSpecHandlerScope.startXY() {
-                "startX"(DOUBLE) { defaultValue("0.0") }
-                "startY"(DOUBLE) { defaultValue("0.0") }
+                "startX"(DOUBLE) { setDefaultValue("0.0") }
+                "startY"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.endXY() {
-                "endX"(DOUBLE) { defaultValue("0.0") }
-                "endY"(DOUBLE) { defaultValue("0.0") }
+                "endX"(DOUBLE) { setDefaultValue("0.0") }
+                "endY"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.centerXY() {
-                "centerX"(DOUBLE) { defaultValue("0.0") }
-                "centerY"(DOUBLE) { defaultValue("0.0") }
+                "centerX"(DOUBLE) { setDefaultValue("0.0") }
+                "centerY"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.radiusXY() {
-                "radiusX"(DOUBLE) { defaultValue("0.0") }
-                "radiusY"(DOUBLE) { defaultValue("0.0") }
+                "radiusX"(DOUBLE) { setDefaultValue("0.0") }
+                "radiusY"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.radius(radius: Double) =
-                "radius"(DOUBLE) { defaultValue("$radius") }
+                "radius"(DOUBLE) { setDefaultValue("$radius") }
 
             fun ParameterSpecHandlerScope.fill() =
-                "fill"(Paint::class.name.nullable()) { defaultValue("null") }
+                "fill"(Paint::class.name.nullable()) { setDefaultValue("null") }
 
             fun ParameterSpecHandlerScope.controlXY() {
-                "controlX"(DOUBLE) { defaultValue("0.0") }
-                "controlY"(DOUBLE) { defaultValue("0.0") }
+                "controlX"(DOUBLE) { setDefaultValue("0.0") }
+                "controlY"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.controlXY1() {
-                "controlX1"(DOUBLE) { defaultValue("0.0") }
-                "controlY1"(DOUBLE) { defaultValue("0.0") }
+                "controlX1"(DOUBLE) { setDefaultValue("0.0") }
+                "controlY1"(DOUBLE) { setDefaultValue("0.0") }
             }
 
             fun ParameterSpecHandlerScope.controlXY2() {
-                "controlX2"(DOUBLE) { defaultValue("0.0") }
-                "controlY2"(DOUBLE) { defaultValue("0.0") }
+                "controlX2"(DOUBLE) { setDefaultValue("0.0") }
+                "controlY2"(DOUBLE) { setDefaultValue("0.0") }
             }
 
-            fun ParameterSpecHandlerScope.division() = "division"(INT) { defaultValue("64") }
+            fun ParameterSpecHandlerScope.division() = "division"(INT) { setDefaultValue("64") }
         }

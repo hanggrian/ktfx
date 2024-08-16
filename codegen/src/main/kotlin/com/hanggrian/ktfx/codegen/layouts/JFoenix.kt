@@ -76,11 +76,11 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXComboBox::class(T) { items(T) }
                 JFXDatePicker::class { date() }
                 JFXDecorator::class {
-                    parameter("stage", Stage::class.name)
-                    parameter("node", Node::class.name)
-                    "fullScreen"(BOOLEAN) { defaultValue("true") }
-                    "max"(BOOLEAN) { defaultValue("true") }
-                    "min"(BOOLEAN) { defaultValue("true") }
+                    add("stage", Stage::class.name)
+                    add("node", Node::class.name)
+                    "fullScreen"(BOOLEAN) { setDefaultValue("true") }
+                    "max"(BOOLEAN) { setDefaultValue("true") }
+                    "min"(BOOLEAN) { setDefaultValue("true") }
                 }
                 JFXDefaultChip::class(T) {
                     chipView()
@@ -104,7 +104,7 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXTextArea::class { emptyText() }
                 JFXTextField::class { emptyText() }
                 JFXTimePicker::class {
-                    "time"(LocalTime::class.name.nullable()) { defaultValue("null") }
+                    "time"(LocalTime::class.name.nullable()) { setDefaultValue("null") }
                 }
                 JFXToggleButton::class()
                 JFXToggleNode::class { graphic() }
@@ -119,13 +119,13 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXTreeView::class(T) { treeItem("root", T) }
                 JFXTreeViewPath::class {
                     "treeView"(TreeView::class.name.parameterizedBy("*".generics).nullable()) {
-                        defaultValue("null")
+                        setDefaultValue("null")
                     }
                 }
             }
 
             fun ParameterSpecHandlerScope.chipView() =
-                parameter("view", JFXChipView::class.name.parameterizedBy(T))
+                add("view", JFXChipView::class.name.parameterizedBy(T))
 
-            fun ParameterSpecHandlerScope.item() = parameter("item", T)
+            fun ParameterSpecHandlerScope.item() = add("item", T)
         }

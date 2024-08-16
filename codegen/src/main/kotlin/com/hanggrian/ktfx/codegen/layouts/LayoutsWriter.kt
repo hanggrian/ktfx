@@ -4,17 +4,13 @@ import com.hanggrian.kotlinpoet.FunSpecBuilder
 import com.hanggrian.kotlinpoet.INLINE
 import com.hanggrian.kotlinpoet.ParameterSpecHandlerScope
 import com.hanggrian.kotlinpoet.VARARG
+import com.hanggrian.kotlinpoet.add
 import com.hanggrian.kotlinpoet.annotate
-import com.hanggrian.kotlinpoet.annotation
 import com.hanggrian.kotlinpoet.annotationSpecOf
-import com.hanggrian.kotlinpoet.annotations
 import com.hanggrian.kotlinpoet.buildFileSpec
-import com.hanggrian.kotlinpoet.functions
 import com.hanggrian.kotlinpoet.lambdaBy
 import com.hanggrian.kotlinpoet.name
 import com.hanggrian.kotlinpoet.nullable
-import com.hanggrian.kotlinpoet.parameter
-import com.hanggrian.kotlinpoet.parameters
 import com.hanggrian.ktfx.codegen.CONTRACT
 import com.hanggrian.ktfx.codegen.DSL_MARKER
 import com.hanggrian.ktfx.codegen.EXACTLY_ONCE
@@ -40,30 +36,30 @@ object LayoutsWriter {
             buildFileSpec(factory.packageName, fileName) {
                 indentSize = 4
                 annotations {
-                    annotation<JvmMultifileClass>()
-                    JvmName::class.name { member("%S", factory.className) }
-                    OPT_IN { member("%T::class", EXPERIMENTAL_CONTRACTS) }
-                    Suppress::class.name { member("%S", "ktlint") }
+                    add<JvmMultifileClass>()
+                    JvmName::class.name { addMember("%S", factory.className) }
+                    OPT_IN { addMember("%T::class", EXPERIMENTAL_CONTRACTS) }
+                    Suppress::class.name { addMember("%S", "ktlint") }
                 }
                 functions {
                     entry.containerClassNames.forEach { containerClassName ->
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             receiver = containerClassName
-                            modifiers(INLINE)
-                            kdoc(
+                            addModifiers(INLINE)
+                            addKdoc(
                                 entry.getFileComment(
                                     add = true,
                                     styled = false,
                                     configured = false,
                                 ),
                             )
-                            returns(
+                            setReturns(
                                 entry.typeName,
                                 entry.getReturnsComment(add = true, styled = false),
                             )
                             parameters {
-                                entry.parameters.forEach(::parameter)
+                                entry.parameters.forEach(::add)
                             }
                             appendLine(
                                 "return ${entry.functionName}(${
@@ -79,14 +75,14 @@ object LayoutsWriter {
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
-                            kdoc(
+                            addKdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
                                     styled = false,
                                     configured = true,
                                 ),
                             )
-                            returns(
+                            setReturns(
                                 entry.typeName,
                                 entry.getReturnsComment(
                                     add = containerClassName != null,
@@ -94,7 +90,7 @@ object LayoutsWriter {
                                 ),
                             )
                             parameters {
-                                entry.parameters.forEach(::parameter)
+                                entry.parameters.forEach(::add)
                                 configuration(entry)
                             }
                             contractLine()
@@ -125,15 +121,15 @@ object LayoutsWriter {
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
-                            modifiers(INLINE)
-                            kdoc(
+                            addModifiers(INLINE)
+                            addKdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
                                     styled = true,
                                     configured = false,
                                 ),
                             )
-                            returns(
+                            setReturns(
                                 entry.typeName,
                                 entry.getReturnsComment(
                                     add = containerClassName != null,
@@ -141,7 +137,7 @@ object LayoutsWriter {
                                 ),
                             )
                             parameters {
-                                entry.parameters.forEach(::parameter)
+                                entry.parameters.forEach(::add)
                                 styleClass()
                                 id()
                             }
@@ -159,14 +155,14 @@ object LayoutsWriter {
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (containerClassName != null) receiver = containerClassName
-                            kdoc(
+                            addKdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
                                     styled = true,
                                     configured = true,
                                 ),
                             )
-                            returns(
+                            setReturns(
                                 entry.typeName,
                                 entry.getReturnsComment(
                                     add = containerClassName != null,
@@ -174,7 +170,7 @@ object LayoutsWriter {
                                 ),
                             )
                             parameters {
-                                entry.parameters.forEach(::parameter)
+                                entry.parameters.forEach(::add)
                                 styleClass()
                                 id()
                                 configuration(entry)
@@ -213,23 +209,23 @@ object LayoutsWriter {
         appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
     private fun ParameterSpecHandlerScope.styleClass() =
-        parameter("styleClass", String::class, VARARG) {
-            kdoc("the CSS style class.")
+        add("styleClass", String::class, VARARG) {
+            addKdoc("the CSS style class.")
         }
 
     private fun ParameterSpecHandlerScope.id() =
-        parameter("id", STRING.nullable()) {
-            kdoc("the CSS id.")
-            defaultValue("null")
+        add("id", STRING.nullable()) {
+            addKdoc("the CSS id.")
+            setDefaultValue("null")
         }
 
     private fun ParameterSpecHandlerScope.configuration(entry: LayoutsEntry) =
-        parameter(
+        add(
             "configuration",
             entry.customTypeName
                 .annotate(annotationSpecOf(DSL_MARKER))
                 .lambdaBy(returns = UNIT),
         ) {
-            kdoc("the configuration block.")
+            addKdoc("the configuration block.")
         }
 }

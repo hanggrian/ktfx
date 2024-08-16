@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun TabContainer.tab(text: String? = null, content: Node? = null):
  *
  * @return the control created.
  */
-public fun tab(
+public inline fun tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit,
@@ -47,7 +50,7 @@ public fun tab(
  *
  * @return the control added.
  */
-public fun TabContainer.tab(
+public inline fun TabContainer.tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit,
@@ -94,7 +97,7 @@ public inline fun TabContainer.styledTab(
  *
  * @return the styled control created.
  */
-public fun styledTab(
+public inline fun styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -117,7 +120,7 @@ public fun styledTab(
  *
  * @return the styled control added.
  */
-public fun TabContainer.styledTab(
+public inline fun TabContainer.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,

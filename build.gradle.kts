@@ -41,7 +41,7 @@ allprojects {
 
 subprojects {
     plugins.withType<JavaFXPlugin>().configureEach {
-        the<JavaFXOptions>().version = "${jdkVersion}.0.4"
+        the<JavaFXOptions>().version = libs.versions.javafx.get()
     }
     plugins.withType<KotlinPluginWrapper>().configureEach {
         the<KotlinJvmProjectExtension>().jvmToolchain(jdkVersion.asInt())
@@ -83,10 +83,10 @@ subprojects {
     }
 
     tasks {
-        withType<JavaCompile> {
+        withType<JavaCompile>().configureEach {
             options.release = jreVersion.asInt()
         }
-        withType<KotlinCompile> {
+        withType<KotlinCompile>().configureEach {
             compilerOptions.jvmTarget
                 .set(JvmTarget.fromTarget(JavaVersion.toVersion(jreVersion).toString()))
         }

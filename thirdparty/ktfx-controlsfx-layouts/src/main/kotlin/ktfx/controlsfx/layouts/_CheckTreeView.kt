@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,8 +35,8 @@ public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = n
  *
  * @return the control created.
  */
-public fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null, configuration: (@KtfxLayoutDslMarker
-        CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
+public inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null,
+        configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
     child.configuration()
@@ -46,7 +49,7 @@ public fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null, configuration: (
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null,
+public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
@@ -88,7 +91,7 @@ public inline fun <T> NodeContainer.styledCheckTreeView(
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckTreeView(
+public inline fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ public fun <T> styledCheckTreeView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckTreeView(
+public inline fun <T> NodeContainer.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

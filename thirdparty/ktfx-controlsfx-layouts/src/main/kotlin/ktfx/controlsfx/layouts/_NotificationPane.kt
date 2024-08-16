@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.notificationPane(): NotificationPane = notificat
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun notificationPane(configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit):
-        NotificationPane {
+public inline fun notificationPane(configuration: (@KtfxLayoutDslMarker
+        KtfxNotificationPane).() -> Unit): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxNotificationPane()
     child.configuration()
@@ -44,7 +47,7 @@ public fun notificationPane(configuration: (@KtfxLayoutDslMarker KtfxNotificatio
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.notificationPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.notificationPane(configuration: (@KtfxLayoutDslMarker
         KtfxNotificationPane).() -> Unit): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxNotificationPane()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledNotificationPane(vararg styleClass: String
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledNotificationPane(
+public inline fun styledNotificationPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledNotificationPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledNotificationPane(
+public inline fun NodeContainer.styledNotificationPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit,

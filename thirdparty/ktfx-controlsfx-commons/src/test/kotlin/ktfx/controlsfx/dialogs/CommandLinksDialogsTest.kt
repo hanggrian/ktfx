@@ -1,6 +1,9 @@
 package ktfx.controlsfx.dialogs
 
 import com.hanggrian.ktfx.test.DialogShowingTest
+import ktfx.dialogs.graphicIcon
+import ktfx.dialogs.headerTitle
+import ktfx.dialogs.icon
 import org.controlsfx.dialog.CommandLinksDialog
 import kotlin.test.Ignore
 import kotlin.test.Test
@@ -13,20 +16,15 @@ class CommandLinksDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 "Yes",
-                commandLinksDialog(
-                    "Command links dialog",
-                    sampleGraphic,
-                    CommandLinksDialog.CommandLinksButtonType("Yes", true),
-                ) {
+                commandLinksDialog(CommandLinksDialog.CommandLinksButtonType("Yes", true)) {
+                    headerTitle = "Command links dialog"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Command links dialog", headerText)
+                    assertEquals("Command links dialog", title)
                     assertEquals(sampleGraphic, graphic)
-                }.get().text,
-            )
-            assertEquals(
-                "Yes",
-                commandLinksDialog(CommandLinksDialog.CommandLinksButtonType("Yes", true)) {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                 }.get().text,
             )
         }
@@ -37,20 +35,15 @@ class CommandLinksDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 "Yes",
-                commandLinksDialog(
-                    "Command links dialog",
-                    sampleGraphic,
-                    listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true)),
-                ) {
+                commandLinksDialog(listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true))) {
+                    headerTitle = "Command links dialog"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Command links dialog", headerText)
+                    assertEquals("Command links dialog", title)
                     assertEquals(sampleGraphic, graphic)
-                }.get().text,
-            )
-            assertEquals(
-                "Yes",
-                commandLinksDialog(listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true))) {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                 }.get().text,
             )
         }

@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxCoroutinesKt")
+@file:OptIn(DelicateCoroutinesApi::class)
 @file:Suppress("ktlint")
 
 package ktfx.coroutines
@@ -7,12 +8,14 @@ package ktfx.coroutines
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeView
 import kotlin.Int
+import kotlin.OptIn
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.coroutines.CoroutineContext
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx

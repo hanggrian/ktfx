@@ -1,4 +1,5 @@
 @file:Suppress("NOTHING_TO_INLINE")
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.controls
 
@@ -8,6 +9,9 @@ import javafx.event.ActionEvent
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import javafx.util.Duration
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Show this snackbar with custom layout. */
 public inline fun JFXSnackbar.show(content: Node, duration: Duration): Unit =
@@ -45,25 +49,15 @@ public fun JFXSnackbar.showIndefinite(
         },
     )
 
-/** Create and show a snackbar with custom layout. */
-public fun Pane.jfxSnackbar(content: Node, duration: Duration): JFXSnackbar =
-    JFXSnackbar(this).apply { show(content, duration) }
+/** Create a JFoenix snackbar. */
+public inline val Pane.jfxSnackbar: JFXSnackbar get() = JFXSnackbar(this)
 
-/** Create and show a snackbar with default layout. */
-public fun Pane.jfxSnackbar(
-    message: String,
-    duration: Duration,
-    actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null,
-): JFXSnackbar = JFXSnackbar(this).apply { show(message, duration, actionText, action) }
-
-/** Create and show an indefinite snackbar with custom layout. */
-public fun Pane.jfxIndefiniteSnackbar(content: Node): JFXSnackbar =
-    JFXSnackbar(this).apply { showIndefinite(content) }
-
-/** Create and show an indefinite snackbar with default layout. */
-public fun Pane.jfxIndefiniteSnackbar(
-    message: String,
-    actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null,
-): JFXSnackbar = JFXSnackbar(this).apply { showIndefinite(message, actionText, action) }
+/**
+ * Create a JFoenix snackbar.
+ *
+ * @param configuration custom snackbar action.
+ */
+public inline fun Pane.jfxSnackbar(configuration: JFXSnackbar.() -> Unit): JFXSnackbar {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return jfxSnackbar.apply(configuration)
+}

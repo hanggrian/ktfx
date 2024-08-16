@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,8 +31,8 @@ public inline fun MenuItemContainer.separatorMenuItem(): SeparatorMenuItem = sep
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit):
-        SeparatorMenuItem {
+public inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker
+        SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SeparatorMenuItem()
     child.configuration()
@@ -42,7 +45,7 @@ public fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker SeparatorMenuI
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun MenuItemContainer.separatorMenuItem(configuration: (@KtfxLayoutDslMarker
+public inline fun MenuItemContainer.separatorMenuItem(configuration: (@KtfxLayoutDslMarker
         SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SeparatorMenuItem()
@@ -78,7 +81,7 @@ public inline fun MenuItemContainer.styledSeparatorMenuItem(vararg styleClass: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSeparatorMenuItem(
+public inline fun styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit,
@@ -99,7 +102,7 @@ public fun styledSeparatorMenuItem(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledSeparatorMenuItem(
+public inline fun MenuItemContainer.styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit,

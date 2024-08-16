@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.snapshotView(): SnapshotView = snapshotView() { 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
+public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
         SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -44,7 +47,7 @@ public fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarker
         KtfxSnapshotView).() -> Unit): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledSnapshotView(vararg styleClass: String, id
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSnapshotView(
+public inline fun styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledSnapshotView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSnapshotView(
+public inline fun NodeContainer.styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit,

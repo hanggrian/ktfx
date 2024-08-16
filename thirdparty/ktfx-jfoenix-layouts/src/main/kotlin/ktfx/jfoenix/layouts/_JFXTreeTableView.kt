@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -33,7 +36,7 @@ public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(ro
  *
  * @return the control created.
  */
-public fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = null,
+public inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = null,
         configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeTableView<S>(root)
@@ -47,8 +50,9 @@ public fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = nu
  *
  * @return the control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? = null,
-        configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? =
+        null, configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit):
+        JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeTableView<S>(root)
     child.configuration()
@@ -89,7 +93,7 @@ public inline fun <S : RecursiveTreeObject<S>> NodeContainer.styledJfxTreeTableV
  *
  * @return the styled control created.
  */
-public fun <S : RecursiveTreeObject<S>> styledJfxTreeTableView(
+public inline fun <S : RecursiveTreeObject<S>> styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +115,7 @@ public fun <S : RecursiveTreeObject<S>> styledJfxTreeTableView(
  *
  * @return the styled control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeContainer.styledJfxTreeTableView(
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.styledJfxTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observa
  *
  * @return the control created.
  */
-public fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -45,7 +48,7 @@ public fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -87,7 +90,7 @@ public inline fun <T> NodeContainer.styledChoiceBox(
  *
  * @return the styled control created.
  */
-public fun <T> styledChoiceBox(
+public inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun <T> styledChoiceBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledChoiceBox(
+public inline fun <T> NodeContainer.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

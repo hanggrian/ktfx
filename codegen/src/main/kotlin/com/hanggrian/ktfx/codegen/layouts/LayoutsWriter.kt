@@ -17,6 +17,7 @@ import com.hanggrian.ktfx.codegen.EXACTLY_ONCE
 import com.hanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
 import com.hanggrian.ktfx.codegen.OPT_IN
 import com.hanggrian.ktfx.codegen.toString
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.UNIT
 import com.squareup.kotlinpoet.buildCodeBlock
@@ -36,10 +37,22 @@ object LayoutsWriter {
             buildFileSpec(factory.packageName, fileName) {
                 indentSize = 4
                 annotations {
-                    add<JvmMultifileClass>()
-                    JvmName::class.name { addMember("%S", factory.className) }
-                    OPT_IN { addMember("%T::class", EXPERIMENTAL_CONTRACTS) }
-                    Suppress::class.name { addMember("%S", "ktlint") }
+                    add(JvmMultifileClass::class) {
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
+                    JvmName::class.name {
+                        addMember("%S", factory.className)
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
+                    OPT_IN {
+                        addMember("%T::class", EXPERIMENTAL_CONTRACTS)
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
+                    Suppress::class.name {
+                        addMember("%S", "NOTHING_TO_INLINE")
+                        addMember("%S", "ktlint")
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
                 }
                 functions {
                     entry.containerClassNames.forEach { containerClassName ->
@@ -74,7 +87,10 @@ object LayoutsWriter {
                     entry.fullContainerClassNames.forEach { containerClassName ->
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
-                            if (containerClassName != null) receiver = containerClassName
+                            if (containerClassName != null) {
+                                receiver = containerClassName
+                            }
+                            addModifiers(INLINE)
                             addKdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
@@ -107,9 +123,13 @@ object LayoutsWriter {
                             appendLine(
                                 buildCodeBlock {
                                     append("return ")
-                                    if (containerClassName != null) append("addChild(")
+                                    if (containerClassName != null) {
+                                        append("addChild(")
+                                    }
                                     append("child")
-                                    if (containerClassName != null) append(")")
+                                    if (containerClassName != null) {
+                                        append(")")
+                                    }
                                 },
                             )
                         }
@@ -120,7 +140,9 @@ object LayoutsWriter {
                     entry.fullContainerClassNames.forEach { containerClassName ->
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
-                            if (containerClassName != null) receiver = containerClassName
+                            if (containerClassName != null) {
+                                receiver = containerClassName
+                            }
                             addModifiers(INLINE)
                             addKdoc(
                                 entry.getFileComment(
@@ -154,7 +176,10 @@ object LayoutsWriter {
                     entry.fullContainerClassNames.forEach { containerClassName ->
                         entry.styledFunctionName {
                             entry.typeVarNames.forEach { typeVariables += it }
-                            if (containerClassName != null) receiver = containerClassName
+                            if (containerClassName != null) {
+                                receiver = containerClassName
+                            }
+                            addModifiers(INLINE)
                             addKdoc(
                                 entry.getFileComment(
                                     add = containerClassName != null,
@@ -191,9 +216,13 @@ object LayoutsWriter {
                             appendLine(
                                 buildCodeBlock {
                                     append("return ")
-                                    if (containerClassName != null) append("addChild(")
+                                    if (containerClassName != null) {
+                                        append("addChild(")
+                                    }
                                     append("child")
-                                    if (containerClassName != null) append(")")
+                                    if (containerClassName != null) {
+                                        append(")")
+                                    }
                                 },
                             )
                         }

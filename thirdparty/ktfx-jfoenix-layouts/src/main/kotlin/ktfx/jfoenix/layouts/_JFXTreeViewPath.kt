@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -32,8 +35,8 @@ public inline fun NodeContainer.jfxTreeViewPath(treeView: TreeView<*>? = null): 
  *
  * @return the control created.
  */
-public fun jfxTreeViewPath(treeView: TreeView<*>? = null, configuration: (@KtfxLayoutDslMarker
-        JFXTreeViewPath).() -> Unit): JFXTreeViewPath {
+public inline fun jfxTreeViewPath(treeView: TreeView<*>? = null,
+        configuration: (@KtfxLayoutDslMarker JFXTreeViewPath).() -> Unit): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeViewPath(treeView)
     child.configuration()
@@ -46,7 +49,7 @@ public fun jfxTreeViewPath(treeView: TreeView<*>? = null, configuration: (@KtfxL
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTreeViewPath(treeView: TreeView<*>? = null,
+public inline fun NodeContainer.jfxTreeViewPath(treeView: TreeView<*>? = null,
         configuration: (@KtfxLayoutDslMarker JFXTreeViewPath).() -> Unit): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeViewPath(treeView)
@@ -90,7 +93,7 @@ public inline fun NodeContainer.styledJfxTreeViewPath(
  *
  * @return the styled control created.
  */
-public fun styledJfxTreeViewPath(
+public inline fun styledJfxTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +115,7 @@ public fun styledJfxTreeViewPath(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxTreeViewPath(
+public inline fun NodeContainer.styledJfxTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null,

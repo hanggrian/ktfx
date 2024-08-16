@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.windows
 
 import javafx.scene.Scene
@@ -7,6 +9,9 @@ import javafx.stage.StageStyle
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Get window as [Stage]. */
 public inline val Scene.stage: Stage get() = window as Stage
@@ -45,21 +50,16 @@ public var Stage.maxSize: Pair<Number, Number>
         maxHeight = value.second.toDouble()
     }
 
-/** Creates a stage with options. */
-public inline fun stage(
-    title: String? = null,
-    icon: Image? = null,
-    style: StageStyle = StageStyle.DECORATED,
-    configuration: Stage.() -> Unit,
-): Stage =
-    Stage(style).also {
-        if (title != null) it.title = title
-        if (icon != null) it.icon = icon
-        it.configuration()
-    }
-
-/** Creates a stage with options. */
+/**
+ * Creates a stage with options.
+ *
+ * @param style the style of the stage.
+ * @param configuration custom stage action.
+ */
 public inline fun stage(
     style: StageStyle = StageStyle.DECORATED,
     configuration: Stage.() -> Unit,
-): Stage = stage(null, null, style, configuration)
+): Stage {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Stage(style).apply(configuration)
+}

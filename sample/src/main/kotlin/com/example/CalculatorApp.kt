@@ -8,6 +8,7 @@ import ktfx.bindings.stringBindingBy
 import ktfx.controls.insetsOf
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
+import ktfx.dialogs.headerTitle
 import ktfx.dialogs.infoAlert
 import ktfx.launchApplication
 import ktfx.layouts.button
@@ -115,7 +116,11 @@ class CalculatorApp : Application() {
                 }.grid(4, 1)
                 button(".") {
                     setMinSize(40.0, 40.0)
-                    onAction { errorAlert(":(", content = "Not yet supported.") }
+                    onAction {
+                        errorAlert("Not yet supported.") {
+                            headerTitle = ":("
+                        }
+                    }
                 }.grid(4, 2)
 
                 button("C") {
@@ -142,8 +147,14 @@ class CalculatorApp : Application() {
                 button("=") {
                     setMinSize(40.0, 40.0)
                     isDefaultButton = true
-                    disableProperty().bind(calculationLabel.textProperty().booleanBindingBy(::endsWithOperator))
-                    onAction { infoAlert("Result", content = resultLabel.text) }
+                    disableProperty().bind(
+                        calculationLabel.textProperty().booleanBindingBy(::endsWithOperator)
+                    )
+                    onAction {
+                        infoAlert(resultLabel.text) {
+                            headerTitle = "Result"
+                        }
+                    }
                 }.grid(4, 4)
             }
         }

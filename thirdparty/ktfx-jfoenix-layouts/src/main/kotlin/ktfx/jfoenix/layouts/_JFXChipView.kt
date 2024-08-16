@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun <T> NodeContainer.jfxChipView(): JFXChipView<T> = jfxChipView(
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit):
+public inline fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit):
         JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXChipView<T>()
@@ -44,7 +47,7 @@ public fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMarker
         JFXChipView<T>).() -> Unit): JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXChipView<T>()
@@ -80,7 +83,7 @@ public inline fun <T> NodeContainer.styledJfxChipView(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledJfxChipView(
+public inline fun <T> styledJfxChipView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit,
@@ -101,7 +104,7 @@ public fun <T> styledJfxChipView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJfxChipView(
+public inline fun <T> NodeContainer.styledJfxChipView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit,

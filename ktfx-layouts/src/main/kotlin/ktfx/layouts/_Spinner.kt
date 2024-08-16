@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun <T> NodeContainer.spinner(): Spinner<T> = spinner() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit): Spinner<T> {
+public inline fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit):
+        Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Spinner<T>()
     child.configuration()
@@ -41,8 +45,8 @@ public fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Un
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit):
-        Spinner<T> {
+public inline fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker
+        Spinner<T>).() -> Unit): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Spinner<T>()
     child.configuration()
@@ -77,7 +81,7 @@ public inline fun <T> NodeContainer.styledSpinner(vararg styleClass: String, id:
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledSpinner(
+public inline fun <T> styledSpinner(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit,
@@ -98,7 +102,7 @@ public fun <T> styledSpinner(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledSpinner(
+public inline fun <T> NodeContainer.styledSpinner(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit,

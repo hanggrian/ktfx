@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -33,7 +36,7 @@ public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROG
  *
  * @return the control created.
  */
-public fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXSpinner(progress)
@@ -47,7 +50,7 @@ public fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXSpinner(progress)
@@ -89,7 +92,7 @@ public inline fun NodeContainer.styledJfxSpinner(
  *
  * @return the styled control created.
  */
-public fun styledJfxSpinner(
+public inline fun styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +114,7 @@ public fun styledJfxSpinner(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxSpinner(
+public inline fun NodeContainer.styledJfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

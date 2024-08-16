@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observab
  *
  * @return the control created.
  */
-public fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -45,7 +48,7 @@ public fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -87,7 +90,7 @@ public inline fun <T> NodeContainer.styledComboBox(
  *
  * @return the styled control created.
  */
-public fun <T> styledComboBox(
+public inline fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun <T> styledComboBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledComboBox(
+public inline fun <T> NodeContainer.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

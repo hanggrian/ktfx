@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -40,7 +43,7 @@ public inline fun ToggleButtonContainer.jfxRadioButton(text: String? = null): JF
  *
  * @return the control created.
  */
-public fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
         JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
@@ -54,8 +57,8 @@ public fun jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMa
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxRadioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        JFXRadioButton).() -> Unit): JFXRadioButton {
+public inline fun NodeContainer.jfxRadioButton(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
     child.configuration()
@@ -68,7 +71,7 @@ public fun NodeContainer.jfxRadioButton(text: String? = null, configuration: (@K
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.jfxRadioButton(text: String? = null,
+public inline fun ToggleButtonContainer.jfxRadioButton(text: String? = null,
         configuration: (@KtfxLayoutDslMarker JFXRadioButton).() -> Unit): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXRadioButton(text)
@@ -123,7 +126,7 @@ public inline fun ToggleButtonContainer.styledJfxRadioButton(
  *
  * @return the styled control created.
  */
-public fun styledJfxRadioButton(
+public inline fun styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -145,7 +148,7 @@ public fun styledJfxRadioButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxRadioButton(
+public inline fun NodeContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -167,7 +170,7 @@ public fun NodeContainer.styledJfxRadioButton(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledJfxRadioButton(
+public inline fun ToggleButtonContainer.styledJfxRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

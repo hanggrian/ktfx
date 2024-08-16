@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.polyline(): Polyline = polyline() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
+public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
     child.configuration()
@@ -41,7 +44,7 @@ public fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): 
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
+public inline fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
         Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledPolyline(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledPolyline(
+public inline fun styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledPolyline(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPolyline(
+public inline fun NodeContainer.styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PRO
  *
  * @return the control created.
  */
-public fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -45,7 +48,7 @@ public fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
  *
  * @return the control added.
  */
-public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledProgressBar(
  *
  * @return the styled control created.
  */
-public fun styledProgressBar(
+public inline fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledProgressBar(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledProgressBar(
+public inline fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

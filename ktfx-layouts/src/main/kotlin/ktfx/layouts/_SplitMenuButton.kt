@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,8 +31,8 @@ public inline fun NodeContainer.splitMenuButton(): SplitMenuButton = splitMenuBu
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun splitMenuButton(configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit):
-        SplitMenuButton {
+public inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker
+        KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitMenuButton()
     child.configuration()
@@ -42,7 +45,7 @@ public fun splitMenuButton(configuration: (@KtfxLayoutDslMarker KtfxSplitMenuBut
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.splitMenuButton(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.splitMenuButton(configuration: (@KtfxLayoutDslMarker
         KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitMenuButton()
@@ -78,7 +81,7 @@ public inline fun NodeContainer.styledSplitMenuButton(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSplitMenuButton(
+public inline fun styledSplitMenuButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit,
@@ -99,7 +102,7 @@ public fun styledSplitMenuButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSplitMenuButton(
+public inline fun NodeContainer.styledSplitMenuButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit,

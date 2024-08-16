@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.jfxDrawersStack(): JFXDrawersStack = jfxDrawersS
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
+public inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
         JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -44,7 +47,7 @@ public fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
         JFXDrawersStack).() -> Unit): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxDrawersStack(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxDrawersStack(
+public inline fun styledJfxDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxDrawersStack(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxDrawersStack(
+public inline fun NodeContainer.styledJfxDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit,

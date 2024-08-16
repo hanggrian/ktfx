@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.scrollPane(content: Node? = null): ScrollPane = 
  *
  * @return the control created.
  */
-public fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
         KtfxScrollPane).() -> Unit): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
@@ -44,8 +47,8 @@ public fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public fun NodeContainer.scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxScrollPane).() -> Unit): ScrollPane {
+public inline fun NodeContainer.scrollPane(content: Node? = null,
+        configuration: (@KtfxLayoutDslMarker KtfxScrollPane).() -> Unit): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
     child.configuration()
@@ -86,7 +89,7 @@ public inline fun NodeContainer.styledScrollPane(
  *
  * @return the styled control created.
  */
-public fun styledScrollPane(
+public inline fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +111,7 @@ public fun styledScrollPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledScrollPane(
+public inline fun NodeContainer.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,

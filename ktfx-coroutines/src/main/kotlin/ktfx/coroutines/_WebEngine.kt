@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxCoroutinesKt")
+@file:OptIn(DelicateCoroutinesApi::class)
 @file:Suppress("ktlint")
 
 package ktfx.coroutines
@@ -9,6 +10,7 @@ import javafx.scene.web.WebEngine
 import javafx.scene.web.WebErrorEvent
 import javafx.scene.web.WebEvent
 import kotlin.Boolean
+import kotlin.OptIn
 import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
@@ -16,6 +18,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0
  *
  * @return the control created.
  */
-public fun canvas(
+public inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
@@ -47,7 +50,7 @@ public fun canvas(
  *
  * @return the control added.
  */
-public fun NodeContainer.canvas(
+public inline fun NodeContainer.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
@@ -94,7 +97,7 @@ public inline fun NodeContainer.styledCanvas(
  *
  * @return the styled control created.
  */
-public fun styledCanvas(
+public inline fun styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -117,7 +120,7 @@ public fun styledCanvas(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCanvas(
+public inline fun NodeContainer.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,

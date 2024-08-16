@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null): JFXDateP
  *
  * @return the control created.
  */
-public fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
         JFXDatePicker).() -> Unit): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
@@ -46,8 +49,8 @@ public fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDsl
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
-        JFXDatePicker).() -> Unit): JFXDatePicker {
+public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null,
+        configuration: (@KtfxLayoutDslMarker JFXDatePicker).() -> Unit): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
     child.configuration()
@@ -88,7 +91,7 @@ public inline fun NodeContainer.styledJfxDatePicker(
  *
  * @return the styled control created.
  */
-public fun styledJfxDatePicker(
+public inline fun styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ public fun styledJfxDatePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxDatePicker(
+public inline fun NodeContainer.styledJfxDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

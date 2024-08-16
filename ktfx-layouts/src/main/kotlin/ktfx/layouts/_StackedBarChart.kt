@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -36,7 +39,7 @@ public inline fun <X, Y> NodeContainer.stackedBarChart(
  *
  * @return the control created.
  */
-public fun <X, Y> stackedBarChart(
+public inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +57,7 @@ public fun <X, Y> stackedBarChart(
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.stackedBarChart(
+public inline fun <X, Y> NodeContainer.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -106,7 +109,7 @@ public inline fun <X, Y> NodeContainer.styledStackedBarChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledStackedBarChart(
+public inline fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +133,7 @@ public fun <X, Y> styledStackedBarChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledStackedBarChart(
+public inline fun <X, Y> NodeContainer.styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

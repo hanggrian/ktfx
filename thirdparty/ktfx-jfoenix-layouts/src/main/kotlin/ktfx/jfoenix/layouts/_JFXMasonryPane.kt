@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPan
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit):
-        JFXMasonryPane {
+public inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
+        KtfxJfxMasonryPane).() -> Unit): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxMasonryPane()
     child.configuration()
@@ -44,7 +47,7 @@ public fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPan
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxMasonryPane).() -> Unit): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxMasonryPane()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxMasonryPane(vararg styleClass: String, 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxMasonryPane(
+public inline fun styledJfxMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxMasonryPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxMasonryPane(
+public inline fun NodeContainer.styledJfxMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit,

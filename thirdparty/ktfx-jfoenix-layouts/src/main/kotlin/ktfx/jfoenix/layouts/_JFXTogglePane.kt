@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.jfxTogglePane(): JFXTogglePane = jfxTogglePane()
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit):
+public inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit):
         JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxTogglePane()
@@ -44,7 +47,7 @@ public fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxTogglePane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxTogglePane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxTogglePane).() -> Unit): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxTogglePane()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxTogglePane(vararg styleClass: String, i
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxTogglePane(
+public inline fun styledJfxTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxTogglePane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxTogglePane(
+public inline fun NodeContainer.styledJfxTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxTogglePane).() -> Unit,

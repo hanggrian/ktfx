@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -38,7 +41,7 @@ public inline fun ToggleButtonContainer.toggleButton(text: String? = null, graph
  *
  * @return the control created.
  */
-public fun toggleButton(
+public inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -55,7 +58,7 @@ public fun toggleButton(
  *
  * @return the control added.
  */
-public fun NodeContainer.toggleButton(
+public inline fun NodeContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -72,7 +75,7 @@ public fun NodeContainer.toggleButton(
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.toggleButton(
+public inline fun ToggleButtonContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -136,7 +139,7 @@ public inline fun ToggleButtonContainer.styledToggleButton(
  *
  * @return the styled control created.
  */
-public fun styledToggleButton(
+public inline fun styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -159,7 +162,7 @@ public fun styledToggleButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledToggleButton(
+public inline fun NodeContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -182,7 +185,7 @@ public fun NodeContainer.styledToggleButton(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledToggleButton(
+public inline fun ToggleButtonContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

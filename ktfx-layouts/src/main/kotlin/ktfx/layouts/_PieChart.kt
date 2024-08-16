@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.pieChart(`data`: ObservableList<PieChart.Data> =
  *
  * @return the control created.
  */
-public fun pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList(),
+public inline fun pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)
@@ -45,8 +48,9 @@ public fun pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList(
  *
  * @return the control added.
  */
-public fun NodeContainer.pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList(),
-        configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit): PieChart {
+public inline fun NodeContainer.pieChart(`data`: ObservableList<PieChart.Data> =
+        observableArrayList(), configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit):
+        PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)
     child.configuration()
@@ -87,7 +91,7 @@ public inline fun NodeContainer.styledPieChart(
  *
  * @return the styled control created.
  */
-public fun styledPieChart(
+public inline fun styledPieChart(
     `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +113,7 @@ public fun styledPieChart(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledPieChart(
+public inline fun NodeContainer.styledPieChart(
     `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

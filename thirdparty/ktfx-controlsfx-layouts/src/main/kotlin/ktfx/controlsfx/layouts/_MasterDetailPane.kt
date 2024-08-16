@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -35,7 +38,7 @@ public inline fun NodeContainer.masterDetailPane(detailSide: Side = RIGHT, showD
  *
  * @return the control created.
  */
-public fun masterDetailPane(
+public inline fun masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit,
@@ -52,7 +55,7 @@ public fun masterDetailPane(
  *
  * @return the control added.
  */
-public fun NodeContainer.masterDetailPane(
+public inline fun NodeContainer.masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit,
@@ -101,7 +104,7 @@ public inline fun NodeContainer.styledMasterDetailPane(
  *
  * @return the styled control created.
  */
-public fun styledMasterDetailPane(
+public inline fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -124,7 +127,7 @@ public fun styledMasterDetailPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMasterDetailPane(
+public inline fun NodeContainer.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,

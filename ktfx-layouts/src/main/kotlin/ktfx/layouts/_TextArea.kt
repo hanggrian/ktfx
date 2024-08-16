@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,8 +31,8 @@ public inline fun NodeContainer.textArea(text: String = ""): TextArea = textArea
  *
  * @return the control created.
  */
-public fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit):
-        TextArea {
+public inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+        TextArea).() -> Unit): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
     child.configuration()
@@ -42,7 +45,7 @@ public fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker Text
  *
  * @return the control added.
  */
-public fun NodeContainer.textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.textArea(text: String = "", configuration: (@KtfxLayoutDslMarker
         TextArea).() -> Unit): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
@@ -84,7 +87,7 @@ public inline fun NodeContainer.styledTextArea(
  *
  * @return the styled control created.
  */
-public fun styledTextArea(
+public inline fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +109,7 @@ public fun styledTextArea(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTextArea(
+public inline fun NodeContainer.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

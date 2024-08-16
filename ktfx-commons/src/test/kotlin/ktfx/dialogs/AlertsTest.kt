@@ -13,17 +13,15 @@ class AlertsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 ButtonType.YES,
-                alert("Alert title", sampleGraphic, "Message", ButtonType.YES) {
+                alert("Message", ButtonType.YES) {
+                    headerTitle = "Alert title"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
+                    assertEquals("Alert title", title)
                     assertEquals("Alert title", headerText)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Message", contentText)
-                }.get(),
-            )
-            assertEquals(
-                ButtonType.FINISH,
-                alert("Message", ButtonType.FINISH) {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Message", contentText)
                 }.get(),
             )
@@ -35,17 +33,15 @@ class AlertsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 ButtonType.OK,
-                infoAlert("Info title", sampleGraphic, "Message") {
+                infoAlert("Message") {
+                    headerTitle = "Info title"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Info title", headerText)
+                    assertEquals("Info title", title)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Message", contentText)
-                }.get(),
-            )
-            assertEquals(
-                ButtonType.OK,
-                infoAlert("Message") {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Message", contentText)
                 }.get(),
             )
@@ -57,17 +53,15 @@ class AlertsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 ButtonType.OK,
-                infoAlert("Warning title", sampleGraphic, "Message") {
+                infoAlert("Message") {
+                    headerTitle = "Warning title"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Warning title", headerText)
+                    assertEquals("Warning title", title)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Message", contentText)
-                }.get(),
-            )
-            assertEquals(
-                ButtonType.OK,
-                infoAlert("Message") {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Message", contentText)
                 }.get(),
             )
@@ -79,17 +73,15 @@ class AlertsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 ButtonType.OK,
-                confirmAlert("Confirm title", sampleGraphic, "Message") {
+                confirmAlert("Message") {
+                    headerTitle = "Confirm title"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Confirm title", headerText)
+                    assertEquals("Confirm title", title)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Message", contentText)
-                }.get(),
-            )
-            assertEquals(
-                ButtonType.OK,
-                confirmAlert("Message") {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Message", contentText)
                 }.get(),
             )
@@ -101,17 +93,15 @@ class AlertsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 ButtonType.OK,
-                errorAlert("Error title", sampleGraphic, "Message") {
+                errorAlert("Message") {
+                    headerTitle = "Error title"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Error title", headerText)
+                    assertEquals("Error title", title)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Message", contentText)
-                }.get(),
-            )
-            assertEquals(
-                ButtonType.OK,
-                errorAlert("Message") {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Message", contentText)
                 }.get(),
             )

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.pane(): Pane = pane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
+public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -41,7 +44,8 @@ public fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
+public inline fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
+        Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -76,7 +80,7 @@ public inline fun NodeContainer.styledPane(vararg styleClass: String, id: String
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledPane(
+public inline fun styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit,
@@ -97,7 +101,7 @@ public fun styledPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPane(
+public inline fun NodeContainer.styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit,

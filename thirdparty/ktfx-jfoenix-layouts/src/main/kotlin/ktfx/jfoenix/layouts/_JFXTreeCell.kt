@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun <T> NodeContainer.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell(
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit):
+public inline fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit):
         JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeCell<T>()
@@ -44,7 +47,7 @@ public fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxTreeCell(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.jfxTreeCell(configuration: (@KtfxLayoutDslMarker
         JFXTreeCell<T>).() -> Unit): JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeCell<T>()
@@ -80,7 +83,7 @@ public inline fun <T> NodeContainer.styledJfxTreeCell(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledJfxTreeCell(
+public inline fun <T> styledJfxTreeCell(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit,
@@ -101,7 +104,7 @@ public fun <T> styledJfxTreeCell(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJfxTreeCell(
+public inline fun <T> NodeContainer.styledJfxTreeCell(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit,

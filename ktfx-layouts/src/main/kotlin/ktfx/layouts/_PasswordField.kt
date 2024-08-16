@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.passwordField(): PasswordField = passwordField()
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
+public inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
         PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PasswordField()
@@ -42,7 +45,7 @@ public fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() 
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.passwordField(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.passwordField(configuration: (@KtfxLayoutDslMarker
         PasswordField).() -> Unit): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PasswordField()
@@ -78,7 +81,7 @@ public inline fun NodeContainer.styledPasswordField(vararg styleClass: String, i
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledPasswordField(
+public inline fun styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit,
@@ -99,7 +102,7 @@ public fun styledPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPasswordField(
+public inline fun NodeContainer.styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit,

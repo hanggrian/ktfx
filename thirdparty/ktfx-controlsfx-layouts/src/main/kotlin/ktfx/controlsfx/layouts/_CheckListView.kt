@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -33,7 +36,7 @@ public inline fun <T> NodeContainer.checkListView(items: ObservableList<T> = obs
  *
  * @return the control created.
  */
-public fun <T> checkListView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> checkListView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit): CheckListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckListView<T>(items)
@@ -47,7 +50,7 @@ public fun <T> checkListView(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.checkListView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit): CheckListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckListView<T>(items)
@@ -89,7 +92,7 @@ public inline fun <T> NodeContainer.styledCheckListView(
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckListView(
+public inline fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +114,7 @@ public fun <T> styledCheckListView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckListView(
+public inline fun <T> NodeContainer.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

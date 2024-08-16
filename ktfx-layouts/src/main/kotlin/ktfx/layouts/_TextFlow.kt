@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.textFlow(): TextFlow = textFlow() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit): TextFlow {
+public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
+        TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()
     child.configuration()
@@ -41,8 +45,8 @@ public fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
-        TextFlow {
+public inline fun NodeContainer.textFlow(configuration: (@KtfxLayoutDslMarker
+        KtfxTextFlow).() -> Unit): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()
     child.configuration()
@@ -77,7 +81,7 @@ public inline fun NodeContainer.styledTextFlow(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledTextFlow(
+public inline fun styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit,
@@ -98,7 +102,7 @@ public fun styledTextFlow(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledTextFlow(
+public inline fun NodeContainer.styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit,

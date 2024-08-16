@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.gridPane(): GridPane = gridPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
+public inline fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit):
+        GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()
     child.configuration()
@@ -41,8 +45,8 @@ public fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit):
-        GridPane {
+public inline fun NodeContainer.gridPane(configuration: (@KtfxLayoutDslMarker
+        KtfxGridPane).() -> Unit): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()
     child.configuration()
@@ -77,7 +81,7 @@ public inline fun NodeContainer.styledGridPane(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledGridPane(
+public inline fun styledGridPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit,
@@ -98,7 +102,7 @@ public fun styledGridPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledGridPane(
+public inline fun NodeContainer.styledGridPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit,

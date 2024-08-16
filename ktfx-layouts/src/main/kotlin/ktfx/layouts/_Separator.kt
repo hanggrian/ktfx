@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,8 +34,8 @@ public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL)
  *
  * @return the control created.
  */
-public fun separator(orientation: Orientation = HORIZONTAL, configuration: (@KtfxLayoutDslMarker
-        Separator).() -> Unit): Separator {
+public inline fun separator(orientation: Orientation = HORIZONTAL,
+        configuration: (@KtfxLayoutDslMarker Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
     child.configuration()
@@ -45,7 +48,7 @@ public fun separator(orientation: Orientation = HORIZONTAL, configuration: (@Ktf
  *
  * @return the control added.
  */
-public fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
+public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
         configuration: (@KtfxLayoutDslMarker Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledSeparator(
  *
  * @return the styled control created.
  */
-public fun styledSeparator(
+public inline fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledSeparator(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledSeparator(
+public inline fun NodeContainer.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,

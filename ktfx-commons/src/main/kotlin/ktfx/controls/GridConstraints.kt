@@ -15,11 +15,9 @@ import kotlin.contracts.contract
  *
  * @param configuration the configuration block.
  */
-public fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
+public inline fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    object : RowConstraintsScope {
-        override val constraints: ObservableList<RowConstraints> get() = rowConstraints
-    }.configuration()
+    RowConstraintsScope(rowConstraints).configuration()
 }
 
 /**
@@ -27,41 +25,45 @@ public fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit
  *
  * @param configuration the configuration block.
  */
-public fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit) {
+public inline fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    object : ColumnConstraintsScope {
-        override val constraints: ObservableList<ColumnConstraints> get() = columnConstraints
-    }.configuration()
+    ColumnConstraintsScope(columnConstraints).configuration()
 }
 
-/** [RowConstraints] configurator interface. */
-public interface RowConstraintsScope {
-    /** Constraints of this scope. */
-    public val constraints: ObservableList<RowConstraints>
-
+/**
+ * [RowConstraints] configurator interface.
+ *
+ * @param constraints constraints of this scope.
+ */
+public class RowConstraintsScope(public val constraints: ObservableList<RowConstraints>) {
     /** Add a default [RowConstraints], returning the constraints added. */
     public fun append(): RowConstraints = RowConstraints().also { constraints += it }
 
     /** Add a [RowConstraints] using [configuration] block, returning the constraints added. */
-    public fun append(configuration: RowConstraints.() -> Unit): RowConstraints =
-        RowConstraints().also {
+    public inline fun append(configuration: RowConstraints.() -> Unit): RowConstraints {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return RowConstraints().also {
             it.configuration()
             constraints += it
         }
+    }
 }
 
-/** [ColumnConstraints] configurator interface. */
-public interface ColumnConstraintsScope {
-    /** Constraints of this scope. */
-    public val constraints: ObservableList<ColumnConstraints>
-
+/**
+ * [ColumnConstraints] configurator interface.
+ *
+ * @property constraints constraints of this scope.
+ */
+public class ColumnConstraintsScope(public val constraints: ObservableList<ColumnConstraints>) {
     /** Add a default [ColumnConstraints], returning the constraints added. */
     public fun append(): ColumnConstraints = ColumnConstraints().also { constraints += it }
 
     /** Add a [ColumnConstraints] using [configuration] block, returning the constraints added. */
-    public fun append(configuration: ColumnConstraints.() -> Unit): ColumnConstraints =
-        ColumnConstraints().also {
+    public inline fun append(configuration: ColumnConstraints.() -> Unit): ColumnConstraints {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return ColumnConstraints().also {
             it.configuration()
             constraints += it
         }
+    }
 }

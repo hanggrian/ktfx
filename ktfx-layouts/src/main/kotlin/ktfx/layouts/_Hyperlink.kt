@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.hyperlink(text: String? = null, graphic: Node? =
  *
  * @return the control created.
  */
-public fun hyperlink(
+public inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
@@ -47,7 +50,7 @@ public fun hyperlink(
  *
  * @return the control added.
  */
-public fun NodeContainer.hyperlink(
+public inline fun NodeContainer.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
@@ -94,7 +97,7 @@ public inline fun NodeContainer.styledHyperlink(
  *
  * @return the styled control created.
  */
-public fun styledHyperlink(
+public inline fun styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +120,7 @@ public fun styledHyperlink(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledHyperlink(
+public inline fun NodeContainer.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

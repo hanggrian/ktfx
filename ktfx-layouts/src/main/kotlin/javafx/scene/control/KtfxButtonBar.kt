@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
@@ -20,6 +19,6 @@ public open class KtfxButtonBar(buttonOrder: String?) :
     /** Call [NodeContainer.button] by string invocation. */
     public inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline configuration: (@KtfxLayoutDslMarker Button).() -> Unit,
+        configuration: (@KtfxLayoutDslMarker Button).() -> Unit,
     ): Button = button(this, graphic, configuration)
 }

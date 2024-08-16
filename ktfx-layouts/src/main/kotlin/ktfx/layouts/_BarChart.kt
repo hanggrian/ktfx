@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -38,7 +41,7 @@ public inline fun <X, Y> NodeContainer.barChart(
  *
  * @return the control created.
  */
-public fun <X, Y> barChart(
+public inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -57,7 +60,7 @@ public fun <X, Y> barChart(
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.barChart(
+public inline fun <X, Y> NodeContainer.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -112,7 +115,7 @@ public inline fun <X, Y> NodeContainer.styledBarChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledBarChart(
+public inline fun <X, Y> styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -137,7 +140,7 @@ public fun <X, Y> styledBarChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledBarChart(
+public inline fun <X, Y> NodeContainer.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

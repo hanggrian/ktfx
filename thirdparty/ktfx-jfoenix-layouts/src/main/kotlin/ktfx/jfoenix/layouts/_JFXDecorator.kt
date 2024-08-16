@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -40,7 +43,7 @@ public inline fun NodeContainer.jfxDecorator(
  *
  * @return the control created.
  */
-public fun jfxDecorator(
+public inline fun jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -60,7 +63,7 @@ public fun jfxDecorator(
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxDecorator(
+public inline fun NodeContainer.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -118,7 +121,7 @@ public inline fun NodeContainer.styledJfxDecorator(
  *
  * @return the styled control created.
  */
-public fun styledJfxDecorator(
+public inline fun styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -144,7 +147,7 @@ public fun styledJfxDecorator(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxDecorator(
+public inline fun NodeContainer.styledJfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <S> NodeContainer.tableView(items: ObservableList<S> = observa
  *
  * @return the control created.
  */
-public fun <S> tableView(items: ObservableList<S> = observableArrayList(),
+public inline fun <S> tableView(items: ObservableList<S> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -45,7 +48,7 @@ public fun <S> tableView(items: ObservableList<S> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <S> NodeContainer.tableView(items: ObservableList<S> = observableArrayList(),
+public inline fun <S> NodeContainer.tableView(items: ObservableList<S> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -87,7 +90,7 @@ public inline fun <S> NodeContainer.styledTableView(
  *
  * @return the styled control created.
  */
-public fun <S> styledTableView(
+public inline fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun <S> styledTableView(
  *
  * @return the styled control added.
  */
-public fun <S> NodeContainer.styledTableView(
+public inline fun <S> NodeContainer.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

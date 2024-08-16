@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -29,8 +32,8 @@ public inline fun NodeContainer.imageView(imageUrl: String): ImageView = imageVi
  *
  * @return the control created.
  */
-public fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit):
-        ImageView {
+public inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
+        ImageView).() -> Unit): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
     child.configuration()
@@ -43,7 +46,7 @@ public fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker Imag
  *
  * @return the control added.
  */
-public fun NodeContainer.imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker
         ImageView).() -> Unit): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
@@ -85,7 +88,7 @@ public inline fun NodeContainer.styledImageView(
  *
  * @return the styled control created.
  */
-public fun styledImageView(
+public inline fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +110,7 @@ public fun styledImageView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledImageView(
+public inline fun NodeContainer.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,

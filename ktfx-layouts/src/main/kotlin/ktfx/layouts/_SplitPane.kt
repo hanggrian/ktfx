@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.splitPane(): SplitPane = splitPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
+public inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
+        SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitPane()
     child.configuration()
@@ -41,8 +45,8 @@ public fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
-        SplitPane {
+public inline fun NodeContainer.splitPane(configuration: (@KtfxLayoutDslMarker
+        KtfxSplitPane).() -> Unit): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitPane()
     child.configuration()
@@ -77,7 +81,7 @@ public inline fun NodeContainer.styledSplitPane(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSplitPane(
+public inline fun styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit,
@@ -98,7 +102,7 @@ public fun styledSplitPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSplitPane(
+public inline fun NodeContainer.styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit,

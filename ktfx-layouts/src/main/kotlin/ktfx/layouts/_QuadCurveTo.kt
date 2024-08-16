@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -33,7 +36,7 @@ public inline fun PathElementContainer.quadCurveTo(
  *
  * @return the control created.
  */
-public fun quadCurveTo(
+public inline fun quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -52,7 +55,7 @@ public fun quadCurveTo(
  *
  * @return the control added.
  */
-public fun PathElementContainer.quadCurveTo(
+public inline fun PathElementContainer.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -34,7 +37,7 @@ public inline fun NodeContainer.box(
  *
  * @return the control created.
  */
-public fun box(
+public inline fun box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -52,7 +55,7 @@ public fun box(
  *
  * @return the control added.
  */
-public fun NodeContainer.box(
+public inline fun NodeContainer.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -104,7 +107,7 @@ public inline fun NodeContainer.styledBox(
  *
  * @return the styled control created.
  */
-public fun styledBox(
+public inline fun styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -128,7 +131,7 @@ public fun styledBox(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledBox(
+public inline fun NodeContainer.styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,

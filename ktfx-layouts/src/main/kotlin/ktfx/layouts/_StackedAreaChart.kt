@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -36,7 +39,7 @@ public inline fun <X, Y> NodeContainer.stackedAreaChart(
  *
  * @return the control created.
  */
-public fun <X, Y> stackedAreaChart(
+public inline fun <X, Y> stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +57,7 @@ public fun <X, Y> stackedAreaChart(
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.stackedAreaChart(
+public inline fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -106,7 +109,7 @@ public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledStackedAreaChart(
+public inline fun <X, Y> styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +133,7 @@ public fun <X, Y> styledStackedAreaChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledStackedAreaChart(
+public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

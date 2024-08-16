@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.flowPane(orientation: Orientation = HORIZONTAL, 
  *
  * @return the control created.
  */
-public fun flowPane(
+public inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
@@ -49,7 +52,7 @@ public fun flowPane(
  *
  * @return the control added.
  */
-public fun NodeContainer.flowPane(
+public inline fun NodeContainer.flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
@@ -98,7 +101,7 @@ public inline fun NodeContainer.styledFlowPane(
  *
  * @return the styled control created.
  */
-public fun styledFlowPane(
+public inline fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -121,7 +124,7 @@ public fun styledFlowPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledFlowPane(
+public inline fun NodeContainer.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,

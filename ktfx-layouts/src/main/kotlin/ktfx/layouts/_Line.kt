@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -34,7 +37,7 @@ public inline fun NodeContainer.line(
  *
  * @return the control created.
  */
-public fun line(
+public inline fun line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -53,7 +56,7 @@ public fun line(
  *
  * @return the control added.
  */
-public fun NodeContainer.line(
+public inline fun NodeContainer.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -108,7 +111,7 @@ public inline fun NodeContainer.styledLine(
  *
  * @return the styled control created.
  */
-public fun styledLine(
+public inline fun styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -133,7 +136,7 @@ public fun styledLine(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledLine(
+public inline fun NodeContainer.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

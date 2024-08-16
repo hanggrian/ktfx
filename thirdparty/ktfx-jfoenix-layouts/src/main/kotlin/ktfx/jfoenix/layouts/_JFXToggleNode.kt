@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -41,7 +44,7 @@ public inline fun ToggleButtonContainer.jfxToggleNode(graphic: Node? = null): JF
  *
  * @return the control created.
  */
-public fun jfxToggleNode(graphic: Node? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun jfxToggleNode(graphic: Node? = null, configuration: (@KtfxLayoutDslMarker
         JFXToggleNode).() -> Unit): JFXToggleNode {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleNode(graphic)
@@ -55,8 +58,8 @@ public fun jfxToggleNode(graphic: Node? = null, configuration: (@KtfxLayoutDslMa
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxToggleNode(graphic: Node? = null, configuration: (@KtfxLayoutDslMarker
-        JFXToggleNode).() -> Unit): JFXToggleNode {
+public inline fun NodeContainer.jfxToggleNode(graphic: Node? = null,
+        configuration: (@KtfxLayoutDslMarker JFXToggleNode).() -> Unit): JFXToggleNode {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleNode(graphic)
     child.configuration()
@@ -69,7 +72,7 @@ public fun NodeContainer.jfxToggleNode(graphic: Node? = null, configuration: (@K
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.jfxToggleNode(graphic: Node? = null,
+public inline fun ToggleButtonContainer.jfxToggleNode(graphic: Node? = null,
         configuration: (@KtfxLayoutDslMarker JFXToggleNode).() -> Unit): JFXToggleNode {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleNode(graphic)
@@ -124,7 +127,7 @@ public inline fun ToggleButtonContainer.styledJfxToggleNode(
  *
  * @return the styled control created.
  */
-public fun styledJfxToggleNode(
+public inline fun styledJfxToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -146,7 +149,7 @@ public fun styledJfxToggleNode(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxToggleNode(
+public inline fun NodeContainer.styledJfxToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -168,7 +171,7 @@ public fun NodeContainer.styledJfxToggleNode(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledJfxToggleNode(
+public inline fun ToggleButtonContainer.styledJfxToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,

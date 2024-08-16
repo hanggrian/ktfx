@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.menuButton(text: String? = null, graphic: Node? 
  *
  * @return the control created.
  */
-public fun menuButton(
+public inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
@@ -47,7 +50,7 @@ public fun menuButton(
  *
  * @return the control added.
  */
-public fun NodeContainer.menuButton(
+public inline fun NodeContainer.menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun NodeContainer.styledMenuButton(
  *
  * @return the styled control created.
  */
-public fun styledMenuButton(
+public inline fun styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun styledMenuButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMenuButton(
+public inline fun NodeContainer.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

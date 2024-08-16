@@ -2,6 +2,7 @@ package com.hanggrian.ktfx.codegen.coroutines
 
 import com.hanggrian.kotlinpoet.add
 import com.hanggrian.kotlinpoet.buildFileSpec
+import com.hanggrian.kotlinpoet.classNamed
 import com.hanggrian.kotlinpoet.generics
 import com.hanggrian.kotlinpoet.name
 import com.hanggrian.ktfx.codegen.toString
@@ -26,6 +27,10 @@ object CoroutinesWriter {
                     }
                     JvmName::class.name {
                         addMember("%S", factory.className)
+                        useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
+                    }
+                    add(classNamed("kotlin", "OptIn")) {
+                        addMember("%L", "DelicateCoroutinesApi::class")
                         useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
                     }
                 }

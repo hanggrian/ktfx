@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -39,7 +42,7 @@ public inline fun NodeContainer.cubicCurve(
  *
  * @return the control created.
  */
-public fun cubicCurve(
+public inline fun cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -62,7 +65,7 @@ public fun cubicCurve(
  *
  * @return the control added.
  */
-public fun NodeContainer.cubicCurve(
+public inline fun NodeContainer.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -131,7 +134,7 @@ public inline fun NodeContainer.styledCubicCurve(
  *
  * @return the styled control created.
  */
-public fun styledCubicCurve(
+public inline fun styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -160,7 +163,7 @@ public fun styledCubicCurve(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCubicCurve(
+public inline fun NodeContainer.styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,

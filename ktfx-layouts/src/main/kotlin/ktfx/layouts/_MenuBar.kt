@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.menuBar(): MenuBar = menuBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
+public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
     child.configuration()
@@ -41,8 +44,8 @@ public fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
-        MenuBar {
+public inline fun NodeContainer.menuBar(configuration: (@KtfxLayoutDslMarker
+        KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
     child.configuration()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledMenuBar(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledMenuBar(
+public inline fun styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledMenuBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledMenuBar(
+public inline fun NodeContainer.styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit,

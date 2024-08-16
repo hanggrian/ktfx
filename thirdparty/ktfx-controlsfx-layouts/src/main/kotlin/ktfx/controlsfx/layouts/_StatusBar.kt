@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.statusBar(): StatusBar = statusBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit): StatusBar {
+public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StatusBar()
     child.configuration()
@@ -43,8 +46,8 @@ public fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit):
-        StatusBar {
+public inline fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker
+        StatusBar).() -> Unit): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StatusBar()
     child.configuration()
@@ -79,7 +82,7 @@ public inline fun NodeContainer.styledStatusBar(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledStatusBar(
+public inline fun styledStatusBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,
@@ -100,7 +103,7 @@ public fun styledStatusBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledStatusBar(
+public inline fun NodeContainer.styledStatusBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,

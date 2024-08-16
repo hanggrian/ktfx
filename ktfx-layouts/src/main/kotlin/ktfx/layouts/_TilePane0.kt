@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -35,7 +38,7 @@ public inline fun NodeContainer.tilePane(
  *
  * @return the control created.
  */
-public fun tilePane(
+public inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -53,7 +56,7 @@ public fun tilePane(
  *
  * @return the control added.
  */
-public fun NodeContainer.tilePane(
+public inline fun NodeContainer.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -105,7 +108,7 @@ public inline fun NodeContainer.styledTilePane(
  *
  * @return the styled control created.
  */
-public fun styledTilePane(
+public inline fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -129,7 +132,7 @@ public fun styledTilePane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTilePane(
+public inline fun NodeContainer.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

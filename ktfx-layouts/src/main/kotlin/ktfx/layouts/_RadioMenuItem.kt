@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun MenuItemContainer.radioMenuItem(text: String? = null, graphic:
  *
  * @return the control created.
  */
-public fun radioMenuItem(
+public inline fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
@@ -47,7 +50,7 @@ public fun radioMenuItem(
  *
  * @return the control added.
  */
-public fun MenuItemContainer.radioMenuItem(
+public inline fun MenuItemContainer.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun MenuItemContainer.styledRadioMenuItem(
  *
  * @return the styled control created.
  */
-public fun styledRadioMenuItem(
+public inline fun styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun styledRadioMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledRadioMenuItem(
+public inline fun MenuItemContainer.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.jfxClippedPane(): JFXClippedPane = jfxClippedPan
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxClippedPane(configuration: (@KtfxLayoutDslMarker KtfxJfxClippedPane).() -> Unit):
-        JFXClippedPane {
+public inline fun jfxClippedPane(configuration: (@KtfxLayoutDslMarker
+        KtfxJfxClippedPane).() -> Unit): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxClippedPane()
     child.configuration()
@@ -44,7 +47,7 @@ public fun jfxClippedPane(configuration: (@KtfxLayoutDslMarker KtfxJfxClippedPan
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxClippedPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxClippedPane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxClippedPane).() -> Unit): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxClippedPane()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxClippedPane(vararg styleClass: String, 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxClippedPane(
+public inline fun styledJfxClippedPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxClippedPane).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxClippedPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxClippedPane(
+public inline fun NodeContainer.styledJfxClippedPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxClippedPane).() -> Unit,

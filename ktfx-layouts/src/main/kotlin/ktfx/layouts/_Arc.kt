@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -37,7 +40,7 @@ public inline fun NodeContainer.arc(
  *
  * @return the control created.
  */
-public fun arc(
+public inline fun arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -58,7 +61,7 @@ public fun arc(
  *
  * @return the control added.
  */
-public fun NodeContainer.arc(
+public inline fun NodeContainer.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -119,7 +122,7 @@ public inline fun NodeContainer.styledArc(
  *
  * @return the styled control created.
  */
-public fun styledArc(
+public inline fun styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -146,7 +149,7 @@ public fun styledArc(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledArc(
+public inline fun NodeContainer.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

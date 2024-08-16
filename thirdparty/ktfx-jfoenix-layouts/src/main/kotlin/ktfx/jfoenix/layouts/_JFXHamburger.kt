@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.jfxHamburger(): JFXHamburger = jfxHamburger() { 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit):
+public inline fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit):
         JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXHamburger()
@@ -44,7 +47,7 @@ public fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxHamburger(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxHamburger(configuration: (@KtfxLayoutDslMarker
         JFXHamburger).() -> Unit): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXHamburger()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxHamburger(vararg styleClass: String, id
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxHamburger(
+public inline fun styledJfxHamburger(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxHamburger(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxHamburger(
+public inline fun NodeContainer.styledJfxHamburger(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit,

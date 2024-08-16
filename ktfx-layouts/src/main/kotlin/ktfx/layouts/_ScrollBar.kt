@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.scrollBar(): ScrollBar = scrollBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
+public inline fun scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ScrollBar()
     child.configuration()
@@ -41,8 +44,8 @@ public fun scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit):
-        ScrollBar {
+public inline fun NodeContainer.scrollBar(configuration: (@KtfxLayoutDslMarker
+        ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ScrollBar()
     child.configuration()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledScrollBar(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledScrollBar(
+public inline fun styledScrollBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledScrollBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledScrollBar(
+public inline fun NodeContainer.styledScrollBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit,

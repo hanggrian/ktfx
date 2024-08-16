@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null): JFXTimeP
  *
  * @return the control created.
  */
-public fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
         JFXTimePicker).() -> Unit): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
@@ -46,8 +49,8 @@ public fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDsl
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLayoutDslMarker
-        JFXTimePicker).() -> Unit): JFXTimePicker {
+public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null,
+        configuration: (@KtfxLayoutDslMarker JFXTimePicker).() -> Unit): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
     child.configuration()
@@ -88,7 +91,7 @@ public inline fun NodeContainer.styledJfxTimePicker(
  *
  * @return the styled control created.
  */
-public fun styledJfxTimePicker(
+public inline fun styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ public fun styledJfxTimePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxTimePicker(
+public inline fun NodeContainer.styledJfxTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,

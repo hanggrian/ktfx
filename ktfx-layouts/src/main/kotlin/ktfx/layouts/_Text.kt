@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.text(text: String? = null): Text = text(text = t
  *
  * @return the control created.
  */
-public fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit): Text {
+public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit):
+        Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
     child.configuration()
@@ -41,7 +45,7 @@ public fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text)
  *
  * @return the control added.
  */
-public fun NodeContainer.text(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.text(text: String? = null, configuration: (@KtfxLayoutDslMarker
         Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
@@ -83,7 +87,7 @@ public inline fun NodeContainer.styledText(
  *
  * @return the styled control created.
  */
-public fun styledText(
+public inline fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -105,7 +109,7 @@ public fun styledText(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledText(
+public inline fun NodeContainer.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

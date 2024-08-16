@@ -1,85 +1,44 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.controlsfx.dialogs
 
-import javafx.scene.Node
 import javafx.scene.control.ButtonType
-import javafx.scene.image.ImageView
-import ktfx.dialogs.graphicIcon
-import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.CommandLinksDialog
 import java.util.Optional
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
- * Build a command links dialog with Kotlin DSL.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param links actual buttons.
- * @param dialogAction custom dialog action.
- * @return selected dialog button.
- */
-public fun commandLinksDialog(
-    title: String? = null,
-    graphic: Node? = null,
-    vararg links: CommandLinksDialog.CommandLinksButtonType,
-    dialogAction: (CommandLinksDialog.() -> Unit)? = null,
-): Optional<ButtonType> =
-    CommandLinksDialog(*links)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            dialogAction?.invoke(dialog)
-        }.showAndWait()
-
-/**
- * Build a command links dialog with Kotlin DSL.
+ * Build a command links dialog.
  *
  * @param links actual buttons.
- * @param dialogAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected dialog button.
  */
 public inline fun commandLinksDialog(
     vararg links: CommandLinksDialog.CommandLinksButtonType,
-    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
-): Optional<ButtonType> = commandLinksDialog(null, null, *links, dialogAction = dialogAction)
+    configuration: CommandLinksDialog.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CommandLinksDialog(*links)
+        .apply(configuration)
+        .showAndWait()
+}
 
 /**
- * Build a command links dialog with Kotlin DSL.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param links actual buttons.
- * @param dialogAction custom dialog action.
- * @return selected dialog button.
- */
-public fun commandLinksDialog(
-    title: String? = null,
-    graphic: Node? = null,
-    links: List<CommandLinksDialog.CommandLinksButtonType>,
-    dialogAction: (CommandLinksDialog.() -> Unit)? = null,
-): Optional<ButtonType> =
-    CommandLinksDialog(links)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            dialogAction?.invoke(dialog)
-        }.showAndWait()
-
-/**
- * Build a command links dialog with Kotlin DSL.
+ * Build a command links dialog.
  *
  * @param links actual buttons.
- * @param dialogAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected dialog button.
  */
 public inline fun commandLinksDialog(
     links: List<CommandLinksDialog.CommandLinksButtonType>,
-    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
-): Optional<ButtonType> = commandLinksDialog(null, null, links, dialogAction = dialogAction)
+    configuration: CommandLinksDialog.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CommandLinksDialog(links)
+        .apply(configuration)
+        .showAndWait()
+}

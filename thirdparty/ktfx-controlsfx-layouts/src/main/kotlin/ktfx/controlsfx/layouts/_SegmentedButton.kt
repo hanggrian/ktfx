@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.segmentedButton(): SegmentedButton = segmentedBu
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun segmentedButton(configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit):
-        SegmentedButton {
+public inline fun segmentedButton(configuration: (@KtfxLayoutDslMarker
+        KtfxSegmentedButton).() -> Unit): SegmentedButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSegmentedButton()
     child.configuration()
@@ -44,7 +47,7 @@ public fun segmentedButton(configuration: (@KtfxLayoutDslMarker KtfxSegmentedBut
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.segmentedButton(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.segmentedButton(configuration: (@KtfxLayoutDslMarker
         KtfxSegmentedButton).() -> Unit): SegmentedButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSegmentedButton()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledSegmentedButton(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSegmentedButton(
+public inline fun styledSegmentedButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledSegmentedButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSegmentedButton(
+public inline fun NodeContainer.styledSegmentedButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit,

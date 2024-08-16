@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,8 @@ public inline fun NodeContainer.maskerPane(): MaskerPane = maskerPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit): MaskerPane {
+public inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit):
+        MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MaskerPane()
     child.configuration()
@@ -43,8 +47,8 @@ public fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit):
-        MaskerPane {
+public inline fun NodeContainer.maskerPane(configuration: (@KtfxLayoutDslMarker
+        MaskerPane).() -> Unit): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MaskerPane()
     child.configuration()
@@ -79,7 +83,7 @@ public inline fun NodeContainer.styledMaskerPane(vararg styleClass: String, id: 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledMaskerPane(
+public inline fun styledMaskerPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit,
@@ -100,7 +104,7 @@ public fun styledMaskerPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledMaskerPane(
+public inline fun NodeContainer.styledMaskerPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit,

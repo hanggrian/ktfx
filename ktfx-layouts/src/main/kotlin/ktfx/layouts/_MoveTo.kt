@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -29,7 +32,7 @@ public inline fun PathElementContainer.moveTo(x: Double = 0.0, y: Double = 0.0):
  *
  * @return the control created.
  */
-public fun moveTo(
+public inline fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit,
@@ -46,7 +49,7 @@ public fun moveTo(
  *
  * @return the control added.
  */
-public fun PathElementContainer.moveTo(
+public inline fun PathElementContainer.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit,

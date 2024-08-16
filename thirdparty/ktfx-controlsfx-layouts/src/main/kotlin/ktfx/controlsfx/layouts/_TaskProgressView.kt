@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun <T : Task<*>> NodeContainer.taskProgressView(): TaskProgressVi
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T : Task<*>> taskProgressView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T : Task<*>> taskProgressView(configuration: (@KtfxLayoutDslMarker
         TaskProgressView<T>).() -> Unit): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TaskProgressView<T>()
@@ -46,7 +49,7 @@ public fun <T : Task<*>> taskProgressView(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T : Task<*>> NodeContainer.taskProgressView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T : Task<*>> NodeContainer.taskProgressView(configuration: (@KtfxLayoutDslMarker
         TaskProgressView<T>).() -> Unit): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TaskProgressView<T>()
@@ -83,7 +86,7 @@ public inline fun <T : Task<*>> NodeContainer.styledTaskProgressView(vararg styl
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T : Task<*>> styledTaskProgressView(
+public inline fun <T : Task<*>> styledTaskProgressView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TaskProgressView<T>).() -> Unit,
@@ -104,7 +107,7 @@ public fun <T : Task<*>> styledTaskProgressView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T : Task<*>> NodeContainer.styledTaskProgressView(
+public inline fun <T : Task<*>> NodeContainer.styledTaskProgressView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TaskProgressView<T>).() -> Unit,

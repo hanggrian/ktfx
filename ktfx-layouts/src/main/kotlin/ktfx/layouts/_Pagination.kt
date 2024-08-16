@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, curre
  *
  * @return the control created.
  */
-public fun pagination(
+public inline fun pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
@@ -48,7 +51,7 @@ public fun pagination(
  *
  * @return the control added.
  */
-public fun NodeContainer.pagination(
+public inline fun NodeContainer.pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
@@ -97,7 +100,7 @@ public inline fun NodeContainer.styledPagination(
  *
  * @return the styled control created.
  */
-public fun styledPagination(
+public inline fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -120,7 +123,7 @@ public fun styledPagination(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledPagination(
+public inline fun NodeContainer.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,

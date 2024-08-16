@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,8 +31,8 @@ public inline fun PathElementContainer.vlineTo(y: Double = 0.0): VLineTo = vline
  *
  * @return the control created.
  */
-public fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker VLineTo).() -> Unit):
-        VLineTo {
+public inline fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+        VLineTo).() -> Unit): VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = VLineTo(y)
     child.configuration()
@@ -42,7 +45,7 @@ public fun vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker VLineTo
  *
  * @return the control added.
  */
-public fun PathElementContainer.vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public inline fun PathElementContainer.vlineTo(y: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         VLineTo).() -> Unit): VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = VLineTo(y)

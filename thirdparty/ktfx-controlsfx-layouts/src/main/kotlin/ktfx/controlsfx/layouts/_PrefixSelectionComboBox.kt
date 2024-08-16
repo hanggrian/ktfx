@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T> NodeContainer.prefixSelectionComboBox(): PrefixSelectionCo
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>).() -> Unit): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionComboBox<T>()
@@ -45,7 +48,7 @@ public fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>).() -> Unit): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionComboBox<T>()
@@ -83,7 +86,7 @@ public inline fun <T> NodeContainer.styledPrefixSelectionComboBox(vararg styleCl
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledPrefixSelectionComboBox(
+public inline fun <T> styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit,
@@ -104,7 +107,7 @@ public fun <T> styledPrefixSelectionComboBox(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledPrefixSelectionComboBox(
+public inline fun <T> NodeContainer.styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit,

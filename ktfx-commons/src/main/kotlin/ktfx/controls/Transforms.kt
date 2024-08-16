@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controls
 
 import javafx.scene.Node
@@ -6,6 +8,9 @@ import javafx.scene.transform.Rotate
 import javafx.scene.transform.Scale
 import javafx.scene.transform.Shear
 import javafx.scene.transform.Translate
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Adds [Affine] transformation.
@@ -13,11 +18,13 @@ import javafx.scene.transform.Translate
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-public fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine =
-    Affine().also {
+public fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Affine().also {
         it.configuration()
         transforms += it
     }
+}
 
 /**
  * Adds [Rotate] transformation.
@@ -25,11 +32,13 @@ public fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine =
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-public fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate =
-    Rotate().also {
+public fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Rotate().also {
         it.configuration()
         transforms += it
     }
+}
 
 /**
  * Adds [Scale] transformation.
@@ -37,11 +46,13 @@ public fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate =
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-public fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale =
-    Scale().also {
+public fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Scale().also {
         it.configuration()
         transforms += it
     }
+}
 
 /**
  * Adds [Shear] transformation.
@@ -49,11 +60,13 @@ public fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale =
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-public fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear =
-    Shear().also {
+public fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Shear().also {
         it.configuration()
         transforms += it
     }
+}
 
 /**
  * Adds [Translate] transformation.
@@ -61,8 +74,10 @@ public fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear =
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-public fun Node.translateTransformation(configuration: Translate.() -> Unit): Translate =
-    Translate().also {
+public fun Node.translateTransformation(configuration: Translate.() -> Unit): Translate {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Translate().also {
         it.configuration()
         transforms += it
     }
+}

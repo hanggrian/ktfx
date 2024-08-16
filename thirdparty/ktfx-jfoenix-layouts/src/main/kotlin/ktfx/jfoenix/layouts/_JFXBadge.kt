@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,8 @@ public inline fun NodeContainer.jfxBadge(): JFXBadge = jfxBadge() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Unit): JFXBadge {
+public inline fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Unit):
+        JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxBadge()
     child.configuration()
@@ -43,8 +47,8 @@ public fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Unit):
-        JFXBadge {
+public inline fun NodeContainer.jfxBadge(configuration: (@KtfxLayoutDslMarker
+        KtfxJfxBadge).() -> Unit): JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxBadge()
     child.configuration()
@@ -79,7 +83,7 @@ public inline fun NodeContainer.styledJfxBadge(vararg styleClass: String, id: St
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxBadge(
+public inline fun styledJfxBadge(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Unit,
@@ -100,7 +104,7 @@ public fun styledJfxBadge(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxBadge(
+public inline fun NodeContainer.styledJfxBadge(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxBadge).() -> Unit,

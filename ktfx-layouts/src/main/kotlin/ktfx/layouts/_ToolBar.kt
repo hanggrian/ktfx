@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.toolBar(): ToolBar = toolBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
+public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
     child.configuration()
@@ -41,8 +44,8 @@ public fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
-        ToolBar {
+public inline fun NodeContainer.toolBar(configuration: (@KtfxLayoutDslMarker
+        KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
     child.configuration()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledToolBar(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledToolBar(
+public inline fun styledToolBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledToolBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledToolBar(
+public inline fun NodeContainer.styledToolBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit,

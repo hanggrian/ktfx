@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker =
  *
  * @return the control created.
  */
-public fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
+public inline fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
         ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
@@ -45,8 +48,8 @@ public fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public fun NodeContainer.colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
-        ColorPicker).() -> Unit): ColorPicker {
+public inline fun NodeContainer.colorPicker(color: Color = WHITE,
+        configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
     child.configuration()
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledColorPicker(
  *
  * @return the styled control created.
  */
-public fun styledColorPicker(
+public inline fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledColorPicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledColorPicker(
+public inline fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

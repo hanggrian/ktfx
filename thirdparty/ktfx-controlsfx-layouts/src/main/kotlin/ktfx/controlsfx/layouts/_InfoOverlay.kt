@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.infoOverlay(content: Node? = null, text: String?
  *
  * @return the control created.
  */
-public fun infoOverlay(
+public inline fun infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
@@ -49,7 +52,7 @@ public fun infoOverlay(
  *
  * @return the control added.
  */
-public fun NodeContainer.infoOverlay(
+public inline fun NodeContainer.infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
@@ -98,7 +101,7 @@ public inline fun NodeContainer.styledInfoOverlay(
  *
  * @return the styled control created.
  */
-public fun styledInfoOverlay(
+public inline fun styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -121,7 +124,7 @@ public fun styledInfoOverlay(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledInfoOverlay(
+public inline fun NodeContainer.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,

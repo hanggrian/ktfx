@@ -1,6 +1,9 @@
 package ktfx.controlsfx.dialogs
 
 import com.hanggrian.ktfx.test.DialogShowingTest
+import ktfx.dialogs.graphicIcon
+import ktfx.dialogs.headerTitle
+import ktfx.dialogs.icon
 import ktfx.toFxPair
 import kotlin.test.Ignore
 import kotlin.test.Test
@@ -15,10 +18,15 @@ class LoginDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 userInfo.toFxPair(),
-                loginDialog("Login dialog", sampleGraphic, userInfo, { }) {
+                loginDialog(userInfo, { }) {
+                    headerTitle = "Login dialog"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Login dialog", headerText)
+                    assertEquals("Login dialog", title)
                     assertEquals(sampleGraphic, graphic)
+                    assertEquals(sampleGraphic.image, icon)
                 }.get(),
             )
             assertEquals(

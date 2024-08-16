@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -35,7 +38,7 @@ public inline fun NodeContainer.circle(
  *
  * @return the control created.
  */
-public fun circle(
+public inline fun circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -54,7 +57,7 @@ public fun circle(
  *
  * @return the control added.
  */
-public fun NodeContainer.circle(
+public inline fun NodeContainer.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -109,7 +112,7 @@ public inline fun NodeContainer.styledCircle(
  *
  * @return the styled control created.
  */
-public fun styledCircle(
+public inline fun styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -134,7 +137,7 @@ public fun styledCircle(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCircle(
+public inline fun NodeContainer.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

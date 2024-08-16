@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -14,6 +16,9 @@ import javafx.scene.paint.Paint
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Builds new border with multiple [BorderStroke] and/or [BorderImage].
@@ -21,8 +26,10 @@ import kotlin.DeprecationLevel.ERROR
  * @param builderAction populate newly created stroke and/or image.
  * @return created border.
  */
-public inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
-    BorderBuilder().apply(builderAction).build()
+public inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return BorderBuilder().apply(builderAction).build()
+}
 
 /**
  * Sets new border with single [BorderStroke].
@@ -30,8 +37,12 @@ public inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
  * @param builderAction stroke configurator.
  * @return applied border.
  */
-public fun Region.strokeBorder(builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
-    border { stroke(builderAction) }
+public inline fun Region.strokeBorder(
+    builderAction: BorderBuilder.StrokeBuilder.() -> Unit,
+): Border {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return border { stroke(builderAction) }
+}
 
 /**
  * Sets new border with single [BorderImage].
@@ -39,10 +50,13 @@ public fun Region.strokeBorder(builderAction: BorderBuilder.StrokeBuilder.() -> 
  * @param builderAction image configurator.
  * @return applied border.
  */
-public fun Region.imageBorder(
+public inline fun Region.imageBorder(
     image: Image,
     builderAction: BorderBuilder.ImageBuilder.() -> Unit,
-): Border = border { image(image, builderAction) }
+): Border {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return border { image(image, builderAction) }
+}
 
 /**
  * Sets new border with multiple [BorderStroke] and/or [BorderImage].
@@ -50,8 +64,10 @@ public fun Region.imageBorder(
  * @param builderAction populate newly created stroke and/or image.
  * @return applied border.
  */
-public fun Region.border(builderAction: BorderBuilder.() -> Unit): Border =
-    buildBorder(builderAction).also { border = it }
+public inline fun Region.border(builderAction: BorderBuilder.() -> Unit): Border {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return buildBorder(builderAction).also { border = it }
+}
 
 /** Border configurator class. */
 public class BorderBuilder {
@@ -67,8 +83,10 @@ public class BorderBuilder {
      * @param builderAction stroke configurator.
      * @return added stroke.
      */
-    public fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
-        StrokeBuilder().apply(builderAction).build().also { strokes += it }
+    public inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke {
+        contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+        return StrokeBuilder().apply(builderAction).build().also { strokes += it }
+    }
 
     /**
      * Append a [BorderImage].
@@ -76,8 +94,10 @@ public class BorderBuilder {
      * @param builderAction image configurator.
      * @return added image.
      */
-    public fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
-        ImageBuilder(image).apply(builderAction).build().also { images += it }
+    public inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage {
+        contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+        return ImageBuilder(image).apply(builderAction).build().also { images += it }
+    }
 
     /** Return border based on current configuration. */
     public fun build(): Border = Border(strokes, images)

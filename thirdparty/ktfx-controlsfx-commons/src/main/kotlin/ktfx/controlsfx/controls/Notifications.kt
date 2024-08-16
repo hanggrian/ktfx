@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controlsfx.controls
 
 import javafx.event.ActionEvent
@@ -9,21 +11,28 @@ import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.control.Notifications
 import org.controlsfx.control.action.Action
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Build notifications with Kotlin DSL. */
-public fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
-    NotificationsBuilder().apply(builderAction).nativeNotifications
+public inline fun buildNotifications(
+    builderAction: NotificationsBuilder.() -> Unit,
+): Notifications {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return NotificationsBuilder().apply(builderAction).notifications
+}
 
 /** Supporting class to use [Notifications] with DSL. */
-public class NotificationsBuilder internal constructor() {
-    internal val nativeNotifications: Notifications = Notifications.create()
+public class NotificationsBuilder {
+    public val notifications: Notifications = Notifications.create()
 
     /** Specify the text to show in the notification. */
     public var text: String
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.text(value)
+            notifications.text(value)
         }
 
     /** Specify the title to show in the notification. */
@@ -31,7 +40,7 @@ public class NotificationsBuilder internal constructor() {
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.title(value)
+            notifications.title(value)
         }
 
     /** Specify the graphic to show in the notification. */
@@ -39,7 +48,7 @@ public class NotificationsBuilder internal constructor() {
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.graphic(value)
+            notifications.graphic(value)
         }
 
     /** Specify the position of the notification on screen, by default it is [Pos.BOTTOM_RIGHT]. */
@@ -47,7 +56,7 @@ public class NotificationsBuilder internal constructor() {
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.position(value)
+            notifications.position(value)
         }
 
     /**
@@ -58,7 +67,7 @@ public class NotificationsBuilder internal constructor() {
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.owner(value)
+            notifications.owner(value)
         }
 
     /** Specify the duration that the notification should show, after which it will be hidden. */
@@ -66,12 +75,12 @@ public class NotificationsBuilder internal constructor() {
         @Deprecated(NO_GETTER, level = ERROR)
         get() = noGetter()
         set(value) {
-            nativeNotifications.hideAfter(value)
+            notifications.hideAfter(value)
         }
 
     /** Specify what to do when the user clicks on the notification. */
     public fun onAction(action: (ActionEvent) -> Unit) {
-        nativeNotifications.onAction(action)
+        notifications.onAction(action)
     }
 
     /**
@@ -79,7 +88,7 @@ public class NotificationsBuilder internal constructor() {
      * 'modena' notification style.
      */
     public fun darkStyle() {
-        nativeNotifications.darkStyle()
+        notifications.darkStyle()
     }
 
     /**
@@ -87,12 +96,12 @@ public class NotificationsBuilder internal constructor() {
      * shown.
      */
     public fun hideCloseButton() {
-        nativeNotifications.hideCloseButton()
+        notifications.hideCloseButton()
     }
 
     /** Specify the actions that should be shown in the notification as buttons. */
     public fun actions(vararg actions: Action) {
-        nativeNotifications.action(*actions)
+        notifications.action(*actions)
     }
 
     /**
@@ -101,7 +110,7 @@ public class NotificationsBuilder internal constructor() {
      * behavior.
      */
     public fun threshold(threshold: Int, thresholdNotifications: Notifications) {
-        nativeNotifications.threshold(threshold, thresholdNotifications)
+        notifications.threshold(threshold, thresholdNotifications)
     }
 
     /** Alias of [NotificationsBuilder.threshold] with builder DSL. */
@@ -109,6 +118,6 @@ public class NotificationsBuilder internal constructor() {
         threshold: Int,
         thresholdNotificationsBuilder: NotificationsBuilder.() -> Unit,
     ) {
-        nativeNotifications.threshold(threshold, buildNotifications(thresholdNotificationsBuilder))
+        notifications.threshold(threshold, buildNotifications(thresholdNotificationsBuilder))
     }
 }

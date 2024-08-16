@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -35,7 +38,7 @@ public inline fun NodeContainer.jfxSlider(
  *
  * @return the control created.
  */
-public fun jfxSlider(
+public inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -53,7 +56,7 @@ public fun jfxSlider(
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxSlider(
+public inline fun NodeContainer.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -105,7 +108,7 @@ public inline fun NodeContainer.styledJfxSlider(
  *
  * @return the styled control created.
  */
-public fun styledJfxSlider(
+public inline fun styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -129,7 +132,7 @@ public fun styledJfxSlider(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxSlider(
+public inline fun NodeContainer.styledJfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,

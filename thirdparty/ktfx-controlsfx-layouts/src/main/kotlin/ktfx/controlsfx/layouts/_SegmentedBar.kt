@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(): Segme
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxLayoutDslMarker
+public inline fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxLayoutDslMarker
         SegmentedBar<T>).() -> Unit): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SegmentedBar<T>()
@@ -45,7 +48,7 @@ public fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxLayoutDs
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T : SegmentedBar.Segment>
+public inline fun <T : SegmentedBar.Segment>
         NodeContainer.segmentedBar(configuration: (@KtfxLayoutDslMarker
         SegmentedBar<T>).() -> Unit): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -84,7 +87,7 @@ public inline fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(va
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T : SegmentedBar.Segment> styledSegmentedBar(
+public inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit,
@@ -105,7 +108,7 @@ public fun <T : SegmentedBar.Segment> styledSegmentedBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(
+public inline fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit,

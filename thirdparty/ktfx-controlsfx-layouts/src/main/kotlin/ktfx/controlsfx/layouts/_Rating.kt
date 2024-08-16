@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.rating(max: Int = 5, rating: Int = -1): Rating =
  *
  * @return the control created.
  */
-public fun rating(
+public inline fun rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit,
@@ -49,7 +52,7 @@ public fun rating(
  *
  * @return the control added.
  */
-public fun NodeContainer.rating(
+public inline fun NodeContainer.rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun NodeContainer.styledRating(
  *
  * @return the styled control created.
  */
-public fun styledRating(
+public inline fun styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun styledRating(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRating(
+public inline fun NodeContainer.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,

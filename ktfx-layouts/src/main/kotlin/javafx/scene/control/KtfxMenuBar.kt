@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
@@ -20,6 +19,6 @@ public open class KtfxMenuBar :
     /** Call [MenuContainer.menu] by string invocation. */
     public inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
+        configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
     ): Menu = menu(this, graphic, configuration)
 }

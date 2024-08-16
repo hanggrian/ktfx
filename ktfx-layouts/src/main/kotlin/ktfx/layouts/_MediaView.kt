@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): Med
  *
  * @return the control created.
  */
-public fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayoutDslMarker
         MediaView).() -> Unit): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -44,7 +47,7 @@ public fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayo
  *
  * @return the control added.
  */
-public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
+public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
         configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -86,7 +89,7 @@ public inline fun NodeContainer.styledMediaView(
  *
  * @return the styled control created.
  */
-public fun styledMediaView(
+public inline fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +111,7 @@ public fun styledMediaView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMediaView(
+public inline fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,

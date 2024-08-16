@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.jfxTextArea(text: String = ""): JFXTextArea = jf
  *
  * @return the control created.
  */
-public fun jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+public inline fun jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
         JFXTextArea).() -> Unit): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
@@ -45,7 +48,7 @@ public fun jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxTextArea(text: String = "", configuration: (@KtfxLayoutDslMarker
         JFXTextArea).() -> Unit): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledJfxTextArea(
  *
  * @return the styled control created.
  */
-public fun styledJfxTextArea(
+public inline fun styledJfxTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledJfxTextArea(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxTextArea(
+public inline fun NodeContainer.styledJfxTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.propertySheet(items: ObservableList<PropertyShee
  *
  * @return the control created.
  */
-public fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
+public inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
         configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PropertySheet(items)
@@ -46,7 +49,7 @@ public fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
  *
  * @return the control added.
  */
-public fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
+public inline fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
         configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PropertySheet(items)
@@ -88,7 +91,7 @@ public inline fun NodeContainer.styledPropertySheet(
  *
  * @return the styled control created.
  */
-public fun styledPropertySheet(
+public inline fun styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ public fun styledPropertySheet(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledPropertySheet(
+public inline fun NodeContainer.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,

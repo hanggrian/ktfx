@@ -15,12 +15,12 @@ class JfxSnackbarTest {
     @Test
     fun jfxSnackbar() {
         val pane = Pane()
-        assertNotNull(pane.jfxSnackbar("Hello world", 5.s))
+        assertNotNull(pane.jfxSnackbar.show("Hello world", 5.s))
     }
 
     @Test
     fun jfxIndefiniteSnackbar() {
         val pane = Pane()
-        assertNotNull(pane.jfxIndefiniteSnackbar(Label("Hello world")))
+        assertNotNull(pane.jfxSnackbar.showIndefinite(Label("Hello world")))
     }
 }

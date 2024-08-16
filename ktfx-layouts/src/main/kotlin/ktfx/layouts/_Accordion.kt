@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.accordion(): Accordion = accordion() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
+public inline fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit):
+        Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAccordion()
     child.configuration()
@@ -41,8 +45,8 @@ public fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit):
-        Accordion {
+public inline fun NodeContainer.accordion(configuration: (@KtfxLayoutDslMarker
+        KtfxAccordion).() -> Unit): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAccordion()
     child.configuration()
@@ -77,7 +81,7 @@ public inline fun NodeContainer.styledAccordion(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledAccordion(
+public inline fun styledAccordion(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit,
@@ -98,7 +102,7 @@ public fun styledAccordion(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledAccordion(
+public inline fun NodeContainer.styledAccordion(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit,

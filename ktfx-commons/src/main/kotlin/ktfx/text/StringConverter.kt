@@ -1,8 +1,12 @@
+@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.text
 
 import javafx.util.StringConverter
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Builds new string converter.
@@ -14,7 +18,10 @@ import javafx.util.StringConverter
  */
 public inline fun <T> buildStringConverter(
     builderAction: StringConverterBuilder<T>.() -> Unit,
-): StringConverter<T> = StringConverterBuilder<T>().apply(builderAction).build()
+): StringConverter<T> {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return StringConverterBuilder<T>().apply(builderAction).build()
+}
 
 /** Receiver for `buildStringConverter` block. */
 public class StringConverterBuilder<T> {

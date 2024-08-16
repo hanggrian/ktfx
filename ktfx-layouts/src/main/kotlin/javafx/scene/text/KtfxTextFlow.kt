@@ -18,6 +18,6 @@ public open class KtfxTextFlow :
 
     /** Call [NodeContainer.text] by string invocation. */
     public inline operator fun String.invoke(
-        noinline configuration: (@KtfxLayoutDslMarker Text).() -> Unit,
+        configuration: (@KtfxLayoutDslMarker Text).() -> Unit,
     ): Text = text(this, configuration)
 }

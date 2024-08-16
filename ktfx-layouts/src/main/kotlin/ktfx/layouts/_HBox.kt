@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -29,8 +32,8 @@ public inline fun NodeContainer.hbox(spacing: Double = 0.0): HBox = hbox(spacing
  *
  * @return the control created.
  */
-public fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxHBox).() -> Unit):
-        HBox {
+public inline fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+        KtfxHBox).() -> Unit): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHBox(spacing)
     child.configuration()
@@ -43,7 +46,7 @@ public fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker Ktfx
  *
  * @return the control added.
  */
-public fun NodeContainer.hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         KtfxHBox).() -> Unit): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHBox(spacing)
@@ -85,7 +88,7 @@ public inline fun NodeContainer.styledHBox(
  *
  * @return the styled control created.
  */
-public fun styledHBox(
+public inline fun styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +110,7 @@ public fun styledHBox(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledHBox(
+public inline fun NodeContainer.styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

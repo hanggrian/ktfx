@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.customTextField(): CustomTextField = customTextF
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit):
+public inline fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit):
         CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomTextField()
@@ -44,7 +47,7 @@ public fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.customTextField(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.customTextField(configuration: (@KtfxLayoutDslMarker
         CustomTextField).() -> Unit): CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomTextField()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledCustomTextField(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledCustomTextField(
+public inline fun styledCustomTextField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledCustomTextField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledCustomTextField(
+public inline fun NodeContainer.styledCustomTextField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit,

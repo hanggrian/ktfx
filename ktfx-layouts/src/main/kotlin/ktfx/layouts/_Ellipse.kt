@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -34,7 +37,7 @@ public inline fun NodeContainer.ellipse(
  *
  * @return the control created.
  */
-public fun ellipse(
+public inline fun ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -53,7 +56,7 @@ public fun ellipse(
  *
  * @return the control added.
  */
-public fun NodeContainer.ellipse(
+public inline fun NodeContainer.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -108,7 +111,7 @@ public inline fun NodeContainer.styledEllipse(
  *
  * @return the styled control created.
  */
-public fun styledEllipse(
+public inline fun styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -133,7 +136,7 @@ public fun styledEllipse(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledEllipse(
+public inline fun NodeContainer.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

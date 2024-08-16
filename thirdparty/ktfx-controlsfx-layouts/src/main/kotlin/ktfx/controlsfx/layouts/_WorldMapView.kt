@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.worldMapView(): WorldMapView = worldMapView() { 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
+public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
         WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WorldMapView()
@@ -44,7 +47,7 @@ public fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarker
         WorldMapView).() -> Unit): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WorldMapView()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledWorldMapView(vararg styleClass: String, id
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledWorldMapView(
+public inline fun styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledWorldMapView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledWorldMapView(
+public inline fun NodeContainer.styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit,

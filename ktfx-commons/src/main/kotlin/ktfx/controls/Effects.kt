@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controls
 
 import javafx.scene.Node
@@ -18,6 +20,9 @@ import javafx.scene.effect.PerspectiveTransform
 import javafx.scene.effect.Reflection
 import javafx.scene.effect.SepiaTone
 import javafx.scene.effect.Shadow
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Sets [Blend] effect.
@@ -25,11 +30,13 @@ import javafx.scene.effect.Shadow
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.blendEffect(configuration: Blend.() -> Unit): Blend =
-    Blend().also {
+public inline fun Node.blendEffect(configuration: Blend.() -> Unit): Blend {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Blend().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [Bloom] effect.
@@ -37,11 +44,13 @@ public fun Node.blendEffect(configuration: Blend.() -> Unit): Blend =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom =
-    Bloom().also {
+public inline fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Bloom().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [BoxBlur] effect.
@@ -49,11 +58,13 @@ public fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur =
-    BoxBlur().also {
+public inline fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return BoxBlur().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [ColorAdjust] effect.
@@ -61,11 +72,13 @@ public fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust =
-    ColorAdjust().also {
+public inline fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ColorAdjust().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [ColorInput] effect.
@@ -73,11 +86,13 @@ public fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorA
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput =
-    ColorInput().also {
+public inline fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ColorInput().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [DisplacementMap] effect.
@@ -85,11 +100,15 @@ public fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInp
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): DisplacementMap =
-    DisplacementMap().also {
+public inline fun Node.displacementMapEffect(
+    configuration: DisplacementMap.() -> Unit,
+): DisplacementMap {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return DisplacementMap().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [DropShadow] effect.
@@ -97,11 +116,13 @@ public fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit)
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow =
-    DropShadow().also {
+public inline fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return DropShadow().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [GaussianBlur] effect.
@@ -109,11 +130,13 @@ public fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShad
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlur =
-    GaussianBlur().also {
+public inline fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlur {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return GaussianBlur().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [Glow] effect.
@@ -121,11 +144,13 @@ public fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): Gaus
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.glowEffect(configuration: Glow.() -> Unit): Glow =
-    Glow().also {
+public inline fun Node.glowEffect(configuration: Glow.() -> Unit): Glow {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Glow().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [ImageInput] effect.
@@ -133,11 +158,13 @@ public fun Node.glowEffect(configuration: Glow.() -> Unit): Glow =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput =
-    ImageInput().also {
+public inline fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ImageInput().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [InnerShadow] effect.
@@ -145,11 +172,13 @@ public fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInp
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow =
-    InnerShadow().also {
+public inline fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return InnerShadow().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [Lighting] effect.
@@ -157,11 +186,13 @@ public fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerS
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting =
-    Lighting().also {
+public inline fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Lighting().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [MotionBlur] effect.
@@ -169,11 +200,13 @@ public fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur =
-    MotionBlur().also {
+public inline fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MotionBlur().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [PerspectiveTransform] effect.
@@ -181,13 +214,15 @@ public fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBl
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.perspectiveTransformEffect(
+public inline fun Node.perspectiveTransformEffect(
     configuration: PerspectiveTransform.() -> Unit,
-): PerspectiveTransform =
-    PerspectiveTransform().also {
+): PerspectiveTransform {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return PerspectiveTransform().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [Reflection] effect.
@@ -195,11 +230,13 @@ public fun Node.perspectiveTransformEffect(
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection =
-    Reflection().also {
+public inline fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Reflection().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [SepiaTone] effect.
@@ -207,11 +244,13 @@ public fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflecti
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone =
-    SepiaTone().also {
+public inline fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return SepiaTone().also {
         it.configuration()
         effect = it
     }
+}
 
 /**
  * Sets [Shadow] effect.
@@ -219,8 +258,10 @@ public fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone 
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-public fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow =
-    Shadow().also {
+public inline fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Shadow().also {
         it.configuration()
         effect = it
     }
+}

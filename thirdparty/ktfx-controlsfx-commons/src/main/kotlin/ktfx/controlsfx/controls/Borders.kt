@@ -1,4 +1,5 @@
 @file:JvmName("ControlsfxBordersKt")
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.controlsfx.controls
 
@@ -9,22 +10,37 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.tools.Borders
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-public inline fun Node.wrapBorders(builderAction: BordersBuilder.() -> Unit): Node =
-    BordersBuilder(this).apply(builderAction).build()
+public inline fun Node.wrapBorders(builderAction: BordersBuilder.() -> Unit): Node {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return BordersBuilder(this).apply(builderAction).build()
+}
 
 /** Add a new [Borders.EmptyBorders] to node using DSL. */
-public fun Node.wrapEmptyBorder(builderAction: BordersBuilder.EmptyBuilder.() -> Unit): Node =
-    wrapBorders { empty(builderAction) }
+public inline fun Node.wrapEmptyBorder(
+    builderAction: BordersBuilder.EmptyBuilder.() -> Unit,
+): Node {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return wrapBorders { empty(builderAction) }
+}
 
 /** Add a new [Borders.EtchedBorders] to node using DSL. */
-public fun Node.wrapEtchedBorder(builderAction: BordersBuilder.EtchedBuilder.() -> Unit): Node =
-    wrapBorders { etched(builderAction) }
+public inline fun Node.wrapEtchedBorder(
+    builderAction: BordersBuilder.EtchedBuilder.() -> Unit,
+): Node {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return wrapBorders { etched(builderAction) }
+}
 
 /** Add a new [Borders.LineBorders] to node using DSL. */
-public fun Node.wrapLineBorder(builderAction: BordersBuilder.LineBuilder.() -> Unit): Node =
-    wrapBorders { line(builderAction) }
+public inline fun Node.wrapLineBorder(builderAction: BordersBuilder.LineBuilder.() -> Unit): Node {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return wrapBorders { line(builderAction) }
+}
 
 /**
  * Supporting class to use [Borders] with DSL.
@@ -32,26 +48,32 @@ public fun Node.wrapLineBorder(builderAction: BordersBuilder.LineBuilder.() -> U
  * @see Node.wrapBorders
  */
 public class BordersBuilder(node: Node) {
-    private val nativeBorders: Borders = Borders.wrap(node)
+    public val borders: Borders = Borders.wrap(node)
 
     /** Opens up DSL to create empty border. */
-    public fun empty(builderAction: EmptyBuilder.() -> Unit): Unit =
-        EmptyBuilder(nativeBorders.emptyBorder()).apply(builderAction).build()
+    public inline fun empty(configuration: EmptyBuilder.() -> Unit) {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return EmptyBuilder(borders.emptyBorder()).apply(configuration).build()
+    }
 
     /** Opens up DSL to create etched border. */
-    public fun etched(builderAction: EtchedBuilder.() -> Unit): Unit =
-        EtchedBuilder(nativeBorders.etchedBorder()).apply(builderAction).build()
+    public inline fun etched(configuration: EtchedBuilder.() -> Unit) {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return EtchedBuilder(borders.etchedBorder()).apply(configuration).build()
+    }
 
     /** Opens up DSL to create line border. */
-    public fun line(builderAction: LineBuilder.() -> Unit): Unit =
-        LineBuilder(nativeBorders.lineBorder()).apply(builderAction).build()
+    public inline fun line(configuration: LineBuilder.() -> Unit) {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return LineBuilder(borders.lineBorder()).apply(configuration).build()
+    }
 
     /** Allows for developers to develop custom [Borders.Border] implementations. */
     public fun addBorder(border: Borders.Border) {
-        nativeBorders.addBorder(border)
+        borders.addBorder(border)
     }
 
-    public fun build(): Node = nativeBorders.build()
+    public fun build(): Node = borders.build()
 
     /** Supporting class to add empty border with DSL. */
     public class EmptyBuilder(private val nativeBorders: Borders.EmptyBorders) {
@@ -94,7 +116,7 @@ public class BordersBuilder(node: Node) {
             get() = noGetter()
             inline set(value) = padding(0.0, 0.0, 0.0, value)
 
-        internal fun build() {
+        public fun build() {
             nativeBorders.build()
         }
     }
@@ -226,7 +248,7 @@ public class BordersBuilder(node: Node) {
             nativeBorders.radius(top, right, bottom, left)
         }
 
-        internal fun build() {
+        public fun build() {
             nativeBorders.build()
         }
     }
@@ -314,7 +336,7 @@ public class BordersBuilder(node: Node) {
                 nativeBorders.title(value)
             }
 
-        internal fun build() {
+        public fun build() {
             nativeBorders.build()
         }
     }

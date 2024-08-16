@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -33,7 +36,7 @@ public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = obs
  *
  * @return the control created.
  */
-public fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckComboBox<T>(items)
@@ -47,7 +50,7 @@ public fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckComboBox<T>(items)
@@ -89,7 +92,7 @@ public inline fun <T> NodeContainer.styledCheckComboBox(
  *
  * @return the styled control created.
  */
-public fun <T> styledCheckComboBox(
+public inline fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +114,7 @@ public fun <T> styledCheckComboBox(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledCheckComboBox(
+public inline fun <T> NodeContainer.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

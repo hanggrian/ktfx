@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -37,7 +40,7 @@ public inline fun TitledPaneContainer.titledPane(title: String? = null): TitledP
  *
  * @return the control created.
  */
-public fun titledPane(title: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun titledPane(title: String? = null, configuration: (@KtfxLayoutDslMarker
         KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -51,8 +54,8 @@ public fun titledPane(title: String? = null, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public fun NodeContainer.titledPane(title: String? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxTitledPane).() -> Unit): TitledPane {
+public inline fun NodeContainer.titledPane(title: String? = null,
+        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
     child.configuration()
@@ -65,7 +68,7 @@ public fun NodeContainer.titledPane(title: String? = null, configuration: (@Ktfx
  *
  * @return the control added.
  */
-public fun TitledPaneContainer.titledPane(title: String? = null,
+public inline fun TitledPaneContainer.titledPane(title: String? = null,
         configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -120,7 +123,7 @@ public inline fun TitledPaneContainer.styledTitledPane(
  *
  * @return the styled control created.
  */
-public fun styledTitledPane(
+public inline fun styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -142,7 +145,7 @@ public fun styledTitledPane(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTitledPane(
+public inline fun NodeContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -164,7 +167,7 @@ public fun NodeContainer.styledTitledPane(
  *
  * @return the styled control added.
  */
-public fun TitledPaneContainer.styledTitledPane(
+public inline fun TitledPaneContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,

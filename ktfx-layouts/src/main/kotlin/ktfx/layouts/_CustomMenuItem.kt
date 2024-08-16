@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun MenuItemContainer.customMenuItem(content: Node? = null, hideOn
  *
  * @return the control created.
  */
-public fun customMenuItem(
+public inline fun customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
@@ -48,7 +51,7 @@ public fun customMenuItem(
  *
  * @return the control added.
  */
-public fun MenuItemContainer.customMenuItem(
+public inline fun MenuItemContainer.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
@@ -97,7 +100,7 @@ public inline fun MenuItemContainer.styledCustomMenuItem(
  *
  * @return the styled control created.
  */
-public fun styledCustomMenuItem(
+public inline fun styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
@@ -120,7 +123,7 @@ public fun styledCustomMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledCustomMenuItem(
+public inline fun MenuItemContainer.styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,

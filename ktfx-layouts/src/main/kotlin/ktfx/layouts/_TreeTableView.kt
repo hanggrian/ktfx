@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null): Tr
  *
  * @return the control created.
  */
-public fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@KtfxLayoutDslMarker
         TreeTableView<S>).() -> Unit): TreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeTableView<S>(root)
@@ -44,7 +47,7 @@ public fun <S> treeTableView(root: TreeItem<S>? = null, configuration: (@KtfxLay
  *
  * @return the control added.
  */
-public fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null,
+public inline fun <S> NodeContainer.treeTableView(root: TreeItem<S>? = null,
         configuration: (@KtfxLayoutDslMarker TreeTableView<S>).() -> Unit): TreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeTableView<S>(root)
@@ -86,7 +89,7 @@ public inline fun <S> NodeContainer.styledTreeTableView(
  *
  * @return the styled control created.
  */
-public fun <S> styledTreeTableView(
+public inline fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +111,7 @@ public fun <S> styledTreeTableView(
  *
  * @return the styled control added.
  */
-public fun <S> NodeContainer.styledTreeTableView(
+public inline fun <S> NodeContainer.styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

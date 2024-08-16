@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,8 +31,8 @@ public inline fun NodeContainer.textField(text: String = ""): TextField = textFi
  *
  * @return the control created.
  */
-public fun textField(text: String = "", configuration: (@KtfxLayoutDslMarker TextField).() -> Unit):
-        TextField {
+public inline fun textField(text: String = "", configuration: (@KtfxLayoutDslMarker
+        TextField).() -> Unit): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextField(text)
     child.configuration()
@@ -42,7 +45,7 @@ public fun textField(text: String = "", configuration: (@KtfxLayoutDslMarker Tex
  *
  * @return the control added.
  */
-public fun NodeContainer.textField(text: String = "", configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.textField(text: String = "", configuration: (@KtfxLayoutDslMarker
         TextField).() -> Unit): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextField(text)
@@ -84,7 +87,7 @@ public inline fun NodeContainer.styledTextField(
  *
  * @return the styled control created.
  */
-public fun styledTextField(
+public inline fun styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +109,7 @@ public fun styledTextField(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledTextField(
+public inline fun NodeContainer.styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

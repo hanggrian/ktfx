@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -29,8 +32,8 @@ public inline fun NodeContainer.meshView(mesh: Mesh? = null): MeshView = meshVie
  *
  * @return the control created.
  */
-public fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker MeshView).() -> Unit):
-        MeshView {
+public inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
+        MeshView).() -> Unit): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MeshView(mesh)
     child.configuration()
@@ -43,7 +46,7 @@ public fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker Mes
  *
  * @return the control added.
  */
-public fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
         MeshView).() -> Unit): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MeshView(mesh)
@@ -85,7 +88,7 @@ public inline fun NodeContainer.styledMeshView(
  *
  * @return the styled control created.
  */
-public fun styledMeshView(
+public inline fun styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +110,7 @@ public fun styledMeshView(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledMeshView(
+public inline fun NodeContainer.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,

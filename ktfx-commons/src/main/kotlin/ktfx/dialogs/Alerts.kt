@@ -1,218 +1,109 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.dialogs
 
-import javafx.scene.Node
 import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.ButtonType
 import javafx.scene.control.ButtonType.CLOSE
 import javafx.scene.control.ButtonType.NO
 import javafx.scene.control.ButtonType.YES
-import javafx.scene.image.ImageView
 import java.util.Optional
-
-/**
- * Show an alert with title and graphic.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param content alert message.
- * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
- * @return selected alert button.
- */
-public fun alert(
-    title: String? = null,
-    graphic: Node? = null,
-    content: String = "",
-    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> =
-    Alert(AlertType.NONE, content, *buttonTypes)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            alertAction?.invoke(dialog)
-        }.showAndWait()
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Show an alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected alert button.
  */
 public inline fun alert(
-    content: String,
-    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> = alert(null, null, content, *buttonTypes, alertAction = alertAction)
-
-/**
- * Show an information alert with title and graphic.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param content alert message.
- * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
- * @return selected alert button.
- */
-public fun infoAlert(
-    title: String? = null,
-    graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> =
-    Alert(AlertType.INFORMATION, content, *buttonTypes)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            alertAction?.invoke(dialog)
-        }.showAndWait()
+    configuration: Alert.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Alert(AlertType.NONE, content, *buttonTypes)
+        .apply(configuration)
+        .showAndWait()
+}
 
 /**
  * Show an information alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected alert button.
  */
 public inline fun infoAlert(
-    content: String,
-    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> = infoAlert(null, null, content, *buttonTypes, alertAction = alertAction)
-
-/**
- * Show a warning alert with title and graphic.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param content alert message.
- * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
- * @return selected alert button.
- */
-public fun warningAlert(
-    title: String? = null,
-    graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> =
-    Alert(AlertType.WARNING, content, *buttonTypes)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            alertAction?.invoke(dialog)
-        }.showAndWait()
+    configuration: Alert.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Alert(AlertType.INFORMATION, content, *buttonTypes)
+        .apply(configuration)
+        .showAndWait()
+}
 
 /**
  * Show a warning alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected alert button.
  */
 public inline fun warningAlert(
-    content: String,
-    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> = warningAlert(null, null, content, *buttonTypes, alertAction = alertAction)
-
-/**
- * Show a confirmation alert with title and graphic.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param content alert message.
- * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
- * @return selected alert button.
- */
-public fun confirmAlert(
-    title: String? = null,
-    graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> =
-    Alert(AlertType.CONFIRMATION, content, *buttonTypes)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            alertAction?.invoke(dialog)
-        }.showAndWait()
+    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
+    configuration: Alert.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Alert(AlertType.WARNING, content, *buttonTypes)
+        .apply(configuration)
+        .showAndWait()
+}
 
 /**
  * Show a confirmation alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected alert button.
  */
 public inline fun confirmAlert(
-    content: String,
-    vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    noinline alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> = confirmAlert(null, null, content, *buttonTypes, alertAction = alertAction)
-
-/**
- * Show an error alert with title and graphic.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param content alert message.
- * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
- * @return selected alert button.
- */
-public fun errorAlert(
-    title: String? = null,
-    graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> =
-    Alert(AlertType.ERROR, content, *buttonTypes)
-        .also { dialog ->
-            if (title != null) dialog.headerTitle = title
-            when {
-                graphic is ImageView -> dialog.graphicIcon = graphic
-                graphic != null -> dialog.graphic = graphic
-            }
-            alertAction?.invoke(dialog)
-        }.showAndWait()
+    vararg buttonTypes: ButtonType = arrayOf(YES, NO),
+    configuration: Alert.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Alert(AlertType.CONFIRMATION, content, *buttonTypes)
+        .apply(configuration)
+        .showAndWait()
+}
 
 /**
  * Show an error alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param alertAction custom dialog action.
+ * @param configuration custom dialog action.
  * @return selected alert button.
  */
 public inline fun errorAlert(
-    content: String,
+    content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
-): Optional<ButtonType> = errorAlert(null, null, content, *buttonTypes, alertAction = alertAction)
+    configuration: Alert.() -> Unit,
+): Optional<ButtonType> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Alert(AlertType.ERROR, content, *buttonTypes)
+        .apply(configuration)
+        .showAndWait()
+}

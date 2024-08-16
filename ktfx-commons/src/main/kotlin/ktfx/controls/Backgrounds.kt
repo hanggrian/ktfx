@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -14,6 +16,9 @@ import javafx.scene.paint.Paint
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Builds new background with multiple [BackgroundFill] and/or [BackgroundImage].
@@ -21,8 +26,10 @@ import kotlin.DeprecationLevel.ERROR
  * @param builderAction populate newly created fill and/or image.
  * @return created background.
  */
-public inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
-    BackgroundBuilder().apply(builderAction).build()
+public inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return BackgroundBuilder().apply(builderAction).build()
+}
 
 /**
  * Sets new background with multiple [BackgroundFill] and/or [BackgroundImage].
@@ -30,8 +37,10 @@ public inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): 
  * @param builderAction populate newly created fill and/or image.
  * @return applied background.
  */
-public fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background =
-    buildBackground(builderAction).also { background = it }
+public inline fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return buildBackground(builderAction).also { background = it }
+}
 
 /**
  * Sets new background with single [BackgroundFill].
@@ -39,9 +48,12 @@ public fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Backg
  * @param builderAction fill configurator.
  * @return applied background.
  */
-public fun Region.fillBackground(
+public inline fun Region.fillBackground(
     builderAction: BackgroundBuilder.FillBuilder.() -> Unit,
-): Background = background { fill(builderAction) }
+): Background {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return background { fill(builderAction) }
+}
 
 /**
  * Sets new background with single [BackgroundImage].
@@ -49,10 +61,13 @@ public fun Region.fillBackground(
  * @param builderAction image configurator.
  * @return applied background.
  */
-public fun Region.imageBackground(
+public inline fun Region.imageBackground(
     image: Image,
     builderAction: BackgroundBuilder.ImageBuilder.() -> Unit,
-): Background = background { image(image, builderAction) }
+): Background {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return background { image(image, builderAction) }
+}
 
 /** Background configurator class. */
 public class BackgroundBuilder {
@@ -68,8 +83,10 @@ public class BackgroundBuilder {
      * @param builderAction fill configurator.
      * @return added fill.
      */
-    public inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
-        FillBuilder().apply(builderAction).build().also { fills += it }
+    public inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill {
+        contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+        return FillBuilder().apply(builderAction).build().also { fills += it }
+    }
 
     /**
      * Append a [BackgroundImage].
@@ -77,8 +94,10 @@ public class BackgroundBuilder {
      * @param builderAction image configurator.
      * @return added image.
      */
-    public inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
-        ImageBuilder(image).apply(builderAction).build().also { images += it }
+    public inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage {
+        contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+        return ImageBuilder(image).apply(builderAction).build().also { images += it }
+    }
 
     /** Return background based on current configuration. */
     public fun build(): Background = Background(fills, images)

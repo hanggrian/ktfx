@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSides
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit):
-        HiddenSidesPane {
+public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
+        KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHiddenSidesPane()
     child.configuration()
@@ -44,7 +47,7 @@ public fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesP
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
         KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHiddenSidesPane()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledHiddenSidesPane(
+public inline fun styledHiddenSidesPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledHiddenSidesPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledHiddenSidesPane(
+public inline fun NodeContainer.styledHiddenSidesPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,

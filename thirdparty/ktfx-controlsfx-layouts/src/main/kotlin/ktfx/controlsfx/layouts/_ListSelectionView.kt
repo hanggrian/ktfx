@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
         ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListSelectionView<T>()
@@ -45,7 +48,7 @@ public fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayoutDslMarker
         ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListSelectionView<T>()
@@ -81,7 +84,7 @@ public inline fun <T> NodeContainer.styledListSelectionView(vararg styleClass: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledListSelectionView(
+public inline fun <T> styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,
@@ -102,7 +105,7 @@ public fun <T> styledListSelectionView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledListSelectionView(
+public inline fun <T> NodeContainer.styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,

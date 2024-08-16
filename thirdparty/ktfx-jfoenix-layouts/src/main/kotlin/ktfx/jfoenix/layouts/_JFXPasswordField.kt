@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,8 +33,8 @@ public inline fun NodeContainer.jfxPasswordField(): JFXPasswordField = jfxPasswo
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit):
-        JFXPasswordField {
+public inline fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker
+        JFXPasswordField).() -> Unit): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXPasswordField()
     child.configuration()
@@ -44,7 +47,7 @@ public fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker JFXPasswordFiel
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
         JFXPasswordField).() -> Unit): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXPasswordField()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxPasswordField(vararg styleClass: String
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxPasswordField(
+public inline fun styledJfxPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxPasswordField(
+public inline fun NodeContainer.styledJfxPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit,

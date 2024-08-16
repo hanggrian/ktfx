@@ -31,6 +31,7 @@ open class CoroutinesFactory(path: String, packageName: String, className: Strin
                 addMember("%S", "ktlint")
                 useSiteTarget = AnnotationSpec.UseSiteTarget.FILE
             }
+            addImport("kotlinx.coroutines", "DelicateCoroutinesApi")
             addImport("kotlinx.coroutines", "GlobalScope")
             addImport("kotlinx.coroutines", "Dispatchers")
             addImport("kotlinx.coroutines", "launch")

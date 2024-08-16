@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.customPasswordField(): CustomPasswordField = cus
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun customPasswordField(configuration: (@KtfxLayoutDslMarker
+public inline fun customPasswordField(configuration: (@KtfxLayoutDslMarker
         CustomPasswordField).() -> Unit): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomPasswordField()
@@ -45,7 +48,7 @@ public fun customPasswordField(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.customPasswordField(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.customPasswordField(configuration: (@KtfxLayoutDslMarker
         CustomPasswordField).() -> Unit): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomPasswordField()
@@ -81,7 +84,7 @@ public inline fun NodeContainer.styledCustomPasswordField(vararg styleClass: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledCustomPasswordField(
+public inline fun styledCustomPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit,
@@ -102,7 +105,7 @@ public fun styledCustomPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledCustomPasswordField(
+public inline fun NodeContainer.styledCustomPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit,

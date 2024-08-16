@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -38,7 +41,7 @@ public inline fun PathElementContainer.arcTo(
  *
  * @return the control created.
  */
-public fun arcTo(
+public inline fun arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,
@@ -60,7 +63,7 @@ public fun arcTo(
  *
  * @return the control added.
  */
-public fun PathElementContainer.arcTo(
+public inline fun PathElementContainer.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,

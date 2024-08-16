@@ -1,198 +1,63 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.windows
 
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
-import javafx.stage.FileChooser.ExtensionFilter
 import javafx.stage.Window
 import java.io.File
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Choose a directory.
  *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
+ * @param configuration custom window action.
  * @return chosen directory.
  */
-public fun Window.chooseDirectory(title: String? = null, initialDirectory: File? = null): File? =
-    DirectoryChooser()
-        .also {
-            if (title != null) it.title = title
-            if (initialDirectory != null) it.initialDirectory = initialDirectory
-        }.showDialog(this)
+public inline fun Window.chooseDirectory(configuration: DirectoryChooser.() -> Unit): File? {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return DirectoryChooser()
+        .apply(configuration)
+        .showDialog(this)
+}
 
 /**
  * Choose a file to open.
  *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
+ * @param configuration custom window action.
  * @return chosen file.
  */
-public fun Window.chooseFile(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
-): File? =
-    FileChooser()
-        .also {
-            if (title != null) it.title = title
-            if (initialDirectory != null) it.initialDirectory = initialDirectory
-            if (initialFileName != null) it.initialFileName = initialFileName
-            if (filters.isNotEmpty()) it.extensionFilters += filters
-        }.showOpenDialog(this)
-
-/**
- * Choose a file to open.
- *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseFile(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
-): File? = chooseFile(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
-
-/**
- * Choose a file to open.
- *
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? =
-    chooseFile(null, null, null, *filters)
-
-/**
- * Choose a file to open.
- *
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? =
-    chooseFile(null, null, null, *filters)
+public inline fun Window.chooseFile(configuration: FileChooser.() -> Unit): File? {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return FileChooser()
+        .apply(configuration)
+        .showOpenDialog(this)
+}
 
 /**
  * Choose multiple files to open.
  *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
+ * @param configuration custom window action.
  * @return chosen files.
  */
-public fun Window.chooseFiles(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
-): List<File> =
-    FileChooser()
-        .also {
-            if (title != null) it.title = title
-            if (initialDirectory != null) it.initialDirectory = initialDirectory
-            if (initialFileName != null) it.initialFileName = initialFileName
-            if (filters.isNotEmpty()) it.extensionFilters += filters
-        }.showOpenMultipleDialog(this)
-
-/**
- * Choose multiple files to open.
- *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
- * @return chosen files.
- */
-public inline fun Window.chooseFiles(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
-): List<File> = chooseFiles(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
-
-/**
- * Choose multiple files to open.
- *
- * @param filters expected file extensions.
- * @return chosen files.
- */
-public inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> =
-    chooseFiles(null, null, null, *filters)
-
-/**
- * Choose multiple files to open.
- *
- * @param filters expected file extensions.
- * @return chosen files.
- */
-public inline fun Window.chooseFiles(vararg filters: Pair<String, String>): List<File> =
-    chooseFiles(null, null, null, *filters)
+public inline fun Window.chooseFiles(configuration: FileChooser.() -> Unit): List<File> {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return FileChooser()
+        .apply(configuration)
+        .showOpenMultipleDialog(this)
+}
 
 /**
  * Choose a file to save.
  *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
+ * @param configuration custom window action.
  * @return chosen file.
  */
-public fun Window.chooseSaveFile(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
-): File? =
-    FileChooser()
-        .also {
-            if (title != null) it.title = title
-            if (initialDirectory != null) it.initialDirectory = initialDirectory
-            if (initialFileName != null) it.initialFileName = initialFileName
-            if (filters.isNotEmpty()) it.extensionFilters += filters
-        }.showSaveDialog(this)
-
-/**
- * Choose a file to save.
- *
- * @param title title of the dialog.
- * @param initialDirectory starting point of chooser.
- * @param initialFileName starting name of file to be choosen.
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseSaveFile(
-    title: String? = null,
-    initialDirectory: File? = null,
-    initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
-): File? = chooseSaveFile(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
-
-/**
- * Choose a file to save.
- *
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? =
-    chooseSaveFile(null, null, null, *filters)
-
-/**
- * Choose a file to save.
- *
- * @param filters expected file extensions.
- * @return chosen file.
- */
-public inline fun Window.chooseSaveFile(vararg filters: Pair<String, String>): File? =
-    chooseSaveFile(null, null, null, *filters)
-
-@PublishedApi
-internal inline fun Array<out Pair<String, String>>.asExtensionFilters(): Array<ExtensionFilter> =
-    map { ExtensionFilter(it.first, it.second) }.toTypedArray()
+public inline fun Window.chooseSaveFile(configuration: FileChooser.() -> Unit): File? {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return FileChooser()
+        .apply(configuration)
+        .showSaveDialog(this)
+}

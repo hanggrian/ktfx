@@ -23,10 +23,16 @@ class TableConstraintsTest {
     @Test
     fun constrained() {
         view1.constrained()
-        assertEquals(TableView.CONSTRAINED_RESIZE_POLICY, view1.columnResizePolicy)
+        assertEquals(
+            TableView.CONSTRAINED_RESIZE_POLICY,
+            view1.columnResizePolicy,
+        )
 
         view2.constrained()
-        assertEquals(TreeTableView.CONSTRAINED_RESIZE_POLICY, view2.columnResizePolicy)
+        assertEquals(
+            TreeTableView.CONSTRAINED_RESIZE_POLICY,
+            view2.columnResizePolicy,
+        )
     }
 
     @Test

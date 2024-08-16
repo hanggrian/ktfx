@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -36,7 +39,7 @@ public inline fun <X, Y> NodeContainer.bubbleChart(
  *
  * @return the control created.
  */
-public fun <X, Y> bubbleChart(
+public inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,7 +57,7 @@ public fun <X, Y> bubbleChart(
  *
  * @return the control added.
  */
-public fun <X, Y> NodeContainer.bubbleChart(
+public inline fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -106,7 +109,7 @@ public inline fun <X, Y> NodeContainer.styledBubbleChart(
  *
  * @return the styled control created.
  */
-public fun <X, Y> styledBubbleChart(
+public inline fun <X, Y> styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -130,7 +133,7 @@ public fun <X, Y> styledBubbleChart(
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeContainer.styledBubbleChart(
+public inline fun <X, Y> NodeContainer.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

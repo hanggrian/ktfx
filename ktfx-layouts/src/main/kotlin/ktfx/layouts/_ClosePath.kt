@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -27,7 +30,7 @@ public inline fun PathElementContainer.closePath(): ClosePath = closePath() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -> Unit): ClosePath {
+public inline fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ClosePath()
     child.configuration()
@@ -40,7 +43,7 @@ public fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun PathElementContainer.closePath(configuration: (@KtfxLayoutDslMarker
+public inline fun PathElementContainer.closePath(configuration: (@KtfxLayoutDslMarker
         ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ClosePath()

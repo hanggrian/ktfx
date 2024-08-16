@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun <T> NodeContainer.prefixSelectionChoiceBox(): PrefixSelectionC
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun <T> prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionChoiceBox<T>).() -> Unit): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionChoiceBox<T>()
@@ -45,7 +48,7 @@ public fun <T> prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun <T> NodeContainer.prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionChoiceBox<T>).() -> Unit): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionChoiceBox<T>()
@@ -83,7 +86,7 @@ public inline fun <T> NodeContainer.styledPrefixSelectionChoiceBox(vararg styleC
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun <T> styledPrefixSelectionChoiceBox(
+public inline fun <T> styledPrefixSelectionChoiceBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit,
@@ -104,7 +107,7 @@ public fun <T> styledPrefixSelectionChoiceBox(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledPrefixSelectionChoiceBox(
+public inline fun <T> NodeContainer.styledPrefixSelectionChoiceBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit,

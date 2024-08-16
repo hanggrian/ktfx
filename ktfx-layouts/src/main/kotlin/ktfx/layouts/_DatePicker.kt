@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.datePicker(date: LocalDate? = null): DatePicker 
  *
  * @return the control created.
  */
-public fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
         DatePicker).() -> Unit): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
@@ -44,8 +47,8 @@ public fun datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMar
  *
  * @return the control added.
  */
-public fun NodeContainer.datePicker(date: LocalDate? = null, configuration: (@KtfxLayoutDslMarker
-        DatePicker).() -> Unit): DatePicker {
+public inline fun NodeContainer.datePicker(date: LocalDate? = null,
+        configuration: (@KtfxLayoutDslMarker DatePicker).() -> Unit): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
     child.configuration()
@@ -86,7 +89,7 @@ public inline fun NodeContainer.styledDatePicker(
  *
  * @return the styled control created.
  */
-public fun styledDatePicker(
+public inline fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -108,7 +111,7 @@ public fun styledDatePicker(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledDatePicker(
+public inline fun NodeContainer.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

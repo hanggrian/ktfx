@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64)
  *
  * @return the control created.
  */
-public fun sphere(
+public inline fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
@@ -48,7 +51,7 @@ public fun sphere(
  *
  * @return the control added.
  */
-public fun NodeContainer.sphere(
+public inline fun NodeContainer.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
@@ -95,7 +98,7 @@ public inline fun NodeContainer.styledSphere(
  *
  * @return the styled control created.
  */
-public fun styledSphere(
+public inline fun styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -118,7 +121,7 @@ public fun styledSphere(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledSphere(
+public inline fun NodeContainer.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,

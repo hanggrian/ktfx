@@ -12,18 +12,15 @@ class InputDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 "Awesome input",
-                inputDialog("Input dialog", sampleGraphic, "Awful input") {
+                inputDialog("Awful input") {
+                    headerTitle = "Input dialog"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Input dialog", headerText)
+                    assertEquals("Input dialog", title)
                     assertEquals(sampleGraphic, graphic)
-                    assertEquals("Awful input", defaultValue)
-                    editor.text = "Awesome input"
-                }.get(),
-            )
-            assertEquals(
-                "Awesome input",
-                inputDialog("Awful input") {
-                    closeOnShow(this)
+                    assertEquals(sampleGraphic.image, icon)
                     assertEquals("Awful input", defaultValue)
                     editor.text = "Awesome input"
                 }.get(),

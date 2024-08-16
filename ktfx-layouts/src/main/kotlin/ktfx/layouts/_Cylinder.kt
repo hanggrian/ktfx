@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -34,7 +37,7 @@ public inline fun NodeContainer.cylinder(
  *
  * @return the control created.
  */
-public fun cylinder(
+public inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -52,7 +55,7 @@ public fun cylinder(
  *
  * @return the control added.
  */
-public fun NodeContainer.cylinder(
+public inline fun NodeContainer.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -104,7 +107,7 @@ public inline fun NodeContainer.styledCylinder(
  *
  * @return the styled control created.
  */
-public fun styledCylinder(
+public inline fun styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -128,7 +131,7 @@ public fun styledCylinder(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledCylinder(
+public inline fun NodeContainer.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

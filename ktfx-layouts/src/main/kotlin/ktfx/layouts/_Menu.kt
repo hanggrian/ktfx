@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -38,7 +41,7 @@ public inline fun MenuContainer.menu(text: String = "", graphic: Node? = null): 
  *
  * @return the control created.
  */
-public fun menu(
+public inline fun menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -55,7 +58,7 @@ public fun menu(
  *
  * @return the control added.
  */
-public fun MenuItemContainer.menu(
+public inline fun MenuItemContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -72,7 +75,7 @@ public fun MenuItemContainer.menu(
  *
  * @return the control added.
  */
-public fun MenuContainer.menu(
+public inline fun MenuContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -133,7 +136,7 @@ public inline fun MenuContainer.styledMenu(
  *
  * @return the styled control created.
  */
-public fun styledMenu(
+public inline fun styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -156,7 +159,7 @@ public fun styledMenu(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledMenu(
+public inline fun MenuItemContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -179,7 +182,7 @@ public fun MenuItemContainer.styledMenu(
  *
  * @return the styled control added.
  */
-public fun MenuContainer.styledMenu(
+public inline fun MenuContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,

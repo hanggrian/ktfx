@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.svgPath(): SVGPath = svgPath() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SVGPath {
+public inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
     child.configuration()
@@ -41,7 +44,7 @@ public fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SV
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
+public inline fun NodeContainer.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
         SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledSvgPath(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledSvgPath(
+public inline fun styledSvgPath(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledSvgPath(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSvgPath(
+public inline fun NodeContainer.styledSvgPath(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit,

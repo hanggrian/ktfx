@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
@@ -18,6 +17,6 @@ public open class KtfxAccordion :
 
     /** Call [NodeContainer.titledPane] by string invocation. */
     public inline operator fun String.invoke(
-        noinline configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit,
+        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit,
     ): TitledPane = titledPane(this, configuration)
 }

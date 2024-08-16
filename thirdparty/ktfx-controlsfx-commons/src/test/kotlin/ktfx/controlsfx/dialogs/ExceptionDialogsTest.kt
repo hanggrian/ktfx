@@ -2,6 +2,9 @@ package ktfx.controlsfx.dialogs
 
 import com.hanggrian.ktfx.test.DialogShowingTest
 import javafx.scene.control.ButtonType.OK
+import ktfx.dialogs.graphicIcon
+import ktfx.dialogs.headerTitle
+import ktfx.dialogs.icon
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,19 +16,16 @@ class ExceptionDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 OK,
-                exceptionDialog(
-                    "Exception dialog",
-                    sampleGraphic,
-                    UnsupportedOperationException(),
-                ) {
+                exceptionDialog(UnsupportedOperationException()) {
+                    headerTitle = "Exception dialog"
+                    graphicIcon = sampleGraphic
+
                     closeOnShow(this)
                     assertEquals("Exception dialog", headerText)
+                    assertEquals("Exception dialog", title)
                     assertEquals(sampleGraphic, graphic)
+                    assertEquals(sampleGraphic.image, icon)
                 }.get(),
-            )
-            assertEquals(
-                OK,
-                exceptionDialog(UnsupportedOperationException()) { closeOnShow(this) }.get(),
             )
         }
     }

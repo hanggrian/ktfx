@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -37,7 +40,7 @@ public inline fun ToggleButtonContainer.radioButton(text: String? = null): Radio
  *
  * @return the control created.
  */
-public fun radioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun radioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
         RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -51,8 +54,8 @@ public fun radioButton(text: String? = null, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public fun NodeContainer.radioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        RadioButton).() -> Unit): RadioButton {
+public inline fun NodeContainer.radioButton(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
     child.configuration()
@@ -65,7 +68,7 @@ public fun NodeContainer.radioButton(text: String? = null, configuration: (@Ktfx
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.radioButton(text: String? = null,
+public inline fun ToggleButtonContainer.radioButton(text: String? = null,
         configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -120,7 +123,7 @@ public inline fun ToggleButtonContainer.styledRadioButton(
  *
  * @return the styled control created.
  */
-public fun styledRadioButton(
+public inline fun styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -142,7 +145,7 @@ public fun styledRadioButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRadioButton(
+public inline fun NodeContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -164,7 +167,7 @@ public fun NodeContainer.styledRadioButton(
  *
  * @return the styled control added.
  */
-public fun ToggleButtonContainer.styledRadioButton(
+public inline fun ToggleButtonContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

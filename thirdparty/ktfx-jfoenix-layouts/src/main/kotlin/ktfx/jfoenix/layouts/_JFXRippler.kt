@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,8 @@ public inline fun NodeContainer.jfxRippler(): JFXRippler = jfxRippler() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() -> Unit): JFXRippler {
+public inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() -> Unit):
+        JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxRippler()
     child.configuration()
@@ -43,7 +47,7 @@ public fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxRippler(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxRippler(configuration: (@KtfxLayoutDslMarker
         KtfxJfxRippler).() -> Unit): JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxRippler()
@@ -79,7 +83,7 @@ public inline fun NodeContainer.styledJfxRippler(vararg styleClass: String, id: 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxRippler(
+public inline fun styledJfxRippler(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() -> Unit,
@@ -100,7 +104,7 @@ public fun styledJfxRippler(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxRippler(
+public inline fun NodeContainer.styledJfxRippler(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() -> Unit,

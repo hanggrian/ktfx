@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -33,7 +36,7 @@ public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observab
  *
  * @return the control created.
  */
-public fun <T> gridView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> gridView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = GridView<T>(items)
@@ -47,7 +50,7 @@ public fun <T> gridView(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = GridView<T>(items)
@@ -89,7 +92,7 @@ public inline fun <T> NodeContainer.styledGridView(
  *
  * @return the styled control created.
  */
-public fun <T> styledGridView(
+public inline fun <T> styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +114,7 @@ public fun <T> styledGridView(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledGridView(
+public inline fun <T> NodeContainer.styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

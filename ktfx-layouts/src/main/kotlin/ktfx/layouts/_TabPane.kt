@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.tabPane(): TabPane = tabPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
+public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
     child.configuration()
@@ -41,8 +44,8 @@ public fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
-        TabPane {
+public inline fun NodeContainer.tabPane(configuration: (@KtfxLayoutDslMarker
+        KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
     child.configuration()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledTabPane(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledTabPane(
+public inline fun styledTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledTabPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledTabPane(
+public inline fun NodeContainer.styledTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit,

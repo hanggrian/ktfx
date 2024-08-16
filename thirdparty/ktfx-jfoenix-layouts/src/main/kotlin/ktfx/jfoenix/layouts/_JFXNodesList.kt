@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.jfxNodesList(): JFXNodesList = jfxNodesList() { 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJfxNodesList).() -> Unit):
+public inline fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJfxNodesList).() -> Unit):
         JFXNodesList {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxNodesList()
@@ -44,7 +47,7 @@ public fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJfxNodesList).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxNodesList(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxNodesList(configuration: (@KtfxLayoutDslMarker
         KtfxJfxNodesList).() -> Unit): JFXNodesList {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxNodesList()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledJfxNodesList(vararg styleClass: String, id
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxNodesList(
+public inline fun styledJfxNodesList(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxNodesList).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledJfxNodesList(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxNodesList(
+public inline fun NodeContainer.styledJfxNodesList(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxNodesList).() -> Unit,

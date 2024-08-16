@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -29,7 +32,7 @@ public inline fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBa
  *
  * @return the control created.
  */
-public fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
         KtfxButtonBar).() -> Unit): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
@@ -43,8 +46,8 @@ public fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDsl
  *
  * @return the control added.
  */
-public fun NodeContainer.buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxButtonBar).() -> Unit): ButtonBar {
+public inline fun NodeContainer.buttonBar(buttonOrder: String? = null,
+        configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
     child.configuration()
@@ -85,7 +88,7 @@ public inline fun NodeContainer.styledButtonBar(
  *
  * @return the styled control created.
  */
-public fun styledButtonBar(
+public inline fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -107,7 +110,7 @@ public fun styledButtonBar(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledButtonBar(
+public inline fun NodeContainer.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,

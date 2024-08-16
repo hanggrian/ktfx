@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -32,7 +35,7 @@ public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = 
  *
  * @return the control created.
  */
-public fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
+public inline fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BreadCrumbBar<T>(selectedCrumb)
@@ -46,7 +49,7 @@ public fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
+public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BreadCrumbBar<T>(selectedCrumb)
@@ -90,7 +93,7 @@ public inline fun <T> NodeContainer.styledBreadCrumbBar(
  *
  * @return the styled control created.
  */
-public fun <T> styledBreadCrumbBar(
+public inline fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +115,7 @@ public fun <T> styledBreadCrumbBar(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledBreadCrumbBar(
+public inline fun <T> NodeContainer.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

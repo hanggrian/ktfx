@@ -31,7 +31,7 @@ import javafx.collections.ObservableSet
 
 /** Create a [Property] with [initialValue]. */
 public inline fun <T> propertyOf(initialValue: T? = null): ObjectProperty<T> =
-    SimpleObjectProperty<T>(initialValue)
+    SimpleObjectProperty(initialValue)
 
 /** Create a [StringProperty] with [initialValue]. */
 public inline fun stringPropertyOf(initialValue: String? = null): StringProperty =

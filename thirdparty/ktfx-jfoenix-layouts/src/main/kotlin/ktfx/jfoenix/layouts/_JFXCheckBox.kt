@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.jfxCheckBox(text: String? = null): JFXCheckBox =
  *
  * @return the control created.
  */
-public fun jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
         JFXCheckBox).() -> Unit): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXCheckBox(text)
@@ -45,8 +48,8 @@ public fun jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutDslMarke
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        JFXCheckBox).() -> Unit): JFXCheckBox {
+public inline fun NodeContainer.jfxCheckBox(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker JFXCheckBox).() -> Unit): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXCheckBox(text)
     child.configuration()
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledJfxCheckBox(
  *
  * @return the styled control created.
  */
-public fun styledJfxCheckBox(
+public inline fun styledJfxCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledJfxCheckBox(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxCheckBox(
+public inline fun NodeContainer.styledJfxCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

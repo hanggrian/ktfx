@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun MenuItemContainer.checkMenuItem(text: String? = null, graphic:
  *
  * @return the control created.
  */
-public fun checkMenuItem(
+public inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit,
@@ -47,7 +50,7 @@ public fun checkMenuItem(
  *
  * @return the control added.
  */
-public fun MenuItemContainer.checkMenuItem(
+public inline fun MenuItemContainer.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun MenuItemContainer.styledCheckMenuItem(
  *
  * @return the styled control created.
  */
-public fun styledCheckMenuItem(
+public inline fun styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun styledCheckMenuItem(
  *
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledCheckMenuItem(
+public inline fun MenuItemContainer.styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

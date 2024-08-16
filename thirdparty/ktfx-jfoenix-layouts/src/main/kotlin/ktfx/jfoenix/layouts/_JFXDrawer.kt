@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -30,7 +33,8 @@ public inline fun NodeContainer.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit): JFXDrawer {
+public inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit):
+        JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxDrawer()
     child.configuration()
@@ -43,8 +47,8 @@ public fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit):
-        JFXDrawer {
+public inline fun NodeContainer.jfxDrawer(configuration: (@KtfxLayoutDslMarker
+        KtfxJfxDrawer).() -> Unit): JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxDrawer()
     child.configuration()
@@ -79,7 +83,7 @@ public inline fun NodeContainer.styledJfxDrawer(vararg styleClass: String, id: S
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledJfxDrawer(
+public inline fun styledJfxDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit,
@@ -100,7 +104,7 @@ public fun styledJfxDrawer(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxDrawer(
+public inline fun NodeContainer.styledJfxDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxDrawer).() -> Unit,

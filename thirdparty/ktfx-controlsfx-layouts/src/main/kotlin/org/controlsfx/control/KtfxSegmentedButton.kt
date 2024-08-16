@@ -20,6 +20,6 @@ public open class KtfxSegmentedButton :
     /** Call [ToggleButtonContainer.toggleButton] by string invocation. */
     public inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
+        configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
     ): ToggleButton = toggleButton(this, graphic, configuration)
 }

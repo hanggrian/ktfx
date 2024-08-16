@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,7 @@ public inline fun NodeContainer.webView(): WebView = webView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
+public inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
     child.configuration()
@@ -41,7 +44,7 @@ public fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): We
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit):
+public inline fun NodeContainer.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit):
         WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
@@ -77,7 +80,7 @@ public inline fun NodeContainer.styledWebView(vararg styleClass: String, id: Str
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledWebView(
+public inline fun styledWebView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit,
@@ -98,7 +101,7 @@ public fun styledWebView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledWebView(
+public inline fun NodeContainer.styledWebView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit,

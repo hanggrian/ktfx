@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -32,7 +35,7 @@ public inline fun NodeContainer.jfxButton(text: String? = null, graphic: Node? =
  *
  * @return the control created.
  */
-public fun jfxButton(
+public inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit,
@@ -49,7 +52,7 @@ public fun jfxButton(
  *
  * @return the control added.
  */
-public fun NodeContainer.jfxButton(
+public inline fun NodeContainer.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun NodeContainer.styledJfxButton(
  *
  * @return the styled control created.
  */
-public fun styledJfxButton(
+public inline fun styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun styledJfxButton(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledJfxButton(
+public inline fun NodeContainer.styledJfxButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

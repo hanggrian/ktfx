@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -30,7 +33,7 @@ public inline fun NodeContainer.plusMinusSlider(): PlusMinusSlider = plusMinusSl
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
+public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
         PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -44,7 +47,7 @@ public fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider)
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
         PlusMinusSlider).() -> Unit): PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -80,7 +83,7 @@ public inline fun NodeContainer.styledPlusMinusSlider(vararg styleClass: String,
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledPlusMinusSlider(
+public inline fun styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit,
@@ -101,7 +104,7 @@ public fun styledPlusMinusSlider(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledPlusMinusSlider(
+public inline fun NodeContainer.styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit,

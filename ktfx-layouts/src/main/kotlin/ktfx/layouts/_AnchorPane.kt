@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.layouts
 
@@ -28,7 +31,8 @@ public inline fun NodeContainer.anchorPane(): AnchorPane = anchorPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public fun anchorPane(configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit): AnchorPane {
+public inline fun anchorPane(configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit):
+        AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAnchorPane()
     child.configuration()
@@ -41,7 +45,7 @@ public fun anchorPane(configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-public fun NodeContainer.anchorPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.anchorPane(configuration: (@KtfxLayoutDslMarker
         KtfxAnchorPane).() -> Unit): AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAnchorPane()
@@ -77,7 +81,7 @@ public inline fun NodeContainer.styledAnchorPane(vararg styleClass: String, id: 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-public fun styledAnchorPane(
+public inline fun styledAnchorPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit,
@@ -98,7 +102,7 @@ public fun styledAnchorPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public fun NodeContainer.styledAnchorPane(
+public inline fun NodeContainer.styledAnchorPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit,

@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.jfoenix.layouts
 
@@ -32,7 +35,7 @@ public inline fun <T> NodeContainer.jfxChip(view: JFXChipView<T>, item: T): JFXC
  *
  * @return the control created.
  */
-public fun <T> jfxChip(
+public inline fun <T> jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit,
@@ -49,7 +52,7 @@ public fun <T> jfxChip(
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.jfxChip(
+public inline fun <T> NodeContainer.jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit,
@@ -96,7 +99,7 @@ public inline fun <T> NodeContainer.styledJfxChip(
  *
  * @return the styled control created.
  */
-public fun <T> styledJfxChip(
+public inline fun <T> styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -119,7 +122,7 @@ public fun <T> styledJfxChip(
  *
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledJfxChip(
+public inline fun <T> NodeContainer.styledJfxChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

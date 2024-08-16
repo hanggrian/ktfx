@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -36,7 +39,7 @@ public inline fun NodeContainer.rangeSlider(
  *
  * @return the control created.
  */
-public fun rangeSlider(
+public inline fun rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -55,7 +58,7 @@ public fun rangeSlider(
  *
  * @return the control added.
  */
-public fun NodeContainer.rangeSlider(
+public inline fun NodeContainer.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -110,7 +113,7 @@ public inline fun NodeContainer.styledRangeSlider(
  *
  * @return the styled control created.
  */
-public fun styledRangeSlider(
+public inline fun styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -135,7 +138,7 @@ public fun styledRangeSlider(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledRangeSlider(
+public inline fun NodeContainer.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,

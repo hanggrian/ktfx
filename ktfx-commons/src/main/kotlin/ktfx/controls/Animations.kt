@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package ktfx.controls
 
 import javafx.animation.Animation
@@ -15,6 +17,9 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.Shape
 import javafx.util.Duration
 import ktfx.time.ms
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Plays a [FadeTransition].
@@ -23,14 +28,16 @@ import ktfx.time.ms
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Node.fadeTransition(
+public inline fun Node.fadeTransition(
     duration: Duration = 400.0.ms,
     configuration: FadeTransition.() -> Unit,
-): FadeTransition =
-    FadeTransition(duration, this).apply {
+): FadeTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return FadeTransition(duration, this).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [FillTransition].
@@ -39,16 +46,18 @@ public fun Node.fadeTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Shape.fillTransition(
+public inline fun Shape.fillTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
     configuration: FillTransition.() -> Unit,
-): FillTransition =
-    FillTransition(duration, this, fromValue, toValue).apply {
+): FillTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return FillTransition(duration, this, fromValue, toValue).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [PathTransition].
@@ -57,15 +66,17 @@ public fun Shape.fillTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Node.pathTransition(
+public inline fun Node.pathTransition(
     duration: Duration = 400.0.ms,
     path: Shape? = null,
     configuration: PathTransition.() -> Unit,
-): PathTransition =
-    PathTransition(duration, path, this).apply {
+): PathTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return PathTransition(duration, path, this).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [RotateTransition].
@@ -74,14 +85,16 @@ public fun Node.pathTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Node.rotateTransition(
+public inline fun Node.rotateTransition(
     duration: Duration = 400.0.ms,
     configuration: RotateTransition.() -> Unit,
-): RotateTransition =
-    RotateTransition(duration, this).apply {
+): RotateTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return RotateTransition(duration, this).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [ScaleTransition].
@@ -90,14 +103,16 @@ public fun Node.rotateTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Node.scaleTransition(
+public inline fun Node.scaleTransition(
     duration: Duration = 400.0.ms,
     configuration: ScaleTransition.() -> Unit,
-): ScaleTransition =
-    ScaleTransition(duration, this).apply {
+): ScaleTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ScaleTransition(duration, this).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [StrokeTransition].
@@ -106,16 +121,18 @@ public fun Node.scaleTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Shape.strokeTransition(
+public inline fun Shape.strokeTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
     configuration: StrokeTransition.() -> Unit,
-): StrokeTransition =
-    StrokeTransition(duration, this, fromValue, toValue).apply {
+): StrokeTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return StrokeTransition(duration, this, fromValue, toValue).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Plays a [TranslateTransition].
@@ -124,14 +141,16 @@ public fun Shape.strokeTransition(
  * @param configuration the configuration block that customizes animation.
  * @return the animation played.
  */
-public fun Node.translateTransition(
+public inline fun Node.translateTransition(
     duration: Duration = 400.0.ms,
     configuration: TranslateTransition.() -> Unit,
-): TranslateTransition =
-    TranslateTransition(duration, this).apply {
+): TranslateTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return TranslateTransition(duration, this).apply {
         configuration()
         play()
     }
+}
 
 /**
  * Creates a [ParallelTransition] for this node.
@@ -139,14 +158,12 @@ public fun Node.translateTransition(
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-public fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelTransition =
-    ParallelTransition(
-        this,
-        *object : AnimationScope {
-            override val animations: MutableCollection<Animation> = mutableListOf()
-            override val node: Node get() = this@parallelTransition
-        }.apply(configuration).build(),
-    )
+public inline fun Node.parallelTransition(
+    configuration: AnimationScope<Node>.() -> Unit,
+): ParallelTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ParallelTransition(this, *AnimationScope(this).apply(configuration).build())
+}
 
 /**
  * Creates a [ParallelTransition] for this shape.
@@ -154,16 +171,12 @@ public fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): Pa
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-public fun Shape.shapeParallelTransition(
+public inline fun Shape.shapeParallelTransition(
     configuration: ShapeAnimationScope.() -> Unit,
-): ParallelTransition =
-    ParallelTransition(
-        this,
-        *object : ShapeAnimationScope {
-            override val animations: MutableCollection<Animation> = mutableListOf()
-            override val node: Shape get() = this@shapeParallelTransition
-        }.apply(configuration).build(),
-    )
+): ParallelTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ParallelTransition(this, *ShapeAnimationScope(this).apply(configuration).build())
+}
 
 /**
  * Creates a [SequentialTransition] for this node.
@@ -171,16 +184,12 @@ public fun Shape.shapeParallelTransition(
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-public fun Node.sequentialTransition(
-    configuration: AnimationScope.() -> Unit,
-): SequentialTransition =
-    SequentialTransition(
-        this,
-        *object : AnimationScope {
-            override val animations: MutableCollection<Animation> = mutableListOf()
-            override val node: Node get() = this@sequentialTransition
-        }.apply(configuration).build(),
-    )
+public inline fun Node.sequentialTransition(
+    configuration: AnimationScope<Node>.() -> Unit,
+): SequentialTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return SequentialTransition(this, *AnimationScope(this).apply(configuration).build())
+}
 
 /**
  * Creates a [SequentialTransition] for this shape.
@@ -188,21 +197,15 @@ public fun Node.sequentialTransition(
  * @param configuration the configuration block that customizes animations within this animation.
  * @return the animation played.
  */
-public fun Shape.shapeSequentialTransition(
+public inline fun Shape.shapeSequentialTransition(
     configuration: ShapeAnimationScope.() -> Unit,
-): SequentialTransition =
-    SequentialTransition(
-        this,
-        *object : ShapeAnimationScope {
-            override val animations: MutableCollection<Animation> = mutableListOf()
-            override val node: Shape get() = this@shapeSequentialTransition
-        }.apply(configuration).build(),
-    )
+): SequentialTransition {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return SequentialTransition(this, *ShapeAnimationScope(this).apply(configuration).build())
+}
 
 /** Shape animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
-public interface ShapeAnimationScope : AnimationScope {
-    override val node: Shape
-
+public class ShapeAnimationScope(node: Shape) : AnimationScope<Shape>(node) {
     /**
      * Append a [FillTransition].
      *
@@ -210,16 +213,18 @@ public interface ShapeAnimationScope : AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun fill(
+    public inline fun fill(
         duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
         configuration: FillTransition.() -> Unit,
-    ): FillTransition =
-        FillTransition(duration, node, fromValue, toValue).also {
+    ): FillTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return FillTransition(duration, node, fromValue, toValue).also {
             it.configuration()
             animations += it
         }
+    }
 
     /**
      * Append a [StrokeTransition].
@@ -228,25 +233,28 @@ public interface ShapeAnimationScope : AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun stroke(
+    public inline fun stroke(
         duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
         configuration: StrokeTransition.() -> Unit,
-    ): StrokeTransition =
-        StrokeTransition(duration, node, fromValue, toValue).also {
+    ): StrokeTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return StrokeTransition(duration, node, fromValue, toValue).also {
             it.configuration()
             animations += it
         }
+    }
 }
 
-/** Node animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
-public interface AnimationScope {
-    /** Node that the animations belong to. */
-    public val node: Node
-
-    /** Collection of animations within this scope. */
-    public val animations: MutableCollection<Animation>
+/**
+ * Node animations configurator interface for [ParallelTransition] and [SequentialTransition].
+ *
+ * @property node node that the animations belong to.
+ * @property animations collection of animations within this scope.
+ */
+public open class AnimationScope<T : Node>(public val node: T) {
+    public val animations: MutableList<Animation> = mutableListOf()
 
     /**
      * Append a [FadeTransition].
@@ -255,14 +263,16 @@ public interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun fade(
+    public inline fun fade(
         duration: Duration = 400.0.ms,
         configuration: FadeTransition.() -> Unit,
-    ): FadeTransition =
-        FadeTransition(duration, node).also {
+    ): FadeTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return FadeTransition(duration, node).also {
             it.configuration()
             animations += it
         }
+    }
 
     /**
      * Append a [PathTransition].
@@ -271,15 +281,17 @@ public interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun path(
+    public inline fun path(
         duration: Duration = 400.0.ms,
         path: Shape? = null,
         configuration: PathTransition.() -> Unit,
-    ): PathTransition =
-        PathTransition(duration, path, node).also {
+    ): PathTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return PathTransition(duration, path, node).also {
             it.configuration()
             animations += it
         }
+    }
 
     /**
      * Append a [RotateTransition].
@@ -288,14 +300,16 @@ public interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun rotate(
+    public inline fun rotate(
         duration: Duration = 400.0.ms,
         configuration: RotateTransition.() -> Unit,
-    ): RotateTransition =
-        RotateTransition(duration, node).also {
+    ): RotateTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return RotateTransition(duration, node).also {
             it.configuration()
             animations += it
         }
+    }
 
     /**
      * Append a [ScaleTransition].
@@ -304,14 +318,16 @@ public interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun scale(
+    public inline fun scale(
         duration: Duration = 400.0.ms,
         configuration: ScaleTransition.() -> Unit,
-    ): ScaleTransition =
-        ScaleTransition(duration, node).also {
+    ): ScaleTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return ScaleTransition(duration, node).also {
             it.configuration()
             animations += it
         }
+    }
 
     /**
      * Append a [TranslateTransition].
@@ -320,14 +336,16 @@ public interface AnimationScope {
      * @param configuration the configuration block that customizes animation.
      * @return the animation added.
      */
-    public fun translate(
+    public inline fun translate(
         duration: Duration = 400.0.ms,
         configuration: TranslateTransition.() -> Unit,
-    ): TranslateTransition =
-        TranslateTransition(duration, node).also {
+    ): TranslateTransition {
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return TranslateTransition(duration, node).also {
             it.configuration()
             animations += it
         }
+    }
 
     /** Return array of animations based on current configuration. */
     public fun build(): Array<Animation> = animations.toTypedArray()

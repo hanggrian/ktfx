@@ -16,14 +16,11 @@ import kotlin.contracts.contract
  *
  * @param configuration the configuration block.
  */
-public fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
+public inline fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
     configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    val columns2 = columns // explicit ref to avoid ambiguous label
-    object : JfxTreeTableColumnScope<S> {
-        override val columns: MutableCollection<TreeTableColumn<S, *>> get() = columns2
-    }.configuration()
+    JfxTreeTableColumnScope<S>(columns).configuration()
 }
 
 /**
@@ -31,38 +28,41 @@ public fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
  *
  * @param configuration the configuration block.
  */
-public fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
+public inline fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
     configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    val columns2 = columns // explicit ref to avoid ambiguous label
-    object : JfxTreeTableColumnScope<S> {
-        override val columns: MutableCollection<TreeTableColumn<S, *>> get() = columns2
-    }.configuration()
+    JfxTreeTableColumnScope<S>(columns).configuration()
 }
 
-/** Container of [JFXTreeTableColumn], providing sets of useful operation. */
+/**
+ * Container of [JFXTreeTableColumn], providing sets of useful operation.
+ *
+ * @property columns collection of columns within this scope.
+ */
 @TableColumnDslMarker
-public interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
-    /** Collection of columns within this scope. */
-    public val columns: MutableCollection<TreeTableColumn<S, *>>
-
+public class JfxTreeTableColumnScope<S : RecursiveTreeObject<S>>(
+    public val columns: MutableCollection<TreeTableColumn<S, *>>,
+) {
     /** Add a default column using [text], returning the column added. */
-    public fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
+    public fun <T> append(text: String? = null): JFXTreeTableColumn<S, T> =
         JFXTreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    public fun <T> column(
+    public inline fun <T> append(
         text: String? = null,
         configuration: JFXTreeTableColumn<S, T>.() -> Unit,
     ): JFXTreeTableColumn<S, T> {
-        val column = JFXTreeTableColumn<S, T>(text).apply(configuration)
-        columns += column
-        return column
+        contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+        return JFXTreeTableColumn<S, T>(text)
+            .also {
+                it.configuration()
+                columns += it
+            }
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    public operator fun <T> String.invoke(
+    public inline operator fun <T> String.invoke(
         configuration: JFXTreeTableColumn<S, T>.() -> Unit,
-    ): JFXTreeTableColumn<S, T> = column(this, configuration)
+    ): JFXTreeTableColumn<S, T> = append(this, configuration)
 }

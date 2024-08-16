@@ -1,7 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
-@file:Suppress("ktlint")
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+    "ktlint",
+)
 
 package ktfx.controlsfx.layouts
 
@@ -31,7 +34,7 @@ public inline fun NodeContainer.toggleSwitch(text: String? = null): ToggleSwitch
  *
  * @return the control created.
  */
-public fun toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
         ToggleSwitch).() -> Unit): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
@@ -45,8 +48,8 @@ public fun toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMark
  *
  * @return the control added.
  */
-public fun NodeContainer.toggleSwitch(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        ToggleSwitch).() -> Unit): ToggleSwitch {
+public inline fun NodeContainer.toggleSwitch(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker ToggleSwitch).() -> Unit): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
     child.configuration()
@@ -87,7 +90,7 @@ public inline fun NodeContainer.styledToggleSwitch(
  *
  * @return the styled control created.
  */
-public fun styledToggleSwitch(
+public inline fun styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ public fun styledToggleSwitch(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledToggleSwitch(
+public inline fun NodeContainer.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

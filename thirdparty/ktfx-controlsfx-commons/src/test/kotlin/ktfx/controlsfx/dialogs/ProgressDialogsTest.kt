@@ -4,6 +4,9 @@ import com.hanggrian.ktfx.test.DialogShowingTest
 import javafx.concurrent.Service
 import javafx.stage.Stage
 import ktfx.buildService
+import ktfx.dialogs.graphicIcon
+import ktfx.dialogs.headerTitle
+import ktfx.dialogs.icon
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -20,15 +23,15 @@ class ProgressDialogsTest : DialogShowingTest() {
     @Test
     fun exceptionDialog() {
         interact {
-            progressDialog("Progress dialog", sampleGraphic, helloWorldService) {
-                closeOnShow(this)
-                assertEquals("Progress dialog", headerText)
-                assertEquals(sampleGraphic, graphic)
-            }.get()
             progressDialog(helloWorldService) {
+                headerTitle = "Progress dialog"
+                graphicIcon = sampleGraphic
+
                 closeOnShow(this)
                 assertEquals("Progress dialog", headerText)
+                assertEquals("Progress dialog", title)
                 assertEquals(sampleGraphic, graphic)
+                assertEquals(sampleGraphic.image, icon)
             }.get()
         }
     }

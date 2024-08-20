@@ -14,9 +14,9 @@ class PropertySheetTest : LayoutsStyledTest<KtfxPane, PropertySheet>() {
 
     override fun KtfxPane.child2() = propertySheet()
 
-    override fun child3() = styledPropertySheet(styleClass = arrayOf("style"))
+    override fun child3() = styledPropertySheet()
 
-    override fun KtfxPane.child4() = styledPropertySheet(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPropertySheet()
 
     override fun PropertySheet.testDefaultValues() {
         assertThat(items).isEmpty()

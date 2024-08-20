@@ -12,7 +12,7 @@ class SeparatorMenuItemTest : LayoutsStyledTest<KtfxMenu, SeparatorMenuItem>() {
 
     override fun KtfxMenu.child2() = separatorMenuItem()
 
-    override fun child3() = styledSeparatorMenuItem(styleClass = arrayOf("style"))
+    override fun child3() = styledSeparatorMenuItem()
 
-    override fun KtfxMenu.child4() = styledSeparatorMenuItem(styleClass = arrayOf("style"))
+    override fun KtfxMenu.child4() = styledSeparatorMenuItem()
 }

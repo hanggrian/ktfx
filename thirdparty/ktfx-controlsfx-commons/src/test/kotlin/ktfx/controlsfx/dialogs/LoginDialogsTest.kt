@@ -18,7 +18,7 @@ class LoginDialogsTest : DialogShowingTest() {
         interact {
             assertEquals(
                 userInfo.toFxPair(),
-                loginDialog(userInfo, { }) {
+                loginDialog(userInfo, {}) {
                     headerTitle = "Login dialog"
                     graphicIcon = sampleGraphic
 
@@ -31,7 +31,7 @@ class LoginDialogsTest : DialogShowingTest() {
             )
             assertEquals(
                 userInfo.toFxPair(),
-                loginDialog(userInfo, { }) { closeOnShow(this) }.get(),
+                loginDialog(userInfo, {}) { closeOnShow(this) }.get(),
             )
         }
     }

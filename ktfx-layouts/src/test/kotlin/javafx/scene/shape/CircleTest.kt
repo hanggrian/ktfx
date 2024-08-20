@@ -14,9 +14,9 @@ class CircleTest : LayoutsStyledTest<KtfxPane, Circle>() {
 
     override fun KtfxPane.child2() = circle()
 
-    override fun child3() = styledCircle(styleClass = arrayOf("style"))
+    override fun child3() = styledCircle()
 
-    override fun KtfxPane.child4() = styledCircle(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCircle()
 
     override fun Circle.testDefaultValues() {
         assertEquals(0.0, centerX)

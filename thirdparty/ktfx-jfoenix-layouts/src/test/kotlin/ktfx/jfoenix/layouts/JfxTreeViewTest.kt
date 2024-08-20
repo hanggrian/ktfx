@@ -14,9 +14,9 @@ class JfxTreeViewTest : LayoutsStyledTest<KtfxPane, JFXTreeView<String>>() {
 
     override fun KtfxPane.child2() = jfxTreeView<String>()
 
-    override fun child3() = styledJfxTreeView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTreeView<String>()
 
-    override fun KtfxPane.child4() = styledJfxTreeView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTreeView<String>()
 
     override fun JFXTreeView<String>.testDefaultValues() {
         assertNull(root)

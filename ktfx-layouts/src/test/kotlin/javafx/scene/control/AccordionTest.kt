@@ -6,7 +6,7 @@ import javafx.scene.control.Accordion
 import javafx.scene.control.Label
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import kotlin.test.assertIs
 
 class AccordionTest : LayoutsStyledTest<KtfxPane, Accordion>() {
     override fun manager() = KtfxPane()
@@ -17,9 +17,9 @@ class AccordionTest : LayoutsStyledTest<KtfxPane, Accordion>() {
 
     override fun KtfxPane.child2() = accordion()
 
-    override fun child3() = styledAccordion(styleClass = arrayOf("style"))
+    override fun child3() = styledAccordion()
 
-    override fun KtfxPane.child4() = styledAccordion(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledAccordion()
 
     @Test
     fun stringInvocation() {
@@ -30,7 +30,7 @@ class AccordionTest : LayoutsStyledTest<KtfxPane, Accordion>() {
                 label("haha")
             }
             assertEquals(2, panes.size)
-            assertTrue(panes[1].content is Label)
+            assertIs<Label>(panes.last().content)
         }
     }
 }

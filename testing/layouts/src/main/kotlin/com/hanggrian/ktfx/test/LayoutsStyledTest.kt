@@ -13,7 +13,6 @@ abstract class LayoutsStyledTest<M : Any, C : Styleable> : LayoutsTest<M, C>() {
     @Test
     fun createStyledChild() {
         val child = child3()
-        assertEquals("style", child.styleClass.last())
         child.testDefaultValues()
         assertEquals(0, manager.childCount())
     }
@@ -21,7 +20,6 @@ abstract class LayoutsStyledTest<M : Any, C : Styleable> : LayoutsTest<M, C>() {
     @Test
     fun addStyledChild() {
         val child = manager.child4()
-        assertEquals("style", child.styleClass.last())
         child.testDefaultValues()
         assertEquals(1, manager.childCount())
     }

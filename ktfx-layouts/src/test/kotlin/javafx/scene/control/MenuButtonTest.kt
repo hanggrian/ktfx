@@ -16,9 +16,9 @@ class MenuButtonTest : LayoutsStyledTest<KtfxPane, MenuButton>() {
 
     override fun KtfxPane.child2() = menuButton()
 
-    override fun child3() = styledMenuButton(styleClass = arrayOf("style"))
+    override fun child3() = styledMenuButton()
 
-    override fun KtfxPane.child4() = styledMenuButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMenuButton()
 
     override fun MenuButton.testDefaultValues() {
         assertEquals("", text)

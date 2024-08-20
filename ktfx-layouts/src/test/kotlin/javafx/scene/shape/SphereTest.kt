@@ -13,9 +13,9 @@ class SphereTest : LayoutsStyledTest<KtfxPane, Sphere>() {
 
     override fun KtfxPane.child2() = sphere()
 
-    override fun child3() = styledSphere(styleClass = arrayOf("style"))
+    override fun child3() = styledSphere()
 
-    override fun KtfxPane.child4() = styledSphere(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSphere()
 
     override fun Sphere.testDefaultValues() {
         assertEquals(1.0, radius)

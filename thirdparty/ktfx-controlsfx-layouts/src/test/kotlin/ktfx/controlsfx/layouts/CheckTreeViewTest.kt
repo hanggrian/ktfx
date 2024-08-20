@@ -14,9 +14,9 @@ class CheckTreeViewTest : LayoutsStyledTest<KtfxPane, CheckTreeView<String>>() {
 
     override fun KtfxPane.child2() = checkTreeView<String>()
 
-    override fun child3() = styledCheckTreeView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledCheckTreeView<String>()
 
-    override fun KtfxPane.child4() = styledCheckTreeView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCheckTreeView<String>()
 
     override fun CheckTreeView<String>.testDefaultValues() {
         assertNull(root)

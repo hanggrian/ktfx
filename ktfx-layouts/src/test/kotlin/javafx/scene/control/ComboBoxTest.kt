@@ -13,9 +13,9 @@ class ComboBoxTest : LayoutsStyledTest<KtfxPane, ComboBox<String>>() {
 
     override fun KtfxPane.child2() = comboBox<String>()
 
-    override fun child3() = styledComboBox<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledComboBox<String>()
 
-    override fun KtfxPane.child4() = styledComboBox<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledComboBox<String>()
 
     override fun ComboBox<String>.testDefaultValues() {
         assertThat(items).isEmpty()

@@ -1,100 +1,136 @@
 package ktfx.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
+// fails on CI
 @Ignore
-class MediaPlayerTest {
+class MediaPlayerTest : ApplicationTest() {
     private lateinit var player: MediaPlayer
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
-        player = MediaPlayer(Media(javaClass.classLoader.getResource("sample.flv")!!.toString()))
+    override fun start(stage: Stage) {
+        stage.testScene<MediaPlayer>()
+        player = MediaPlayer(Media(javaClass.classLoader.getResource("sample.mp3")!!.toString()))
     }
 
     @Test
     fun onError() {
-        var isCalled = false
-        player.onError(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onError.run()
+        var assigned = false
+        interact {
+            player.onError {
+                assigned = true
+            }
+            player.onError.run()
+        }
+        assertTrue(assigned)
     }
 
+    // TODO create fake event
     @Test
     fun onMarker() {
-        // TODO create fake event
         // player.callOnMarker { assertFakeMediaMarkerEvent(it) }
         // player.onMarker.handle(fakeMediaMarkerEventOf())
     }
 
     @Test
     fun onEndOfMedia() {
-        var isCalled = false
-        player.onEndOfMedia(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onEndOfMedia.run()
+        var assigned = false
+        interact {
+            player.onEndOfMedia {
+                assigned = true
+            }
+            player.onEndOfMedia.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onReady() {
-        var isCalled = false
-        player.onReady(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onReady.run()
+        var assigned = false
+        interact {
+            player.onReady {
+                assigned = true
+            }
+            player.onReady.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onPlaying() {
-        var isCalled = false
-        player.onPlaying(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onPlaying.run()
+        var assigned = false
+        interact {
+            player.onPlaying {
+                assigned = true
+            }
+            player.onPlaying.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onPaused() {
-        var isCalled = false
-        player.onPaused(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onPaused.run()
+        var assigned = false
+        interact {
+            player.onPaused {
+                assigned = true
+            }
+            player.onPaused.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onStopped() {
-        var isCalled = false
-        player.onStopped(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onStopped.run()
+        var assigned = false
+        interact {
+            player.onStopped {
+                assigned = true
+            }
+            player.onStopped.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onHalted() {
-        var isCalled = false
-        player.onHalted(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onHalted.run()
+        var assigned = false
+        interact {
+            player.onHalted {
+                assigned = true
+            }
+            player.onHalted.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onRepeat() {
-        var isCalled = false
-        player.onRepeat(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onRepeat.run()
+        var assigned = false
+        interact {
+            player.onRepeat {
+                assigned = true
+            }
+            player.onRepeat.run()
+        }
+        assertTrue(assigned)
     }
 
     @Test
     fun onStalled() {
-        var isCalled = false
-        player.onStalled(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        player.onStalled.run()
+        var assigned = false
+        interact {
+            player.onStalled {
+                assigned = true
+            }
+            player.onStalled.run()
+        }
+        assertTrue(assigned)
     }
 }

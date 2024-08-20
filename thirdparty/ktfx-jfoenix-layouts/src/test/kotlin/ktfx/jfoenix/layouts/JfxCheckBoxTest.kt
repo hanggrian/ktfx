@@ -14,9 +14,9 @@ class JfxCheckBoxTest : LayoutsStyledTest<KtfxPane, JFXCheckBox>() {
 
     override fun KtfxPane.child2() = jfxCheckBox()
 
-    override fun child3() = styledJfxCheckBox(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxCheckBox()
 
-    override fun KtfxPane.child4() = styledJfxCheckBox(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxCheckBox()
 
     override fun JFXCheckBox.testDefaultValues() {
         assertNull(text)

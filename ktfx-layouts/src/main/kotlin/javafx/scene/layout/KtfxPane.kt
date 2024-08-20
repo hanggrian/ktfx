@@ -1,12 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.Pane
-import kotlin.contracts.ExperimentalContracts
 
 /**
  * [Pane] with dynamic-layout dsl support.

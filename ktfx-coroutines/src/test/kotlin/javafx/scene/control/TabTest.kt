@@ -1,50 +1,55 @@
 package ktfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.Event
 import javafx.scene.control.Tab
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TabTest {
+class TabTest : ApplicationTest() {
     private lateinit var tab: Tab
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<Tab>()
         tab = Tab()
     }
 
     @Test
     fun onSelectionChanged() {
-        tab.onSelectionChanged(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            tab.onSelectionChanged {
+                assertEquals(this@TabTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            tab.onSelectionChanged.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        tab.onSelectionChanged.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
     @Test
     fun onClosed() {
-        tab.onClosed(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            tab.onClosed {
+                assertEquals(this@TabTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            tab.onClosed.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        tab.onClosed.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
     @Test
     fun onCloseRequest() {
-        tab.onCloseRequest(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            tab.onCloseRequest {
+                assertEquals(this@TabTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            tab.onCloseRequest.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        tab.onCloseRequest.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 }

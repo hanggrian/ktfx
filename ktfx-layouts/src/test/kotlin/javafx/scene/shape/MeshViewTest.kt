@@ -13,9 +13,9 @@ class MeshViewTest : LayoutsStyledTest<KtfxPane, MeshView>() {
 
     override fun KtfxPane.child2() = meshView()
 
-    override fun child3() = styledMeshView(styleClass = arrayOf("style"))
+    override fun child3() = styledMeshView()
 
-    override fun KtfxPane.child4() = styledMeshView(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMeshView()
 
     override fun MeshView.testDefaultValues() {
         assertNull(mesh)

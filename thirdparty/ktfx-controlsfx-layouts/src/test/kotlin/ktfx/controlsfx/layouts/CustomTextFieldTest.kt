@@ -13,7 +13,7 @@ class CustomTextFieldTest : LayoutsStyledTest<KtfxPane, CustomTextField>() {
 
     override fun KtfxPane.child2() = customTextField()
 
-    override fun child3() = styledCustomTextField(styleClass = arrayOf("style"))
+    override fun child3() = styledCustomTextField()
 
-    override fun KtfxPane.child4() = styledCustomTextField(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCustomTextField()
 }

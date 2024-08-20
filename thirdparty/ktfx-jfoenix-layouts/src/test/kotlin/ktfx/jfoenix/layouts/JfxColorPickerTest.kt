@@ -15,9 +15,9 @@ class JfxColorPickerTest : LayoutsStyledTest<KtfxPane, JFXColorPicker>() {
 
     override fun KtfxPane.child2() = jfxColorPicker()
 
-    override fun child3() = styledJfxColorPicker(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxColorPicker()
 
-    override fun KtfxPane.child4() = styledJfxColorPicker(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxColorPicker()
 
     override fun JFXColorPicker.testDefaultValues() {
         assertEquals(Color.WHITE, value)

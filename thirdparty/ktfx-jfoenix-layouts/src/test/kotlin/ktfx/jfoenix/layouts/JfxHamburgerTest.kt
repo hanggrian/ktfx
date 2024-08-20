@@ -13,7 +13,7 @@ class JfxHamburgerTest : LayoutsStyledTest<KtfxPane, JFXHamburger>() {
 
     override fun KtfxPane.child2() = jfxHamburger()
 
-    override fun child3() = styledJfxHamburger(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxHamburger()
 
-    override fun KtfxPane.child4() = styledJfxHamburger(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxHamburger()
 }

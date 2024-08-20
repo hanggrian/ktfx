@@ -14,9 +14,9 @@ class CheckListViewTest : LayoutsStyledTest<KtfxPane, CheckListView<String>>() {
 
     override fun KtfxPane.child2() = checkListView<String>()
 
-    override fun child3() = styledCheckListView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledCheckListView<String>()
 
-    override fun KtfxPane.child4() = styledCheckListView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCheckListView<String>()
 
     override fun CheckListView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

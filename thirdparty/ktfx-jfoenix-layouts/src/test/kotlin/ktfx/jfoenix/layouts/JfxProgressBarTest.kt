@@ -15,9 +15,9 @@ class JfxProgressBarTest : LayoutsStyledTest<KtfxPane, JFXProgressBar>() {
 
     override fun KtfxPane.child2() = jfxProgressBar()
 
-    override fun child3() = styledJfxProgressBar(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxProgressBar()
 
-    override fun KtfxPane.child4() = styledJfxProgressBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxProgressBar()
 
     override fun JFXProgressBar.testDefaultValues() {
         assertEquals(ProgressBar.INDETERMINATE_PROGRESS, progress)

@@ -13,9 +13,9 @@ class TreeTableViewTest : LayoutsStyledTest<KtfxPane, TreeTableView<String>>() {
 
     override fun KtfxPane.child2() = treeTableView<String>()
 
-    override fun child3() = styledTreeTableView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledTreeTableView<String>()
 
-    override fun KtfxPane.child4() = styledTreeTableView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledTreeTableView<String>()
 
     override fun TreeTableView<String>.testDefaultValues() {
         assertNull(root)

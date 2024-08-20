@@ -13,7 +13,7 @@ class PlusMinusSliderTest : LayoutsStyledTest<KtfxPane, PlusMinusSlider>() {
 
     override fun KtfxPane.child2() = plusMinusSlider()
 
-    override fun child3() = styledPlusMinusSlider(styleClass = arrayOf("style"))
+    override fun child3() = styledPlusMinusSlider()
 
-    override fun KtfxPane.child4() = styledPlusMinusSlider(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPlusMinusSlider()
 }

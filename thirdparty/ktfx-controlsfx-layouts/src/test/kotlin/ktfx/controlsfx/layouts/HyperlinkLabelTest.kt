@@ -14,9 +14,9 @@ class HyperlinkLabelTest : LayoutsStyledTest<KtfxPane, HyperlinkLabel>() {
 
     override fun KtfxPane.child2() = hyperlinkLabel()
 
-    override fun child3() = styledHyperlinkLabel(styleClass = arrayOf("style"))
+    override fun child3() = styledHyperlinkLabel()
 
-    override fun KtfxPane.child4() = styledHyperlinkLabel(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledHyperlinkLabel()
 
     override fun HyperlinkLabel.testDefaultValues() {
         assertNull(text)

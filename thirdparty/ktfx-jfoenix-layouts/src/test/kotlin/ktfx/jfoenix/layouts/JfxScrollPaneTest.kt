@@ -4,8 +4,11 @@ import com.google.common.truth.Truth.assertThat
 import com.hanggrian.ktfx.test.LayoutsStyledTest
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
+import javafx.scene.layout.Region
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.region
 import kotlin.test.Test
+import kotlin.test.assertIs
 
 class JfxScrollPaneTest : LayoutsStyledTest<KtfxPane, JFXScrollPane>() {
     override fun manager() = KtfxPane()
@@ -16,9 +19,17 @@ class JfxScrollPaneTest : LayoutsStyledTest<KtfxPane, JFXScrollPane>() {
 
     override fun KtfxPane.child2() = jfxScrollPane()
 
-    override fun child3() = styledJfxScrollPane(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxScrollPane()
 
-    override fun KtfxPane.child4() = styledJfxScrollPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxScrollPane()
+
+    @Test
+    fun add() {
+        jfxScrollPane {
+            region()
+            assertIs<Region>(children.first())
+        }
+    }
 
     @Test
     fun barAndHeader() {

@@ -22,9 +22,9 @@ class JfxChipTest : LayoutsStyledTest<KtfxPane, JFXChip<String>>() {
 
     override fun KtfxPane.child2() = jfxChip(jfxChipView, "Yo")
 
-    override fun child3() = styledJfxChip(jfxChipView, "Yo", styleClass = arrayOf("style"))
+    override fun child3() = styledJfxChip(jfxChipView, "Yo")
 
-    override fun KtfxPane.child4() = styledJfxChip(jfxChipView, "Yo", styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxChip(jfxChipView, "Yo")
 
     override fun JFXChip<String>.testDefaultValues() {
         assertEquals(jfxChipView, chipView)

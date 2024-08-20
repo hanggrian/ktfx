@@ -16,9 +16,9 @@ class JfxTabPaneTest : LayoutsStyledTest<KtfxPane, JFXTabPane>() {
 
     override fun KtfxPane.child2() = jfxTabPane()
 
-    override fun child3() = styledJfxTabPane(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTabPane()
 
-    override fun KtfxPane.child4() = styledJfxTabPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTabPane()
 
     @Test
     fun stringInvocation() {

@@ -13,9 +13,9 @@ class CheckMenuItemTest : LayoutsStyledTest<KtfxMenu, CheckMenuItem>() {
 
     override fun KtfxMenu.child2() = checkMenuItem()
 
-    override fun child3() = styledCheckMenuItem(styleClass = arrayOf("style"))
+    override fun child3() = styledCheckMenuItem()
 
-    override fun KtfxMenu.child4() = styledCheckMenuItem(styleClass = arrayOf("style"))
+    override fun KtfxMenu.child4() = styledCheckMenuItem()
 
     override fun CheckMenuItem.testDefaultValues() {
         assertNull(text)

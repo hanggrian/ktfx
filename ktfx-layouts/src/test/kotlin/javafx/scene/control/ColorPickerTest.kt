@@ -14,9 +14,9 @@ class ColorPickerTest : LayoutsStyledTest<KtfxPane, ColorPicker>() {
 
     override fun KtfxPane.child2() = colorPicker()
 
-    override fun child3() = styledColorPicker(styleClass = arrayOf("style"))
+    override fun child3() = styledColorPicker()
 
-    override fun KtfxPane.child4() = styledColorPicker(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledColorPicker()
 
     override fun ColorPicker.testDefaultValues() {
         assertEquals(Color.WHITE, value)

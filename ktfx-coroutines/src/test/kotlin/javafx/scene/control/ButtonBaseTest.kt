@@ -1,25 +1,29 @@
 package ktfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.ActionEvent
 import javafx.scene.control.Button
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.scene.control.ButtonBase
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ButtonBaseTest {
-    @BeforeTest
-    fun start() = initToolkit()
+class ButtonBaseTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<ButtonBase>()
+    }
 
     @Test
     fun onAction() {
-        val button = Button()
-        button.onAction(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
+        interact {
+            val button = Button()
+            button.onAction {
+                assertEquals(this@ButtonBaseTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+            }
+            button.onAction.handle(ActionEvent(this, FakeEventTarget))
         }
-        button.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 }

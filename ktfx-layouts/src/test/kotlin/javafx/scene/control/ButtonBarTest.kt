@@ -22,9 +22,9 @@ class ButtonBarTest : LayoutsStyledTest<KtfxPane, ButtonBar>() {
 
     override fun KtfxPane.child2() = buttonBar()
 
-    override fun child3() = styledButtonBar(styleClass = arrayOf("style"))
+    override fun child3() = styledButtonBar()
 
-    override fun KtfxPane.child4() = styledButtonBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledButtonBar()
 
     override fun ButtonBar.testDefaultValues() {
         assertEquals(

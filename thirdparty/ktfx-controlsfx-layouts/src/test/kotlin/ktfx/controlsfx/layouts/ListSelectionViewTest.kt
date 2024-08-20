@@ -13,7 +13,7 @@ class ListSelectionViewTest : LayoutsStyledTest<KtfxPane, ListSelectionView<Stri
 
     override fun KtfxPane.child2() = listSelectionView<String>()
 
-    override fun child3() = styledListSelectionView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledListSelectionView<String>()
 
-    override fun KtfxPane.child4() = styledListSelectionView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledListSelectionView<String>()
 }

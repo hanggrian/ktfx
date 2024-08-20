@@ -1,29 +1,30 @@
 package ktfx.controlsfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.ActionEvent
-import kotlinx.coroutines.Dispatchers
+import javafx.stage.Stage
 import org.controlsfx.control.HyperlinkLabel
-import kotlin.test.BeforeTest
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class HyperlinkLabelTest {
+class HyperlinkLabelTest : ApplicationTest() {
     private lateinit var label: HyperlinkLabel
 
-    @BeforeTest
-    fun create() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<HyperlinkLabel>()
         label = HyperlinkLabel()
     }
 
     @Test
     fun onAction() {
-        label.onAction(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
+        interact {
+            label.onAction {
+                assertEquals(this@HyperlinkLabelTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+            }
+            label.onAction.handle(ActionEvent(this, FakeEventTarget))
         }
-        label.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 }

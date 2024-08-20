@@ -13,9 +13,9 @@ class ListViewTest : LayoutsStyledTest<KtfxPane, ListView<String>>() {
 
     override fun KtfxPane.child2() = listView<String>()
 
-    override fun child3() = styledListView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledListView<String>()
 
-    override fun KtfxPane.child4() = styledListView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledListView<String>()
 
     override fun ListView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

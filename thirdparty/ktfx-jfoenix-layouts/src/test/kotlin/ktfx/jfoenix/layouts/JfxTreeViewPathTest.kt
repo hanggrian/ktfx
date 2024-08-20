@@ -21,8 +21,7 @@ class JfxTreeViewPathTest : LayoutsStyledTest<KtfxPane, JFXTreeViewPath>() {
 
     override fun KtfxPane.child2() = jfxTreeViewPath(jfxTreeView)
 
-    override fun child3() = styledJfxTreeViewPath(jfxTreeView, styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTreeViewPath(jfxTreeView)
 
-    override fun KtfxPane.child4() =
-        styledJfxTreeViewPath(jfxTreeView, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTreeViewPath(jfxTreeView)
 }

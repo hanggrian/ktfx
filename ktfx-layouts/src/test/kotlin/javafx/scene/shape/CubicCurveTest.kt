@@ -13,9 +13,9 @@ class CubicCurveTest : LayoutsStyledTest<KtfxPane, CubicCurve>() {
 
     override fun KtfxPane.child2() = cubicCurve()
 
-    override fun child3() = styledCubicCurve(styleClass = arrayOf("style"))
+    override fun child3() = styledCubicCurve()
 
-    override fun KtfxPane.child4() = styledCubicCurve(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCubicCurve()
 
     override fun CubicCurve.testDefaultValues() {
         assertEquals(0.0, startX)

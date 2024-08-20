@@ -13,7 +13,7 @@ class JfxListViewTest : LayoutsStyledTest<KtfxPane, JFXListView<String>>() {
 
     override fun KtfxPane.child2() = jfxListView<String>()
 
-    override fun child3() = styledJfxListView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxListView<String>()
 
-    override fun KtfxPane.child4() = styledJfxListView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxListView<String>()
 }

@@ -13,9 +13,9 @@ class ArcTest : LayoutsStyledTest<KtfxPane, Arc>() {
 
     override fun KtfxPane.child2() = arc()
 
-    override fun child3() = styledArc(styleClass = arrayOf("style"))
+    override fun child3() = styledArc()
 
-    override fun KtfxPane.child4() = styledArc(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledArc()
 
     override fun Arc.testDefaultValues() {
         assertEquals(0.0, centerX)

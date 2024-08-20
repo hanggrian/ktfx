@@ -1,11 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxCoroutinesKt")
+@file:OptIn(DelicateCoroutinesApi::class)
 
 package ktfx.coroutines
 
 import javafx.collections.ListChangeListener
 import javafx.collections.ObservableList
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx

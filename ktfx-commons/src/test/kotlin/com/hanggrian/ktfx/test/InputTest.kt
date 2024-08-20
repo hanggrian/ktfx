@@ -76,7 +76,6 @@ open class InputTest : ApplicationTest() {
         )
     }
 
-    @Suppress("NON_EXHAUSTIVE_WHEN")
     fun mouseEventOf(
         eventType: EventType<MouseEvent?>,
         x: Double,

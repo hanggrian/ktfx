@@ -15,9 +15,9 @@ class MenuBarTest : LayoutsStyledTest<KtfxPane, MenuBar>() {
 
     override fun KtfxPane.child2() = menuBar()
 
-    override fun child3() = styledMenuBar(styleClass = arrayOf("style"))
+    override fun child3() = styledMenuBar()
 
-    override fun KtfxPane.child4() = styledMenuBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMenuBar()
 
     @Test
     fun stringInvocation() {

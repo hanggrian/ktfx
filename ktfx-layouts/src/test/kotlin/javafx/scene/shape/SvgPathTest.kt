@@ -12,7 +12,7 @@ class SvgPathTest : LayoutsStyledTest<KtfxPane, SVGPath>() {
 
     override fun KtfxPane.child2() = svgPath()
 
-    override fun child3() = styledSvgPath(styleClass = arrayOf("style"))
+    override fun child3() = styledSvgPath()
 
-    override fun KtfxPane.child4() = styledSvgPath(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSvgPath()
 }

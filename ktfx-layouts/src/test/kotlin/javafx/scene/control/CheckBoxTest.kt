@@ -13,9 +13,9 @@ class CheckBoxTest : LayoutsStyledTest<KtfxPane, CheckBox>() {
 
     override fun KtfxPane.child2() = checkBox()
 
-    override fun child3(): CheckBox = styledCheckBox(styleClass = arrayOf("style"))
+    override fun child3(): CheckBox = styledCheckBox()
 
-    override fun KtfxPane.child4(): CheckBox = styledCheckBox(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4(): CheckBox = styledCheckBox()
 
     override fun CheckBox.testDefaultValues() {
         assertNull(text)

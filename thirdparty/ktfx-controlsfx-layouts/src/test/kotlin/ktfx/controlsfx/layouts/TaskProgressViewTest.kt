@@ -14,8 +14,7 @@ class TaskProgressViewTest : LayoutsStyledTest<KtfxPane, TaskProgressView<Task<S
 
     override fun KtfxPane.child2() = taskProgressView<Task<String>>()
 
-    override fun child3() = styledTaskProgressView<Task<String>>(styleClass = arrayOf("style"))
+    override fun child3() = styledTaskProgressView<Task<String>>()
 
-    override fun KtfxPane.child4() =
-        styledTaskProgressView<Task<String>>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledTaskProgressView<Task<String>>()
 }

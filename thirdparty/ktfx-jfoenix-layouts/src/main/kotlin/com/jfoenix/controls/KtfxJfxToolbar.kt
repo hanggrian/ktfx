@@ -37,10 +37,10 @@ public open class KtfxJfxToolbar : JFXToolbar() {
             /** Children margin in this layout. */
             public inline var Node.margin: Insets?
                 @JvmName("getMargin2")
-                get() = getMargin(this)
+                get() = HBox.getMargin(this)
 
                 @JvmName("setMargin2")
-                set(value) = setMargin(this, value)
+                set(value) = HBox.setMargin(this, value)
 
             /** Configure [margin] fluidly. */
             public fun <T : Node> T.margin(insets: Insets): T {

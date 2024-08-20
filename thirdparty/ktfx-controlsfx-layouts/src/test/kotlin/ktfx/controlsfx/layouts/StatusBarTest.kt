@@ -13,7 +13,7 @@ class StatusBarTest : LayoutsStyledTest<KtfxPane, StatusBar>() {
 
     override fun KtfxPane.child2() = statusBar()
 
-    override fun child3() = styledStatusBar(styleClass = arrayOf("style"))
+    override fun child3() = styledStatusBar()
 
-    override fun KtfxPane.child4() = styledStatusBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledStatusBar()
 }

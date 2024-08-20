@@ -16,9 +16,9 @@ class SegmentedButtonTest : LayoutsStyledTest<KtfxPane, SegmentedButton>() {
 
     override fun KtfxPane.child2() = segmentedButton()
 
-    override fun child3() = styledSegmentedButton(styleClass = arrayOf("style"))
+    override fun child3() = styledSegmentedButton()
 
-    override fun KtfxPane.child4() = styledSegmentedButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSegmentedButton()
 
     @Test
     fun stringInvocation() {

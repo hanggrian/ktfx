@@ -1,20 +1,29 @@
 package ktfx.coroutines
 
+import com.hanggrian.ktfx.test.testScene
+import javafx.beans.Observable
 import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
-import kotlinx.coroutines.Dispatchers
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ObservableTest {
+class ObservableTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<Observable>()
+    }
+
     @Test
     fun listener() {
-        val property = SimpleStringProperty()
-        property.listener(Dispatchers.Unconfined) {
-            assertTrue(it is StringProperty)
-            assertEquals("Hello world", it.get())
+        interact {
+            val property = SimpleStringProperty()
+            property.listener {
+                assertTrue(it is StringProperty)
+                assertEquals("Hello world", it.get())
+            }
+            property.set("Hello world")
         }
-        property.set("Hello world")
     }
 }

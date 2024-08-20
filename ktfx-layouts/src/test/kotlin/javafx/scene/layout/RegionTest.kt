@@ -12,7 +12,7 @@ class RegionTest : LayoutsStyledTest<KtfxPane, Region>() {
 
     override fun KtfxPane.child2() = region()
 
-    override fun child3() = styledRegion(styleClass = arrayOf("style"))
+    override fun child3() = styledRegion()
 
-    override fun KtfxPane.child4() = styledRegion(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledRegion()
 }

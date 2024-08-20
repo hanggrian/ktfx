@@ -15,9 +15,9 @@ class SplitMenuButtonTest : LayoutsStyledTest<KtfxPane, SplitMenuButton>() {
 
     override fun KtfxPane.child2() = splitMenuButton()
 
-    override fun child3() = styledSplitMenuButton(styleClass = arrayOf("style"))
+    override fun child3() = styledSplitMenuButton()
 
-    override fun KtfxPane.child4() = styledSplitMenuButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSplitMenuButton()
 
     @Test
     fun stringInvocation() {

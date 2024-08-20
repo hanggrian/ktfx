@@ -13,9 +13,9 @@ class ImageViewTest : LayoutsStyledTest<KtfxPane, ImageView>() {
 
     override fun KtfxPane.child2() = imageView()
 
-    override fun child3() = styledImageView(styleClass = arrayOf("style"))
+    override fun child3() = styledImageView()
 
-    override fun KtfxPane.child4() = styledImageView(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledImageView()
 
     override fun ImageView.testDefaultValues() {
         assertNull(image)

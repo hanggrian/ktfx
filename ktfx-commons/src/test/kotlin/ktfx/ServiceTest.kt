@@ -5,9 +5,9 @@ import java.lang.Thread.sleep
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertIs
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNull
-import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class ServiceTest {
@@ -37,7 +37,7 @@ class ServiceTest {
         testService<String> {
             call { error("Sad face") }
             setOnFailed {
-                assertTrue(it.source.exception is IllegalStateException)
+                assertIs<IllegalStateException>(it.source.exception)
             }
             setOnSucceeded {
                 fail("Should not succeed.")

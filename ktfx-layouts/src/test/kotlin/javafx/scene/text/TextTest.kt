@@ -13,9 +13,9 @@ class TextTest : LayoutsStyledTest<KtfxTextFlow, Text>() {
 
     override fun KtfxTextFlow.child2() = text()
 
-    override fun child3() = styledText(styleClass = arrayOf("style"))
+    override fun child3() = styledText()
 
-    override fun KtfxTextFlow.child4() = styledText(styleClass = arrayOf("style"))
+    override fun KtfxTextFlow.child4() = styledText()
 
     override fun Text.testDefaultValues() {
         assertEquals("", text)

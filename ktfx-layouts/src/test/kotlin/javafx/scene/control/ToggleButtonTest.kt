@@ -13,9 +13,9 @@ class ToggleButtonTest : LayoutsStyledTest<KtfxPane, ToggleButton>() {
 
     override fun KtfxPane.child2() = toggleButton()
 
-    override fun child3() = styledToggleButton(styleClass = arrayOf("style"))
+    override fun child3() = styledToggleButton()
 
-    override fun KtfxPane.child4() = styledToggleButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledToggleButton()
 
     override fun ToggleButton.testDefaultValues() {
         assertNull(text)

@@ -13,7 +13,7 @@ class JfxChipViewTest : LayoutsStyledTest<KtfxPane, JFXChipView<String>>() {
 
     override fun KtfxPane.child2() = jfxChipView<String>()
 
-    override fun child3() = styledJfxChipView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxChipView<String>()
 
-    override fun KtfxPane.child4() = styledJfxChipView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxChipView<String>()
 }

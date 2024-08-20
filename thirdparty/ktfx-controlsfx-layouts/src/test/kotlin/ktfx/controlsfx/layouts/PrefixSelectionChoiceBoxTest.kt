@@ -14,8 +14,7 @@ class PrefixSelectionChoiceBoxTest :
 
     override fun KtfxPane.child2() = prefixSelectionChoiceBox<String>()
 
-    override fun child3() = styledPrefixSelectionChoiceBox<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledPrefixSelectionChoiceBox<String>()
 
-    override fun KtfxPane.child4() =
-        styledPrefixSelectionChoiceBox<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPrefixSelectionChoiceBox<String>()
 }

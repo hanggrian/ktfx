@@ -1,28 +1,29 @@
 package ktfx.controlsfx.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
-import kotlinx.coroutines.Dispatchers
+import com.hanggrian.ktfx.test.testScene
+import javafx.stage.Stage
 import org.controlsfx.control.BreadCrumbBar
-import kotlin.test.BeforeTest
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class BreadCrumbBarTest {
+class BreadCrumbBarTest : ApplicationTest() {
     private lateinit var crumbBar: BreadCrumbBar<String>
 
-    @BeforeTest
-    fun create() {
-        initToolkit()
-        crumbBar = BreadCrumbBar()
+    override fun start(stage: Stage) {
+        stage.testScene<BreadCrumbBar<*>>()
+        crumbBar = BreadCrumbBar<String>()
     }
 
     @Test
     fun onCrumbAction() {
-        crumbBar.onCrumbAction(Dispatchers.Unconfined) {
-            assertEquals("Hello world", it.selectedCrumb.value)
+        interact {
+            crumbBar.onCrumbAction {
+                assertEquals("Hello World", it.selectedCrumb.value)
+            }
+            crumbBar.onCrumbAction.handle(
+                BreadCrumbBar.BreadCrumbActionEvent(BreadCrumbBar.buildTreeModel("Hello World")),
+            )
         }
-        crumbBar.onCrumbAction.handle(
-            BreadCrumbBar.BreadCrumbActionEvent(BreadCrumbBar.buildTreeModel("Hello world")),
-        )
     }
 }

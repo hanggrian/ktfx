@@ -1,28 +1,29 @@
 package ktfx.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.scene.media.Media
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
-import kotlin.test.Ignore
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-@Ignore
-class MediaTest {
+class MediaTest : ApplicationTest() {
     private lateinit var media: Media
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
-        media = Media(javaClass.classLoader.getResource("sample.flv")!!.toString())
+    override fun start(stage: Stage) {
+        stage.testScene<Media>()
+        media = Media(javaClass.classLoader.getResource("sample.mp3")!!.toString())
     }
 
     @Test
     fun onError() {
-        var isCalled = false
-        media.onError(Dispatchers.Unconfined) { assertTrue(isCalled) }
-        isCalled = true
-        media.onError.run()
+        var assigned = false
+        interact {
+            media.onError {
+                assigned = true
+            }
+            media.onError.run()
+        }
+        assertTrue(assigned)
     }
 }

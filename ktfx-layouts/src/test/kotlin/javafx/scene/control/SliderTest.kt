@@ -13,9 +13,9 @@ class SliderTest : LayoutsStyledTest<KtfxPane, Slider>() {
 
     override fun KtfxPane.child2() = slider()
 
-    override fun child3() = styledSlider(styleClass = arrayOf("style"))
+    override fun child3() = styledSlider()
 
-    override fun KtfxPane.child4() = styledSlider(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSlider()
 
     override fun Slider.testDefaultValues() {
         assertEquals(0.0, min)

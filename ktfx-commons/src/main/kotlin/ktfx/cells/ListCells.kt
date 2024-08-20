@@ -20,8 +20,8 @@ import javafx.util.StringConverter
  * @param selectedPropertyProvider A provider that, given an object from `ListView<T>.items`, will
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
-public inline fun <T> ListView<T>.checkBoxCellFactory(
-    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>,
+public fun <T> ListView<T>.checkBoxCellFactory(
+    selectedPropertyProvider: (T) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxListCell.forListView(selectedPropertyProvider))
 
 /**

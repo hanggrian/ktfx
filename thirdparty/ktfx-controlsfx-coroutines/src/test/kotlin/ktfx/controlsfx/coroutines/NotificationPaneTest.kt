@@ -1,60 +1,67 @@
 package ktfx.controlsfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.Event
-import kotlinx.coroutines.Dispatchers
+import javafx.stage.Stage
 import org.controlsfx.control.NotificationPane
-import kotlin.test.BeforeTest
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class NotificationPaneTest {
+class NotificationPaneTest : ApplicationTest() {
     private lateinit var pane: NotificationPane
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<NotificationPane>()
         pane = NotificationPane()
     }
 
     @Test
     fun onShowing() {
-        pane.onShowing(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            pane.onShowing {
+                assertEquals(this@NotificationPaneTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            pane.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        pane.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
     @Test
     fun onShown() {
-        pane.onShown(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            pane.onShown {
+                assertEquals(this@NotificationPaneTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            pane.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        pane.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
     @Test
     fun onHiding() {
-        pane.onHiding(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            pane.onHiding {
+                assertEquals(this@NotificationPaneTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            pane.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        pane.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
     @Test
     fun onHidden() {
-        pane.onHidden(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-            assertEquals(Event.ANY, it.eventType)
+        interact {
+            pane.onHidden {
+                assertEquals(this@NotificationPaneTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+                assertEquals(Event.ANY, it.eventType)
+            }
+            pane.onHidden.handle(Event(this, FakeEventTarget, Event.ANY))
         }
-        pane.onHidden.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 }

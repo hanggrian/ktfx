@@ -13,9 +13,9 @@ class LabelTest : LayoutsStyledTest<KtfxPane, Label>() {
 
     override fun KtfxPane.child2() = label()
 
-    override fun child3() = styledLabel(styleClass = arrayOf("style"))
+    override fun child3() = styledLabel()
 
-    override fun KtfxPane.child4() = styledLabel(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledLabel()
 
     override fun Label.testDefaultValues() {
         assertNull(text)

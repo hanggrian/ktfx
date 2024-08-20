@@ -24,9 +24,9 @@ class ScatterChartTest : LayoutsStyledTest<KtfxPane, ScatterChart<Number, Number
 
     override fun KtfxPane.child2() = scatterChart(axis1, axis2)
 
-    override fun child3() = styledScatterChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun child3() = styledScatterChart(axis1, axis2)
 
-    override fun KtfxPane.child4() = styledScatterChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledScatterChart(axis1, axis2)
 
     override fun ScatterChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

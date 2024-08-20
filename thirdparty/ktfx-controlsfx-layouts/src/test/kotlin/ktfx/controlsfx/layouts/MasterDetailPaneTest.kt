@@ -19,9 +19,9 @@ class MasterDetailPaneTest : LayoutsStyledTest<KtfxPane, MasterDetailPane>() {
 
     override fun KtfxPane.child2() = masterDetailPane()
 
-    override fun child3() = styledMasterDetailPane(styleClass = arrayOf("style"))
+    override fun child3() = styledMasterDetailPane()
 
-    override fun KtfxPane.child4() = styledMasterDetailPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMasterDetailPane()
 
     override fun MasterDetailPane.testDefaultValues() {
         assertEquals(Side.RIGHT, detailSide)

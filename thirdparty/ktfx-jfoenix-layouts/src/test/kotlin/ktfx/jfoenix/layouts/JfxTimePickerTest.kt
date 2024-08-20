@@ -14,9 +14,9 @@ class JfxTimePickerTest : LayoutsStyledTest<KtfxPane, JFXTimePicker>() {
 
     override fun KtfxPane.child2() = jfxTimePicker()
 
-    override fun child3() = styledJfxTimePicker(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTimePicker()
 
-    override fun KtfxPane.child4() = styledJfxTimePicker(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTimePicker()
 
     override fun JFXTimePicker.testDefaultValues() {
         assertNull(value)

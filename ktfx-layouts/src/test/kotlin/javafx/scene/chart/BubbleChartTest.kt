@@ -24,9 +24,9 @@ class BubbleChartTest : LayoutsStyledTest<KtfxPane, BubbleChart<Number, Number>>
 
     override fun KtfxPane.child2() = bubbleChart(axis1, axis2)
 
-    override fun child3() = styledBubbleChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun child3() = styledBubbleChart(axis1, axis2)
 
-    override fun KtfxPane.child4() = styledBubbleChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledBubbleChart(axis1, axis2)
 
     override fun BubbleChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

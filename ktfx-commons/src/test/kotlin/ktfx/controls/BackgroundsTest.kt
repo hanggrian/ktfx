@@ -39,7 +39,7 @@ class BackgroundsTest {
             radii = CornerRadii(5.0)
             insets = Insets(10.0)
         }
-        val fill = region.background.fills.first()
+        val fill = region.background.fills.single()
         assertEquals(Color.RED, fill.fill)
         assertEquals(5.0, fill.radii.bottomLeftHorizontalRadius)
         assertEquals(Insets(10.0), fill.insets)
@@ -50,16 +50,25 @@ class BackgroundsTest {
         val sample = SampleImage()
         val backgroundSize = BackgroundSize(1.0, 2.0, true, true, true, true)
         region.imageBackground(sample) {
-            repeat = BackgroundRepeat.ROUND
+            repeatX = BackgroundRepeat.REPEAT
+            repeatY = BackgroundRepeat.SPACE
             position = BackgroundPosition.CENTER
             size = backgroundSize
         }
-        region.background.images.first().let {
+        region.background.images.single().let {
             assertEquals(sample, it.image)
-            assertEquals(BackgroundRepeat.ROUND, it.repeatX)
-            assertEquals(BackgroundRepeat.ROUND, it.repeatY)
+            assertEquals(BackgroundRepeat.REPEAT, it.repeatX)
+            assertEquals(BackgroundRepeat.SPACE, it.repeatY)
             assertEquals(BackgroundPosition.CENTER, it.position)
             assertEquals(backgroundSize, it.size)
+        }
+
+        region.imageBackground(sample) {
+            repeat = BackgroundRepeat.ROUND
+        }
+        region.background.images.single().let {
+            assertEquals(BackgroundRepeat.ROUND, it.repeatX)
+            assertEquals(BackgroundRepeat.ROUND, it.repeatY)
         }
     }
 }

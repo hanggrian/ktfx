@@ -14,8 +14,10 @@ class PrinterTest {
                     setPageRanges(1 untilPage 3)
                 }
             assertEquals(2, job.jobSettings.copies)
-            assertEquals(1, job.jobSettings.pageRanges.first().startPage)
-            assertEquals(3, job.jobSettings.pageRanges.first().endPage)
+            job.jobSettings.pageRanges.single().let {
+                assertEquals(1, it.startPage)
+                assertEquals(3, it.endPage)
+            }
         }
     }
 }

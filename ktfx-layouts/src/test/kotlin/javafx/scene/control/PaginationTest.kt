@@ -13,9 +13,9 @@ class PaginationTest : LayoutsStyledTest<KtfxPane, Pagination>() {
 
     override fun KtfxPane.child2() = pagination()
 
-    override fun child3() = styledPagination(styleClass = arrayOf("style"))
+    override fun child3() = styledPagination()
 
-    override fun KtfxPane.child4() = styledPagination(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPagination()
 
     override fun Pagination.testDefaultValues() {
         assertEquals(Pagination.INDETERMINATE, pageCount)

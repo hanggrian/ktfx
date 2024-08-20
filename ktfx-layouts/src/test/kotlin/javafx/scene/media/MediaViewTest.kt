@@ -13,9 +13,9 @@ class MediaViewTest : LayoutsStyledTest<KtfxPane, MediaView>() {
 
     override fun KtfxPane.child2() = mediaView()
 
-    override fun child3() = styledMediaView(styleClass = arrayOf("style"))
+    override fun child3() = styledMediaView()
 
-    override fun KtfxPane.child4() = styledMediaView(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMediaView()
 
     override fun MediaView.testDefaultValues() {
         assertNull(mediaPlayer)

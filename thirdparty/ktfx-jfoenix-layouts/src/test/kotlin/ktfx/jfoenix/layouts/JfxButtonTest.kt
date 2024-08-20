@@ -14,9 +14,9 @@ class JfxButtonTest : LayoutsStyledTest<KtfxPane, JFXButton>() {
 
     override fun KtfxPane.child2() = jfxButton()
 
-    override fun child3() = styledJfxButton(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxButton()
 
-    override fun KtfxPane.child4() = styledJfxButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxButton()
 
     override fun JFXButton.testDefaultValues() {
         assertNull(text)

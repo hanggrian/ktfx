@@ -84,7 +84,7 @@ class AnimationsTest {
                 fade {}
             }
         assertEquals(node, transition.node)
-        assertIs<FadeTransition>(transition.children.first())
+        assertIs<FadeTransition>(transition.children.single())
     }
 
     @Test
@@ -95,7 +95,7 @@ class AnimationsTest {
                 path {}
             }
         assertEquals(shape, transition.node)
-        assertIs<PathTransition>(transition.children.first())
+        assertIs<PathTransition>(transition.children.single())
     }
 
     @Test

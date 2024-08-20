@@ -12,7 +12,7 @@ class PathTest : LayoutsStyledTest<KtfxPane, Path>() {
 
     override fun KtfxPane.child2() = path()
 
-    override fun child3() = styledPath(styleClass = arrayOf("style"))
+    override fun child3() = styledPath()
 
-    override fun KtfxPane.child4() = styledPath(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPath()
 }

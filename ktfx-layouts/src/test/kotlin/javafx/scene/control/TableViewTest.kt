@@ -13,9 +13,9 @@ class TableViewTest : LayoutsStyledTest<KtfxPane, TableView<String>>() {
 
     override fun KtfxPane.child2() = tableView<String>()
 
-    override fun child3() = styledTableView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledTableView<String>()
 
-    override fun KtfxPane.child4() = styledTableView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledTableView<String>()
 
     override fun TableView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

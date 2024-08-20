@@ -12,7 +12,7 @@ class PaneTest : LayoutsStyledTest<KtfxPane, Pane>() {
 
     override fun KtfxPane.child2() = pane()
 
-    override fun child3() = styledPane(styleClass = arrayOf("style"))
+    override fun child3() = styledPane()
 
-    override fun KtfxPane.child4() = styledPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPane()
 }

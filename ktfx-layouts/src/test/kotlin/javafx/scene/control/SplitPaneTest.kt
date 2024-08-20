@@ -2,6 +2,9 @@ package ktfx.layouts
 
 import com.hanggrian.ktfx.test.LayoutsStyledTest
 import javafx.scene.control.SplitPane
+import javafx.scene.layout.Region
+import kotlin.test.Test
+import kotlin.test.assertIs
 
 class SplitPaneTest : LayoutsStyledTest<KtfxPane, SplitPane>() {
     override fun manager() = KtfxPane()
@@ -12,7 +15,15 @@ class SplitPaneTest : LayoutsStyledTest<KtfxPane, SplitPane>() {
 
     override fun KtfxPane.child2() = splitPane()
 
-    override fun child3() = styledSplitPane(styleClass = arrayOf("style"))
+    override fun child3() = styledSplitPane()
 
-    override fun KtfxPane.child4() = styledSplitPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSplitPane()
+
+    @Test
+    fun add() {
+        splitPane {
+            region()
+            assertIs<Region>(items.single())
+        }
+    }
 }

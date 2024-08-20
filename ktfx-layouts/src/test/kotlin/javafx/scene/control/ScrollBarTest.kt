@@ -12,7 +12,7 @@ class ScrollBarTest : LayoutsStyledTest<KtfxPane, ScrollBar>() {
 
     override fun KtfxPane.child2() = scrollBar()
 
-    override fun child3() = styledScrollBar(styleClass = arrayOf("style"))
+    override fun child3() = styledScrollBar()
 
-    override fun KtfxPane.child4() = styledScrollBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledScrollBar()
 }

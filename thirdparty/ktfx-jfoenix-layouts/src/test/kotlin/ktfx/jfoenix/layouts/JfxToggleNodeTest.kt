@@ -14,9 +14,9 @@ class JfxToggleNodeTest : LayoutsStyledTest<KtfxPane, JFXToggleNode>() {
 
     override fun KtfxPane.child2() = jfxToggleNode()
 
-    override fun child3() = styledJfxToggleNode(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxToggleNode()
 
-    override fun KtfxPane.child4() = styledJfxToggleNode(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxToggleNode()
 
     override fun JFXToggleNode.testDefaultValues() {
         assertNull(graphic)

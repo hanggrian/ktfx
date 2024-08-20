@@ -13,9 +13,9 @@ class RectangleTest : LayoutsStyledTest<KtfxPane, Rectangle>() {
 
     override fun KtfxPane.child2() = rectangle()
 
-    override fun child3() = styledRectangle(styleClass = arrayOf("style"))
+    override fun child3() = styledRectangle()
 
-    override fun KtfxPane.child4() = styledRectangle(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledRectangle()
 
     override fun Rectangle.testDefaultValues() {
         assertEquals(0.0, x)

@@ -14,9 +14,9 @@ class RatingTest : LayoutsStyledTest<KtfxPane, Rating>() {
 
     override fun KtfxPane.child2() = rating()
 
-    override fun child3() = styledRating(styleClass = arrayOf("style"))
+    override fun child3() = styledRating()
 
-    override fun KtfxPane.child4() = styledRating(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledRating()
 
     override fun Rating.testDefaultValues() {
         assertEquals(5, max)

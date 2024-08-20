@@ -13,9 +13,9 @@ class PolylineTest : LayoutsStyledTest<KtfxPane, Polyline>() {
 
     override fun KtfxPane.child2() = polyline()
 
-    override fun child3() = styledPolyline(styleClass = arrayOf("style"))
+    override fun child3() = styledPolyline()
 
-    override fun KtfxPane.child4() = styledPolyline(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPolyline()
 
     override fun Polyline.testDefaultValues() {
         assertThat(points).isEmpty()

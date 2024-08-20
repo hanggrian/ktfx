@@ -13,9 +13,9 @@ class CylinderTest : LayoutsStyledTest<KtfxPane, Cylinder>() {
 
     override fun KtfxPane.child2() = cylinder()
 
-    override fun child3() = styledCylinder(styleClass = arrayOf("style"))
+    override fun child3() = styledCylinder()
 
-    override fun KtfxPane.child4() = styledCylinder(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCylinder()
 
     override fun Cylinder.testDefaultValues() {
         assertEquals(1.0, radius)

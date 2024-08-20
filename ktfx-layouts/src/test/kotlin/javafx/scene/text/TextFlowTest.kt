@@ -15,18 +15,18 @@ class TextFlowTest : LayoutsStyledTest<KtfxPane, TextFlow>() {
 
     override fun KtfxPane.child2() = textFlow()
 
-    override fun child3() = styledTextFlow(styleClass = arrayOf("style"))
+    override fun child3() = styledTextFlow()
 
-    override fun KtfxPane.child4() = styledTextFlow(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledTextFlow()
 
     @Test
     fun stringInvocation() {
         textFlow {
             "World" {
                 fill = Color.RED
-                assertEquals(fill, Color.RED)
+                assertEquals(Color.RED, fill)
             }
-            assertEquals(children.size, 1)
+            assertEquals(1, children.size)
         }
     }
 }

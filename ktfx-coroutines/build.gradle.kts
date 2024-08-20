@@ -16,5 +16,5 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.javafx)
 
-    testImplementation(project(":testing:listeners"))
+    testImplementation(project(":testing:coroutines"))
 }

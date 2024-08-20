@@ -20,6 +20,6 @@ class TextFieldsTest {
         field.bindAutoCompletion("Hello", "World")
         field.bindAutoCompletion(listOf("Hello", "World"))
         field.bindAutoCompletion { listOf("Hello", "World") }
-        field.bindAutoCompletion(buildStringConverter { }) { listOf("Hello", "World") }
+        field.bindAutoCompletion(buildStringConverter {}) { listOf("Hello", "World") }
     }
 }

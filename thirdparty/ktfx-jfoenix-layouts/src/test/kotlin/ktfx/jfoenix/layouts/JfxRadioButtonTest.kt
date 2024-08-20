@@ -14,9 +14,9 @@ class JfxRadioButtonTest : LayoutsStyledTest<KtfxPane, JFXRadioButton>() {
 
     override fun KtfxPane.child2() = jfxRadioButton()
 
-    override fun child3() = styledJfxRadioButton(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxRadioButton()
 
-    override fun KtfxPane.child4() = styledJfxRadioButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxRadioButton()
 
     override fun JFXRadioButton.testDefaultValues() {
         assertNull(text)

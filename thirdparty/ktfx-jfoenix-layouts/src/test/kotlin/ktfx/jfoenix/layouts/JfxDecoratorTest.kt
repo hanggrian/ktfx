@@ -19,8 +19,18 @@ class JfxDecoratorTest : LayoutsStyledTest<KtfxPane, JFXDecorator>() {
     override fun KtfxPane.child2() = jfxDecorator(manager.scene.window as Stage, Label())
 
     override fun child3() =
-        styledJfxDecorator(manager.scene.window as Stage, Label(), styleClass = arrayOf("style"))
+        styledJfxDecorator(
+            manager.scene.window as Stage,
+            Label(),
+            styleClass = arrayOf("style"),
+            id = "id",
+        )
 
     override fun KtfxPane.child4() =
-        styledJfxDecorator(manager.scene.window as Stage, Label(), styleClass = arrayOf("style"))
+        styledJfxDecorator(
+            manager.scene.window as Stage,
+            Label(),
+            styleClass = arrayOf("style"),
+            id = "id",
+        )
 }

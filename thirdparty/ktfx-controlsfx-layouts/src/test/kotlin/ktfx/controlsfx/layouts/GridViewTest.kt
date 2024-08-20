@@ -14,9 +14,9 @@ class GridViewTest : LayoutsStyledTest<KtfxPane, GridView<String>>() {
 
     override fun KtfxPane.child2() = gridView<String>()
 
-    override fun child3() = styledGridView<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledGridView<String>()
 
-    override fun KtfxPane.child4() = styledGridView<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledGridView<String>()
 
     override fun GridView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

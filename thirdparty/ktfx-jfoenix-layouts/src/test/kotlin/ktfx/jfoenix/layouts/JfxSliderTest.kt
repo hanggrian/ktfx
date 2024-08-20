@@ -14,9 +14,9 @@ class JfxSliderTest : LayoutsStyledTest<KtfxPane, JFXSlider>() {
 
     override fun KtfxPane.child2() = jfxSlider()
 
-    override fun child3() = styledJfxSlider(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxSlider()
 
-    override fun KtfxPane.child4() = styledJfxSlider(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxSlider()
 
     override fun JFXSlider.testDefaultValues() {
         assertEquals(0.0, min)

@@ -1,22 +1,24 @@
 package ktfx.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.scene.media.MediaView
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 
-class MediaViewTest {
+@Ignore
+class MediaViewTest : ApplicationTest() {
     private lateinit var media: MediaView
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<MediaView>()
         media = MediaView()
     }
 
+    // TODO create fake event
     @Test
     fun onError() {
-        // TODO create fake event
         // media.callOnError { assertFakeMediaErrorEvent(it) }
         // media.onError.handle(fakeMediaErrorEventOf())
     }

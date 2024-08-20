@@ -24,10 +24,9 @@ class StackedAreaChartTest : LayoutsStyledTest<KtfxPane, StackedAreaChart<Number
 
     override fun KtfxPane.child2() = stackedAreaChart(axis1, axis2)
 
-    override fun child3() = styledStackedAreaChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun child3() = styledStackedAreaChart(axis1, axis2)
 
-    override fun KtfxPane.child4() =
-        styledStackedAreaChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledStackedAreaChart(axis1, axis2)
 
     override fun StackedAreaChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

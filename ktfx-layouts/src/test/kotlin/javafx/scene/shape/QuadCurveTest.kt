@@ -13,9 +13,9 @@ class QuadCurveTest : LayoutsStyledTest<KtfxPane, QuadCurve>() {
 
     override fun KtfxPane.child2() = quadCurve()
 
-    override fun child3() = styledQuadCurve(styleClass = arrayOf("style"))
+    override fun child3() = styledQuadCurve()
 
-    override fun KtfxPane.child4() = styledQuadCurve(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledQuadCurve()
 
     override fun QuadCurve.testDefaultValues() {
         assertEquals(0.0, startX)

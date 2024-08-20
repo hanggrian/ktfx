@@ -13,9 +13,9 @@ class RadioMenuItemTest : LayoutsStyledTest<KtfxMenu, RadioMenuItem>() {
 
     override fun KtfxMenu.child2() = radioMenuItem()
 
-    override fun child3() = styledRadioMenuItem(styleClass = arrayOf("style"))
+    override fun child3() = styledRadioMenuItem()
 
-    override fun KtfxMenu.child4() = styledRadioMenuItem(styleClass = arrayOf("style"))
+    override fun KtfxMenu.child4() = styledRadioMenuItem()
 
     override fun RadioMenuItem.testDefaultValues() {
         assertNull(text)

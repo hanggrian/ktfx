@@ -10,7 +10,8 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ClipboardTest {
-    @Rule @JvmField
+    @Rule
+    @JvmField
     var rule = JavaFXThreadRule()
     private lateinit var clipboard: Clipboard
 

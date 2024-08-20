@@ -16,9 +16,9 @@ class JfxDatePickerTest : LayoutsStyledTest<KtfxPane, JFXDatePicker>() {
 
     override fun KtfxPane.child2() = jfxDatePicker()
 
-    override fun child3() = styledJfxDatePicker(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxDatePicker()
 
-    override fun KtfxPane.child4() = styledJfxDatePicker(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxDatePicker()
 
     override fun JFXDatePicker.testDefaultValues() {
         assertNull(value)

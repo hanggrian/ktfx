@@ -13,9 +13,9 @@ class ChoiceBoxTest : LayoutsStyledTest<KtfxPane, ChoiceBox<String>>() {
 
     override fun KtfxPane.child2() = choiceBox<String>()
 
-    override fun child3() = styledChoiceBox<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledChoiceBox<String>()
 
-    override fun KtfxPane.child4() = styledChoiceBox<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledChoiceBox<String>()
 
     override fun ChoiceBox<String>.testDefaultValues() {
         assertThat(items).isEmpty()

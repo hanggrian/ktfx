@@ -12,7 +12,7 @@ class SeparatorTest : LayoutsStyledTest<KtfxPane, Separator>() {
 
     override fun KtfxPane.child2() = separator()
 
-    override fun child3() = styledSeparator(styleClass = arrayOf("style"))
+    override fun child3() = styledSeparator()
 
-    override fun KtfxPane.child4() = styledSeparator(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSeparator()
 }

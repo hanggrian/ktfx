@@ -13,9 +13,9 @@ class PolygonTest : LayoutsStyledTest<KtfxPane, Polygon>() {
 
     override fun KtfxPane.child2() = polygon()
 
-    override fun child3() = styledPolygon(styleClass = arrayOf("style"))
+    override fun child3() = styledPolygon()
 
-    override fun KtfxPane.child4() = styledPolygon(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPolygon()
 
     override fun Polygon.testDefaultValues() {
         assertThat(points).isEmpty()

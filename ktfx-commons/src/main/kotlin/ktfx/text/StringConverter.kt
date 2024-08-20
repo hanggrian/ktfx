@@ -25,7 +25,7 @@ public inline fun <T> buildStringConverter(
 
 /** Receiver for `buildStringConverter` block. */
 public class StringConverterBuilder<T> {
-    private var format: (T?) -> String = { it?.toString() ?: "" }
+    private var format: (T?) -> String = { it?.toString().orEmpty() }
     private var parse: (String) -> T? = { null }
 
     /** Convert the object to String. */

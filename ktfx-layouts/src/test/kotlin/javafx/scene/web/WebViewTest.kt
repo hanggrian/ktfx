@@ -15,7 +15,7 @@ class WebViewTest : LayoutsStyledTest<KtfxPane, WebView>() {
 
     override fun KtfxPane.child2() = webView()
 
-    override fun child3() = styledWebView(styleClass = arrayOf("style"))
+    override fun child3() = styledWebView()
 
-    override fun KtfxPane.child4() = styledWebView(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledWebView()
 }

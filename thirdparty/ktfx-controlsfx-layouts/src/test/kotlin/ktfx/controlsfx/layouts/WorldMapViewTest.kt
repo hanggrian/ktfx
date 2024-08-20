@@ -13,7 +13,7 @@ class WorldMapViewTest : LayoutsStyledTest<KtfxPane, WorldMapView>() {
 
     override fun KtfxPane.child2() = worldMapView()
 
-    override fun child3() = styledWorldMapView(styleClass = arrayOf("style"))
+    override fun child3() = styledWorldMapView()
 
-    override fun KtfxPane.child4() = styledWorldMapView(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledWorldMapView()
 }

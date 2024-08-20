@@ -1,51 +1,58 @@
 package ktfx.jfoenix.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import com.jfoenix.controls.JFXDrawer
 import com.jfoenix.controls.events.JFXDrawerEvent
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class JfxDrawerTest {
+class JfxDrawerTest : ApplicationTest() {
     private lateinit var drawer: JFXDrawer
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<JFXDrawer>()
         drawer = JFXDrawer()
     }
 
     @Test
     fun onDrawerClosed() {
-        drawer.onDrawerClosed(Dispatchers.Unconfined) {
-            assertEquals(JFXDrawerEvent.CLOSED, it.eventType)
+        interact {
+            drawer.onDrawerClosed {
+                assertEquals(JFXDrawerEvent.CLOSED, it.eventType)
+            }
+            drawer.onDrawerClosed.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSED))
         }
-        drawer.onDrawerClosed.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSED))
     }
 
     @Test
     fun onDrawerClosing() {
-        drawer.onDrawerClosing(Dispatchers.Unconfined) {
-            assertEquals(JFXDrawerEvent.CLOSING, it.eventType)
+        interact {
+            drawer.onDrawerClosing {
+                assertEquals(JFXDrawerEvent.CLOSING, it.eventType)
+            }
+            drawer.onDrawerClosing.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSING))
         }
-        drawer.onDrawerClosing.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSING))
     }
 
     @Test
     fun onDrawerOpened() {
-        drawer.onDrawerOpened(Dispatchers.Unconfined) {
-            assertEquals(JFXDrawerEvent.OPENED, it.eventType)
+        interact {
+            drawer.onDrawerOpened {
+                assertEquals(JFXDrawerEvent.OPENED, it.eventType)
+            }
+            drawer.onDrawerOpened.handle(JFXDrawerEvent(JFXDrawerEvent.OPENED))
         }
-        drawer.onDrawerOpened.handle(JFXDrawerEvent(JFXDrawerEvent.OPENED))
     }
 
     @Test
     fun onDrawerOpening() {
-        drawer.onDrawerOpening(Dispatchers.Unconfined) {
-            assertEquals(JFXDrawerEvent.OPENING, it.eventType)
+        interact {
+            drawer.onDrawerOpening {
+                assertEquals(JFXDrawerEvent.OPENING, it.eventType)
+            }
+            drawer.onDrawerOpening.handle(JFXDrawerEvent(JFXDrawerEvent.OPENING))
         }
-        drawer.onDrawerOpening.handle(JFXDrawerEvent(JFXDrawerEvent.OPENING))
     }
 }

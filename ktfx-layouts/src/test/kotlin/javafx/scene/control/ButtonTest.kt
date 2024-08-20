@@ -13,9 +13,9 @@ class ButtonTest : LayoutsStyledTest<KtfxButtonBar, Button>() {
 
     override fun KtfxButtonBar.child2() = button()
 
-    override fun child3() = styledButton(styleClass = arrayOf("style"))
+    override fun child3() = styledButton()
 
-    override fun KtfxButtonBar.child4() = styledButton(styleClass = arrayOf("style"))
+    override fun KtfxButtonBar.child4() = styledButton()
 
     override fun Button.testDefaultValues() {
         assertNull(text)

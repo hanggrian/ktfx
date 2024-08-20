@@ -1,19 +1,28 @@
 package ktfx.coroutines
 
+import com.hanggrian.ktfx.test.testScene
 import javafx.collections.FXCollections
-import kotlinx.coroutines.Dispatchers
+import javafx.collections.ObservableSet
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ObservableSetTest {
+class ObservableSetTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<ObservableSet<*>>()
+    }
+
     @Test
     fun listener() {
-        val collection = FXCollections.observableSet<String>()
-        collection.listener<String>(Dispatchers.Unconfined) {
-            assertTrue(it.wasAdded())
-            assertEquals("Hello world", it.elementAdded)
+        interact {
+            val collection = FXCollections.observableSet<String>()
+            collection.listener<String> {
+                assertTrue(it.wasAdded())
+                assertEquals("Hello world", it.elementAdded)
+            }
+            collection.add("Hello world")
         }
-        collection.add("Hello world")
     }
 }

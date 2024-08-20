@@ -13,9 +13,9 @@ class EllipseTest : LayoutsStyledTest<KtfxPane, Ellipse>() {
 
     override fun KtfxPane.child2() = ellipse()
 
-    override fun child3() = styledEllipse(styleClass = arrayOf("style"))
+    override fun child3() = styledEllipse()
 
-    override fun KtfxPane.child4() = styledEllipse(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledEllipse()
 
     override fun Ellipse.testDefaultValues() {
         assertEquals(0.0, centerX)

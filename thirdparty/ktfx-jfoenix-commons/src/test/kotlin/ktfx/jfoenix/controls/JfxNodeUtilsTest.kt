@@ -25,10 +25,10 @@ class JfxNodeUtilsTest {
             Background(BackgroundFill(BLUE, CornerRadii.EMPTY, Insets.EMPTY))
 
         node.updateBackground(placeholderBackground)
-        assertEquals(BLACK, node.background.fills.first().fill)
+        assertEquals(BLACK, node.background.fills.single().fill)
 
         node.updateBackground(placeholderBackground, RED)
-        assertEquals(RED, node.background.fills.first().fill)
+        assertEquals(RED, node.background.fills.single().fill)
     }
 
     @Test

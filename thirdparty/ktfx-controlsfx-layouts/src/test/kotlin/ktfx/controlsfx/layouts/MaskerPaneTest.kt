@@ -13,7 +13,7 @@ class MaskerPaneTest : LayoutsStyledTest<KtfxPane, MaskerPane>() {
 
     override fun KtfxPane.child2() = maskerPane()
 
-    override fun child3() = styledMaskerPane(styleClass = arrayOf("style"))
+    override fun child3() = styledMaskerPane()
 
-    override fun KtfxPane.child4() = styledMaskerPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledMaskerPane()
 }

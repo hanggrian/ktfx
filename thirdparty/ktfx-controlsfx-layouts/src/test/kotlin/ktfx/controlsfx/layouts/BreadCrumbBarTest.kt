@@ -14,9 +14,9 @@ class BreadCrumbBarTest : LayoutsStyledTest<KtfxPane, BreadCrumbBar<String>>() {
 
     override fun KtfxPane.child2() = breadCrumbBar<String>()
 
-    override fun child3() = styledBreadCrumbBar<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledBreadCrumbBar<String>()
 
-    override fun KtfxPane.child4() = styledBreadCrumbBar<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledBreadCrumbBar<String>()
 
     override fun BreadCrumbBar<String>.testDefaultValues() {
         assertNull(selectedCrumb)

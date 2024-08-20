@@ -14,9 +14,9 @@ class JfxTextAreaTest : LayoutsStyledTest<KtfxPane, JFXTextArea>() {
 
     override fun KtfxPane.child2() = jfxTextArea()
 
-    override fun child3() = styledJfxTextArea(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTextArea()
 
-    override fun KtfxPane.child4() = styledJfxTextArea(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTextArea()
 
     override fun JFXTextArea.testDefaultValues() {
         assertTrue(text.isEmpty())

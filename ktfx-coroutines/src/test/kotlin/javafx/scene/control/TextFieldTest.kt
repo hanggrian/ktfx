@@ -1,25 +1,28 @@
 package ktfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.ActionEvent
 import javafx.scene.control.TextField
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TextFieldTest {
-    @BeforeTest
-    fun start() = initToolkit()
+class TextFieldTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<TextField>()
+    }
 
     @Test
     fun onAction() {
-        val field = TextField()
-        field.onAction(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
+        interact {
+            val field = TextField()
+            field.onAction {
+                assertEquals(this@TextFieldTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+            }
+            field.onAction.handle(ActionEvent(this, FakeEventTarget))
         }
-        field.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 }

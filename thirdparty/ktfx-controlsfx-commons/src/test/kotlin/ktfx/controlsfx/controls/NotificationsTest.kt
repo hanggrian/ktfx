@@ -31,11 +31,12 @@ class NotificationsTest : ApplicationTest() {
                 position = Pos.BOTTOM_RIGHT
                 owner = stage
                 hideAfter = 10.s
-                onAction { }
+                onAction {}
                 darkStyle()
                 hideCloseButton()
                 actions()
-                threshold(0) { }
+                threshold(0, Notifications.create())
+                threshold(1) {}
             },
         )
     }

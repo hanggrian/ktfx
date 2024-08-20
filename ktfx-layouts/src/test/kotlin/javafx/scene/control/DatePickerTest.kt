@@ -13,9 +13,9 @@ class DatePickerTest : LayoutsStyledTest<KtfxPane, DatePicker>() {
 
     override fun KtfxPane.child2() = datePicker()
 
-    override fun child3() = styledDatePicker(styleClass = arrayOf("style"))
+    override fun child3() = styledDatePicker()
 
-    override fun KtfxPane.child4() = styledDatePicker(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledDatePicker()
 
     override fun DatePicker.testDefaultValues() {
         assertNull(value)

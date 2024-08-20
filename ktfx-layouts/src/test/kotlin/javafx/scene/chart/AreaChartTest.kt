@@ -24,9 +24,9 @@ class AreaChartTest : LayoutsStyledTest<KtfxPane, AreaChart<Number, Number>>() {
 
     override fun KtfxPane.child2() = areaChart(axis1, axis2)
 
-    override fun child3() = styledAreaChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun child3() = styledAreaChart(axis1, axis2)
 
-    override fun KtfxPane.child4() = styledAreaChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledAreaChart(axis1, axis2)
 
     override fun AreaChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

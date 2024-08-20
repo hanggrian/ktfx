@@ -13,7 +13,7 @@ class JfxPasswordFieldTest : LayoutsStyledTest<KtfxPane, JFXPasswordField>() {
 
     override fun KtfxPane.child2() = jfxPasswordField()
 
-    override fun child3() = styledJfxPasswordField(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxPasswordField()
 
-    override fun KtfxPane.child4() = styledJfxPasswordField(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxPasswordField()
 }

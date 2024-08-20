@@ -1,5 +1,6 @@
 package ktfx.text
 
+import javafx.util.Duration
 import javafx.util.converter.DefaultStringConverter
 import javafx.util.converter.IntegerStringConverter
 import ktfx.time.ms
@@ -14,17 +15,19 @@ class StringConverterTest {
     @Test
     fun buildStringConverter() {
         val converter =
-            buildStringConverter {
+            buildStringConverter<Duration> {
+                toString { value -> value?.let { " $it" } ?: "" }
                 fromString { it.toDuration() }
             }
-        assertEquals(converter.toString(1.ms), "1.0 ms")
+        assertEquals(converter.toString(1.ms), " 1.0 ms")
         assertEquals(converter.fromString("1.0ms"), 1.ms)
 
         val primitiveConverter =
-            buildStringConverter {
+            buildStringConverter<Int> {
+                toString { value -> value?.let { "$it " } ?: "" }
                 fromString { it.toInt() }
             }
-        assertEquals(primitiveConverter.toString(123), "123")
+        assertEquals(primitiveConverter.toString(123), "123 ")
         assertEquals(primitiveConverter.fromString("123"), 123)
     }
 

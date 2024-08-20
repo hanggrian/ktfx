@@ -25,9 +25,9 @@ class BarChartTest : LayoutsStyledTest<KtfxPane, BarChart<String, Number>>() {
 
     override fun KtfxPane.child2() = barChart(axis1, axis2)
 
-    override fun child3() = styledBarChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun child3() = styledBarChart(axis1, axis2)
 
-    override fun KtfxPane.child4() = styledBarChart(axis1, axis2, styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledBarChart(axis1, axis2)
 
     override fun BarChart<String, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

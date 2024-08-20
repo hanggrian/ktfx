@@ -12,7 +12,7 @@ class SpinnerTest : LayoutsStyledTest<KtfxPane, Spinner<String>>() {
 
     override fun KtfxPane.child2() = spinner<String>()
 
-    override fun child3() = styledSpinner<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledSpinner<String>()
 
-    override fun KtfxPane.child4() = styledSpinner<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSpinner<String>()
 }

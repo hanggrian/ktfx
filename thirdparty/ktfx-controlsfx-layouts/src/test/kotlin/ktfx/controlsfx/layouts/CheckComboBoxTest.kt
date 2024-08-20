@@ -14,9 +14,9 @@ class CheckComboBoxTest : LayoutsStyledTest<KtfxPane, CheckComboBox<String>>() {
 
     override fun KtfxPane.child2() = checkComboBox<String>()
 
-    override fun child3() = styledCheckComboBox<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledCheckComboBox<String>()
 
-    override fun KtfxPane.child4() = styledCheckComboBox<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCheckComboBox<String>()
 
     override fun CheckComboBox<String>.testDefaultValues() {
         assertThat(items).isEmpty()

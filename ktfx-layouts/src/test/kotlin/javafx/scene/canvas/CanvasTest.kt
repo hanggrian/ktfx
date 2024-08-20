@@ -13,9 +13,9 @@ class CanvasTest : LayoutsStyledTest<KtfxPane, Canvas>() {
 
     override fun KtfxPane.child2() = canvas()
 
-    override fun child3() = styledCanvas(styleClass = arrayOf("style"))
+    override fun child3() = styledCanvas()
 
-    override fun KtfxPane.child4() = styledCanvas(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledCanvas()
 
     override fun Canvas.testDefaultValues() {
         assertEquals(0.0, width)

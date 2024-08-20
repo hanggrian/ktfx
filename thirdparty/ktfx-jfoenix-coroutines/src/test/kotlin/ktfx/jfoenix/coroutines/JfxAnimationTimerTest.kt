@@ -1,22 +1,29 @@
 package ktfx.jfoenix.coroutines
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import com.jfoenix.transitions.JFXAnimationTimer
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
+import kotlin.test.assertTrue
 
-class JfxAnimationTimerTest {
+class JfxAnimationTimerTest : ApplicationTest() {
     private lateinit var timer: JFXAnimationTimer
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        stage.testScene<JFXAnimationTimer>()
         timer = JFXAnimationTimer()
     }
 
     @Test
     fun onFinished() {
-        timer.onFinished(Dispatchers.Unconfined) {}
+        var assigned = false
+        interact {
+            timer.onFinished {
+                assigned = true
+            }
+            timer.start()
+        }
+        assertTrue(assigned)
     }
 }

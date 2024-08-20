@@ -1,8 +1,12 @@
 package ktfx.controlsfx.layouts
 
 import com.hanggrian.ktfx.test.LayoutsStyledTest
+import javafx.scene.layout.Region
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.region
 import org.controlsfx.control.NotificationPane
+import kotlin.test.Test
+import kotlin.test.assertIs
 
 class NotificationPaneTest : LayoutsStyledTest<KtfxPane, NotificationPane>() {
     override fun manager() = KtfxPane()
@@ -13,7 +17,15 @@ class NotificationPaneTest : LayoutsStyledTest<KtfxPane, NotificationPane>() {
 
     override fun KtfxPane.child2() = notificationPane()
 
-    override fun child3() = styledNotificationPane(styleClass = arrayOf("style"))
+    override fun child3() = styledNotificationPane()
 
-    override fun KtfxPane.child4() = styledNotificationPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledNotificationPane()
+
+    @Test
+    fun add() {
+        notificationPane {
+            region()
+            assertIs<Region>(content)
+        }
+    }
 }

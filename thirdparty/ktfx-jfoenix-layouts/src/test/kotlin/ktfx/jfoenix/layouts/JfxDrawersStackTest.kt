@@ -13,7 +13,7 @@ class JfxDrawersStackTest : LayoutsStyledTest<KtfxPane, JFXDrawersStack>() {
 
     override fun KtfxPane.child2() = jfxDrawersStack()
 
-    override fun child3() = styledJfxDrawersStack(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxDrawersStack()
 
-    override fun KtfxPane.child4() = styledJfxDrawersStack(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxDrawersStack()
 }

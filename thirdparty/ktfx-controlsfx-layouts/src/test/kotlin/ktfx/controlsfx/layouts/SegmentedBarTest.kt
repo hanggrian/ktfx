@@ -13,8 +13,7 @@ class SegmentedBarTest : LayoutsStyledTest<KtfxPane, SegmentedBar<SegmentedBar.S
 
     override fun KtfxPane.child2() = segmentedBar<SegmentedBar.Segment>()
 
-    override fun child3() = styledSegmentedBar<SegmentedBar.Segment>(styleClass = arrayOf("style"))
+    override fun child3() = styledSegmentedBar<SegmentedBar.Segment>()
 
-    override fun KtfxPane.child4() =
-        styledSegmentedBar<SegmentedBar.Segment>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledSegmentedBar<SegmentedBar.Segment>()
 }

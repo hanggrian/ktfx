@@ -1,25 +1,28 @@
 package ktfx.coroutines
 
 import com.hanggrian.ktfx.test.FakeEventTarget
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
 import javafx.event.ActionEvent
 import javafx.scene.control.ContextMenu
-import kotlinx.coroutines.Dispatchers
-import kotlin.test.BeforeTest
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ContextMenuTest {
-    @BeforeTest
-    fun start() = initToolkit()
+class ContextMenuTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<ContextMenu>()
+    }
 
     @Test
     fun onAction() {
-        val menu = ContextMenu()
-        menu.onAction(Dispatchers.Unconfined) {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
+        interact {
+            val menu = ContextMenu()
+            menu.onAction {
+                assertEquals(this@ContextMenuTest, it.source)
+                assertEquals(FakeEventTarget, it.target)
+            }
+            menu.onAction.handle(ActionEvent(this, FakeEventTarget))
         }
-        menu.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 }

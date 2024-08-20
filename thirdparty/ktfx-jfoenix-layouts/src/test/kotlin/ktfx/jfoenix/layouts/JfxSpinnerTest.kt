@@ -14,9 +14,9 @@ class JfxSpinnerTest : LayoutsStyledTest<KtfxPane, JFXSpinner>() {
 
     override fun KtfxPane.child2() = jfxSpinner()
 
-    override fun child3() = styledJfxSpinner(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxSpinner()
 
-    override fun KtfxPane.child4() = styledJfxSpinner(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxSpinner()
 
     override fun JFXSpinner.testDefaultValues() {
         assertEquals(JFXSpinner.INDETERMINATE_PROGRESS, progress)

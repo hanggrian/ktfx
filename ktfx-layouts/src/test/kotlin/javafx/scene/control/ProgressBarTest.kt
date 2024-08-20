@@ -13,9 +13,9 @@ class ProgressBarTest : LayoutsStyledTest<KtfxPane, ProgressBar>() {
 
     override fun KtfxPane.child2() = progressBar()
 
-    override fun child3() = styledProgressBar(styleClass = arrayOf("style"))
+    override fun child3() = styledProgressBar()
 
-    override fun KtfxPane.child4() = styledProgressBar(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledProgressBar()
 
     override fun ProgressBar.testDefaultValues() {
         assertEquals(ProgressBar.INDETERMINATE_PROGRESS, progress)

@@ -17,9 +17,9 @@ class FlowPaneTest : LayoutsStyledTest<KtfxPane, FlowPane>() {
 
     override fun KtfxPane.child2() = flowPane()
 
-    override fun child3() = styledFlowPane(styleClass = arrayOf("style"))
+    override fun child3() = styledFlowPane()
 
-    override fun KtfxPane.child4() = styledFlowPane(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledFlowPane()
 
     override fun FlowPane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)
@@ -28,32 +28,25 @@ class FlowPaneTest : LayoutsStyledTest<KtfxPane, FlowPane>() {
     }
 
     @Test
-    fun margins() {
+    fun margin() {
         flowPane {
-            val region1 = region().margin(insetsOf(5))
-            assertEquals(5.0, region1.margin!!.top)
-            assertEquals(5.0, region1.margin!!.right)
-            assertEquals(5.0, region1.margin!!.bottom)
-            assertEquals(5.0, region1.margin!!.left)
-            val region2 = region().margin(insetsOf(top = 10, right = 20, bottom = 30, left = 40))
-            assertEquals(10.0, region2.margin!!.top)
-            assertEquals(20.0, region2.margin!!.right)
-            assertEquals(30.0, region2.margin!!.bottom)
-            assertEquals(40.0, region2.margin!!.left)
-            val region3 = region().margin(insetsOf(vertical = 10, horizontal = 20))
-            assertEquals(10.0, region3.margin!!.top)
-            assertEquals(20.0, region3.margin!!.right)
-            assertEquals(10.0, region3.margin!!.bottom)
-            assertEquals(20.0, region3.margin!!.left)
+            val region = region()
 
-            region1.clearConstraints()
-            assertNull(region1.margin)
-            region2.clearConstraints()
-            assertNull(region2.margin)
-            region3.clearConstraints()
-            assertNull(region3.margin)
+            region.margin(insetsOf(1.0))
+            assertEquals(1.0, region.margin!!.top)
+            assertEquals(1.0, region.margin!!.right)
+            assertEquals(1.0, region.margin!!.bottom)
+            assertEquals(1.0, region.margin!!.left)
+            region.clearConstraints()
 
-            assertEquals(children.size, 3)
+            region.margin = insetsOf(2.0)
+            assertEquals(2.0, region.margin!!.top)
+            assertEquals(2.0, region.margin!!.right)
+            assertEquals(2.0, region.margin!!.bottom)
+            assertEquals(2.0, region.margin!!.left)
+            region.clearConstraints()
+
+            assertNull(region.margin)
         }
     }
 }

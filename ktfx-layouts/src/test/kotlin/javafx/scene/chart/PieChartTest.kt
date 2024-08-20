@@ -13,9 +13,9 @@ class PieChartTest : LayoutsStyledTest<KtfxPane, PieChart>() {
 
     override fun KtfxPane.child2() = pieChart()
 
-    override fun child3() = styledPieChart(styleClass = arrayOf("style"))
+    override fun child3() = styledPieChart()
 
-    override fun KtfxPane.child4() = styledPieChart(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPieChart()
 
     override fun PieChart.testDefaultValues() {
         assertThat(data).isEmpty()

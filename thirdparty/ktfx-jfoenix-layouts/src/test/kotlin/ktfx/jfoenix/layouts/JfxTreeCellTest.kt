@@ -13,7 +13,7 @@ class JfxTreeCellTest : LayoutsStyledTest<KtfxPane, JFXTreeCell<String>>() {
 
     override fun KtfxPane.child2() = jfxTreeCell<String>()
 
-    override fun child3() = styledJfxTreeCell<String>(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxTreeCell<String>()
 
-    override fun KtfxPane.child4() = styledJfxTreeCell<String>(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxTreeCell<String>()
 }

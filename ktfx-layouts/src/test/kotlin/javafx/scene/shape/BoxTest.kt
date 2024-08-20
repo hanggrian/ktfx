@@ -13,9 +13,9 @@ class BoxTest : LayoutsStyledTest<KtfxPane, Box>() {
 
     override fun KtfxPane.child2() = box()
 
-    override fun child3() = styledBox(styleClass = arrayOf("style"))
+    override fun child3() = styledBox()
 
-    override fun KtfxPane.child4() = styledBox(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledBox()
 
     override fun Box.testDefaultValues() {
         assertEquals(Box.DEFAULT_SIZE, width)

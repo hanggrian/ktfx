@@ -12,7 +12,7 @@ class PasswordFieldTest : LayoutsStyledTest<KtfxPane, PasswordField>() {
 
     override fun KtfxPane.child2() = passwordField()
 
-    override fun child3() = styledPasswordField(styleClass = arrayOf("style"))
+    override fun child3() = styledPasswordField()
 
-    override fun KtfxPane.child4() = styledPasswordField(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledPasswordField()
 }

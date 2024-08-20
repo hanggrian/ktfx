@@ -13,7 +13,7 @@ class JfxToggleButtonTest : LayoutsStyledTest<KtfxPane, JFXToggleButton>() {
 
     override fun KtfxPane.child2() = jfxToggleButton()
 
-    override fun child3() = styledJfxToggleButton(styleClass = arrayOf("style"))
+    override fun child3() = styledJfxToggleButton()
 
-    override fun KtfxPane.child4() = styledJfxToggleButton(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledJfxToggleButton()
 }

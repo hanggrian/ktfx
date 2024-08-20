@@ -13,9 +13,9 @@ class TextFieldTest : LayoutsStyledTest<KtfxPane, TextField>() {
 
     override fun KtfxPane.child2() = textField()
 
-    override fun child3() = styledTextField(styleClass = arrayOf("style"))
+    override fun child3() = styledTextField()
 
-    override fun KtfxPane.child4() = styledTextField(styleClass = arrayOf("style"))
+    override fun KtfxPane.child4() = styledTextField()
 
     override fun TextField.testDefaultValues() {
         assertEquals("", text)

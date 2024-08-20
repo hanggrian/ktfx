@@ -1,21 +1,30 @@
 package ktfx.coroutines
 
+import com.hanggrian.ktfx.test.testScene
 import javafx.collections.FXCollections
-import kotlinx.coroutines.Dispatchers
+import javafx.collections.ObservableArray
+import javafx.stage.Stage
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ObservableArrayTest {
+class ObservableArrayTest : ApplicationTest() {
+    override fun start(stage: Stage) {
+        stage.testScene<ObservableArray<*>>()
+    }
+
     @Test
     fun listener() {
-        val array = FXCollections.observableIntegerArray()
-        array.listener(Dispatchers.Unconfined) { observable, changed, from, to ->
-            assertEquals(observable, array)
-            assertTrue(changed)
-            assertEquals(0, from)
-            assertEquals(1, to)
+        interact {
+            val array = FXCollections.observableIntegerArray()
+            array.listener { observable, changed, from, to ->
+                assertEquals(observable, array)
+                assertTrue(changed)
+                assertEquals(0, from)
+                assertEquals(1, to)
+            }
+            array.addAll(1)
         }
-        array.addAll(1)
     }
 }

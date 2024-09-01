@@ -16,7 +16,7 @@ import kotlin.contracts.contract
  * @param configuration custom dialog action.
  * @return selected item.
  */
-public inline fun <T> selector(
+public inline fun <T> choiceDialog(
     items: Collection<T>? = null,
     prefill: T? = null,
     configuration: ChoiceDialog<T>.() -> Unit,
@@ -35,7 +35,7 @@ public inline fun <T> selector(
  * @param configuration custom dialog action.
  * @return selected item.
  */
-public inline fun <T> selector(
+public inline fun <T> choiceDialog(
     vararg items: T,
     prefill: T? = null,
     configuration: ChoiceDialog<T>.() -> Unit,

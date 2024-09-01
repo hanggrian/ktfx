@@ -10,7 +10,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class CommandLinksDialogsTest : DialogShowingTest() {
+class CommandLinksDialogTest : DialogShowingTest() {
     @Test
     fun commandLinksDialogFromArray() {
         interact {

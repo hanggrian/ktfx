@@ -6,13 +6,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class SelectorsTest : DialogShowingTest() {
+class ChoiceDialogTest : DialogShowingTest() {
     @Test
-    fun selector() {
+    fun choiceDialog() {
         interact {
             assertEquals(
                 "Jump off bridge",
-                selector<String>(
+                choiceDialog<String>(
                     listOf("Jump off bridge", "Live a happy life"),
                     "Live a happy life",
                 ) {
@@ -30,7 +30,7 @@ class SelectorsTest : DialogShowingTest() {
             )
             assertEquals(
                 "Jump off bridge",
-                selector(
+                choiceDialog(
                     "Jump off bridge",
                     "Live a happy life",
                     prefill = "Live a happy life",

@@ -15,7 +15,7 @@ import kotlin.contracts.contract
  * @param configuration custom dialog action.
  * @return input text.
  */
-public inline fun inputDialog(
+public inline fun textInputDialog(
     prefill: String = "",
     configuration: TextInputDialog.() -> Unit,
 ): Optional<String> {

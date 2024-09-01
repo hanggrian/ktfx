@@ -4,15 +4,13 @@ import javafx.scene.control.Control
 import org.controlsfx.validation.Severity
 import org.controlsfx.validation.ValidationSupport
 import org.controlsfx.validation.Validator
+import java.lang.ref.WeakReference
 
-private lateinit var support: ValidationSupport
-private val singletonSupport: ValidationSupport
-    get() {
-        if (!::support.isInitialized) {
-            support = ValidationSupport()
-        }
-        return support
-    }
+private lateinit var validationSupportRef: WeakReference<ValidationSupport>
+private val validationSupport: ValidationSupport
+    get() =
+        validationSupportRef.get()
+            ?: ValidationSupport().also { validationSupportRef = WeakReference(it) }
 
 /** Set control's required flag. */
 public inline var Control.isValidationRequired: Boolean
@@ -24,7 +22,7 @@ public fun <T> Control.registerEmptyValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singletonSupport,
+    support: ValidationSupport = validationSupport,
 ): Boolean =
     support.registerValidator(
         this,
@@ -38,7 +36,7 @@ public fun <T> Control.registerEqualsValidator(
     collection: Collection<T>,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singletonSupport,
+    support: ValidationSupport = validationSupport,
 ): Boolean =
     support.registerValidator(
         this,
@@ -51,7 +49,7 @@ public fun <T> Control.registerPredicateValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singletonSupport,
+    support: ValidationSupport = validationSupport,
     predicate: (T) -> Boolean,
 ): Boolean =
     support.registerValidator(
@@ -66,7 +64,7 @@ public fun Control.registerRegexValidator(
     regex: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singletonSupport,
+    support: ValidationSupport = validationSupport,
 ): Boolean =
     support.registerValidator(
         this,
@@ -80,7 +78,7 @@ public fun Control.registerRegexValidator(
     regex: Regex,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singletonSupport,
+    support: ValidationSupport = validationSupport,
 ): Boolean =
     support.registerValidator(
         this,

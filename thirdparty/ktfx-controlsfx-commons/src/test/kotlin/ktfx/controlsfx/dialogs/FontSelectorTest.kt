@@ -10,7 +10,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class FontSelectorsTest : DialogShowingTest() {
+class FontSelectorTest : DialogShowingTest() {
     private val arial18 = Font.font("Arial", 18.0)
 
     @Test

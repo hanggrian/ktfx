@@ -1,26 +1,47 @@
 package ktfx.jfoenix.controls
 
-import com.hanggrian.ktfx.test.initToolkit
+import com.hanggrian.ktfx.test.testScene
+import com.jfoenix.controls.JFXSnackbar
+import com.jfoenix.controls.JFXSnackbarLayout
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
+import javafx.stage.Stage
 import ktfx.time.s
-import kotlin.test.BeforeTest
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertIs
 import kotlin.test.assertNotNull
 
-class JfxSnackbarTest {
-    @BeforeTest
-    fun start() = initToolkit()
+class JfxSnackbarTest : ApplicationTest() {
+    lateinit var pane: Pane
 
-    @Test
-    fun jfxSnackbar() {
-        val pane = Pane()
-        assertNotNull(pane.jfxSnackbar.show("Hello world", 5.s))
+    override fun start(stage: Stage) {
+        stage.testScene<JFXSnackbar>()
+        pane = Pane()
     }
 
     @Test
-    fun jfxIndefiniteSnackbar() {
-        val pane = Pane()
-        assertNotNull(pane.jfxSnackbar.showIndefinite(Label("Hello world")))
+    fun jfxSnackbar() {
+        assertNotNull(pane.jfxSnackbar)
+        assertEquals(50.0, pane.jfxSnackbar { prefWidth = 50.0 }.prefWidth)
+    }
+
+    @Test
+    fun show() {
+        val snackbar = pane.jfxSnackbar
+        snackbar.show("Hello world", 5.s)
+        interact {
+            assertIs<JFXSnackbarLayout>(snackbar.currentEvent.content)
+        }
+    }
+
+    @Test
+    fun showIndefinite() {
+        val snackbar = pane.jfxSnackbar
+        snackbar.showIndefinite(Label("Hello world"))
+        interact {
+            assertIs<Label>(snackbar.currentEvent.content)
+        }
     }
 }

@@ -6,13 +6,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class InputDialogsTest : DialogShowingTest() {
+class TextInputDialogTest : DialogShowingTest() {
     @Test
-    fun inputDialog() {
+    fun textInputDialog() {
         interact {
             assertEquals(
                 "Awesome input",
-                inputDialog("Awful input") {
+                textInputDialog("Awful input") {
                     headerTitle = "Input dialog"
                     graphicIcon = sampleGraphic
 

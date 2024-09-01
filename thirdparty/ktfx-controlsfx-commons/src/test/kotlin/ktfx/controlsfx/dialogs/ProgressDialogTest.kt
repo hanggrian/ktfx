@@ -12,7 +12,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class ProgressDialogsTest : DialogShowingTest() {
+class ProgressDialogTest : DialogShowingTest() {
     private lateinit var helloWorldService: Service<String>
 
     override fun start(stage: Stage) {

@@ -9,7 +9,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ToggleGroupsTest {
+class ToggleGroupTest {
     private lateinit var button: RadioButton
     private lateinit var group: ToggleGroup
 

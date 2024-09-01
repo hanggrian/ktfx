@@ -53,22 +53,22 @@ public open class KtfxAnchorPane :
 
     /** Set children anchor on each side in this layout. */
     public fun <T : Node> T.anchor(
-        horizontal: Int = Int.MAX_VALUE,
-        vertical: Int = Int.MAX_VALUE,
+        horizontal: Int = Int.MIN_VALUE,
+        vertical: Int = Int.MIN_VALUE,
     ): T = anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
     public fun <T : Node> T.anchor(
-        top: Int = Int.MAX_VALUE,
-        right: Int = Int.MAX_VALUE,
-        bottom: Int = Int.MAX_VALUE,
-        left: Int = Int.MAX_VALUE,
+        top: Int = Int.MIN_VALUE,
+        right: Int = Int.MIN_VALUE,
+        bottom: Int = Int.MIN_VALUE,
+        left: Int = Int.MIN_VALUE,
     ): T =
         anchor(
-            if (top != Int.MAX_VALUE) top.toDouble() else Double.NaN,
-            if (right != Int.MAX_VALUE) right.toDouble() else Double.NaN,
-            if (bottom != Int.MAX_VALUE) bottom.toDouble() else Double.NaN,
-            if (left != Int.MAX_VALUE) left.toDouble() else Double.NaN,
+            if (top != Int.MIN_VALUE) top.toDouble() else Double.NaN,
+            if (right != Int.MIN_VALUE) right.toDouble() else Double.NaN,
+            if (bottom != Int.MIN_VALUE) bottom.toDouble() else Double.NaN,
+            if (left != Int.MIN_VALUE) left.toDouble() else Double.NaN,
         )
 
     /** Set children anchor on all side in this layout. */
@@ -76,22 +76,22 @@ public open class KtfxAnchorPane :
 
     /** Set children anchor on each side in this layout. */
     public fun <T : Node> T.anchor(
-        horizontal: Long = Long.MAX_VALUE,
-        vertical: Long = Long.MAX_VALUE,
+        horizontal: Long = Long.MIN_VALUE,
+        vertical: Long = Long.MIN_VALUE,
     ): T = anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
     public fun <T : Node> T.anchor(
-        top: Long = Long.MAX_VALUE,
-        right: Long = Long.MAX_VALUE,
-        bottom: Long = Long.MAX_VALUE,
-        left: Long = Long.MAX_VALUE,
+        top: Long = Long.MIN_VALUE,
+        right: Long = Long.MIN_VALUE,
+        bottom: Long = Long.MIN_VALUE,
+        left: Long = Long.MIN_VALUE,
     ): T =
         anchor(
-            if (top != Long.MAX_VALUE) top.toDouble() else Double.NaN,
-            if (right != Long.MAX_VALUE) right.toDouble() else Double.NaN,
-            if (bottom != Long.MAX_VALUE) bottom.toDouble() else Double.NaN,
-            if (left != Long.MAX_VALUE) left.toDouble() else Double.NaN,
+            if (top != Long.MIN_VALUE) top.toDouble() else Double.NaN,
+            if (right != Long.MIN_VALUE) right.toDouble() else Double.NaN,
+            if (bottom != Long.MIN_VALUE) bottom.toDouble() else Double.NaN,
+            if (left != Long.MIN_VALUE) left.toDouble() else Double.NaN,
         )
 
     /** Set children anchor on all side in this layout. */
@@ -104,17 +104,16 @@ public open class KtfxAnchorPane :
     ): T = anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
-    @Suppress("ConvertNaNEquality")
     public fun <T : Node> T.anchor(
         top: Double = Double.NaN,
         right: Double = Double.NaN,
         bottom: Double = Double.NaN,
         left: Double = Double.NaN,
     ): T {
-        if (topAnchor != Double.NaN) topAnchor = top
-        if (rightAnchor != Double.NaN) rightAnchor = right
-        if (bottomAnchor != Double.NaN) bottomAnchor = bottom
-        if (leftAnchor != Double.NaN) leftAnchor = left
+        if (!top.isNaN()) topAnchor = top
+        if (!right.isNaN()) rightAnchor = right
+        if (!bottom.isNaN()) bottomAnchor = bottom
+        if (!left.isNaN()) leftAnchor = left
         return this
     }
 

@@ -1,5 +1,5 @@
-@file:Suppress("NOTHING_TO_INLINE")
 @file:OptIn(ExperimentalContracts::class)
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.jfoenix.controls
 
@@ -17,7 +17,13 @@ import kotlin.contracts.contract
 public inline fun JFXSnackbar.show(content: Node, duration: Duration): Unit =
     enqueue(JFXSnackbar.SnackbarEvent(content, duration))
 
-/** Show this snackbar with default layout. */
+/**
+ * Show this snackbar with default layout.
+ * May throw `NullPointerException` due to JFXSnackbar bug.
+ *
+ * @throws NullPointerException
+ * @see [GitHub issue](https://github.com/sshahine/JFoenix/issues/1101)
+ */
 public fun JFXSnackbar.show(
     message: String,
     duration: Duration,
@@ -26,8 +32,8 @@ public fun JFXSnackbar.show(
 ): Unit =
     show(
         JFXSnackbarLayout(message, actionText) {
-            close()
             action?.invoke(it)
+            close()
         },
         duration,
     )
@@ -36,7 +42,13 @@ public fun JFXSnackbar.show(
 public inline fun JFXSnackbar.showIndefinite(content: Node): Unit =
     enqueue(JFXSnackbar.SnackbarEvent(content, Duration.INDEFINITE))
 
-/** Show this snackbar indefinitely with default layout. */
+/**
+ * Show this snackbar indefinitely with default layout.
+ * May throw `NullPointerException` due to JFXSnackbar bug.
+ *
+ * @throws NullPointerException
+ * @see [GitHub issue](https://github.com/sshahine/JFoenix/issues/1101)
+ */
 public fun JFXSnackbar.showIndefinite(
     message: String,
     actionText: String? = null,
@@ -44,8 +56,8 @@ public fun JFXSnackbar.showIndefinite(
 ): Unit =
     showIndefinite(
         JFXSnackbarLayout(message, actionText) {
-            close()
             action?.invoke(it)
+            close()
         },
     )
 

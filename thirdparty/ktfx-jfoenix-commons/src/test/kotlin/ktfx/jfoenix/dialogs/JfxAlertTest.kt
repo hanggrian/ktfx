@@ -12,7 +12,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class JfxAlertsTest : DialogShowingTest() {
+class JfxAlertTest : DialogShowingTest() {
     @Test
     fun jfxAlert() {
         interact {

@@ -1,31 +1,37 @@
 package ktfx.controlsfx.dialogs
 
 import com.hanggrian.ktfx.test.DialogShowingTest
-import javafx.scene.control.ButtonType.OK
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import ktfx.dialogs.icon
+import ktfx.toFxPair
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class ExceptionDialogsTest : DialogShowingTest() {
+class LoginDialogTest : DialogShowingTest() {
+    private val userInfo = "Hello" to "World"
+
     @Test
     fun exceptionDialog() {
         interact {
             assertEquals(
-                OK,
-                exceptionDialog(UnsupportedOperationException()) {
-                    headerTitle = "Exception dialog"
+                userInfo.toFxPair(),
+                loginDialog(userInfo, {}) {
+                    headerTitle = "Login dialog"
                     graphicIcon = sampleGraphic
 
                     closeOnShow(this)
-                    assertEquals("Exception dialog", headerText)
-                    assertEquals("Exception dialog", title)
+                    assertEquals("Login dialog", headerText)
+                    assertEquals("Login dialog", title)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals(sampleGraphic.image, icon)
                 }.get(),
+            )
+            assertEquals(
+                userInfo.toFxPair(),
+                loginDialog(userInfo, {}) { closeOnShow(this) }.get(),
             )
         }
     }

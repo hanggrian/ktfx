@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class AlertsTest : DialogShowingTest() {
+class AlertTest : DialogShowingTest() {
     @Test
     fun alert() {
         interact {

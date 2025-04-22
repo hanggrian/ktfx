@@ -6,14 +6,14 @@ orbs:
 executors:
   linux:
     docker:
-      - image: cimg/openjdk:17.0-browsers
+      - image: cimg/openjdk:21.0-browsers
 
 jobs:
   upload-coverage:
     executor: linux
     steps:
       - checkout
-      - run: ./gradlew test koverXmlReport
+      - run: ./gradlew check koverXmlReport
       - codecov/upload
 
 workflows:

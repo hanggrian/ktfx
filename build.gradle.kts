@@ -93,11 +93,6 @@ subprojects {
     }
 }
 
-tasks {
-    register(LifecycleBasePlugin.CLEAN_TASK_NAME) {
-        delete(layout.buildDirectory)
-    }
-    dokkaHtmlMultiModule {
-        outputDirectory.set(layout.buildDirectory.dir("dokka/dokka/"))
-    }
+tasks.dokkaHtmlMultiModule {
+    outputDirectory.set(layout.buildDirectory.dir("dokka/dokka/"))
 }

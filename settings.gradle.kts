@@ -6,7 +6,7 @@ dependencyResolutionManagement.repositories.mavenCentral()
 
 rootProject.name = "ktfx"
 
-include("ktfx", "ktfx-commons", "ktfx-coroutines", "ktfx-layouts")
+include("ktfx-all", "ktfx-commons", "ktfx-coroutines", "ktfx-layouts")
 include("codegen")
 include("sample")
 include("website")
